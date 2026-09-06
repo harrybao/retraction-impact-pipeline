@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+data/mhtml/
+data/interim/*.sqlite
+data/interim/*.sqlite-*
+data/reports/*.json
+.pytest_cache/
+.env
+
+# cleaned outputs are derived: regenerate with scripts/clean_data.py
+data/clean/*.csv
+data/clean/*.csv.gz
+data/clean/*.jsonl.gz
+
+# share bundle: regenerate as needed, not version-controlled
+cs43-share.zip
+
+# data/share is deliberately tracked - it is what teammates work from
+!data/share/
+
+# run logs: regenerated on every run, never part of the dataset
+logs/
+
+# stray capture written by a debug run
+.t.bin

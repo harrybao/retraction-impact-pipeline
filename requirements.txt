@@ -1,0 +1,18 @@
+# --- Stage 1: crawling / rendering ---
+playwright==1.49.1          # headless Chromium, JS execution, CDP MHTML capture
+tenacity==9.0.0             # retry with exponential backoff
+httpx[http2]==0.28.1        # async HTTP for DOI resolution + API calls
+
+# --- data handling ---
+pandas==2.2.3
+python-dateutil==2.9.0.post0
+
+# --- Stage 2: engagement APIs ---
+# (no extra deps yet - httpx covers Crossref Event Data / OpenAlex / Altmetric)
+
+# --- tooling ---
+pytest==8.3.4
+rich==13.9.4                # progress bars / readable CLI output
+beautifulsoup4==4.15.0
+lxml==6.1.2
+trafilatura==2.2.0
