@@ -1,0 +1,20 @@
+source,metric,value,denominator
+papers,asked of Altmetric and PlumX,62867,all distinct original DOIs
+altmetric,papers with any Altmetric record,22368,"62,867 papers"
+altmetric,papers with news,2513,"62,867 papers"
+altmetric,papers with blogs,6403,"62,867 papers"
+altmetric,papers with news or blogs,7474,"62,867 papers; the '7,474 blogs' in the 2026-09 email"
+altmetric,papers with blogs but no news,4961,"62,867 papers"
+altmetric,papers with any non-social text source,13455,"62,867 papers; news, blogs, reddit, wikipedia, policy, peer reviews, etc."
+altmetric,papers with Twitter/X ids,14028,"62,867 papers; ids only, no text"
+altmetric,news posts,36888,posts
+altmetric,news posts before retraction,24570,news posts; earliest Retraction record rule
+altmetric,news posts on the retraction day,581,news posts
+altmetric,news posts after retraction,11737,news posts
+altmetric,papers with a news post after retraction,1249,papers
+plumx,papers with mention.NEWS_COUNT > 0,5855,"62,867 papers; counts only, undated, no text"
+plumx,news papers not in Altmetric news,4309,papers
+plumx,"of those, papers Altmetric has no record of at all",2764,papers
+combined,papers with news in either source,6822,"62,867 papers"
+plumx,papers with mention.ALL_BLOG_COUNT > 0,4942,"62,867 papers"
+combined,papers with news or blogs in either source,11701,"62,867 papers"

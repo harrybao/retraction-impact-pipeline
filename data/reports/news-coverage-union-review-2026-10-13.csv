@@ -1,0 +1,42 @@
+check,subject,value,expected,result,source
+PlumX news parsers agree,plumx.csv papers with news: R pattern / Python pattern / JSON parse,5855 / 5855 / 5855,,same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+PlumX news parsers agree,plumx_notice.csv notices with news: R pattern / Python pattern / JSON parse,1307 / 1307 / 1307,,same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+notice size,notices whose n_papers in notice_papers.csv differs from altmetric_notice.csv / plumx_notice.csv,0 / 0,0 / 0,same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+notices with news the mapping does not have,Altmetric: notices with news not in notice_papers.csv,8,,8 of 8 belong only to records with no original DOI (no paper to reach),"altmetric_notice + database records, read-only"
+notices with news the mapping does not have,PlumX: notices with news not in notice_papers.csv,10,,10 of 10 belong only to records with no original DOI (no paper to reach),"plumx_notice + database records, read-only"
+recount vs data/reports/news-coverage-union.csv,"Altmetric, article DOI",2513 (4.0%),2513 (4%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,"Altmetric, notice DOI",1969 (3.1%),1969 (3.1%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,"PlumX, article DOI (count only)",5855 (9.3%),5855 (9.3%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,"PlumX, notice DOI (count only)",2780 (4.4%),2780 (4.4%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,Altmetric article or notice,3736 (5.9%),3736 (5.9%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,PlumX article or notice,7658 (12.2%),7658 (12.2%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,"Altmetric article or notice, or PlumX article (previous total)",7861 (12.5%),7861 (12.5%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,ALL FOUR,9006 (14.3%),9006 (14.3%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,  added by PlumX notice DOI alone,1145 (1.8%),1145 (1.8%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,    of which via notices retracting <10 papers,235 (0.4%),235 (0.4%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,"  papers with dated, text-bearing Altmetric news",3736 (5.9%),3736 (5.9%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,"  PlumX only (counts, no date, no text)",5270 (8.4%),5270 (8.4%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,"ALL FOUR, mass-retraction-only papers left out",7475 (11.9%),7475 (11.9%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount vs data/reports/news-coverage-union.csv,  papers reached only through mass-retraction notices,1531 (2.4%),1531 (2.4%),same,reviewer recount in Python from data/clean (independent of R/news_union.R)
+recount with self pairs kept (database records) vs the 27 September file,"Altmetric, article DOI",2513,2513,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,"Altmetric, notice DOI",1970,1970,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,"PlumX, article DOI (count only)",5855,5855,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,"PlumX, notice DOI (count only)",2780,2780,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,Altmetric article or notice,3736,3736,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,PlumX article or notice,7658,7658,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,"Altmetric article or notice, or PlumX article (previous total)",7861,7861,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,ALL FOUR,9006,9006,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,  added by PlumX notice DOI alone,1145,1145,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,    of which via notices retracting <10 papers,235,235,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,"  papers with dated, text-bearing Altmetric news",3736,3736,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,"  PlumX only (counts, no date, no text)",5270,5270,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,"ALL FOUR, mass-retraction-only papers left out",7475,7475,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+recount with self pairs kept (database records) vs the 27 September file,  papers reached only through mass-retraction notices,1531,1531,same,"database records read-only, every pair incl. notice DOI = paper DOI; sizes from notice_papers.csv"
+self pairs,DOIs that are their own notice in some record and the notice DOI of other papers,12,12 (R/news_union.R comment),same,"database records, read-only"
+self pairs,"of those, notices with news (Altmetric / PlumX)",['10.1093/ecco-jcc/jjab227'] / [],10.1093/ecco-jcc/jjab227 Altmetric only,same,"altmetric_notice.csv, plumx_notice.csv"
+test gap (fixed in tests/r/test_news_union.R),mass-only papers also under a notice retracting <10 papers that has no news,366,,a rule crediting any small notice would give 1165 mass-only instead of 1531; the R tests passed with that mutant before the new check,reviewer recount in Python from data/clean (independent of R/news_union.R)
+existing exports,altmetric_notice.csv md5,9614351aeedea3bb6f8abf44dbe1a049,9614351aeedea3bb6f8abf44dbe1a049,same,data/clean now vs the copy of the 2026-09-28 19:21:49 export
+existing exports,notice_papers.csv md5,07f3a4010f9c0b2aafd67daea287ce33,07f3a4010f9c0b2aafd67daea287ce33,same,data/clean now vs the copy of the 2026-09-28 19:21:51 export
+existing exports,altmetric_notice_posts.csv.gz decompressed md5,d187af2310a21d487aeeb697434bf9fc,d187af2310a21d487aeeb697434bf9fc,same,"data/clean now vs the copy of the 2026-09-28 19:21:49 export (bytes: differ, gzip header time)"
+existing exports,plumx_notice.csv md5,bdb5085fa6bd2f9f06289d399be803bc,bdb5085fa6bd2f9f06289d399be803bc,same,"data/clean now vs the copy taken before the 05:11 rerun, a file written 2026-10-13 04:23:59"
+database untouched,pipeline.sqlite size / mtime,15057793024 / 2026-09-27 19:37:31,15057793024 / 2026-09-27 19:37:31,same,os.stat

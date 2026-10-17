@@ -1,0 +1,13 @@
+"measure","compared","same","agreement","without_title","with_title"
+"R1_fabrication",400,397,0.9925,6,3
+"R2_image",400,400,1,21,21
+"R3_plagiarism",400,398,0.995,22,24
+"R4_duplicate",400,399,0.9975,17,16
+"R5_peer_review",400,400,1,7,7
+"R6_paper_mill",400,398,0.995,0,2
+"R7_honest_error",400,399,0.9975,12,11
+"R8_authorship_ethics",400,398,0.995,14,14
+"R9_other",400,394,0.985,9,7
+"R0_no_reason",400,398,0.995,314,316
+"reason set identical",400,388,0.97,NA,NA
+"clarity",400,381,0.9525,NA,NA

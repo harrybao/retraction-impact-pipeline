@@ -1,0 +1,81 @@
+"section","measure","n","share_pct"
+"what the 96,211 collected documents are","browser-created MHTML, crawler or teammate route (publisher origin and completeness not established)",72971,66.4
+"what the 96,211 collected documents are","browser-rendered HTML, crawler's WebKit route (not MHTML; origin and completeness not established)",1035,0.9
+"what the 96,211 collected documents are","HTML from the University-network route (curl, not browser-rendered)",2377,2.2
+"what the 96,211 collected documents are","HTML from a plain-request route (not browser-rendered)",544,0.5
+"what the 96,211 collected documents are","publisher/PMC text supplied as XML or PDF, not a page",18856,17.2
+"what the 96,211 collected documents are","explicitly tagged open-access mirror or Internet Archive copy (not an exhaustive archive-host census)",427,0.4
+"what the 96,211 collected documents are","other: pdf from tail-plain-http",1,0
+"what the 96,211 collected documents are","not collected",13677,12.4
+"MHTML size, pages kept (compressed)","under 50 KiB",149,0.2
+"MHTML size, pages kept (compressed)","50-200 KiB",14588,19.9
+"MHTML size, pages kept (compressed)","200-500 KiB",28211,38.5
+"MHTML size, pages kept (compressed)","500 KiB-1 MiB",28869,39.4
+"MHTML size, pages kept (compressed)","1-5 MiB",1536,2.1
+"MHTML size, pages kept (compressed)","5 MiB and above",10,0
+"MHTML size, pages kept (compressed)","10th / median / 90th percentile KiB: 160 / 446 / 620",73363,NA
+"MHTML size, pages rejected by the content check (compressed)","under 50 KiB",6,2
+"MHTML size, pages rejected by the content check (compressed)","50-200 KiB",70,23.9
+"MHTML size, pages rejected by the content check (compressed)","200-500 KiB",108,36.9
+"MHTML size, pages rejected by the content check (compressed)","500 KiB-1 MiB",79,27
+"MHTML size, pages rejected by the content check (compressed)","1-5 MiB",28,9.6
+"MHTML size, pages rejected by the content check (compressed)","5 MiB and above",2,0.7
+"MHTML size, pages rejected by the content check (compressed)","10th / median / 90th percentile KiB: 110 / 400 / 1037",293,NA
+"content of article pages kept as MHTML","extracted body 5,000+ characters (length alone does not prove completeness)",24331,59.5
+"content of article pages kept as MHTML","body under 5,000 characters with extracted abstract (does not prove a paywall)",4664,11.4
+"content of article pages kept as MHTML","body under 5,000 characters and no extracted abstract (page content not determined)",11920,29.1
+"content of article pages kept as MHTML","unknown body or abstract length",0,0
+"extracted notice field among short/no-abstract article pages (not adjudicated)","nonempty extracted notice field",10812,90.7
+"extracted notice field among short/no-abstract article pages (not adjudicated)","empty extracted notice field",1108,9.3
+"extracted notice field among short/no-abstract article pages (not adjudicated)","unknown extracted notice length",0,0
+"last HTTP status, all 109,888 pages","HTTP 200",97940,89.1
+"last HTTP status, all 109,888 pages","HTTP 403",6328,5.8
+"last HTTP status, all 109,888 pages","no response",3924,3.6
+"last HTTP status, all 109,888 pages","HTTP 404",893,0.8
+"last HTTP status, all 109,888 pages","HTTP 202",522,0.5
+"last HTTP status, all 109,888 pages","HTTP 420",232,0.2
+"last HTTP status, all 109,888 pages","HTTP 523",9,0
+"last HTTP status, all 109,888 pages","HTTP 410",6,0
+"last HTTP status, all 109,888 pages","HTTP 429",6,0
+"last HTTP status, all 109,888 pages","HTTP 500",4,0
+"last HTTP status, all 109,888 pages","HTTP 502",4,0
+"last HTTP status, all 109,888 pages","HTTP 522",3,0
+"last HTTP status, all 109,888 pages","HTTP 530",3,0
+"last HTTP status, all 109,888 pages","HTTP 302",2,0
+"last HTTP status, all 109,888 pages","HTTP 400",2,0
+"last HTTP status, all 109,888 pages","HTTP 405",2,0
+"last HTTP status, all 109,888 pages","HTTP 406",2,0
+"last HTTP status, all 109,888 pages","HTTP 468",2,0
+"last HTTP status, all 109,888 pages","HTTP 600",2,0
+"last HTTP status, all 109,888 pages","HTTP 412",1,0
+"last HTTP status, all 109,888 pages","HTTP 521",1,0
+"last HTTP status, the 13,677 pages not collected","HTTP 403",6293,46
+"last HTTP status, the 13,677 pages not collected","no response",3871,28.3
+"last HTTP status, the 13,677 pages not collected","HTTP 200",2311,16.9
+"last HTTP status, the 13,677 pages not collected","HTTP 404",893,6.5
+"last HTTP status, the 13,677 pages not collected","HTTP 420",232,1.7
+"last HTTP status, the 13,677 pages not collected","HTTP 202",30,0.2
+"last HTTP status, the 13,677 pages not collected","HTTP 523",9,0.1
+"last HTTP status, the 13,677 pages not collected","HTTP 410",6,0
+"last HTTP status, the 13,677 pages not collected","HTTP 429",6,0
+"last HTTP status, the 13,677 pages not collected","HTTP 502",4,0
+"last HTTP status, the 13,677 pages not collected","HTTP 500",3,0
+"last HTTP status, the 13,677 pages not collected","HTTP 522",3,0
+"last HTTP status, the 13,677 pages not collected","HTTP 530",3,0
+"last HTTP status, the 13,677 pages not collected","HTTP 302",2,0
+"last HTTP status, the 13,677 pages not collected","HTTP 400",2,0
+"last HTTP status, the 13,677 pages not collected","HTTP 405",2,0
+"last HTTP status, the 13,677 pages not collected","HTTP 406",2,0
+"last HTTP status, the 13,677 pages not collected","HTTP 468",2,0
+"last HTTP status, the 13,677 pages not collected","HTTP 600",2,0
+"last HTTP status, the 13,677 pages not collected","HTTP 521",1,0
+"pages not collected: the 2,311 with HTTP 200, by cause (not_collected.csv)","pmc-opted-out",749,32.4
+"pages not collected: the 2,311 with HTTP 200, by cause (not_collected.csv)","human-verification",747,32.3
+"pages not collected: the 2,311 with HTTP 200, by cause (not_collected.csv)","interstitial",359,15.5
+"pages not collected: the 2,311 with HTTP 200, by cause (not_collected.csv)","other",195,8.4
+"pages not collected: the 2,311 with HTTP 200, by cause (not_collected.csv)","never-asked",139,6
+"pages not collected: the 2,311 with HTTP 200, by cause (not_collected.csv)","never-attempted",122,5.3
+"pages not collected: the 3,871 with no response, by cause (not_collected.csv)","never-asked",2946,76.1
+"pages not collected: the 3,871 with no response, by cause (not_collected.csv)","pmc-opted-out",673,17.4
+"pages not collected: the 3,871 with no response, by cause (not_collected.csv)","other",214,5.5
+"pages not collected: the 3,871 with no response, by cause (not_collected.csv)","human-verification",38,1

@@ -1,0 +1,113 @@
+section,measure,value,unit,source
+scope,usable records,71698,records,Retraction Watch CSV
+scope,retracted papers (distinct original DOIs),62867,papers,Retraction Watch CSV
+scope,"retraction-notice DOIs (distinct, not the paper's own)",47074,notices,Retraction Watch CSV
+scope,"pages to collect (distinct DOIs, paper + notice)",109888,pages,Retraction Watch CSV
+stage1,pages collected,96329,pages,publisher websites + APIs
+stage1,publisher page saved as MHTML,73075,pages,publisher websites + APIs
+stage1,article text from publisher / PubMed Central API (XML/PDF),18856,pages,publisher websites + APIs
+stage1,publisher page saved as HTML,3970,pages,publisher websites + APIs
+stage1,copy of the page from another website,428,pages,publisher websites + APIs
+stage1,pages not collected,13559,pages,publisher refused
+stage1,collected: article pages,41564,pages,
+stage1,collected: notice pages,42432,pages,
+stage1,collected: DOI that is both article and notice,12333,pages,
+stage1,MHTML files kept: median size (compressed),446,KB,archive
+stage1,MHTML files kept: under 50 KB (compressed),150,files,archive
+stage1,MHTML files kept: median size (uncompressed),1761,KB,archive
+stage1,MHTML files kept: 10th / 90th percentile (uncompressed),575 / 2957,KB,archive
+stage1,MHTML files kept: total (compressed / uncompressed),30.5 / 134.3,GB,archive
+stage1,last HTTP status 200,97940,pages,crawler log
+stage1,last HTTP status 403,6328,pages,crawler log
+stage1,last HTTP status 404,893,pages,crawler log
+stage1,last HTTP status no response,3924,pages,crawler log
+altmetric,paper DOIs searched,62867,papers,Altmetric API (client key)
+altmetric,papers with any Altmetric record,22368,papers,Altmetric
+altmetric,papers with no Altmetric record,40499,papers,Altmetric
+altmetric,post-paper links downloaded (a post about 2 papers counts twice),1437967,links,Altmetric detail endpoint
+altmetric,distinct posts downloaded,1418313,posts,Altmetric detail endpoint
+altmetric,twitter: distinct posts,1273883,posts,Altmetric detail endpoint
+altmetric,twitter: papers,14028,papers,Altmetric detail endpoint
+altmetric,reddit: distinct posts,41716,posts,Altmetric detail endpoint
+altmetric,reddit: papers,1859,papers,Altmetric detail endpoint
+altmetric,news: distinct posts,34826,posts,Altmetric detail endpoint
+altmetric,news: papers,2513,papers,Altmetric detail endpoint
+altmetric,patent: distinct posts,17198,posts,Altmetric detail endpoint
+altmetric,patent: papers,3028,papers,Altmetric detail endpoint
+altmetric,blogs: distinct posts,10062,posts,Altmetric detail endpoint
+altmetric,blogs: papers,6403,papers,Altmetric detail endpoint
+altmetric,facebook: distinct posts,10764,posts,Altmetric detail endpoint
+altmetric,facebook: papers,2028,papers,Altmetric detail endpoint
+altmetric,peer_reviews: distinct posts,8085,posts,Altmetric detail endpoint
+altmetric,peer_reviews: papers,1627,papers,Altmetric detail endpoint
+altmetric,wikipedia: distinct posts,7646,posts,Altmetric detail endpoint
+altmetric,wikipedia: papers,3174,papers,Altmetric detail endpoint
+altmetric,bluesky: distinct posts,6176,posts,Altmetric detail endpoint
+altmetric,bluesky: papers,509,papers,Altmetric detail endpoint
+altmetric,policy: distinct posts,1794,posts,Altmetric detail endpoint
+altmetric,policy: papers,904,papers,Altmetric detail endpoint
+altmetric,googleplus: distinct posts,1608,posts,Altmetric detail endpoint
+altmetric,googleplus: papers,329,papers,Altmetric detail endpoint
+altmetric,guideline: distinct posts,1352,posts,Altmetric detail endpoint
+altmetric,guideline: papers,700,papers,Altmetric detail endpoint
+altmetric,video: distinct posts,1372,posts,Altmetric detail endpoint
+altmetric,video: papers,501,papers,Altmetric detail endpoint
+altmetric,podcasts: distinct posts,826,posts,Altmetric detail endpoint
+altmetric,podcasts: papers,309,papers,Altmetric detail endpoint
+altmetric,f1000: distinct posts,618,posts,Altmetric detail endpoint
+altmetric,f1000: papers,388,papers,Altmetric detail endpoint
+altmetric,q&a: distinct posts,193,posts,Altmetric detail endpoint
+altmetric,q&a: papers,133,papers,Altmetric detail endpoint
+altmetric,weibo: distinct posts,135,posts,Altmetric detail endpoint
+altmetric,weibo: papers,30,papers,Altmetric detail endpoint
+altmetric,misc: distinct posts,54,posts,Altmetric detail endpoint
+altmetric,misc: papers,32,papers,Altmetric detail endpoint
+altmetric,pinterest: distinct posts,3,posts,Altmetric detail endpoint
+altmetric,pinterest: papers,3,papers,Altmetric detail endpoint
+altmetric,linkedin: distinct posts,2,posts,Altmetric detail endpoint
+altmetric,linkedin: papers,2,papers,Altmetric detail endpoint
+altmetric,news: distinct stories (a story about 2 papers counted once),34826,news stories,Altmetric
+altmetric,"news: distinct news outlets per paper, summed (Altmetric summary)",27690,outlet-paper pairs,Altmetric summary endpoint
+altmetric_notice,notice DOIs searched,47074,notices,Altmetric
+altmetric_notice,notices with any record,11371,notices,Altmetric
+altmetric_notice,notices with news,1218,notices,Altmetric
+altmetric_notice,"news outlets per notice, summed (Altmetric summary)",5553,outlet-notice pairs,Altmetric summary endpoint
+altmetric_notice,"notice posts downloaded, distinct (X left out: the key's X allowance is spent)",21431,posts,Altmetric detail endpoint
+altmetric_notice,"news stories on notice DOIs, distinct",5539,news stories,Altmetric detail endpoint
+altmetric_total,"news articles on paper DOIs, distinct by URL",34782,news articles,Altmetric
+altmetric_total,"news articles on notice DOIs, distinct by URL",5531,news articles,Altmetric
+altmetric_total,news articles citing both a paper and its notice (counted once),2074,news articles,Altmetric
+altmetric_total,"news articles in total, paper and notice DOIs, distinct",38239,news articles,Altmetric
+altmetric_notice,papers behind notices with news,1970,papers,Altmetric + CSV
+altmetric_notice,papers with news via notice only (new),1223,papers,Altmetric + CSV
+altmetric_total,"papers with Altmetric news, paper or notice DOI",3736,papers,Altmetric
+plumx,paper DOIs searched,62867,papers,PlumX API
+plumx,papers found in PlumX,59172,papers,PlumX
+plumx,papers with news,5855,papers,PlumX (count only)
+plumx,news mentions on papers,24618,mentions,PlumX (count only)
+plumx_notice,notice DOIs searched,47074,notices,PlumX
+plumx_notice,notices found in PlumX,32631,notices,PlumX
+plumx_notice,notices with news,1307,notices,PlumX (count only)
+plumx_notice,news mentions on notices,4693,mentions,PlumX (count only)
+openalex,papers found in OpenAlex,62489,papers,OpenAlex API
+openalex,"comparison papers (distinct OpenAlex works, not in Retraction Watch)",174783,papers,OpenAlex API
+openalex,of which have a DOI,174781,papers,OpenAlex API
+openalex,comparison links (retracted paper -> comparison paper),184890,links,OpenAlex API
+stage2,pages with extracted text (article or notice),94417,pages,Stage 2
+stage2,pages with full article text,44346,pages,Stage 2
+stage2,pages with notice text,86209,pages,Stage 2
+stage3_citations,"citation change after retraction relative to comparison papers, 1 year each side",0.526,"Mantel-Haenszel ratio of changes across matched groups (34,269 papers); pooled: retracted x0.70 / comparison x1.39 = 0.507",OpenAlex
+stage3_citations,"citation change after retraction relative to comparison papers, 2 years each side",0.452,"Mantel-Haenszel ratio of changes across matched groups (14,734 papers); pooled: retracted x0.52 / comparison x1.15 = 0.453",OpenAlex
+stage3_citations,"citation change after retraction relative to comparison papers, 3 years each side",0.426,"Mantel-Haenszel ratio of changes across matched groups (6,960 papers); pooled: retracted x0.44 / comparison x1.04 = 0.424",OpenAlex
+stage3_citations,check on two periods before retraction (1.0 = no gap),0.943,ratio,OpenAlex
+stage3_media,media items published after retraction,36219,items,"Altmetric, classified by local model"
+stage3_media,of which say the paper was retracted,18.6%,of items,
+stage3_media,of which repeat the finding without saying it was retracted,12.8%,of items,
+stage3_media,of which challenge the finding,0.5%,of items,
+stage3_media,news items after retraction that say it was retracted,14.8%,of news items,
+stage3_media,papers covered after retraction,5747,papers,
+stage3_media,of which never get an item saying it was retracted,2709,papers,
+stage3_media,model agrees with the students' majority (says retracted or not),93.1%,of items,7 student labellers
+stage3_media,a single student agrees with the others' majority,94.1%,of items,7 student labellers
+stage3_notices,papers with a classified notice,52839,papers,"notice text, local model"
+stage3_notices,notices that give no reason,17.1%,of papers,"notice text, local model"

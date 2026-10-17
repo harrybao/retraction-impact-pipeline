@@ -40,6 +40,7 @@ Rate: NCBI permits 3 requests a second without an API key. We use fewer.
 from __future__ import annotations
 
 import argparse
+import math
 import sys
 import time
 from pathlib import Path
@@ -49,15 +50,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import httpx
 from rich.console import Console
 
-from rwpipe import db, fetch, storage
+from rwpipe import config, db, fetch, storage
 
 console = Console()
 
 TOOL = "COMP5703-CS43"
-EMAIL = "xbao0816@uni.sydney.edu.au"
+EMAIL = config.POLITE_CONTACT
 UA = f"{TOOL} student project (mailto:{EMAIL})"
 
-IDCONV = "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/"
+# The converter's documented address since PMC moved to its own host. The old
+# one (www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/) answers 301 to this.
+IDCONV = "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/"
 EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 
 BATCH = 200          # the converter's documented maximum
@@ -67,6 +70,12 @@ BATCH = 200          # the converter's documented maximum
 # logged as JSONDecodeError, because the code read the body before the status.
 IDS_CHARS = 1800     # characters of joined ids per request
 GAP = 1.0            # the endpoint throttles below the documented 3/s
+# Waits after each HTTP 429, about eight minutes in all. NCBI documents no
+# rate limit for the converter, but refuses in spells: on 6 October two runs
+# met 429s that outlasted the old waits (10-50 s, 150 s in all), while the
+# same request asked alone a few minutes either side was answered, and
+# spaced requests went 200, 429, 200, 200, 200.
+RETRY_WAITS = (15, 30, 60, 120, 240)
 
 NO_FULLTEXT = "does not allow downloading of the full text"
 
@@ -103,31 +112,69 @@ def ask(client: httpx.Client, chunk: list[str]) -> dict | None:
     that does not read the status cannot tell "ask again more slowly" from
     "never ask this again".
     """
-    for attempt in range(5):
+    tries = len(RETRY_WAITS) + 1
+    for attempt in range(tries):
         try:
             r = client.get(IDCONV, params={"tool": TOOL, "email": EMAIL,
                                            "ids": ",".join(chunk),
                                            "idtype": "doi", "format": "json"})
         except Exception as exc:                            # noqa: BLE001
             console.print(f"  [yellow]{len(chunk)} ids: {type(exc).__name__}[/yellow]")
-            time.sleep(5 * (attempt + 1))
+            if attempt < tries - 1:
+                time.sleep(5 * (attempt + 1))
             continue
         if r.status_code == 429:
-            wait = float(r.headers.get("Retry-After") or 0) or 10 * (attempt + 1)
-            console.print(f"  [yellow]HTTP 429, waiting {wait:.0f}s[/yellow]")
-            time.sleep(wait)
+            if attempt < tries - 1:
+                wait = retry_after(r) or RETRY_WAITS[attempt]
+                console.print(f"  [yellow]HTTP 429, waiting {wait:.0f}s[/yellow]")
+                time.sleep(wait)
             continue
         if r.status_code != 200:
+            first = (r.text or "").strip().splitlines()
             console.print(f"  [red]{len(chunk)} ids: HTTP {r.status_code} "
-                          f"{r.text.strip().splitlines()[0][:60] if r.text else ''}"
-                          f"[/red]")
+                          f"{first[0][:60] if first else ''}[/red]")
             return None
         try:
-            return r.json()
+            data = r.json()
         except Exception:                                   # noqa: BLE001
             console.print(f"  [red]{len(chunk)} ids: HTTP 200 but not JSON[/red]")
             return None
-    console.print(f"  [red]{len(chunk)} ids: gave up after 5 attempts[/red]")
+        # An error the converter reports in a 200 answer is not "none of these
+        # DOIs is in PMC"; read as data, it would record them all as not-found.
+        if not isinstance(data, dict) or data.get("status", "ok") != "ok":
+            msg = data.get("errmsg", "") if isinstance(data, dict) else ""
+            console.print(f"  [red]{len(chunk)} ids: converter error {str(msg)[:60]}[/red]")
+            return None
+        return data
+    console.print(f"  [red]{len(chunk)} ids: gave up after {tries} attempts[/red]",
+                  soft_wrap=True)                 # R looks for "gave up after"
+    return None
+
+
+def retry_after(r: httpx.Response) -> float:
+    """Seconds the server asks us to wait, or 0. Retry-After may also be an
+    HTTP date; that form is ignored rather than allowed to raise."""
+    try:
+        s = float(r.headers.get("Retry-After") or 0)
+    except ValueError:
+        return 0.0
+    # "nan" parses, and a day-long wait would stall the run: capped at the
+    # longest of our own waits.
+    return min(max(s, 0.0), float(RETRY_WAITS[-1])) if math.isfinite(s) else 0.0
+
+
+def efetch(client: httpx.Client, pmcid: str) -> httpx.Response | None:
+    """One record from E-utilities, waiting out HTTP 429 as `ask` does.
+    None when NCBI still refuses after every wait."""
+    for attempt in range(len(RETRY_WAITS) + 1):
+        r = client.get(EFETCH, params={"db": "pmc", "id": pmcid, "retmode": "xml",
+                                       "tool": TOOL, "email": EMAIL})
+        if r.status_code != 429:
+            return r
+        if attempt < len(RETRY_WAITS):
+            wait = retry_after(r) or RETRY_WAITS[attempt]
+            console.print(f"  [yellow]HTTP 429, waiting {wait:.0f}s[/yellow]")
+            time.sleep(wait)
     return None
 
 
@@ -145,7 +192,9 @@ def resolve(conn, client: httpx.Client, limit: int | None) -> None:
     for chunk in batches(todo):
         data = ask(client, chunk)
         if data is None:
-            continue
+            # Left unasked for the next run. After a refusal spell, stop: each
+            # further batch would wait out the same eight minutes.
+            break
         done += len(chunk)
 
         rows, seen = [], set()
@@ -170,8 +219,10 @@ def resolve(conn, client: httpx.Client, limit: int | None) -> None:
             console.print(f"  [dim]{done:>6,}/{len(todo):,}[/dim]  in PMC {found:,}")
         time.sleep(GAP)
 
-    console.print(f"\n[bold]{found:,} of {len(todo):,} refused documents are in "
-                  f"PubMed Central[/bold]  ({found / max(len(todo), 1) * 100:.1f}%)")
+    console.print(f"\n[bold]{found:,} of {done:,} refused documents asked are in "
+                  f"PubMed Central[/bold]  ({found / max(done, 1) * 100:.1f}%)")
+    if done < len(todo):
+        console.print(f"  {len(todo) - done:,} not asked (NCBI refused); the next run asks them")
 
 
 def fetch_all(conn, client: httpx.Client, limit: int | None) -> None:
@@ -192,16 +243,31 @@ def fetch_all(conn, client: httpx.Client, limit: int | None) -> None:
 
     for n, (doi, pmcid, prefix) in enumerate(rows, 1):
         try:
-            r = client.get(EFETCH, params={"db": "pmc", "id": pmcid,
-                                           "retmode": "xml", "tool": TOOL,
-                                           "email": EMAIL})
-            xml = r.text
+            r = efetch(client, pmcid)
         except Exception as exc:                            # noqa: BLE001
             err += 1
             conn.execute("UPDATE documents SET error=?, attempts=attempts+1 "
                          "WHERE doi=?", (f"pmc: {type(exc).__name__}", doi))
             time.sleep(3)
             continue
+        if r is None:
+            # Still refused after eight minutes: stop rather than wait that
+            # long for every record. The rest stay blocked, so the next run
+            # fetches them.
+            console.print(f"  [red]{pmcid}: gave up after {len(RETRY_WAITS) + 1} "
+                          f"attempts; {len(rows) - n + 1} records left for the next run[/red]",
+                          soft_wrap=True)         # R looks for "gave up after"
+            asked = n - 1
+            break
+        if r.status_code != 200:
+            # The status was never read here, so a refusal page went on to the
+            # DOI check and was recorded as "pmc-wrong-record".
+            err += 1
+            conn.execute("UPDATE documents SET error=?, attempts=attempts+1 "
+                         "WHERE doi=?", (f"pmc: http {r.status_code}", doi))
+            time.sleep(GAP)
+            continue
+        xml = r.text
 
         if NO_FULLTEXT in xml:
             stub += 1
@@ -239,9 +305,11 @@ def fetch_all(conn, client: httpx.Client, limit: int | None) -> None:
                           f"wrong record {wrong:,}  error {err:,}  "
                           f"| {n / el * 3600:,.0f}/h")
         time.sleep(GAP)
+    else:
+        asked = len(rows)
 
     conn.commit()
-    console.print(f"\n[bold]{len(rows):,} records asked for[/bold]")
+    console.print(f"\n[bold]{asked:,} of {len(rows):,} records asked for[/bold]")
     console.print(f"  full text recovered  {got:>7,}")
     console.print(f"  publisher opted out  {stub:>7,}")
     console.print(f"  wrong record         {wrong:>7,}")

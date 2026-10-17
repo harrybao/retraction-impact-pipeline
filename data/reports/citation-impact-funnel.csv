@@ -1,0 +1,11 @@
+"step","papers"
+"retracted papers with an OpenAlex record",62489
+"retraction date and publication year known",62489
+"nature is Retraction (not an expression of concern or correction)",60034
+"the OpenAlex record is the article, not the notice",57824
+"  ... and 1 whole years each side fit 2012-2025",34288
+"  ... and 2 whole years each side fit 2012-2025",14748
+"  ... and 3 whole years each side fit 2012-2025",6973
+"  ... and k=1 leaves it in a stratum that has controls",34269
+"  ... and k=2 leaves it in a stratum that has controls",14734
+"  ... and k=3 leaves it in a stratum that has controls",6960

@@ -1,9 +1,7 @@
 """PlumX - the second of the two engagement sources the client named.
 
-The client named exactly two in the Week 3 meeting:
-
-    The client, in the week 3 meeting: "Social media news media: Altmetrics,
-    PlumX metrics API"
+The project brief names exactly two sources for news and social media:
+Altmetric and the PlumX Metrics API.
 
 PlumX is not a duplicate of Altmetric. Altmetric counts *attention* - news
 articles, tweets, blog posts. PlumX additionally reports **usage**: abstract
@@ -11,7 +9,7 @@ views, full-text downloads, library holdings. That distinction matters for this
 project, because a retracted paper that is still being *downloaded* is a
 different and more direct kind of continued life than one that is still being
 tweeted about. Neither source substitutes for the other, which is presumably
-why he asked for both.
+why the brief asks for both.
 
 Access requires an Elsevier API key. Measured 2026-08-30 with no key:
 
@@ -28,14 +26,38 @@ starts refusing us: the key belongs to an institution, not to us.
 """
 from __future__ import annotations
 
+import asyncio
 import os
 from dataclasses import dataclass, field
+from urllib.parse import quote, unquote
 
 import httpx
 
 from . import config
 
 ENDPOINT = "https://api.elsevier.com/analytics/plumx/doi/"
+
+
+def _url(doi: str) -> str:
+    """The request address for a DOI, with the characters a URL cannot carry.
+
+    A DOI is not URL-safe. Measured 2026-09-07 against this endpoint:
+
+        10.3157/0013-872x(2007)118[512:ansopb]2.0.co;2   raw -> HTTP 400
+        10.1080/09645292.2010.545518#.us5z4lssxk0        raw -> HTTP 200 for
+            10.1080/09645292.2010.545518, a *different paper*, because
+            everything after "#" never leaves the client
+
+    The second is the dangerous one: it does not fail, it answers about
+    something else, and those metrics get filed under the DOI we asked for.
+
+    `safe` keeps "/" because the path separators inside a DOI are real, and
+    keeps "%" because 14 DOIs in this corpus are stored already-escaped
+    (`...66:4%3c403...`); re-escaping those turns %3c into %253c and the
+    lookup returns nothing. With safe="/%" all 16 affected DOIs resolve: 15
+    with metrics, 1 genuinely absent from PlumX.
+    """
+    return ENDPOINT + quote(doi, safe="/%")
 
 # PlumX groups every metric under five categories. Usage and capture are the
 # ones Altmetric does not report at all.
@@ -131,9 +153,33 @@ class QuotaExhausted(RuntimeError):
 
 
 def _parse(d: dict, m: Metrics) -> Metrics:
-    m.found = True
-    m.plumx_id = str(d.get("id") or "") or None
-    for cat in d.get("count_categories") or []:
+    """Fill `m` from a 200 response.
+
+    `found` comes from the presence of metrics, not from the status code.
+    PlumX answers 200 for a DOI it has never heard of - measured 2026-09-07,
+    `10.9999/definitely-not-a-real-doi-cs43-test` returned 74 bytes of
+    `{"id_type","id_value"}` and no count_categories - so the 404 branch in
+    fetch() never fires and "HTTP 200" means only that the service replied.
+    Setting found=True there recorded 836 "PlumX holds nothing on this paper"
+    rows as "this paper has zero attention", which is a different claim.
+
+    The response carries no `id` field, which is why `plumx_id` was NULL on
+    every row collected before this. What it does carry is `id_value`, the DOI
+    PlumX actually looked up - so the field is worth storing as an identity
+    check rather than as a label. Same rule as everywhere else in this project:
+    a result counts only if it is about the document it is filed under.
+    """
+    cats = d.get("count_categories") or []
+    m.found = bool(cats)
+    m.plumx_id = str(d.get("id_value") or "") or None
+    if m.plumx_id and unquote(m.plumx_id).strip().lower() != \
+            unquote(m.doi).strip().lower():
+        # PlumX answered about something else. Recording these numbers would
+        # attribute another paper's attention to this one.
+        m.error = f"echoed a different doi: {m.plumx_id}"
+        m.found = False
+        return m
+    for cat in cats:
         name = cat.get("name")
         if not name:
             continue
@@ -164,18 +210,23 @@ NOT_ENTITLED_HINT = (
 async def fetch(client: httpx.AsyncClient, doi: str, key: str,
                 max_retries: int = 3) -> Metrics:
     m = Metrics(doi=doi)
+    url = _url(doi)
     for attempt in range(max_retries):
         try:
-            r = await client.get(ENDPOINT + doi, headers=headers(key), timeout=30)
+            r = await client.get(url, headers=headers(key), timeout=30)
         except (httpx.TimeoutException, httpx.TransportError) as exc:
             if attempt == max_retries - 1:
                 m.error = type(exc).__name__
                 return m
+            # Retrying a timeout immediately is retrying it into the same
+            # condition that caused it.
+            await asyncio.sleep(2 * (attempt + 1))
             continue
 
         if r.status_code == 404:
-            # PlumX has never seen this DOI: "no measurable footprint", which
-            # is a finding about the paper, not a failure of the request.
+            # Kept for correctness, but it does not fire: this endpoint
+            # answers 200 with an empty envelope for a DOI it does not hold.
+            # `_parse` is what actually decides `found`.
             m.found = False
             return m
         if r.status_code == 200:
@@ -204,7 +255,7 @@ def probe(key: str, doi: str = "10.1016/j.jhep.2014.10.009") -> tuple[bool, str]
     evening.
     """
     try:
-        r = httpx.get(ENDPOINT + doi, headers=headers(key), timeout=30)
+        r = httpx.get(_url(doi), headers=headers(key), timeout=30)
     except Exception as exc:                               # noqa: BLE001
         return False, f"{type(exc).__name__}: {exc}"
     where = " (institutional token in use)" if load_insttoken() else ""

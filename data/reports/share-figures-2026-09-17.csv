@@ -1,0 +1,78 @@
+section,metric,value
+1a,usable documents,96329
+1a,documents,109888
+1a,coverage %,87.66
+1a,usable gz GB,33.2
+1a,teammate-tandf usable,2558
+1a,not collected,13559
+1a,"stored but not usable (status done, usable 0)",185
+1a,records with both pages,54915
+1a,records with at least the notice,58276
+1a,records with at least the article,56411
+1a,papers with the article page,53897
+1a,not_collected.csv rows,13559
+1a-cause,403-refused,5416
+1a-cause,never-asked,3110
+1a-cause,pmc-opted-out,2302
+1a-cause,interstitial,1309
+1a-cause,human-verification,953
+1a-cause,other,459
+1a-cause,never-attempted,9
+1a-cause,pmc-wrong-record,1
+archive_checks,ok,67126
+archive_checks,doi-only,28087
+archive_checks,ok-role-differs,1036
+archive_checks,suspect,176
+archive_checks,title-only,80
+archive_checks,error-page,9
+archive_checks,rows,96514
+archive_index,rows,106898
+archive_index,in_database=1,96518
+posts,rows,1437967
+posts-relative,before,1046364
+posts-relative,after,366281
+posts-relative,same-day,25321
+posts-relative,(no date),1
+posts-date_basis,earliest Retraction record,1120680
+posts-date_basis,"earliest notice, no Retraction record",317287
+posts,median days_from_retraction,-35.0
+posts-kind,twitter,1281535
+posts-kind,reddit,43238
+posts-kind,news,36888
+posts-kind,patent,20155
+posts-kind,blogs,14250
+posts-kind,facebook,10867
+posts-kind,peer_reviews,8085
+posts-kind,wikipedia,7647
+posts,header,"doi,kind,posted_on,title,summary,url,author,author_url,country,license,retracted_on,date_basis,retraction_year,relative_to_retraction,days_from_retraction"
+2,document_text rows,96329
+2,usable documents with no text row,0
+2-version,14,96329
+2-grade,notice-only,51567
+2-grade,full,44346
+2-grade,thin,257
+2-grade,failed,159
+2,with a body,94417
+2,with a notice,86209
+2,notice chars median,1110
+2,notice chars p99,3000
+2,notice chars max,37341
+2,"notices over 131,072 chars",0
+2,empty body,1912
+2,"empty body, IOP",1167
+2,teammate-tandf text rows,2558
+2-tandf-grade,notice-only,1334
+2-tandf-grade,full,1224
+shared_bodies,notice-replaces-article,10655
+shared_bodies,shared-body,779
+shared_bodies,bulk-notice,289
+shared_bodies,interface-not-article,41
+shared_bodies,rows,11764
+ieee,documents,9834
+ieee,body p10,1004
+ieee,body p90,1122
+ieee,notice-replaces-article,9373
+2,corpus body median,1855
+2-files,stage2_index.csv MB,31.3
+2-files,stage2_notices.csv.gz MB,14.6
+2-files,stage2_fulltext.jsonl.gz MB,340.7

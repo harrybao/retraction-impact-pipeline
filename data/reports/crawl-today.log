@@ -1,0 +1,340 @@
+crawling workers=6 start-delay=5.0s floor=1.0s limit=all prefixes=['10.1016', 
+'10.26355', '10.4314']
+
+learned prefix->host routes: 872
+circuit breaker open on 42 hosts (13,118 failed attempts already spent):
+    validate.perfdrive.com                      2,458 tries, 0 ok
+    academic.oup.com                            1,618 tries, 0 ok
+    pubs.rsc.org                                1,001 tries, 0 ok
+    pubs.acs.org                                  776 tries, 0 ok
+    www.e3s-conferences.org                       623 tries, 0 ok
+    portlandpress.com                             588 tries, 0 ok
+    pubs.aip.org                                  547 tries, 0 ok
+    www.cureus.com                                519 tries, 0 ok
+webkit fallback armed for chromium-blocked hosts
+    25 done=13 blocked=0 dead=0 | 0.00 GB | 52% | slowest: www=34.0s, 
+www=20.0s, www=1.4s
+    50 done=32 blocked=0 dead=0 | 0.01 GB | 64% | slowest: www=80.0s, 
+www=68.0s, www=1.0s
+    75 done=49 blocked=0 dead=0 | 0.01 GB | 65% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   100 done=68 blocked=0 dead=0 | 0.02 GB | 68% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   125 done=91 blocked=0 dead=0 | 0.02 GB | 73% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   150 done=114 blocked=0 dead=0 | 0.02 GB | 76% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   175 done=137 blocked=0 dead=0 | 0.03 GB | 78% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   200 done=160 blocked=0 dead=0 | 0.03 GB | 80% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   225 done=183 blocked=0 dead=0 | 0.04 GB | 81% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   250 done=206 blocked=0 dead=0 | 0.04 GB | 82% | slowest: www=90.0s, 
+www=76.5s, www=1.0s
+   275 done=229 blocked=0 dead=0 | 0.05 GB | 83% | slowest: www=90.0s, 
+www=76.5s, www=1.0s
+   300 done=250 blocked=0 dead=0 | 0.05 GB | 83% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   325 done=271 blocked=0 dead=0 | 0.06 GB | 83% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   350 done=296 blocked=0 dead=0 | 0.06 GB | 85% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   375 done=317 blocked=0 dead=0 | 0.06 GB | 85% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   400 done=340 blocked=0 dead=0 | 0.07 GB | 85% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   425 done=361 blocked=0 dead=0 | 0.07 GB | 85% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   450 done=382 blocked=0 dead=0 | 0.08 GB | 85% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   500 done=426 blocked=0 dead=0 | 0.09 GB | 85% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   525 done=447 blocked=0 dead=0 | 0.09 GB | 85% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   575 done=489 blocked=0 dead=0 | 0.10 GB | 85% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   625 done=535 blocked=0 dead=0 | 0.11 GB | 86% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   650 done=556 blocked=0 dead=0 | 0.11 GB | 86% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+   700 done=568 blocked=0 dead=0 | 0.11 GB | 81% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+   750 done=568 blocked=9 dead=0 | 0.11 GB | 76% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+   800 done=568 blocked=9 dead=0 | 0.11 GB | 71% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+   850 done=568 blocked=9 dead=0 | 0.11 GB | 67% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+   900 done=570 blocked=9 dead=0 | 0.12 GB | 63% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+   950 done=570 blocked=9 dead=0 | 0.12 GB | 60% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1000 done=570 blocked=9 dead=0 | 0.12 GB | 57% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1050 done=570 blocked=9 dead=0 | 0.12 GB | 54% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1100 done=570 blocked=9 dead=0 | 0.12 GB | 52% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1150 done=570 blocked=9 dead=0 | 0.12 GB | 50% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1200 done=570 blocked=9 dead=0 | 0.12 GB | 48% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1250 done=570 blocked=9 dead=0 | 0.12 GB | 46% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1300 done=570 blocked=9 dead=0 | 0.12 GB | 44% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1350 done=570 blocked=9 dead=0 | 0.12 GB | 42% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1400 done=570 blocked=9 dead=0 | 0.12 GB | 41% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1450 done=570 blocked=9 dead=0 | 0.12 GB | 39% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1475 done=575 blocked=9 dead=0 | 0.12 GB | 39% | slowest: www=90.0s, 
+www=90.0s, www=47.0s
+  1500 done=576 blocked=9 dead=0 | 0.12 GB | 38% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1550 done=576 blocked=9 dead=0 | 0.12 GB | 37% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1600 done=576 blocked=9 dead=0 | 0.12 GB | 36% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1650 done=576 blocked=9 dead=0 | 0.12 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1700 done=576 blocked=9 dead=0 | 0.12 GB | 34% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1750 done=576 blocked=9 dead=0 | 0.12 GB | 33% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1800 done=576 blocked=9 dead=0 | 0.12 GB | 32% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1850 done=576 blocked=9 dead=0 | 0.12 GB | 31% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1900 done=576 blocked=9 dead=0 | 0.12 GB | 30% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  1950 done=576 blocked=9 dead=0 | 0.12 GB | 30% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2000 done=576 blocked=9 dead=0 | 0.12 GB | 29% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2050 done=576 blocked=9 dead=0 | 0.12 GB | 28% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2100 done=576 blocked=9 dead=0 | 0.12 GB | 27% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2150 done=576 blocked=9 dead=0 | 0.12 GB | 27% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2200 done=576 blocked=9 dead=0 | 0.12 GB | 26% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2250 done=578 blocked=9 dead=0 | 0.12 GB | 26% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2300 done=578 blocked=9 dead=0 | 0.12 GB | 25% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2375 done=581 blocked=19 dead=0 | 0.12 GB | 24% | slowest: www=90.0s, 
+www=90.0s, www=76.5s
+  2400 done=600 blocked=22 dead=0 | 0.13 GB | 25% | slowest: www=90.0s, 
+www=90.0s, www=3.5s
+  2425 done=625 blocked=22 dead=0 | 0.14 GB | 26% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2450 done=648 blocked=23 dead=0 | 0.16 GB | 26% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2475 done=673 blocked=23 dead=0 | 0.17 GB | 27% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2500 done=696 blocked=24 dead=0 | 0.18 GB | 28% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2525 done=721 blocked=24 dead=0 | 0.20 GB | 29% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2550 done=746 blocked=24 dead=0 | 0.21 GB | 29% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2600 done=760 blocked=31 dead=0 | 0.22 GB | 29% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2650 done=770 blocked=42 dead=0 | 0.22 GB | 29% | slowest: www=90.0s, 
+www=90.0s, www=17.7s
+  2675 done=793 blocked=43 dead=0 | 0.24 GB | 30% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2700 done=816 blocked=43 dead=0 | 0.25 GB | 30% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2725 done=839 blocked=44 dead=0 | 0.26 GB | 31% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2750 done=864 blocked=44 dead=0 | 0.28 GB | 31% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2775 done=873 blocked=46 dead=0 | 0.28 GB | 31% | slowest: www=90.0s, 
+www=90.0s, www=28.4s
+  2825 done=919 blocked=48 dead=0 | 0.31 GB | 33% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  2875 done=941 blocked=52 dead=0 | 0.32 GB | 33% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  2900 done=956 blocked=56 dead=0 | 0.33 GB | 33% | slowest: www=90.0s, 
+www=90.0s, www=7.9s
+  2975 done=991 blocked=65 dead=0 | 0.35 GB | 33% | slowest: www=90.0s, 
+www=90.0s, www=39.9s
+  3000 done=1008 blocked=67 dead=0 | 0.35 GB | 34% | slowest: www=90.0s, 
+www=90.0s, www=10.1s
+  3025 done=1009 blocked=72 dead=0 | 0.36 GB | 33% | slowest: www=90.0s, 
+www=90.0s, www=76.5s
+  3050 done=1028 blocked=75 dead=0 | 0.37 GB | 34% | slowest: www=90.0s, 
+www=90.0s, www=3.5s
+  3075 done=1031 blocked=78 dead=0 | 0.37 GB | 34% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  3100 done=1042 blocked=83 dead=0 | 0.37 GB | 34% | slowest: www=90.0s, 
+www=90.0s, www=15.1s
+  3125 done=1065 blocked=84 dead=0 | 0.39 GB | 34% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3150 done=1088 blocked=85 dead=0 | 0.40 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3175 done=1113 blocked=85 dead=0 | 0.41 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3200 done=1138 blocked=85 dead=0 | 0.43 GB | 36% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3225 done=1159 blocked=86 dead=0 | 0.44 GB | 36% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3250 done=1174 blocked=87 dead=0 | 0.45 GB | 36% | slowest: www=90.0s, 
+www=90.0s, www=13.6s
+  3325 done=1193 blocked=100 dead=0 | 0.46 GB | 36% | slowest: www=90.0s, 
+www=90.0s, www=47.0s
+  3375 done=1193 blocked=112 dead=0 | 0.46 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  3425 done=1195 blocked=125 dead=0 | 0.46 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  3450 done=1196 blocked=131 dead=0 | 0.46 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  3475 done=1199 blocked=137 dead=0 | 0.46 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=76.5s
+  3500 done=1218 blocked=140 dead=0 | 0.47 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=3.5s
+  3525 done=1235 blocked=140 dead=0 | 0.48 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=2.2s
+  3550 done=1258 blocked=141 dead=0 | 0.49 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3575 done=1267 blocked=142 dead=0 | 0.50 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  3600 done=1270 blocked=148 dead=0 | 0.50 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=76.5s
+  3625 done=1273 blocked=154 dead=0 | 0.50 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=76.5s
+  3675 done=1287 blocked=163 dead=0 | 0.51 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  3725 done=1287 blocked=176 dead=0 | 0.51 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  3775 done=1317 blocked=181 dead=0 | 0.53 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=2.0s
+  3800 done=1342 blocked=181 dead=0 | 0.54 GB | 35% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3825 done=1359 blocked=182 dead=0 | 0.55 GB | 36% | slowest: www=90.0s, 
+www=90.0s, www=1.6s
+  3850 done=1384 blocked=182 dead=0 | 0.56 GB | 36% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3875 done=1407 blocked=183 dead=0 | 0.58 GB | 36% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3900 done=1432 blocked=183 dead=0 | 0.59 GB | 37% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3925 done=1455 blocked=184 dead=0 | 0.60 GB | 37% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3950 done=1480 blocked=184 dead=0 | 0.62 GB | 37% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  3975 done=1503 blocked=185 dead=0 | 0.63 GB | 38% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4000 done=1528 blocked=185 dead=0 | 0.64 GB | 38% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4025 done=1543 blocked=186 dead=0 | 0.65 GB | 38% | slowest: www=90.0s, 
+www=90.0s, www=8.4s
+  4050 done=1562 blocked=187 dead=0 | 0.66 GB | 39% | slowest: www=90.0s, 
+www=90.0s, www=4.0s
+  4075 done=1575 blocked=189 dead=0 | 0.67 GB | 39% | slowest: www=90.0s, 
+www=90.0s, www=7.7s
+  4100 done=1596 blocked=189 dead=0 | 0.68 GB | 39% | slowest: www=90.0s, 
+www=90.0s, www=2.9s
+  4125 done=1613 blocked=190 dead=0 | 0.69 GB | 39% | slowest: www=90.0s, 
+www=90.0s, www=1.5s
+  4150 done=1638 blocked=190 dead=0 | 0.70 GB | 39% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4175 done=1661 blocked=191 dead=0 | 0.71 GB | 40% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4200 done=1686 blocked=191 dead=0 | 0.73 GB | 40% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4225 done=1709 blocked=192 dead=0 | 0.74 GB | 40% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4250 done=1732 blocked=192 dead=0 | 0.75 GB | 41% | slowest: www=90.0s, 
+www=90.0s, www=2.0s
+  4275 done=1739 blocked=195 dead=0 | 0.75 GB | 41% | slowest: www=90.0s, 
+www=90.0s, www=41.0s
+  4300 done=1748 blocked=200 dead=0 | 0.76 GB | 41% | slowest: www=90.0s, 
+www=90.0s, www=39.9s
+  4325 done=1761 blocked=204 dead=0 | 0.77 GB | 41% | slowest: www=90.0s, 
+www=90.0s, www=15.1s
+  4350 done=1774 blocked=205 dead=0 | 0.77 GB | 41% | slowest: www=90.0s, 
+www=90.0s, www=24.8s
+  4375 done=1791 blocked=207 dead=0 | 0.78 GB | 41% | slowest: www=90.0s, 
+www=90.0s, www=6.3s
+  4400 done=1814 blocked=208 dead=0 | 0.79 GB | 41% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4450 done=1860 blocked=209 dead=0 | 0.82 GB | 42% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4475 done=1867 blocked=211 dead=0 | 0.82 GB | 42% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  4500 done=1890 blocked=211 dead=0 | 0.84 GB | 42% | slowest: www=90.0s, 
+www=90.0s, www=4.3s
+  4525 done=1911 blocked=211 dead=0 | 0.85 GB | 42% | slowest: www=90.0s, 
+www=90.0s, www=1.4s
+  4600 done=1948 blocked=211 dead=0 | 0.87 GB | 42% | slowest: www=90.0s, 
+www=90.0s, www=20.8s
+  4625 done=1971 blocked=211 dead=0 | 0.88 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4650 done=1988 blocked=211 dead=0 | 0.89 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=4.4s
+  4675 done=2005 blocked=211 dead=0 | 0.90 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=16.0s
+  4700 done=2018 blocked=211 dead=0 | 0.90 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  4725 done=2031 blocked=211 dead=0 | 0.91 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  4750 done=2044 blocked=211 dead=0 | 0.92 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=65.0s
+  4775 done=2049 blocked=211 dead=0 | 0.92 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=90.0s
+  4825 done=2077 blocked=211 dead=0 | 0.94 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=30.1s
+  4850 done=2100 blocked=211 dead=0 | 0.95 GB | 43% | slowest: www=90.0s, 
+www=90.0s, www=1.4s
+  4875 done=2125 blocked=211 dead=0 | 0.96 GB | 44% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4900 done=2150 blocked=211 dead=0 | 0.98 GB | 44% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4925 done=2175 blocked=211 dead=0 | 0.99 GB | 44% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4950 done=2200 blocked=211 dead=0 | 1.01 GB | 44% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  4975 done=2225 blocked=211 dead=0 | 1.02 GB | 45% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  5000 done=2244 blocked=211 dead=0 | 1.03 GB | 45% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  5025 done=2269 blocked=211 dead=0 | 1.04 GB | 45% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  5050 done=2294 blocked=211 dead=0 | 1.06 GB | 45% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  5075 done=2319 blocked=211 dead=0 | 1.07 GB | 46% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  5100 done=2342 blocked=211 dead=0 | 1.08 GB | 46% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  5125 done=2365 blocked=211 dead=0 | 1.10 GB | 46% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  5150 done=2390 blocked=211 dead=0 | 1.11 GB | 46% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+  5175 done=2415 blocked=211 dead=0 | 1.12 GB | 47% | slowest: www=90.0s, 
+www=90.0s, www=1.0s
+crawling workers=6 start-delay=5.0s floor=1.0s limit=all prefixes=['10.1016']
+
+recovered 1 interrupted pages
+learned prefix->host routes: 897; scheduling by success rate over 221 prefixes
+circuit breaker open on 43 hosts (15,512 failed attempts already spent):
+    validate.perfdrive.com                      2,458 tries, 0 ok
+    academic.oup.com                            1,632 tries, 0 ok
+    cell.com                                    1,537 tries, 0 ok
+    pubs.rsc.org                                1,001 tries, 0 ok
+    jbc.org                                       853 tries, 0 ok
+    pubs.acs.org                                  776 tries, 0 ok
+    www.e3s-conferences.org                       623 tries, 0 ok
+    portlandpress.com                             588 tries, 0 ok
+webkit fallback armed for chromium-blocked hosts
+    25 done=23 blocked=0 dead=0 | 0.01 GB | 92% | slowest: www=10.0s, 
+cell=10.0s, www=8.5s
+    50 done=44 blocked=0 dead=0 | 0.02 GB | 88% | slowest: cell=80.0s, 
+www=10.0s, linkinghub=10.0s
+    75 done=67 blocked=0 dead=0 | 0.04 GB | 89% | slowest: cell=90.0s, 
+www=24.5s, www=10.0s

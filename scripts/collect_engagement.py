@@ -153,8 +153,8 @@ async def collect_citations(conn, rows, concurrency: int) -> Counter:
                     rate = n / max(time.time() - started, 1) * 3600
                     console.print(
                         f"[dim]{n:>7,}/{len(rows):,}[/dim] "
-                        f"有引用 {stats['cited']:,}  "
-                        f"撤稿后仍被引 {stats['cited_after_retraction']:,}  "
+                        f"cited {stats['cited']:,}  "
+                        f"cited after retraction {stats['cited_after_retraction']:,}  "
                         f"| {rate:,.0f}/h")
 
         await asyncio.gather(*(do(b) for b in batches))
@@ -186,7 +186,7 @@ async def collect_wikipedia(conn, dois: list[str], concurrency: int) -> Counter:
                     stats["on_wikipedia"] += 1
                 if stats["total"] % 500 == 0:
                     console.print(f"[dim]{stats['total']:,}/{len(dois):,}[/dim] "
-                                  f"维基有引用 {stats['on_wikipedia']:,}")
+                                  f"cited on Wikipedia {stats['on_wikipedia']:,}")
         await asyncio.gather(*(do(d) for d in dois))
     return stats
 
@@ -223,7 +223,7 @@ def main() -> int:
             return 0
         console.print(f"[bold]Wikipedia: {len(dois):,} DOIs[/bold]\n")
         st = asyncio.run(collect_wikipedia(conn, dois, args.concurrency))
-        console.print(f"\n  查询 {st['total']:,}，其中 {st['on_wikipedia']:,} 篇仍被维基百科引用")
+        console.print(f"\n  queried {st['total']:,}, of which {st['on_wikipedia']:,} are still cited on Wikipedia")
         conn.close()
         return 0
 

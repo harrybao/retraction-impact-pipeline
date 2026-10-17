@@ -1,0 +1,27 @@
+metric,value
+crawler-made held documents with DOI present,77395
+correct_n,3000
+correct_no_title_element_new,2
+correct_refused_new,2
+correct_refused_old,0
+low_n,15908
+low_no_title_element_new,40
+low_refused_new,553
+low_refused_old,15908
+wrong_n,3000
+wrong_passed_new,2
+wrong_passed_old,2
+wrong_refused_new,2172
+wrong_refused_old,2292
+low still refused (new) | host=ieeexplore.ieee.org,2 / 8079
+low still refused (new) | host=onlinelibrary.wiley.com,63 / 2224
+low still refused (new) | host=www.spandidos-publications.com,0 / 1871
+low still refused (new) | host=link.springer.com,32 / 749
+low still refused (new) | host=www.tandfonline.com,97 / 603
+low still refused (new) | host=journals.sagepub.com,10 / 278
+low still refused (new) | host=academic.oup.com,31 / 205
+low still refused (new) | host=doi.org,15 / 141
+low still refused (new) | host=www.nature.com,3 / 140
+low still refused (new) | host=www.thieme-connect.de,9 / 110
+low still refused (new) | host=journals.plos.org,0 / 110
+low still refused (new) | host=www.ovid.com,9 / 106

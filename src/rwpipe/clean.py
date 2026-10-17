@@ -20,8 +20,15 @@ import pandas as pd
 #   6/24/1756 12:00:00 AM   (rare, and the dates really are 18th century)
 _DATE_FORMATS = ("%m/%d/%Y %H:%M", "%m/%d/%Y %I:%M:%S %p", "%m/%d/%Y")
 
-# Subjects are coded like "(BLS) Biochemistry" - BLS/HSC/PHY/SOC/ENV/BUS.
-_SUBJECT_RE = re.compile(r"^\((?P<code>[A-Z]{2,4})\)\s*(?P<label>.+)$")
+# Subjects are coded like "(BLS) Biochemistry". Retraction Watch uses exactly
+# seven codes, and one of them contains a slash: BLS, HSC, PHY, SOC, ENV, HUM
+# and B/T (business and technology). An earlier [A-Z]{2,4} matched the other
+# six and silently dropped B/T, so 43,678 of 195,350 subject rows came out
+# with no code at all - Technology, Computer Science, Data Science and the
+# business subjects, which is exactly where the conference-paper and paper-mill
+# retractions sit. The label survived, so the loss showed up only as a blank
+# column that a discipline breakdown would have reported as an unnamed group.
+_SUBJECT_RE = re.compile(r"^\((?P<code>[A-Z]{1,4}(?:/[A-Z]{1,4})*)\)\s*(?P<label>.+)$")
 
 # Columns that LOOK numeric but must stay text. A DOI prefix written bare to
 # CSV round-trips through float on read: 10.3390 (MDPI) becomes 10.339 and

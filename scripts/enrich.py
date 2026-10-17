@@ -92,9 +92,9 @@ async def run(dois: list[str], concurrency: int, conn) -> Counter:
                     rate = n / max(time.time() - started, 1) * 3600
                     console.print(
                         f"[dim]{n:>6,}/{len(dois):,}[/dim] "
-                        f"摘要 {stats['with_abstract']:,}  "
-                        f"撤稿关系 {stats['with_retraction_link']:,}  "
-                        f"无记录 {stats['no_record']:,}  "
+                        f"abstracts {stats['with_abstract']:,}  "
+                        f"retraction links {stats['with_retraction_link']:,}  "
+                        f"no record {stats['no_record']:,}  "
                         f"| {rate:,.0f}/h")
 
         # a modest fixed pool - these are public services doing us a favour

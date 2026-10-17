@@ -1,0 +1,18 @@
+"measure","value"
+"validation notices",199
+"model R0",46
+"labellers' majority R0",20
+"both",20
+"model only",26
+"labellers only",0
+"neither",153
+"labellers agree when model says R0 (PPV)",0.4348
+"labellers name a reason when model does (NPV)",1
+"answers changed by the policy-violation rule",21
+"model R0 after the rule",25
+"model only, after the rule",5
+"labellers only, after the rule",0
+"R0 agreement with majority, before",0.8693
+"R0 agreement with majority, after",0.9749
+"R9 agreement with majority, before",0.7839
+"R9 agreement with majority, after",0.8894

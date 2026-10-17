@@ -1,0 +1,6 @@
+"test","outcome","detail","seconds"
+"python environment","PASS","R 4.6.1, reticulate 1.47.0, Python 3.12 at E:/5703 capstone/r-demo-cache/R/reticulate/uv/cache/archive-v0/XHGghiSx1UYFVgDx/Scripts/python.exe",2.3
+"chromium for stage 1","PASS","playwright install chromium",0.6
+"pipeline test suite","PASS","177 passed in 1.39s",1.9
+"stage 2 from R","PASS","48 of 48 documents identical to production across 16 formats x quality strata",16.9
+"stage 1 -> 2 live from R","PASS","2 fetched, 2 verified, quality as production 2/2, notice identical 2/2",15.8

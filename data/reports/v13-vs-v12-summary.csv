@@ -1,0 +1,18 @@
+section,metric,v12,v13
+table,rows,96329,96329
+table,rows at extractor_version 13,,96329
+grade,full,44346,44346
+grade,notice-only,51567,51567
+grade,thin,257,257
+grade,failed,159,159
+latex,bodies carrying a broken command (v12),,1
+latex,bodies carrying a broken command (v13),,1
+latex,bodies containing an intact backslash-n command (v12),,1
+latex,bodies containing an intact backslash-n command (v13),,52
+change,documents touched,,258
+change,bodies changed,,256
+change,notices changed,,18
+change,notices that LOST a decision,,0
+change,notices that gained a decision,,0
+decision,notices asserting a withdrawal (v12),,77323
+decision,notices asserting a withdrawal (v13),,77323

@@ -2,7 +2,7 @@
 
     python scripts/probe_asm.py --n 8
 
-ASM allowlisted our residential egress on 2026-09-04 while
+ASM's support staff allowlisted our residential egress on 2026-09-04 while
 their escalated ticket with Atypon is still open, and asked us to see whether
 it made a difference. This asks exactly that, with a small sample and at the
 rate ASM's own TDM licence publishes: 1 request per 6 seconds on weekday
@@ -26,12 +26,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import httpx
 from rich.console import Console
 
-from rwpipe import db, fetch
+from rwpipe import config, db, fetch
 
 console = Console()
 
-UA = "COMP5703-CS43 student project (mailto:xbao0816@uni.sydney.edu.au)"
-RUN = "asm-allowlist-2026-09-04"
+UA = f"COMP5703-CS43 student project (mailto:{config.POLITE_CONTACT})"
+# Dated from the clock, in UTC to match `probed_at`. This was a literal
+# "asm-allowlist-2026-09-04", so the re-test on 2026-09-11 filed its 8 rows
+# under the 4 September run: one label holding two measurements a week apart,
+# and the CF-RAYs first quoted as "today's" were a week old. A run name is
+# only worth recording if it says when the run happened.
+RUN = f"asm-allowlist-{datetime.now(ZoneInfo('UTC')):%Y-%m-%d}"
 
 
 def delay_now() -> float:

@@ -1,0 +1,10 @@
+extracting 2,973 documents
+
+  1,000/2,973 full 402  notice 449  thin 96  failed 53  | 22,713/h
+  2,000/2,973 full 812  notice 905  thin 178  failed 105  | 22,288/h
+
+2,973 documents
+  full           1,221  (41.1%)
+  notice-only    1,337  (45.0%)
+  thin             257  (8.6%)
+  failed           158  (5.3%)

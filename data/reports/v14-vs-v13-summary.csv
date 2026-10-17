@@ -1,0 +1,17 @@
+section,metric,v13,v14
+table,rows,96329,96329
+table,rows at extractor_version 14,,96329
+table,usable documents with no text row,,0
+grade,full,44346,44346
+grade,notice-only,51567,51567
+grade,thin,257,257
+grade,failed,159,159
+change,documents touched,,245
+change,bodies changed,,243
+change,notices changed,,16
+change,notices that LOST a decision,,0
+change,notices that gained a decision,,0
+decision,notices asserting a withdrawal (v13),,77323
+decision,notices asserting a withdrawal (v14),,77323
+latex,bodies with commands in v11,,521
+latex,bodies keeping every v11 command,281,521

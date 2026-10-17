@@ -1,0 +1,17 @@
+source,platform,notices_with_it,mentions,papers_behind_them,papers_new_vs_article_doi,new_via_notices_under_10_papers,papers_via_article_doi
+Altmetric,news,1218,5553,1970,1223,494,2513
+Altmetric,blogs,5099,6471,8542,5144,1606,6402
+Altmetric,twitter/x,7036,109755,9069,5367,3443,14029
+Altmetric,reddit,513,2211,813,476,186,1859
+Altmetric,facebook,490,772,670,464,299,2028
+Altmetric,bluesky,302,3626,717,591,175,508
+Altmetric,video,78,108,83,29,29,501
+Altmetric,podcasts,66,82,74,32,32,309
+Altmetric,q&a,23,28,26,11,11,133
+Altmetric,wikipedia,1472,2291,1855,1300,1020,3174
+Altmetric,policy,110,128,144,98,89,902
+Altmetric,patents,221,570,202,67,67,3070
+PlumX,mention.ALL_BLOG_COUNT,3450,4438,6024,3649,1058,4942
+PlumX,mention.NEWS_COUNT,1307,4693,2780,1803,433,5855
+PlumX,socialMedia.FACEBOOK_COUNT,878,343241,1161,778,518,3906
+PlumX,mention.REFERENCE_COUNT,840,1737,1178,570,376,1282

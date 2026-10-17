@@ -1,189 +1,308 @@
 # Retraction Impact Pipeline
 
-A data-engineering pipeline that measures what happens to a scientific paper
-*after* it is retracted: who keeps citing it, who keeps writing about it, and
-whether the retraction is ever acknowledged.
+What happens to a scientific paper after it is retracted? For every record in
+the Retraction Watch database, this project collects the retracted paper's page
+and its retraction notice, extracts their text, and measures three things: how
+the paper's citations change against matched non-retracted controls, whether
+news and social media that mention the paper tell their readers it was
+retracted, and what reasons the notices give and how clearly. A retraction
+corrects the record only if the correction reaches the people who use it; these
+are measurements of whether it does.
 
-Built for a COMP5703 capstone at the University of Sydney, Semester 2 2026,
-over the Crossref / Retraction Watch database.
+Designed and built by Xiangsheng Bao, University of Sydney (COMP5703 capstone,
+Semester 2 2026). Contact: xbao0816@uni.sydney.edu.au.
+
+**Headline results** (details and uncertainty under [Results](#results)):
+
+- Within a year of retraction a paper's citations fall to **0.53** of what
+  matched non-retracted controls receive (95% CI 0.51-0.55), and to 0.43 at
+  three years.
+- Of 45,738 news, blog and social-media items published after a paper's
+  retraction, **21.1%** tell readers it was retracted; for news it is 16.2%.
+- The most common stated reasons for retraction are paper mills and
+  compromised peer review (19.5% of papers each); 16.7% of papers' notices give
+  no reason at all.
+
+Every number below is read from a file. Paths are relative to this repository
+unless marked *dataset*: a file in the non-public dataset (see
+[Data availability](#data-availability)).
+
+## What I built
+
+- **A crawler that renders publisher pages and saves them as MHTML**, with a
+  per-host rate limiter, a WebKit fallback and recovery routes for pages
+  a publisher refuses (`src/rwpipe/fetch.py`, `scripts/crawl.py`,
+  `scripts/collect_*.py`).
+- **An identity check** that accepts a saved page only if it is the paper
+  asked for - by its own DOI metadata or a matching title, never by HTTP status
+  or size (`src/rwpipe/identity.py`, `scripts/verify_archives.py`).
+- **Text and notice extraction** for MHTML, HTML, publisher XML, JATS and PDF,
+  versioned and re-run in place when the rules change (`src/rwpipe/extract.py`,
+  `scripts/extract_text.py`, now at version 15).
+- **Engagement collection:** OpenAlex citations, Altmetric and PlumX attention,
+  on paper and notice DOIs (`scripts/collect_engagement.py`,
+  `scripts/collect_altmetric*.py`, `scripts/collect_plumx.py`).
+- **The analysis in R:** a matched control group, a difference-in-differences
+  citation comparison with placebo and robustness checks, media and notice
+  classification with a local open-weight model (Qwen3 14B), validated against
+  human labels with a written protocol (`R/`, `analysis/`).
+- **Reproducibility:** one R entry point (`run.R`), pinned R packages (renv)
+  and Python requirements, `reproduce_results()` that re-runs all 14 analyses
+  and compares every output with recorded checksums, and 701 Python tests and
+  17 R test suites (`tests/`).
+
+```mermaid
+flowchart LR
+  A["Retraction Watch<br/>71,698 records"] --> B["Queue<br/>109,888 DOIs"]
+  B --> C["Crawl + recovery routes"]
+  C --> D["Identity check<br/>96,211 verified (87.55%)"]
+  D --> E["Text + notice extraction"]
+  E --> F["Citations, Altmetric, PlumX"]
+  F --> G["Analysis in R<br/>14 reproducible scripts"]
+```
 
 ## Scale
 
-| | |
-|---|---:|
-| retraction records | 71,698 |
-| pages to collect (article + notice, de-duplicated) | 109,888 |
-| pages collected and verified | 87,239 (79.4%) |
-| records holding both the paper and its retraction notice, as text | 48,389 |
-| dated news, social and policy mentions | 1,437,966 |
-| distinct publisher hosts encountered | 1,240 |
-
-The archive itself is 31.5 GB compressed. It is not in this repository — see
-*Data availability*.
-
-## Two rules the whole thing rests on
-
-**A capture is verified by identity, not by size.** A 200 OK response of the
-right length is not evidence. ScienceDirect serves a full-size refusal page
-reading *"There was a problem providing the content you requested"*, and 10,265
-of those had been filed as successes on a size check alone — full size, correct
-structure, no error in the logs. A capture now counts only if the file contains
-the DOI it is filed under and its title matches the record. Every archive was
-re-checked individually and the verdict stored per document, so the rule can be
-disagreed with rather than taken on trust.
-
-**Every reported number carries the sample it rests on.** "8,682 documents are
-reachable" and "8,682 documents are reachable, from one request per host" are
-different claims, and only the second one can be challenged before it is
-believed. That distinction caught several wrong figures in this project, one of
-them a headline result that had already been reported.
-
-## The interesting problem: publishers refuse crawlers
-
-About a third of the queue cannot be fetched with a browser. Six evasion-shaped
-approaches were tried early and five did nothing, because the refusals arrive as
-HTTP 403 *before a page renders* — they are decided on the connection, not on
-browsing behaviour.
-
-What worked was not beating the block but not needing the blocked page. Seven
-routes, each measured rather than assumed:
-
-| route | recovered | note |
+| | | Source |
 |---|---:|---|
-| browser capture of the publisher's page | 70,180 | the main path, MHTML via CDP |
-| PubMed Central, via NCBI's `efetch` | 5,413 | the sanctioned bulk endpoint, not the web page PMC refuses |
-| Elsevier Article Retrieval API | 10,854 | after they granted TDM access and issued an institutional token; 10,854 of 10,858 requested, zero errors |
-| plain HTTP where the block is a browser fingerprint | 1,281 | cureus.com was 518/518 blocked, and returned 10 of 10 to `httpx` |
-| WebKit where Chromium is refused | 1,031 | MDPI: 8/8 against 0 of 1,036 |
-| open-access mirrors and long tail | 720 | repositories, SciELO, small publishers that answer a plain client |
-| university network | 2,120 | five hosts that answer a campus address and refuse a residential one |
+| Retraction Watch records | 71,698 | `data/reports/client-data-sheet.csv` |
+| distinct DOIs to collect (paper and notice pages) | 109,888 | same |
+| documents collected and verified by identity | 96,211 (87.55%) | *dataset* `data/clean/stage2_index.csv`; `data/reports/stage1-rendered-pages.csv` |
+| ... with full article text / the notice only | 44,411 / 51,386 | *dataset* `stage2_index.csv`, column `quality` |
+| pages not collected, each with a recorded cause | 13,677 | `data/reports/stage1-rendered-pages.csv` |
+| retracted papers (original DOIs) with tracked news on the paper or notice DOI | 9,006 of 62,867 (14.3%) | `data/reports/news-coverage-union.csv`, `news-coverage-population.csv` |
+| media articles classified, each counted once | 113,381 | `data/reports/media-with-notices-by-period.csv` (sum) |
+| retracted papers in the citation comparison (k = 1) | 34,269, with 98,015 controls | `data/reports/citation-impact-headline.csv` |
 
-Routes that were tried and **did not** pay, recorded because a measured dead end
-is worth more than an untried idea:
+## Two rules the project rests on
 
-- **Common Crawl** holds article URLs for three of the blocked publishers — 191
-  of the first 200 for one of them — and none of *our* DOIs: 0 of 18, in three
-  URL forms each. A per-host statistic and a per-document question have
-  different answers.
-- **Internet Archive / CDX**: 1 of 10 blocked hosts has usable snapshots. The
-  bot protection that refuses us refuses their crawler too.
-- **Semantic Scholar** reports an open-access PDF for 9% of the hardest cases,
-  but 9 of 11 URLs resolve back to the publisher page we cannot fetch. Real
-  yield 1.7%.
-- **Publisher-registered TDM endpoints** (Crossref `link[]`): 72 fetched across
-  20 hosts, 6 articles. A registered endpoint is a lead, not a route.
+**A capture counts by identity, not by status code or size.** ScienceDirect
+answers HTTP 200 with about 875 KB of scripts around the sentence "There was a
+problem providing the content you requested"; 10,049 such captures held no
+article, and 228 pages had been filed under a DOI the page does not carry
+(`src/rwpipe/fetch.py`, `contains_doi`). Of the 13,677 pages still not
+collected, 2,311 last returned HTTP 200 (mostly human-verification pages,
+interstitials and PubMed Central opt-outs), and the 293 MHTML pages rejected by
+the content check have a median size of 400 KiB against 446 KiB for the pages
+kept (`data/reports/stage1-rendered-pages.csv`). A document is accepted when
+its own DOI metadata, a clearly labelled visible DOI, a reviewed alias or a
+matching title identifies it; a DOI in the request URL, an archive toolbar or
+the references does not (`src/rwpipe/identity.py`). The verdict is stored per
+document, so it can be checked and disputed.
 
-## What this project would not do
+**Every number carries the sample it was computed on.** Asked what share of
+media articles published after the retraction say the paper was retracted,
+the data give 15.8% for the 37,211 articles filed under paper DOIs, 46.8% for
+the 12,859 filed under notice DOIs, and 21.1% for the 45,738 articles of both,
+each counted once (`data/reports/media-with-notices.csv`). All three are
+correct; only the third answers the question, and none can be checked without
+its sample.
 
-Forging a TLS fingerprint, solving challenges, rotating residential proxies, or
-running systematic collection through the university VPN.
+## Access routes
 
-That is not only a policy position — it is also measured. Real Chrome with a
-window on screen retrieves full articles from publishers that refuse both
-headless Chrome and the bundled Chromium. But eight documents per host later,
-the pattern is *one article per browsing session*, at any request spacing: it is
-a session gate, not a rate gate. Using it at scale means resetting the session
-for every document, which is defeating the control rather than obeying it. So
-the honest sentence in the report is not "these were unreachable" but "these
-were reachable by a method we declined to use", which is a stronger and more
-checkable claim.
+Many publishers refuse automated browsers. The project did not forge TLS
+fingerprints, solve CAPTCHAs or rotate proxies (`docs/blocking-strategy.md`);
+it added sanctioned routes: publisher APIs and licences, PubMed Central, the
+University network, open repositories and the Internet Archive. Verified documents
+by route (*dataset* `stage2_index.csv`, columns `source_kind` and
+`capture_format`); XML and HTML documents are never presented as MHTML:
 
-## Things that were silently wrong
+| Route | Documents | Format |
+|---|---:|---|
+| publisher page rendered in Chromium, saved as MHTML via CDP | 68,818 | MHTML |
+| publisher page via WebKit (hosts refusing Chromium) or a plain request | 1,258 | HTML |
+| Elsevier Article Retrieval API (text and data mining access) | 10,879 | Elsevier XML |
+| PubMed Central, NCBI E-utilities `efetch` | 5,425 | JATS XML |
+| Taylor & Francis, browser-saved pages supplied as a batch | 2,558 | MHTML |
+| IOP delivery under the University's text and data mining licence | 2,552 | JATS XML |
+| University network, for hosts that refuse a residential address | 2,377 | HTML |
+| SAGE, browser-saved pages supplied as a batch | 1,595 | MHTML |
+| open-access mirrors and repositories | 392 | MHTML |
+| long tail (plain HTTP 278, Crossref-registered URL 44) | 322 | HTML, 1 PDF |
+| Internet Archive | 35 | HTML |
+| **total** | **96,211** | |
 
-Most of the engineering time went here rather than into features. A selection,
-because the failure modes are the transferable part:
+## Architecture
 
-- **A re-run made the data worse than not running.** Four collectors rebuilt
-  rows without columns that a later pass had filled — one would have NULLed
-  62,867 flags. The fix that mattered was a *generic* test: every column a
-  script computes must appear in the statement that writes it. It immediately
-  found a second instance the specific test could not have.
-- **A flag that answered a narrower question than its name.**
-  `cited_after_retraction` was `citations_after > 0`, ignoring whether the
-  citation window reaches the retraction at all. For 33,292 papers there is no
-  "before" in the data, so every later citation looked like post-retraction
-  attention. It is now blank where the window cannot answer, not 0.
-- **A reader that knew two containers.** Archive decoding recognised MHTML and
-  rendered HTML. JATS XML from PubMed Central opens with an XML declaration, and
-  Elsevier's API response opens with a bare `<full-text-retrieval-response` —
-  so 5,425 verified documents were filed as "no text/html part", twice. Fixed
-  the third time with a rule instead of a list: an envelope begins with headers,
-  a document begins with a tag.
-- **A cleaning rule measured before it was trusted.** Truncating extracted text
-  at the first publisher-furniture marker looks obviously right. Measured, that
-  marker sits at a *median of 14%* into Springer and Nature articles — between
-  the abstract and the body. It would have emptied 7,204 article bodies while
-  reporting them clean.
-- **An error message about our own parser.** Two Crossref failures were reported
-  as `JSONDecodeError` on every host, which reads exactly like "this route does
-  not work". Both were an `Accept: text/html` header we had set ourselves.
+- **R is the entry point.** `source("run.R")` loads everything; `cs43_help()`
+  lists what can be run. R 4.6.1, packages pinned in `renv.lock`.
+- **Stages 1-2 (collection, extraction) are Python, called from R.** The code
+  is in `src/rwpipe/` and `scripts/`. `R/python.R` builds the environment from
+  the pinned `requirements.txt` through reticulate and uv; `R/stages.R` runs
+  each step as a child process. `run_pipeline()` (`R/handover.R`) collects
+  pages, text, citations and attention data for chosen DOIs into a separate
+  folder, never into the dataset.
+- **Stage 3 (analysis) is R:** control matching (`R/control_group.R`), the
+  citation comparison (`R/did.R`), labelling agreement (`R/labelling.R`) and
+  classification by an open-weight Qwen3 14B model run locally (`R/llm.R`).
+  Its prompts follow the labelling protocol (`docs/labelling-protocol.md`);
+  every answer carries a quoted reason, and `R/llm_evidence.R` checks that the
+  quote is in the text.
+- **One call reproduces the results.** `reproduce_results()` (`R/reproduce.R`)
+  runs the 14 scripts in `analysis/` that write `data/reports/`, each in its
+  own R process, and compares every output with the reference checksums in
+  `data/reports_reference.csv`. Methods notes are in `docs/`.
+- **Tests:** 701 Python tests (`tests/`, pytest) and 17 R suites
+  (`tests/r/test_*.R`).
 
-## Layout
+## Results
 
+### Citations after retraction, against matched controls
+
+Each retracted paper has up to three non-retracted controls from OpenAlex,
+drawn at random from the same journal, publication year and type, or from the
+same field where the journal has too few (`R/control_group.R`). The estimate
+is a ratio of ratios: the retracted papers' citations k years after against k
+years before, divided by the same change for their controls, pooled over
+strata in Mantel-Haenszel form, with a 95% interval from 1,000 bootstrap draws
+over strata (`R/did.R`, `analysis/citation_impact.R`). 1 means no difference.
+
+| Window | Papers | Controls | Ratio | 95% CI |
+|---|---:|---:|---:|---|
+| k = 1 year each side | 34,269 | 98,015 | 0.526 | 0.508 - 0.546 |
+| k = 2 years each side | 14,734 | 43,659 | 0.452 | 0.435 - 0.471 |
+| k = 3 years each side | 6,960 | 21,439 | 0.426 | 0.410 - 0.443 |
+
+Source: `data/reports/citation-impact-headline.csv`. At k = 1 the retracted
+papers' citations fell to 0.70 of the year before while their controls' rose
+to 1.39 (`treated_change`, `control_change`): retracted papers ended with about
+half the citations their controls' trajectory implies. Averaging per-paper
+ratios instead would have reported 0.774 (`naive_wrong`).
+
+**Placebo.** Moving both windows back before the retraction, where the true
+value is 1.000, gives 0.943 (0.924 - 0.962) at k = 1 and 0.947 (0.926 - 0.968)
+at k = 2 (`data/reports/citation-impact-placebo.csv`). Retracted papers were
+already losing ground before retraction, so the result is a fall relative to
+matched controls, not a pure causal effect; net of a drift that continued
+unchanged, k = 1 would be 0.558 (same file), a bound rather than a correction.
+Re-dealing each group's controls among its papers with five other seeds gives
+0.525 to 0.528 (`data/reports/citation-impact-redeal.csv`).
+
+![Citations of retracted papers relative to matched controls, by year from retraction](data/reports/citation-impact-event-study.png)
+
+### Does coverage after retraction tell readers?
+
+Media articles published after the paper's retraction that say it was
+retracted or withdrawn, by source with at least 50 such articles
+(`data/reports/media-with-notices-by-kind.csv`):
+
+| Source | Articles | Say retracted |
+|---|---:|---:|
+| blogs | 6,390 | 48.1% |
+| Bluesky | 1,757 | 41.4% |
+| Facebook | 2,542 | 31.2% |
+| news | 14,343 | 16.2% |
+| Google+ | 502 | 14.9% |
+| Reddit | 18,958 | 13.7% |
+| Q&A | 84 | 11.9% |
+| podcasts | 337 | 6.8% |
+| video | 848 | 5.7% |
+
+Across all sources: 21.1% of 45,738 articles after the retraction, 56.8% of
+2,035 on the day, 4.6% of 65,608 before it
+(`data/reports/media-with-notices-by-period.csv`). Of the 7,928 papers
+mentioned after retraction (leaving out papers reached only through
+mass-retraction notices), 4,775 (60.2%) are described as retracted at least
+once (`data/reports/media-with-notices.csv`).
+
+![Share of media items that say the paper was retracted, before, on and after the retraction](data/reports/figures/media-says-retracted-by-period.png)
+
+Uncertainty. On "does the item tell the reader it was retracted?" the model
+matched the seven labellers' majority on 92.4% of 197 items (Cohen's kappa
+0.82); the labellers' own Krippendorff alpha was 0.77
+(`data/reports/llm-validation.csv`, prompt v2), and 0.86 on 100 social-media
+items (`data/reports/labelling-round2.csv`). In a sample of 4,000 answers,
+2,693 quoted evidence found in the text and 439 quoted text that is not there
+(`data/reports/media-classification-evidence-check-sample.csv`). The finer
+five categories (repeats the finding, questions it, unrelated, ...) are not
+used for conclusions: the labellers' alpha on them was 0.59
+(`data/reports/labelling-agreement.csv`).
+
+### What retraction notices say
+
+Reasons stated in the notice, as a share of retracted papers with a classified
+notice; a notice can state several
+(`data/reports/notice-classification-reasons-overall.csv`). Kappa is the model
+against the seven-labeller majority on 200 validation notices
+(`data/reports/llm-validation.csv`).
+
+| Reason | Papers | Share | Kappa |
+|---|---:|---:|---:|
+| paper mill | 10,270 | 19.5% | 0.86 |
+| compromised peer review | 10,248 | 19.5% | 0.96 |
+| other | 9,174 | 17.4% | below |
+| no reason given | 8,782 | 16.7% | below |
+| image problems | 6,624 | 12.6% | 0.95 |
+| authorship or ethics | 5,694 | 10.8% | 0.94 |
+| duplicate publication | 3,910 | 7.4% | 1.00 |
+| plagiarism | 3,888 | 7.4% | 0.85 |
+| honest error | 2,793 | 5.3% | 0.74 |
+| fabrication or falsification | 1,362 | 2.6% | 0.66 |
+
+![Reasons stated in retraction notices](data/reports/figures/notice-reasons.png)
+
+The model over-called "no reason" (46 notices against the labellers' 20) where
+a notice cites a policy violation. A rule taken from the protocol's own
+definition moves those to "other"; after it, agreement with the majority is
+97.5% for "no reason" and 88.9% for "other" on 199 notices
+(`data/reports/notice-r0-check.csv`). Clarity, for the 52,647 papers with a
+rating: no reason 10.0%, vague 50.9%, partial 18.0%, clear 21.1%
+(`data/reports/notice-classification-clarity-overall.csv`). These shares are
+indicative only: the labellers' alpha on clarity was 0.55 and the model's
+kappa 0.34 (`data/reports/llm-validation.csv`).
+
+Breakdowns by reason, country, publisher and discipline are the
+`data/reports/*-by-*.csv` tables; figures are in `data/reports/figures/`.
+
+## How to run
+
+```r
+renv::restore()
+source("run.R")
+cs43_help()
+reproduce_results()          # needs the dataset; no API keys, no model server
+
+use_pipeline_python()        # collection: first-time setup, needs internet
+install_browser()
+Sys.setenv(RWPIPE_CONTACT = "your.email@example.edu")
+res <- run_pipeline(c("10.1371/journal.pone.0066275", "record:70871"))
 ```
-src/rwpipe/
-  fetch.py      Playwright renderer, CDP MHTML capture, bot-wall classifier,
-                and the identity check that decides what counts
-  extract.py    article body, abstract, retraction notice; HTML, JATS and
-                Elsevier XML paths
-  db.py         SQLite schema — resumable frontier, engagement, extracted text
-  storage.py    content-addressed archive paths, identical on every machine
-  limiter.py    per-host rate limiting and circuit breaking
-  altmetric.py / plumx.py / engagement.py / apis.py
-scripts/
-  crawl.py             the Stage 1 crawler
-  verify_archives.py   identity verification
-  extract_text.py      Stage 2
-  collect_*.py         one per access route
-  probe_*.py           feasibility probes — run before committing to a route
-  export_missing.py    every page we do not have, why, and what could reach it
-tests/                 54 tests
-docs/
-  worklog.md              dated record of every decision and measurement
-  blocking-strategy.md    the access problem, with the numbers behind each route
-  findings-week4.md       evidence behind the architecture
-```
 
-## Running it
-
-```bash
-python -m venv .venv
-.venv/Scripts/python.exe -m pip install -r requirements.txt
-.venv/Scripts/python.exe -m playwright install chromium
-cp .env.example .env      # API keys — never committed
-```
-
-```bash
-python scripts/build_queue.py        # CSV -> SQLite frontier
-python scripts/crawl.py              # Stage 1, resumable
-python scripts/verify_archives.py    # decides what counts as collected
-python scripts/collect_engagement.py # citations, attention, Wikipedia
-python scripts/extract_text.py       # Stage 2
-python scripts/export_master.py      # the joined table
-```
-
-Every step is resumable and safe to re-run. That was not true until an audit
-made it true, which is the subject of half the fixes above.
+Tests: `python -m pytest -q`, and `Rscript --vanilla tests/r/test_<name>.R`
+for each R suite. In this public copy 697 Python tests pass and 4 skip (a
+local audit capture is not distributed); 16 of the 17 R suites pass, and
+`test_analysis_data.R` reports its four dataset archives missing because the
+dataset is not included. [HANDOVER.md](HANDOVER.md) is the full user guide:
+installing the dataset, API keys, collecting selected DOIs, Windows and macOS.
 
 ## Data availability
 
-The collected corpus is **not** published here, for three separate reasons:
+The dataset is not public. With the saved pages it is about 53 GB
+(`HANDOVER.md`), and it includes publisher full texts obtained under text and
+data mining terms that allow analysis, not redistribution, so it is held
+under University of Sydney licences. This repository holds the code,
+tests, methods documents and result tables and figures: 134 of the 157 outputs
+listed by the project's checksum reference. The other 23 are withheld: 22
+contain long text fields or bulk excerpts of notice text, and one holds
+per-labeller figures. Labellers appear as Labeller A to G, and per-labeller
+rows are left out of `data/reports/labelling-agreement.csv`. Code comments that cite "the project log" refer to the
+author's dated development log, which is not published.
 
-- the article text is publisher copyright, obtained under a text-and-data-mining
-  grant for one-time academic use with no redistribution;
-- the attention data was retrieved under a licensed API key belonging to the
-  project's client;
-- it is 31.3 GB.
+## Limitations
 
-The Retraction Watch source data is openly licensed (CC BY 4.0) and available
-from Crossref. Everything in this repository is code and documentation.
-
-## Tests
-
-```bash
-python -m pytest -q
-```
-
-54 tests. The ones worth reading are in `tests/test_persistence.py` — they check
-that re-running a collector reproduces the dataset rather than damaging it,
-which is the class of bug that cost this project the most.
+- **Coverage.** 13,677 of 109,888 pages were not collected; for 6,293 the last
+  response was HTTP 403 (`data/reports/stage1-rendered-pages.csv`).
+- **Identity is not completeness.** 11,920 article pages kept as MHTML have a
+  body under 5,000 characters and no extracted abstract, so their content is
+  undetermined (same file); 51,386 of the 96,211 documents are the notice only.
+- **News is tracked DOI mentions** (Altmetric; PlumX gives counts without
+  dates or text), not unique stories, and not necessarily about the retraction.
+  757 of the 9,006 papers with news have no Retraction record, only other
+  record types such as corrections or expressions of concern
+  (`data/reports/news-coverage-population.csv`); the media prompt assumes a
+  retraction.
+- **Citations.** OpenAlex counts by year, so the retraction year is excluded
+  and windows must fit 2012-2025: 34,269 of 57,824 eligible papers enter at
+  k = 1 (`data/reports/citation-impact-funnel.csv`). The placebo shows a
+  pre-existing drift; the estimate is not causal.
+- **Validation size.** Each labelled task has 100 to 200 items, seven labellers.

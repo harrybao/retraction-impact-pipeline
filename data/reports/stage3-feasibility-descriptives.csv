@@ -1,0 +1,373 @@
+section,metric,value,denominator
+3_time_to_retraction,records_retraction_nature,66445,71698 records
+3_time_to_retraction,retraction_date_blank,0,66445 Retraction-nature records
+3_time_to_retraction,retraction_date_nonblank_unparsed,0,66445 Retraction-nature records
+3_time_to_retraction,original_date_blank,0,66445 Retraction-nature records
+3_time_to_retraction,original_date_nonblank_unparsed,0,66445 Retraction-nature records
+3_time_to_retraction,either_date_unparsed,0,66445 Retraction-nature records
+3_time_to_retraction,both_dates_parsed,66445,66445 Retraction-nature records
+3_time_to_retraction,days_lt_minus1_retraction_before_publication,0,66445 records with both dates parsed
+3_time_to_retraction,days_eq_0,1839,66445 records with both dates parsed
+3_time_to_retraction,bulk_outlier_dois_ge145_records,2,62867 papers (distinct original DOI)
+3_time_to_retraction,retraction_records_on_bulk_outlier_dois,145,66445 Retraction-nature records
+3_time_to_retraction,main_records_days_ge_minus1|overall|n,66445,"Retraction-nature records, both dates parsed, days>=-1"
+3_time_to_retraction,main_records_days_ge_minus1|overall|median_days,490.0,"66445 Retraction-nature records, both dates parsed, days>=-1"
+3_time_to_retraction,main_records_days_ge_minus1|overall|q1_days,149.0,"66445 Retraction-nature records, both dates parsed, days>=-1"
+3_time_to_retraction,main_records_days_ge_minus1|overall|q3_days,1048.0,"66445 Retraction-nature records, both dates parsed, days>=-1"
+3_time_to_retraction,main_records_days_ge_minus1|overall|iqr_days,899.0,"66445 Retraction-nature records, both dates parsed, days>=-1"
+3_time_to_retraction,main_records_days_ge_minus1|band=before 2010|n,3243,"Retraction-nature records, both dates parsed, days>=-1, retraction band before 2010"
+3_time_to_retraction,main_records_days_ge_minus1|band=before 2010|median_days,187.0,"3243 Retraction-nature records, both dates parsed, days>=-1, retraction band before 2010"
+3_time_to_retraction,main_records_days_ge_minus1|band=before 2010|q1_days,40.0,"3243 Retraction-nature records, both dates parsed, days>=-1, retraction band before 2010"
+3_time_to_retraction,main_records_days_ge_minus1|band=before 2010|q3_days,728.0,"3243 Retraction-nature records, both dates parsed, days>=-1, retraction band before 2010"
+3_time_to_retraction,main_records_days_ge_minus1|band=before 2010|iqr_days,688.0,"3243 Retraction-nature records, both dates parsed, days>=-1, retraction band before 2010"
+3_time_to_retraction,main_records_days_ge_minus1|band=2010-2014|n,13674,"Retraction-nature records, both dates parsed, days>=-1, retraction band 2010-2014"
+3_time_to_retraction,main_records_days_ge_minus1|band=2010-2014|median_days,54.0,"13674 Retraction-nature records, both dates parsed, days>=-1, retraction band 2010-2014"
+3_time_to_retraction,main_records_days_ge_minus1|band=2010-2014|q1_days,30.0,"13674 Retraction-nature records, both dates parsed, days>=-1, retraction band 2010-2014"
+3_time_to_retraction,main_records_days_ge_minus1|band=2010-2014|q3_days,182.0,"13674 Retraction-nature records, both dates parsed, days>=-1, retraction band 2010-2014"
+3_time_to_retraction,main_records_days_ge_minus1|band=2010-2014|iqr_days,152.0,"13674 Retraction-nature records, both dates parsed, days>=-1, retraction band 2010-2014"
+3_time_to_retraction,main_records_days_ge_minus1|band=2015-2019|n,10381,"Retraction-nature records, both dates parsed, days>=-1, retraction band 2015-2019"
+3_time_to_retraction,main_records_days_ge_minus1|band=2015-2019|median_days,603.0,"10381 Retraction-nature records, both dates parsed, days>=-1, retraction band 2015-2019"
+3_time_to_retraction,main_records_days_ge_minus1|band=2015-2019|q1_days,202.0,"10381 Retraction-nature records, both dates parsed, days>=-1, retraction band 2015-2019"
+3_time_to_retraction,main_records_days_ge_minus1|band=2015-2019|q3_days,1500.0,"10381 Retraction-nature records, both dates parsed, days>=-1, retraction band 2015-2019"
+3_time_to_retraction,main_records_days_ge_minus1|band=2015-2019|iqr_days,1298.0,"10381 Retraction-nature records, both dates parsed, days>=-1, retraction band 2015-2019"
+3_time_to_retraction,main_records_days_ge_minus1|band=2020-2022|n,12562,"Retraction-nature records, both dates parsed, days>=-1, retraction band 2020-2022"
+3_time_to_retraction,main_records_days_ge_minus1|band=2020-2022|median_days,602.5,"12562 Retraction-nature records, both dates parsed, days>=-1, retraction band 2020-2022"
+3_time_to_retraction,main_records_days_ge_minus1|band=2020-2022|q1_days,244.0,"12562 Retraction-nature records, both dates parsed, days>=-1, retraction band 2020-2022"
+3_time_to_retraction,main_records_days_ge_minus1|band=2020-2022|q3_days,1335.8,"12562 Retraction-nature records, both dates parsed, days>=-1, retraction band 2020-2022"
+3_time_to_retraction,main_records_days_ge_minus1|band=2020-2022|iqr_days,1091.8,"12562 Retraction-nature records, both dates parsed, days>=-1, retraction band 2020-2022"
+3_time_to_retraction,main_records_days_ge_minus1|band=2023 onwards|n,26585,"Retraction-nature records, both dates parsed, days>=-1, retraction band 2023 onwards"
+3_time_to_retraction,main_records_days_ge_minus1|band=2023 onwards|median_days,603.0,"26585 Retraction-nature records, both dates parsed, days>=-1, retraction band 2023 onwards"
+3_time_to_retraction,main_records_days_ge_minus1|band=2023 onwards|q1_days,411.0,"26585 Retraction-nature records, both dates parsed, days>=-1, retraction band 2023 onwards"
+3_time_to_retraction,main_records_days_ge_minus1|band=2023 onwards|q3_days,1051.0,"26585 Retraction-nature records, both dates parsed, days>=-1, retraction band 2023 onwards"
+3_time_to_retraction,main_records_days_ge_minus1|band=2023 onwards|iqr_days,640.0,"26585 Retraction-nature records, both dates parsed, days>=-1, retraction band 2023 onwards"
+3_time_to_retraction,variant_records_incl_negative|overall|n,66445,"Retraction-nature records, both dates parsed (negatives kept)"
+3_time_to_retraction,variant_records_incl_negative|overall|median_days,490.0,"66445 Retraction-nature records, both dates parsed (negatives kept)"
+3_time_to_retraction,variant_records_incl_negative|overall|q1_days,149.0,"66445 Retraction-nature records, both dates parsed (negatives kept)"
+3_time_to_retraction,variant_records_incl_negative|overall|q3_days,1048.0,"66445 Retraction-nature records, both dates parsed (negatives kept)"
+3_time_to_retraction,variant_records_incl_negative|overall|iqr_days,899.0,"66445 Retraction-nature records, both dates parsed (negatives kept)"
+3_time_to_retraction,variant_records_excl_bulk_dois|overall|n,66300,"Retraction-nature records, both dates parsed, days>=-1, excl 2 bulk DOIs"
+3_time_to_retraction,variant_records_excl_bulk_dois|overall|median_days,490.0,"66300 Retraction-nature records, both dates parsed, days>=-1, excl 2 bulk DOIs"
+3_time_to_retraction,variant_records_excl_bulk_dois|overall|q1_days,152.0,"66300 Retraction-nature records, both dates parsed, days>=-1, excl 2 bulk DOIs"
+3_time_to_retraction,variant_records_excl_bulk_dois|overall|q3_days,1050.0,"66300 Retraction-nature records, both dates parsed, days>=-1, excl 2 bulk DOIs"
+3_time_to_retraction,variant_records_excl_bulk_dois|overall|iqr_days,898.0,"66300 Retraction-nature records, both dates parsed, days>=-1, excl 2 bulk DOIs"
+3_time_to_retraction,records_band=before 2010|unparsed_original_date,0,3243 Retraction-nature records in band before 2010
+3_time_to_retraction,records_band=2010-2014|unparsed_original_date,0,13674 Retraction-nature records in band 2010-2014
+3_time_to_retraction,records_band=2015-2019|unparsed_original_date,0,10381 Retraction-nature records in band 2015-2019
+3_time_to_retraction,records_band=2020-2022|unparsed_original_date,0,12562 Retraction-nature records in band 2020-2022
+3_time_to_retraction,records_band=2023 onwards|unparsed_original_date,0,26585 Retraction-nature records in band 2023 onwards
+3_time_to_retraction,variant_papers_earliest_retraction_record|overall|n,60405,"papers, earliest Retraction record, both dates parsed, days>=-1"
+3_time_to_retraction,variant_papers_earliest_retraction_record|overall|median_days,497.0,"60405 papers, earliest Retraction record, both dates parsed, days>=-1"
+3_time_to_retraction,variant_papers_earliest_retraction_record|overall|q1_days,188.0,"60405 papers, earliest Retraction record, both dates parsed, days>=-1"
+3_time_to_retraction,variant_papers_earliest_retraction_record|overall|q3_days,1033.0,"60405 papers, earliest Retraction record, both dates parsed, days>=-1"
+3_time_to_retraction,variant_papers_earliest_retraction_record|overall|iqr_days,845.0,"60405 papers, earliest Retraction record, both dates parsed, days>=-1"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=before 2010|n,2917,"papers, earliest Retraction record, both dates parsed, days>=-1, band before 2010"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=before 2010|median_days,156.0,"2917 papers, earliest Retraction record, both dates parsed, days>=-1, band before 2010"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=before 2010|q1_days,40.0,"2917 papers, earliest Retraction record, both dates parsed, days>=-1, band before 2010"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=before 2010|q3_days,658.0,"2917 papers, earliest Retraction record, both dates parsed, days>=-1, band before 2010"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=before 2010|iqr_days,618.0,"2917 papers, earliest Retraction record, both dates parsed, days>=-1, band before 2010"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2010-2014|n,11104,"papers, earliest Retraction record, both dates parsed, days>=-1, band 2010-2014"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2010-2014|median_days,54.0,"11104 papers, earliest Retraction record, both dates parsed, days>=-1, band 2010-2014"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2010-2014|q1_days,31.0,"11104 papers, earliest Retraction record, both dates parsed, days>=-1, band 2010-2014"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2010-2014|q3_days,299.0,"11104 papers, earliest Retraction record, both dates parsed, days>=-1, band 2010-2014"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2010-2014|iqr_days,268.0,"11104 papers, earliest Retraction record, both dates parsed, days>=-1, band 2010-2014"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2015-2019|n,8207,"papers, earliest Retraction record, both dates parsed, days>=-1, band 2015-2019"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2015-2019|median_days,487.0,"8207 papers, earliest Retraction record, both dates parsed, days>=-1, band 2015-2019"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2015-2019|q1_days,177.5,"8207 papers, earliest Retraction record, both dates parsed, days>=-1, band 2015-2019"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2015-2019|q3_days,1468.5,"8207 papers, earliest Retraction record, both dates parsed, days>=-1, band 2015-2019"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2015-2019|iqr_days,1291.0,"8207 papers, earliest Retraction record, both dates parsed, days>=-1, band 2015-2019"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2020-2022|n,11800,"papers, earliest Retraction record, both dates parsed, days>=-1, band 2020-2022"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2020-2022|median_days,592.0,"11800 papers, earliest Retraction record, both dates parsed, days>=-1, band 2020-2022"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2020-2022|q1_days,242.0,"11800 papers, earliest Retraction record, both dates parsed, days>=-1, band 2020-2022"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2020-2022|q3_days,1294.0,"11800 papers, earliest Retraction record, both dates parsed, days>=-1, band 2020-2022"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2020-2022|iqr_days,1052.0,"11800 papers, earliest Retraction record, both dates parsed, days>=-1, band 2020-2022"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2023 onwards|n,26377,"papers, earliest Retraction record, both dates parsed, days>=-1, band 2023 onwards"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2023 onwards|median_days,606.0,"26377 papers, earliest Retraction record, both dates parsed, days>=-1, band 2023 onwards"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2023 onwards|q1_days,413.0,"26377 papers, earliest Retraction record, both dates parsed, days>=-1, band 2023 onwards"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2023 onwards|q3_days,1052.0,"26377 papers, earliest Retraction record, both dates parsed, days>=-1, band 2023 onwards"
+3_time_to_retraction,variant_papers_earliest_retraction_record|band=2023 onwards|iqr_days,639.0,"26377 papers, earliest Retraction record, both dates parsed, days>=-1, band 2023 onwards"
+3_time_to_retraction,papers_earliest_retraction_record_days_unparsed,0,60405 papers with a Retraction-nature record
+4_subjects,subject_pairs_raw_split,195350,71698 records
+4_subjects,subject_pairs_dedup_within_record,195349,71698 records
+4_subjects,subject_distinct_items,130,71698 records
+4_subjects,records_with_no_subject,0,71698 records
+4_subjects,papers_with_no_subject_on_any_record,0,62867 papers (distinct original DOI)
+4_subjects,subject=(BLS) Biology - Cellular|top15_by_records|records,12822,71698 records
+4_subjects,subject=(BLS) Biology - Cellular|top15_by_records|records_retraction_nature,11172,66445 Retraction-nature records
+4_subjects,subject=(BLS) Biology - Cellular|top15_by_records|papers,11579,62867 papers (distinct original DOI)
+4_subjects,subject=(B/T) Technology|top15_by_records|records,12613,71698 records
+4_subjects,subject=(B/T) Technology|top15_by_records|records_retraction_nature,12258,66445 Retraction-nature records
+4_subjects,subject=(B/T) Technology|top15_by_records|papers,11265,62867 papers (distinct original DOI)
+4_subjects,subject=(B/T) Computer Science|top15_by_records|records,9474,71698 records
+4_subjects,subject=(B/T) Computer Science|top15_by_records|records_retraction_nature,9322,66445 Retraction-nature records
+4_subjects,subject=(B/T) Computer Science|top15_by_records|papers,8861,62867 papers (distinct original DOI)
+4_subjects,subject=(BLS) Genetics|top15_by_records|records,9402,71698 records
+4_subjects,subject=(BLS) Genetics|top15_by_records|records_retraction_nature,8443,66445 Retraction-nature records
+4_subjects,subject=(BLS) Genetics|top15_by_records|papers,8665,62867 papers (distinct original DOI)
+4_subjects,subject=(BLS) Biochemistry|top15_by_records|records,8620,71698 records
+4_subjects,subject=(BLS) Biochemistry|top15_by_records|records_retraction_nature,7649,66445 Retraction-nature records
+4_subjects,subject=(BLS) Biochemistry|top15_by_records|papers,7847,62867 papers (distinct original DOI)
+4_subjects,subject=(BLS) Biology - Cancer|top15_by_records|records,7126,71698 records
+4_subjects,subject=(BLS) Biology - Cancer|top15_by_records|records_retraction_nature,6378,66445 Retraction-nature records
+4_subjects,subject=(BLS) Biology - Cancer|top15_by_records|papers,6524,62867 papers (distinct original DOI)
+4_subjects,subject=(B/T) Data Science|top15_by_records|records,5768,71698 records
+4_subjects,subject=(B/T) Data Science|top15_by_records|records_retraction_nature,5694,66445 Retraction-nature records
+4_subjects,subject=(B/T) Data Science|top15_by_records|papers,5720,62867 papers (distinct original DOI)
+4_subjects,subject=(SOC) Education|top15_by_records|records,5423,71698 records
+4_subjects,subject=(SOC) Education|top15_by_records|records_retraction_nature,5226,66445 Retraction-nature records
+4_subjects,subject=(SOC) Education|top15_by_records|papers,4318,62867 papers (distinct original DOI)
+4_subjects,subject=(BLS) Biology - Molecular|top15_by_records|records,5123,71698 records
+4_subjects,subject=(BLS) Biology - Molecular|top15_by_records|records_retraction_nature,4490,66445 Retraction-nature records
+4_subjects,subject=(BLS) Biology - Molecular|top15_by_records|papers,4684,62867 papers (distinct original DOI)
+4_subjects,subject=(B/T) Business - Economics|top15_by_records|records,4188,71698 records
+4_subjects,subject=(B/T) Business - Economics|top15_by_records|records_retraction_nature,4138,66445 Retraction-nature records
+4_subjects,subject=(B/T) Business - Economics|top15_by_records|papers,3359,62867 papers (distinct original DOI)
+4_subjects,subject=(PHY) Mathematics|top15_by_records|records,4140,71698 records
+4_subjects,subject=(PHY) Mathematics|top15_by_records|records_retraction_nature,4083,66445 Retraction-nature records
+4_subjects,subject=(PHY) Mathematics|top15_by_records|papers,2200,62867 papers (distinct original DOI)
+4_subjects,subject=(HSC) Medicine - Oncology|top15_by_records|records,4134,71698 records
+4_subjects,subject=(HSC) Medicine - Oncology|top15_by_records|records_retraction_nature,3845,66445 Retraction-nature records
+4_subjects,subject=(HSC) Medicine - Oncology|top15_by_records|papers,3865,62867 papers (distinct original DOI)
+4_subjects,subject=(ENV) Environmental Sciences|top15_by_records|records,3440,71698 records
+4_subjects,subject=(ENV) Environmental Sciences|top15_by_records|records_retraction_nature,3242,66445 Retraction-nature records
+4_subjects,subject=(ENV) Environmental Sciences|top15_by_records|papers,3019,62867 papers (distinct original DOI)
+4_subjects,subject=(HSC) Medicine - Pharmacology|top15_by_records|records,3380,71698 records
+4_subjects,subject=(HSC) Medicine - Pharmacology|top15_by_records|records_retraction_nature,3013,66445 Retraction-nature records
+4_subjects,subject=(HSC) Medicine - Pharmacology|top15_by_records|papers,3059,62867 papers (distinct original DOI)
+4_subjects,subject=(PHY) Materials Science|top15_by_records|records,3287,71698 records
+4_subjects,subject=(PHY) Materials Science|top15_by_records|records_retraction_nature,3125,66445 Retraction-nature records
+4_subjects,subject=(PHY) Materials Science|top15_by_records|papers,3049,62867 papers (distinct original DOI)
+4_subjects,subject=(HSC) Medicine - Surgery|top15_by_papers_only|records,2692,71698 records
+4_subjects,subject=(HSC) Medicine - Surgery|top15_by_papers_only|records_retraction_nature,2543,66445 Retraction-nature records
+4_subjects,subject=(HSC) Medicine - Surgery|top15_by_papers_only|papers,2494,62867 papers (distinct original DOI)
+4_subjects,subject_code=(no code)|records,26243,71698 records
+4_subjects,subject_code=(no code)|papers,22948,62867 papers (distinct original DOI)
+4_subjects,subject_code=BLS|records,24264,71698 records
+4_subjects,subject_code=BLS|papers,21961,62867 papers (distinct original DOI)
+4_subjects,subject_code=HSC|records,23714,71698 records
+4_subjects,subject_code=HSC|papers,21450,62867 papers (distinct original DOI)
+4_subjects,subject_code=PHY|records,16767,71698 records
+4_subjects,subject_code=PHY|papers,14039,62867 papers (distinct original DOI)
+4_subjects,subject_code=SOC|records,11314,71698 records
+4_subjects,subject_code=SOC|papers,9108,62867 papers (distinct original DOI)
+4_subjects,subject_code=ENV|records,4933,71698 records
+4_subjects,subject_code=ENV|papers,4198,62867 papers (distinct original DOI)
+4_subjects,subject_code=HUM|records,2404,71698 records
+4_subjects,subject_code=HUM|papers,1937,62867 papers (distinct original DOI)
+4_countries,country_pairs_raw_split,90565,71698 records
+4_countries,country_pairs_dedup_within_record,90565,71698 records
+4_countries,country_distinct_items,184,71698 records
+4_countries,records_with_no_country,0,71698 records
+4_countries,papers_with_no_country_on_any_record,0,62867 papers (distinct original DOI)
+4_countries,country=China|top15_by_records|records,37925,71698 records
+4_countries,country=China|top15_by_records|records_retraction_nature,36183,66445 Retraction-nature records
+4_countries,country=China|top15_by_records|papers,34372,62867 papers (distinct original DOI)
+4_countries,country=United States|top15_by_records|records,7438,71698 records
+4_countries,country=United States|top15_by_records|records_retraction_nature,6209,66445 Retraction-nature records
+4_countries,country=United States|top15_by_records|papers,6547,62867 papers (distinct original DOI)
+4_countries,country=India|top15_by_records|records,6351,71698 records
+4_countries,country=India|top15_by_records|records_retraction_nature,6012,66445 Retraction-nature records
+4_countries,country=India|top15_by_records|papers,6047,62867 papers (distinct original DOI)
+4_countries,country=Russia|top15_by_records|records,3165,71698 records
+4_countries,country=Russia|top15_by_records|records_retraction_nature,3117,66445 Retraction-nature records
+4_countries,country=Russia|top15_by_records|papers,1148,62867 papers (distinct original DOI)
+4_countries,country=Saudi Arabia|top15_by_records|records,2536,71698 records
+4_countries,country=Saudi Arabia|top15_by_records|records_retraction_nature,2262,66445 Retraction-nature records
+4_countries,country=Saudi Arabia|top15_by_records|papers,2374,62867 papers (distinct original DOI)
+4_countries,country=Iran|top15_by_records|records,2164,71698 records
+4_countries,country=Iran|top15_by_records|records_retraction_nature,1966,66445 Retraction-nature records
+4_countries,country=Iran|top15_by_records|papers,1991,62867 papers (distinct original DOI)
+4_countries,country=United Kingdom|top15_by_records|records,2122,71698 records
+4_countries,country=United Kingdom|top15_by_records|records_retraction_nature,1772,66445 Retraction-nature records
+4_countries,country=United Kingdom|top15_by_records|papers,1917,62867 papers (distinct original DOI)
+4_countries,country=Japan|top15_by_records|records,1873,71698 records
+4_countries,country=Japan|top15_by_records|records_retraction_nature,1607,66445 Retraction-nature records
+4_countries,country=Japan|top15_by_records|papers,1664,62867 papers (distinct original DOI)
+4_countries,country=Pakistan|top15_by_records|records,1608,71698 records
+4_countries,country=Pakistan|top15_by_records|records_retraction_nature,1553,66445 Retraction-nature records
+4_countries,country=Pakistan|top15_by_records|papers,1541,62867 papers (distinct original DOI)
+4_countries,country=Germany|top15_by_records|records,1558,71698 records
+4_countries,country=Germany|top15_by_records|records_retraction_nature,1341,66445 Retraction-nature records
+4_countries,country=Germany|top15_by_records|papers,1371,62867 papers (distinct original DOI)
+4_countries,country=South Korea|top15_by_records|records,1530,71698 records
+4_countries,country=South Korea|top15_by_records|records_retraction_nature,1422,66445 Retraction-nature records
+4_countries,country=South Korea|top15_by_records|papers,1363,62867 papers (distinct original DOI)
+4_countries,country=Egypt|top15_by_records|records,1313,71698 records
+4_countries,country=Egypt|top15_by_records|records_retraction_nature,1187,66445 Retraction-nature records
+4_countries,country=Egypt|top15_by_records|papers,1232,62867 papers (distinct original DOI)
+4_countries,country=Italy|top15_by_records|records,1256,71698 records
+4_countries,country=Italy|top15_by_records|records_retraction_nature,994,66445 Retraction-nature records
+4_countries,country=Italy|top15_by_records|papers,1098,62867 papers (distinct original DOI)
+4_countries,country=France|top15_by_records|records,1132,71698 records
+4_countries,country=France|top15_by_records|records_retraction_nature,723,66445 Retraction-nature records
+4_countries,country=France|top15_by_records|papers,1006,62867 papers (distinct original DOI)
+4_countries,country=Malaysia|top15_by_records|records,1017,71698 records
+4_countries,country=Malaysia|top15_by_records|records_retraction_nature,970,66445 Retraction-nature records
+4_countries,country=Malaysia|top15_by_records|papers,959,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|distinct_publishers,1712,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Hindawi|records,11524,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Hindawi|papers_by_anchor_record,11507,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=IEEE: Institute of Electrical and Electronics Engineers|records,10098,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=IEEE: Institute of Electrical and Electronics Engineers|papers_by_anchor_record,7797,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Elsevier|records,7277,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Elsevier|papers_by_anchor_record,6970,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Springer|records,5211,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Springer|papers_by_anchor_record,4639,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Wiley|records,4292,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Wiley|papers_by_anchor_record,4185,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Springer - Nature Publishing Group|records,3339,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Springer - Nature Publishing Group|papers_by_anchor_record,3197,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Taylor and Francis|records,2021,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Taylor and Francis|papers_by_anchor_record,1780,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=IOS Press (bought by Sage November 2023)|records,1786,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=IOS Press (bought by Sage November 2023)|papers_by_anchor_record,1783,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=SAGE Publications|records,1730,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=SAGE Publications|papers_by_anchor_record,1461,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=PLoS|records,1615,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=PLoS|papers_by_anchor_record,1505,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=IOP Publishing|records,1294,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=IOP Publishing|papers_by_anchor_record,1290,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Spandidos|records,1005,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Spandidos|papers_by_anchor_record,983,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Oxford University Press|records,1003,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Oxford University Press|papers_by_anchor_record,633,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Elsevier - Cell Press|records,919,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=Elsevier - Cell Press|papers_by_anchor_record,900,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=EDP Sciences|records,786,71698 records
+4_publisher_ranking,rule=strip_only_clean_data_py|publisher=EDP Sciences|papers_by_anchor_record,783,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|distinct_publishers,1706,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Hindawi|records,11524,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Hindawi|papers_by_anchor_record,11507,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=IEEE: Institute of Electrical and Electronics Engineers|records,10098,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=IEEE: Institute of Electrical and Electronics Engineers|papers_by_anchor_record,7797,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Springer [family]|records,9539,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Springer [family]|papers_by_anchor_record,8711,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Elsevier [family]|records,8196,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Elsevier [family]|papers_by_anchor_record,7870,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Wiley|records,4292,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Wiley|papers_by_anchor_record,4185,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Taylor and Francis|records,2021,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Taylor and Francis|papers_by_anchor_record,1780,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=IOS Press (bought by Sage November 2023)|records,1786,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=IOS Press (bought by Sage November 2023)|papers_by_anchor_record,1783,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=SAGE Publications|records,1730,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=SAGE Publications|papers_by_anchor_record,1461,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=PLoS|records,1615,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=PLoS|papers_by_anchor_record,1505,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=IOP Publishing|records,1294,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=IOP Publishing|papers_by_anchor_record,1290,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Spandidos|records,1005,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Spandidos|papers_by_anchor_record,983,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Oxford University Press|records,1003,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Oxford University Press|papers_by_anchor_record,633,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=EDP Sciences|records,786,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=EDP Sciences|papers_by_anchor_record,783,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Frontiers|records,750,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Frontiers|papers_by_anchor_record,706,62867 papers (distinct original DOI)
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Taylor and Francis - Dove Press|records,628,71698 records
+4_publisher_ranking,rule=strip_plus_springer_elsevier_family|publisher=Taylor and Francis - Dove Press|papers_by_anchor_record,579,62867 papers (distinct original DOI)
+5_article_page_notice,overall|n_rows,40359,93771 v11 document_text rows (documents)
+5_article_page_notice,overall|notice_nonempty,31232,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_ge_200_chars,26389,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|quality_full,39825,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|quality_full_and_notice_nonempty,30875,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|in_shared_bodies_notice_replaces_article,354,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_method=cue,25414,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_method=none,9127,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_method=els-description,2762,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_method=selector:div[class*='retract'],1566,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_method=pdf-cue,1108,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_method=selector:div.retraction,274,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_method=body-cue,80,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,overall|notice_method=jats-abstract,28,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,reference_doc_role_both|n_rows,12278,93771 v11 document_text rows (documents)
+5_article_page_notice,reference_doc_role_both|notice_nonempty,11520,12278 v11 rows with doc_role=both
+5_article_page_notice,host=onlinelibrary.wiley.com|n_rows,13839,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=onlinelibrary.wiley.com|notice_nonempty,13659,13839 doc_role=original rows on host onlinelibrary.wiley.com
+5_article_page_notice,host=onlinelibrary.wiley.com|notice_ge_200_chars,13640,13839 doc_role=original rows on host onlinelibrary.wiley.com
+5_article_page_notice,host=onlinelibrary.wiley.com|quality_full,13832,13839 doc_role=original rows on host onlinelibrary.wiley.com
+5_article_page_notice,host=onlinelibrary.wiley.com|in_shared_bodies_notice_replaces_article,0,13839 doc_role=original rows on host onlinelibrary.wiley.com
+5_article_page_notice,host=onlinelibrary.wiley.com|notice_method=none,180,13839 doc_role=original rows on host onlinelibrary.wiley.com
+5_article_page_notice,host=link.springer.com|n_rows,6312,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=link.springer.com|notice_nonempty,5866,6312 doc_role=original rows on host link.springer.com
+5_article_page_notice,host=link.springer.com|notice_ge_200_chars,2246,6312 doc_role=original rows on host link.springer.com
+5_article_page_notice,host=link.springer.com|quality_full,6307,6312 doc_role=original rows on host link.springer.com
+5_article_page_notice,host=link.springer.com|in_shared_bodies_notice_replaces_article,0,6312 doc_role=original rows on host link.springer.com
+5_article_page_notice,host=link.springer.com|notice_method=none,446,6312 doc_role=original rows on host link.springer.com
+5_article_page_notice,host=api.elsevier.com|n_rows,4357,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=api.elsevier.com|notice_nonempty,3908,4357 doc_role=original rows on host api.elsevier.com
+5_article_page_notice,host=api.elsevier.com|notice_ge_200_chars,3891,4357 doc_role=original rows on host api.elsevier.com
+5_article_page_notice,host=api.elsevier.com|quality_full,4037,4357 doc_role=original rows on host api.elsevier.com
+5_article_page_notice,host=api.elsevier.com|in_shared_bodies_notice_replaces_article,354,4357 doc_role=original rows on host api.elsevier.com
+5_article_page_notice,host=api.elsevier.com|notice_method=none,449,4357 doc_role=original rows on host api.elsevier.com
+5_article_page_notice,host=pmc.ncbi.nlm.nih.gov|n_rows,2915,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=pmc.ncbi.nlm.nih.gov|notice_nonempty,67,2915 doc_role=original rows on host pmc.ncbi.nlm.nih.gov
+5_article_page_notice,host=pmc.ncbi.nlm.nih.gov|notice_ge_200_chars,47,2915 doc_role=original rows on host pmc.ncbi.nlm.nih.gov
+5_article_page_notice,host=pmc.ncbi.nlm.nih.gov|quality_full,2855,2915 doc_role=original rows on host pmc.ncbi.nlm.nih.gov
+5_article_page_notice,host=pmc.ncbi.nlm.nih.gov|in_shared_bodies_notice_replaces_article,0,2915 doc_role=original rows on host pmc.ncbi.nlm.nih.gov
+5_article_page_notice,host=pmc.ncbi.nlm.nih.gov|notice_method=none,2848,2915 doc_role=original rows on host pmc.ncbi.nlm.nih.gov
+5_article_page_notice,host=journals.plos.org|n_rows,1498,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=journals.plos.org|notice_nonempty,1459,1498 doc_role=original rows on host journals.plos.org
+5_article_page_notice,host=journals.plos.org|notice_ge_200_chars,1459,1498 doc_role=original rows on host journals.plos.org
+5_article_page_notice,host=journals.plos.org|quality_full,1498,1498 doc_role=original rows on host journals.plos.org
+5_article_page_notice,host=journals.plos.org|in_shared_bodies_notice_replaces_article,0,1498 doc_role=original rows on host journals.plos.org
+5_article_page_notice,host=journals.plos.org|notice_method=none,39,1498 doc_role=original rows on host journals.plos.org
+5_article_page_notice,host=iopp-public-transfer-server.cld.iop.org|n_rows,1259,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=iopp-public-transfer-server.cld.iop.org|notice_nonempty,1116,1259 doc_role=original rows on host iopp-public-transfer-server.cld.iop.org
+5_article_page_notice,host=iopp-public-transfer-server.cld.iop.org|notice_ge_200_chars,1094,1259 doc_role=original rows on host iopp-public-transfer-server.cld.iop.org
+5_article_page_notice,host=iopp-public-transfer-server.cld.iop.org|quality_full,1256,1259 doc_role=original rows on host iopp-public-transfer-server.cld.iop.org
+5_article_page_notice,host=iopp-public-transfer-server.cld.iop.org|in_shared_bodies_notice_replaces_article,0,1259 doc_role=original rows on host iopp-public-transfer-server.cld.iop.org
+5_article_page_notice,host=iopp-public-transfer-server.cld.iop.org|notice_method=none,143,1259 doc_role=original rows on host iopp-public-transfer-server.cld.iop.org
+5_article_page_notice,host=journals.sagepub.com|n_rows,1201,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=journals.sagepub.com|notice_nonempty,743,1201 doc_role=original rows on host journals.sagepub.com
+5_article_page_notice,host=journals.sagepub.com|notice_ge_200_chars,556,1201 doc_role=original rows on host journals.sagepub.com
+5_article_page_notice,host=journals.sagepub.com|quality_full,1200,1201 doc_role=original rows on host journals.sagepub.com
+5_article_page_notice,host=journals.sagepub.com|in_shared_bodies_notice_replaces_article,0,1201 doc_role=original rows on host journals.sagepub.com
+5_article_page_notice,host=journals.sagepub.com|notice_method=none,458,1201 doc_role=original rows on host journals.sagepub.com
+5_article_page_notice,host=www.spandidos-publications.com|n_rows,981,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=www.spandidos-publications.com|notice_nonempty,89,981 doc_role=original rows on host www.spandidos-publications.com
+5_article_page_notice,host=www.spandidos-publications.com|notice_ge_200_chars,83,981 doc_role=original rows on host www.spandidos-publications.com
+5_article_page_notice,host=www.spandidos-publications.com|quality_full,981,981 doc_role=original rows on host www.spandidos-publications.com
+5_article_page_notice,host=www.spandidos-publications.com|in_shared_bodies_notice_replaces_article,0,981 doc_role=original rows on host www.spandidos-publications.com
+5_article_page_notice,host=www.spandidos-publications.com|notice_method=none,892,981 doc_role=original rows on host www.spandidos-publications.com
+5_article_page_notice,host=www.nature.com|n_rows,947,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=www.nature.com|notice_nonempty,675,947 doc_role=original rows on host www.nature.com
+5_article_page_notice,host=www.nature.com|notice_ge_200_chars,171,947 doc_role=original rows on host www.nature.com
+5_article_page_notice,host=www.nature.com|quality_full,947,947 doc_role=original rows on host www.nature.com
+5_article_page_notice,host=www.nature.com|in_shared_bodies_notice_replaces_article,0,947 doc_role=original rows on host www.nature.com
+5_article_page_notice,host=www.nature.com|notice_method=none,272,947 doc_role=original rows on host www.nature.com
+5_article_page_notice,host=www.frontiersin.org|n_rows,691,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=www.frontiersin.org|notice_nonempty,684,691 doc_role=original rows on host www.frontiersin.org
+5_article_page_notice,host=www.frontiersin.org|notice_ge_200_chars,684,691 doc_role=original rows on host www.frontiersin.org
+5_article_page_notice,host=www.frontiersin.org|quality_full,691,691 doc_role=original rows on host www.frontiersin.org
+5_article_page_notice,host=www.frontiersin.org|in_shared_bodies_notice_replaces_article,0,691 doc_role=original rows on host www.frontiersin.org
+5_article_page_notice,host=www.frontiersin.org|notice_method=none,7,691 doc_role=original rows on host www.frontiersin.org
+5_article_page_notice,host=www.dovepress.com|n_rows,580,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=www.dovepress.com|notice_nonempty,577,580 doc_role=original rows on host www.dovepress.com
+5_article_page_notice,host=www.dovepress.com|notice_ge_200_chars,575,580 doc_role=original rows on host www.dovepress.com
+5_article_page_notice,host=www.dovepress.com|quality_full,580,580 doc_role=original rows on host www.dovepress.com
+5_article_page_notice,host=www.dovepress.com|in_shared_bodies_notice_replaces_article,0,580 doc_role=original rows on host www.dovepress.com
+5_article_page_notice,host=www.dovepress.com|notice_method=none,3,580 doc_role=original rows on host www.dovepress.com
+5_article_page_notice,host=www.cochranelibrary.com|n_rows,570,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=www.cochranelibrary.com|notice_nonempty,13,570 doc_role=original rows on host www.cochranelibrary.com
+5_article_page_notice,host=www.cochranelibrary.com|notice_ge_200_chars,12,570 doc_role=original rows on host www.cochranelibrary.com
+5_article_page_notice,host=www.cochranelibrary.com|quality_full,570,570 doc_role=original rows on host www.cochranelibrary.com
+5_article_page_notice,host=www.cochranelibrary.com|in_shared_bodies_notice_replaces_article,0,570 doc_role=original rows on host www.cochranelibrary.com
+5_article_page_notice,host=www.cochranelibrary.com|notice_method=none,557,570 doc_role=original rows on host www.cochranelibrary.com
+5_article_page_notice,host=www.mdpi.com|n_rows,506,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=www.mdpi.com|notice_nonempty,29,506 doc_role=original rows on host www.mdpi.com
+5_article_page_notice,host=www.mdpi.com|notice_ge_200_chars,29,506 doc_role=original rows on host www.mdpi.com
+5_article_page_notice,host=www.mdpi.com|quality_full,506,506 doc_role=original rows on host www.mdpi.com
+5_article_page_notice,host=www.mdpi.com|in_shared_bodies_notice_replaces_article,0,506 doc_role=original rows on host www.mdpi.com
+5_article_page_notice,host=www.mdpi.com|notice_method=none,477,506 doc_role=original rows on host www.mdpi.com
+5_article_page_notice,host=academic.oup.com|n_rows,490,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=academic.oup.com|notice_nonempty,189,490 doc_role=original rows on host academic.oup.com
+5_article_page_notice,host=academic.oup.com|notice_ge_200_chars,175,490 doc_role=original rows on host academic.oup.com
+5_article_page_notice,host=academic.oup.com|quality_full,487,490 doc_role=original rows on host academic.oup.com
+5_article_page_notice,host=academic.oup.com|in_shared_bodies_notice_replaces_article,0,490 doc_role=original rows on host academic.oup.com
+5_article_page_notice,host=academic.oup.com|notice_method=none,301,490 doc_role=original rows on host academic.oup.com
+5_article_page_notice,host=www.ovid.com|n_rows,399,40359 v11 document_text rows with doc_role=original (documents)
+5_article_page_notice,host=www.ovid.com|notice_nonempty,30,399 doc_role=original rows on host www.ovid.com
+5_article_page_notice,host=www.ovid.com|notice_ge_200_chars,30,399 doc_role=original rows on host www.ovid.com
+5_article_page_notice,host=www.ovid.com|quality_full,388,399 doc_role=original rows on host www.ovid.com
+5_article_page_notice,host=www.ovid.com|in_shared_bodies_notice_replaces_article,0,399 doc_role=original rows on host www.ovid.com
+5_article_page_notice,host=www.ovid.com|notice_method=none,369,399 doc_role=original rows on host www.ovid.com

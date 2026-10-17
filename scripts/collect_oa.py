@@ -9,7 +9,7 @@ rest in repositories and small publishers. That is 22% of the gap, available
 with no licence, no institutional signature and no campus network.
 
 **What this does not do is pretend the copy is the publisher's page.** The
-client asked to "crawl publisher pages from the CSV"; a PubMed Central copy is
+client asked for the publisher pages of the CSV's DOIs; a PubMed Central copy is
 the same paper from a different host, and part of PMC is the author's accepted
 manuscript rather than the published version of record - post-peer-review, so
 the science is what was published and retracted, but not the typeset article.
@@ -24,7 +24,7 @@ not a field to build on.
 
 Captured through the same browser path as the rest of the archive, so these
 arrive as MHTML - a rendered page, fully loaded, which is what the client
-asked for and typed into the chat.
+asked for.
 """
 from __future__ import annotations
 

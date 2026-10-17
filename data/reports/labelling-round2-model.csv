@@ -1,0 +1,37 @@
+"task","measure","value"
+"social, five categories","items",100
+"social, five categories","model answered",100
+"social, five categories","items with a majority",99
+"social, five categories","model = majority of all labellers",0.6364
+"social, five categories","Cohen kappa, model vs majority",0.4922
+"social, five categories","one labeller = majority of the other 6 (mean)",0.7587
+"social, five categories","model = majority of the same 6 (mean)",0.6352
+"social, five categories","Krippendorff alpha, labellers",0.4901
+"social, five categories","Krippendorff alpha, labellers + model",0.462
+"social, says retracted or not","items",100
+"social, says retracted or not","model answered",100
+"social, says retracted or not","items with a majority",100
+"social, says retracted or not","model = majority of all labellers",0.96
+"social, says retracted or not","Cohen kappa, model vs majority",0.7778
+"social, says retracted or not","one labeller = majority of the other 6 (mean)",0.9856
+"social, says retracted or not","model = majority of the same 6 (mean)",0.9712
+"social, says retracted or not","Krippendorff alpha, labellers",0.8604
+"social, says retracted or not","Krippendorff alpha, labellers + model",0.8392
+"round-2 media, five categories","items",127
+"round-2 media, five categories","model answered",127
+"round-2 media, five categories","items with a majority",124
+"round-2 media, five categories","model = majority of all labellers",0.7016
+"round-2 media, five categories","Cohen kappa, model vs majority",0.4848
+"round-2 media, five categories","one labeller = majority of the other 6 (mean)",0.7485
+"round-2 media, five categories","model = majority of the same 6 (mean)",0.7107
+"round-2 media, five categories","Krippendorff alpha, labellers",0.4571
+"round-2 media, five categories","Krippendorff alpha, labellers + model",0.4339
+"round-2 media, says retracted or not","items",127
+"round-2 media, says retracted or not","model answered",127
+"round-2 media, says retracted or not","items with a majority",127
+"round-2 media, says retracted or not","model = majority of all labellers",0.8976
+"round-2 media, says retracted or not","Cohen kappa, model vs majority",0.6623
+"round-2 media, says retracted or not","one labeller = majority of the other 6 (mean)",0.9405
+"round-2 media, says retracted or not","model = majority of the same 6 (mean)",0.9049
+"round-2 media, says retracted or not","Krippendorff alpha, labellers",0.648
+"round-2 media, says retracted or not","Krippendorff alpha, labellers + model",0.6232

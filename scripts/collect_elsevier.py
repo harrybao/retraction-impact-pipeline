@@ -45,12 +45,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import httpx
 from rich.console import Console
 
-from rwpipe import db, fetch, storage
+from rwpipe import config, db, fetch, storage
 
 console = Console()
 
 ENDPOINT = "https://api.elsevier.com/content/article/doi/"
-UA = "COMP5703-CS43 student project (mailto:xbao0816@uni.sydney.edu.au)"
+UA = f"COMP5703-CS43 student project (mailto:{config.POLITE_CONTACT})"
 
 # The full-text containers. Either is enough; neither means metadata only.
 FULLTEXT = ("<originalText", "<xocs:rawtext", "<ce:para")

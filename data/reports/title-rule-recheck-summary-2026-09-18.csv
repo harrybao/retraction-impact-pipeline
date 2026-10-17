@@ -1,0 +1,27 @@
+metric,value
+held documents with DOI present,96249
+of those scoring < 0.30 before (refused by the rule),20806
+low_n,20806
+low_refused_after,10190
+rest_n,5000
+rest_now_below_030,20
+rest_refused_after,20
+rest_score_dropped_0.1+,48
+wrong_title_accepted_ok,908
+wrong_title_n,5000
+wrong_title_refused,3023
+low | host=ieeexplore.ieee.org | fixed of,8077 / 8079
+low | host=pmc.ncbi.nlm.nih.gov | fixed of,7 / 3586
+low | host=onlinelibrary.wiley.com | fixed of,992 / 2224
+low | host=www.spandidos-publications.com | fixed of,10 / 1871
+low | host=iopp-public-transfer-server.cld.iop.org | fixed of,0 / 1264
+low | host=link.springer.com | fixed of,682 / 749
+low | host=www.tandfonline.com | fixed of,64 / 615
+low | host=journals.sagepub.com | fixed of,39 / 282
+low | host=academic.oup.com | fixed of,65 / 205
+low | host=doi.org | fixed of,17 / 141
+low | host=www.nature.com | fixed of,131 / 140
+low | host=www.thieme-connect.de | fixed of,7 / 110
+low | host=journals.plos.org | fixed of,110 / 110
+low | host=www.ovid.com | fixed of,52 / 106
+low | host=www.frontiersin.org | fixed of,6 / 90

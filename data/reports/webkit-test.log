@@ -1,0 +1,5 @@
+host                   pages  webkit result
+www.mdpi.com           1,036  18/18 = 100%   median 551 KB
+cell.com               1,209   1/18 =   6%   median 366 KB
+academic.oup.com       1,618   3/18 =  17%   median 50 KB
+pubs.acs.org             776   1/18 =   6%   median 958 KB

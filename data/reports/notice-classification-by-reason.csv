@@ -1,0 +1,88 @@
+"value","papers","R1_fabrication","R2_image","R3_plagiarism","R4_duplicate","R5_peer_review","R6_paper_mill","R7_honest_error","R8_authorship_ethics","R9_other","R0_no_reason","clear_C3","no_reason_C0"
+"Investigation by Journal/Publisher",26859,2.3,10.2,4.2,2.9,34.5,37.8,1.5,12.6,10.5,9.1,13.6,5.2
+"Unreliable Results and/or Conclusions",19805,0.7,11,1.5,1.8,34.2,43.9,4.1,13.4,7.1,7.5,11.6,4
+"Investigation by Third Party",15312,2.2,13.5,3,3.5,26.5,57.5,1.5,14.2,3.1,5.5,14.1,2.2
+"Concerns/Issues about Data",14177,1.2,14.2,3.4,3.5,12.8,60.4,3.4,16.5,6.3,11.2,13.6,3.6
+"Concerns/Issues about Referencing/Attributions",12890,0.1,1,3.4,1.1,29.8,69.9,0.4,15.5,6.3,4.9,4.5,4.1
+"Concerns/Issues about Peer Review",11434,0,0.2,0.3,0.2,34.6,74.2,0,16.9,1.3,5.1,0.9,4.7
+"Paper Mill",10448,4.1,9.5,2.5,2.9,41.5,57.4,1.1,12.6,2,7.3,9.3,2.9
+"Concerns/Issues about Results and/or Conclusions",9123,0.5,3.4,0.9,0.9,23.8,75.4,2.6,17.3,5.7,7.8,4.7,2.5
+"Compromised Peer Review",8749,4.2,0.8,1.7,1.3,77.8,14.3,0,6.9,3.9,12.1,8.6,11.7
+"Notice - Limited or No Information",8181,0.1,0.1,0.2,0.2,0,0,0.1,0.3,78,21.1,0.2,13
+"Computer-Aided Content or Computer-Generated Content",7936,0.2,0.2,0.6,0.3,23.7,95.3,0.1,16.7,2.3,1.2,4.1,0.8
+"Date of Article and/or Notice Unknown",5773,1.9,1.8,8.2,5.5,3.7,0.4,1.5,6.5,59.2,18.3,13.8,9.5
+"Duplication of/in Image",4777,2.1,86.5,11.2,15.1,1.4,0.6,3.9,4.2,3.6,5.2,68,3.4
+"Breach of Policy by Author",4541,0.1,0.4,0.9,1.1,0.7,0,0.1,2.4,93.9,1.6,2.3,1.3
+"Objections by Author(s)",3459,1.4,21.6,5.1,6,38.6,1.1,2.6,20.6,15.3,8.4,23.2,2.5
+"Concerns/Issues about Image",3084,2,76.9,8,9.4,1.7,1.9,4.7,7.8,5.4,11.4,48.3,4.3
+"Author Unresponsive",2936,1.6,31.9,11.3,10.8,26.2,3.3,1.2,9.3,10.5,19.3,32.5,6.3
+"Rogue Editor",2737,0.1,0.2,1.4,0,83.5,13.5,0.1,4.7,3.8,3.5,11.1,2.4
+"Lack of IRB/IACUC Approval and/or Compliance",2481,1.2,4,0.8,1,11.5,66.8,0.9,94.5,2.7,4,10.1,3.4
+"Duplication of/in Article",2360,0.7,7.3,25.2,67.3,5.6,0.2,0.8,5.6,1.6,14.8,47.2,12.8
+"Euphemisms for Plagiarism",2334,1,28.6,55,26.6,4.1,0.8,1,4.5,4.6,10,59.9,8.2
+"Concerns/Issues about Authorship/Affiliation",2332,0.9,7.5,7.5,7.1,18.4,1,1.4,78.5,7.2,14.6,21.5,8.6
+"Investigation by Company/Institution",2299,24.9,25.8,6,3.3,3.7,1.1,4.9,17.5,9.2,25.3,45.9,15.1
+"Original Data and/or Images not Provided and/or not Available",2291,2.7,58.4,5.2,6.3,1,0.7,5,6.7,9.4,24.1,38.1,4.6
+"Plagiarism of/in Article",2244,1.3,4.9,69.6,24.6,5.2,1.7,0.4,6.8,4.2,11.9,48.9,10.6
+"Removed",2128,1.6,1,2.6,6,2.7,1.3,1.7,4.4,36.1,45.1,9.3,18.8
+"Unreliable Data",2018,3.2,60,8,9,1.5,0.4,11,7.7,9.3,13.8,49.2,5
+"Euphemisms for Duplication",1980,1,59.5,23.1,30.4,4.8,0.2,2.2,5.5,2.5,6.2,56.5,4.6
+"Upgrade/Update of Prior Notice(s)",1902,4.9,26.5,4.6,5,8.9,20.1,6.9,14.2,6.5,20.8,41.5,13.5
+"Updated to Retraction",1690,3.4,25.9,4.3,4.7,8.9,22.9,6.8,13.9,6.7,21.2,40.9,14.3
+"Error in Data",1583,1.4,12.8,2.3,3.2,1.2,0,58.5,4.5,9.2,20.3,43.5,12.3
+"Informed/Patient Consent - None/Withdrawn",1532,0.6,0.7,0.3,0.2,17.1,83.4,0.1,97.8,0.5,1.4,6,1
+"Misconduct by Author",1289,39.4,16.5,7.2,2.6,6.9,0.3,2.9,19.3,6.1,25.9,51.6,18.6
+"Falsification/Fabrication of Data",1167,55.2,13.9,3.9,1.4,2.7,0.1,8.7,13.6,4.2,22.8,57.6,16.3
+"Error in Image",1151,2.2,66.3,4.8,6.4,0.6,0,29.1,3.7,2.7,12.9,58.6,7.6
+"Misconduct - Official Investigation(s) and/or Finding(s)",1059,42.2,21.6,4.1,1.8,2,0,3.7,19.4,6.9,25.9,54.2,18.8
+"Error in Analyses",1055,1.1,3.7,2.1,2.2,1.1,0,70,3.3,10.1,15.5,54.9,12.1
+"Manipulation of Images",1055,7.1,86,6.6,7.7,0.6,1.5,4.5,3.4,2,9.2,72.3,7.4
+"Error in Methods",990,1,4.1,1,1.8,1.9,0,65.4,5.8,14.2,14.9,49.5,9.1
+"Error in Results and/or Conclusions",970,0.9,3.3,0.7,1.5,0.5,0,68.2,2.8,9.8,18.9,52.9,12.8
+"Duplication of Data",944,2.2,57.9,21.2,30.8,1.1,1.5,4.3,4.6,11.2,8.8,56.4,6.1
+"Concerns/Issues about Article",919,0.7,7.2,6.1,4.5,63.8,1.4,3.2,9,14.5,7.6,10.4,1.4
+"Plagiarism of Text",822,0.5,4.4,80.2,10.8,4.9,0.6,0.7,5.7,1.6,14.1,60.8,12.8
+"Conflict of Interest",811,0.2,2.3,0.9,0.7,41.7,0,1.6,63.3,3.9,15,21.1,13.3
+"Plagiarism of Image",783,2.6,75.6,33.6,18.1,1.4,0.4,1.9,3.8,2.3,6.9,80.1,6.1
+"Concerns/Issues about Human Subject Welfare",771,0.1,1,0.5,0.8,1.7,55.6,0.3,75.9,3.9,21.9,4.2,0.9
+"False/Forged Authorship",740,19.5,6.9,11.8,8.1,8.1,0.4,1.5,71.8,5.5,13,41.5,8.6
+"Concerns/Issues about Third Party Involvement",736,0.8,14.4,2.9,3.9,17.9,2.4,2.4,18.3,4.3,45,14.8,32.2
+"Error in Text",700,1.9,17,6.6,5.3,8.4,1,27.1,14.3,13.4,24.9,34.7,13
+"Error by Journal/Publisher",681,0,1.2,6.8,2.2,12.3,0.1,2.2,0.7,6,75.5,4.3,17.3
+"Results Not Reproducible",660,3.5,11.8,1.5,2.4,0.8,0.9,70.5,4.5,5,16.8,40.2,11.5
+"Objections by Third Party",617,4.2,32.1,14.7,10,1.3,1.1,10.5,8.9,14.9,20.3,42.9,8.3
+"Duplication of Content through Error by Journal/Publisher",570,0,0,0.5,86.1,0,0,0,0,0.7,13.2,67.2,8.1
+"Plagiarism of Data",562,3.7,40.7,48,26.2,0.5,0.2,1.2,8.7,7.5,10.1,66.5,6.9
+"Retract and Replace",534,0.4,0.7,0.9,1.7,0.7,0,22.3,2.1,7.5,64.6,16.7,48.9
+"Copyright Claims",501,0.4,7.2,11.6,6.8,0.8,0.2,1.6,27.1,19.6,40.3,15.6,24
+"Lack of Approval from Author",464,1.5,4.5,7.1,5,1.9,0.4,3.4,64.7,5.6,26.1,14,12.7
+"Ethical Violations by Author",446,4.5,5.8,11.9,7.4,14.8,0,1.6,37.2,9,25.6,32.7,19.5
+"Withdrawn as Out of Date",360,0,0,0,0,0,0,0.3,0,0.6,99.2,0.3,91.9
+"Duplication of Text",358,1.4,13.7,61.2,44.7,2.2,0.3,3.1,3.4,0.8,15.6,60.6,14.8
+"Lack of Approval from Third Party",348,1.1,2.6,8,1.7,0.6,1.1,3.4,56.9,16.7,19.5,19,10.3
+"Falsification/Fabrication of Image",323,48.9,73.1,4.6,5.3,0,0.3,4.3,1.5,2.2,10.8,77.1,6.5
+"Lack of Approval from Company/Institution",245,2,2,2.9,0.8,1.2,1.2,3.7,66.1,9.4,18.8,12.2,9.4
+"Unreliable Image",227,5.3,64.3,4.8,6.6,1.3,0.4,18.1,5.3,5.3,11.9,57.7,6.6
+"Concerns/Issues about Methods",191,1.6,13.1,0.5,3.1,34,0.5,10.5,14.7,32.5,9.9,27.2,2.6
+"Taken from Dissertation/Thesis",166,3.6,10.8,69.3,12.7,0.6,0,1.8,10.2,6,9.6,53.6,7.8
+"Cites Retracted Work",156,10.3,5.1,5.1,9.6,3.8,0,7.1,11.5,26.3,40.4,25.6,19.9
+"Investigation by ORI",148,45.9,27.7,2.7,1.4,0,0.7,14.2,2,2.7,24.3,58.8,17.6
+"Error in Materials",143,2.8,14.7,4.9,5.6,2.1,0,57.3,7.7,14,14,55.9,9.8
+"Legal Reasons and/or Threats",132,1.5,5.3,5.3,3,3.8,0,1.5,14.4,6.8,62.9,11.4,42.4
+"Contamination of Cell Lines/Tissues",127,0,33.1,1.6,7.1,2.4,0.8,26.8,5.5,32.3,13.4,61.4,12.6
+"False/Forged Affiliation",126,2.4,10.3,15.1,11.1,7.9,1.6,0.8,79.4,5.6,9.5,32.5,6.3
+"Doing the Right Thing",105,1,1.9,1,1,14.3,0,42.9,1.9,11.4,26.7,37.1,11.4
+"Complaints about Author",88,0,0,9.1,4.5,1.1,0,4.5,30.7,5.7,59.1,13.6,35.2
+"Falsification/Fabrication of Results",85,54.1,9.4,3.5,2.4,0,0,4.7,5.9,10.6,28.2,62.4,16.5
+"Bias Issues or Lack of Balance",77,0,2.6,2.6,7.8,5.2,1.3,26,15.6,39,24.7,27.3,19.5
+"Error in Cell Lines/Tissues",76,0,17.1,1.3,3.9,1.3,0,50,3.9,32.9,5.3,61.8,2.6
+"Miscommunication with/by Author",73,1.4,4.1,4.1,24.7,0,0,13.7,23.3,5.5,28.8,27.4,16.4
+"Civil Proceedings",62,3.2,9.7,1.6,1.6,0,0,4.8,6.5,3.2,74.2,6.5,69.4
+"Temporary Removal",60,0,0,3.3,0,0,0,3.3,6.7,3.3,85,3.3,58.3
+"Withdrawn to Publish in Different Journal",58,0,0,0,1.7,0,0,0,0,0,98.3,1.7,8.6
+"Criminal Proceedings",55,16.4,5.5,0,0,0,0,1.8,7.3,12.7,63.6,29.1,60
+"Publishing Ban",49,0,2,14.3,4.1,63.3,0,0,4.1,0,14.3,20.4,14.3
+"Concerns/Issues about Animal Welfare",47,2.1,55.3,10.6,12.8,8.5,4.3,2.1,68.1,6.4,4.3,48.9,4.3
+"Misconduct by Third Party",40,12.5,0,5,2.5,65,0,5,5,10,2.5,20,2.5
+"Contamination of Materials",38,0,5.3,2.6,2.6,0,0,71.1,5.3,21.1,7.9,60.5,7.9
+"Notice - Lack of",31,0,0,0,9.7,0,0,0,3.2,9.7,77.4,9.7,61.3

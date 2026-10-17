@@ -46,11 +46,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import httpx
 from rich.console import Console
 
-from rwpipe import db
+from rwpipe import config, db
 
 console = Console()
 
-UA = "COMP5703-CS43 student project (mailto:xbao0816@uni.sydney.edu.au)"
+UA = f"COMP5703-CS43 student project (mailto:{config.POLITE_CONTACT})"
 RUN = "aggregators-2026-09-04"
 
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest"

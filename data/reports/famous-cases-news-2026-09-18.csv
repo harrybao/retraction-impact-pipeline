@@ -1,0 +1,9 @@
+case,doi,records_in_rw,altmetric_found,news_outlets,news_posts_stored,note
+"Surgisphere HCQ, Lancet 2020",10.1016/s0140-6736(20)31180-6,3,1,719,1723,
+"Surgisphere, NEJM 2020",10.1056/nejmoa2007621,2,1,217,331,
+"Wakefield MMR, Lancet 1998",10.1016/s0140-6736(97)11096-0,2,1,395,768,
+"STAP cells, Nature 2014 (1)",10.1038/nature12968,1,1,106,191,
+"STAP cells, Nature 2014 (2)",10.1038/nature12969,1,1,88,150,
+"Hwang stem cells, Science 2005",10.1126/science.1112286,2,1,7,9,published before Altmetric began tracking news (Oct 2011)
+"LaCour canvassing, Science 2014",10.1126/science.1256151,1,1,93,114,
+"Seralini GMO rats, Food Chem Toxicol 2012",10.1016/j.fct.2012.08.005,1,1,54,95,

@@ -23,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import httpx
 from rich.console import Console
 
-from rwpipe import plumx
+from rwpipe import config, plumx
 
 console = Console()
 DOI = "10.1016/j.jhep.2014.10.009"
@@ -43,7 +43,7 @@ CHECKS = [
 def main() -> int:
     key = plumx.load_key()
     hdr = {"X-ELS-APIKey": key, "Accept": "application/json",
-           "User-Agent": "COMP5703-CS43 student project"}
+           "User-Agent": f"COMP5703-CS43 student project; mailto:{config.POLITE_CONTACT}"}
     tok = plumx.load_insttoken()
     if tok:
         hdr["X-ELS-Insttoken"] = tok

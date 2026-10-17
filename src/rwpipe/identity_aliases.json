@@ -1,0 +1,370 @@
+{
+  "schema": 1,
+  "version": "2026-10-15",
+  "scope": "reviewed-capture-only",
+  "rules": [
+    {
+      "requested": "10.14740/wjon1011w",
+      "declared": "10.4021/wjon.v8i2.1011",
+      "role": "original",
+      "records": [
+        16694
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/57/57150cef67ffb2e4c944cc692c5a938443736ed4.mhtml.gz",
+      "archive_sha256": "b08092d45c1947087c854eb5c311898d4fdfbc457bd0aabc9d7a015b80d5895a",
+      "html_sha256": "6cf59d93b02ff9bd406bec86305d8445dead24fc222f2b108d3159e0c722be45",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "The same page declares the volume/issue identifier but its own citation and DC DOI identify wjon1011w."
+    },
+    {
+      "requested": "10.2390/biecoll-jib-2010-149",
+      "declared": "10.1515/jib-2010-149",
+      "role": "original",
+      "records": [
+        5084
+      ],
+      "relation": "publisher_identifier_migration",
+      "archive": "mhtml/10.2390/09/098f20256f34ead1afd25e79572fde16c19a64cf.mhtml.gz",
+      "archive_sha256": "4a5363df087b782b719aedd0972a4645863ca299846f032ae31b4d4c194f6bd7",
+      "html_sha256": "b15e47b81e7b7efa66d490a57ce0e0578a68464ce852a5d9f27a0c06f6192642",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/21098881/"
+      ],
+      "note": "Archived current publisher citation and historical PubMed agree on authors, title, journal, 2010 and volume 7(2); historical PubMed assigns the requested DOI. Month/day metadata differ and are not silently rewritten."
+    },
+    {
+      "requested": "10.7475/kjan.2016.28.2.136",
+      "declared": "10.7469/kjan.2016.28.2.136",
+      "role": "original",
+      "records": [
+        16004
+      ],
+      "relation": "same_document_prefix_variant",
+      "archive": "mhtml/10.7475/77/770ede41ef04ae91603ff4c879384b8f990254cf.mhtml.gz",
+      "archive_sha256": "8d3828ad1bb92f55db96ea1601e24803e78f70a8877f595fabbb6a8630e94528",
+      "html_sha256": "b36b711c38b72e25b9a982f48a7f6a6a693cd0090f07f604603cedb3b75683d9",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Current header prints 10.7469 while this same article's download-citation panel prints requested 10.7475, with identical volume/issue/pages."
+    },
+    {
+      "requested": "10.14740/jocmr3470w",
+      "declared": "10.14740/jocmr.v10i7.3470",
+      "role": "original",
+      "records": [
+        66169
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/8d/8dc7cf2f57ee7617c86145c7cb6b1d0746788076.mhtml.gz",
+      "archive_sha256": "d7e04383aa3bfe911c62eaebc1f7b753ab9f5c88fb37115c94297b4f9bc9a784",
+      "html_sha256": "98e3690fab9e40cb5be2d35dcddf81a76bddf4e593966a34b43ba6d1c177b1a2",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Own citation and DC DOI identify jocmr3470w; the head's volume/issue form identifies the same original article."
+    },
+    {
+      "requested": "10.14740/wjon1438",
+      "declared": "10.4021/wjon.v0i0.1438",
+      "role": "original",
+      "records": [
+        41801
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/4b/4b4f2b75e570f475768e9d51e89e2eb9ed182f6a.mhtml.gz",
+      "archive_sha256": "2bb822b7d385a7155885dd1dec392ca71a631ea07e6a308630f80bf69c792187",
+      "html_sha256": "12524811c55e5b4b8e256bc5de75acd9de02d0a0b9fe906d7223fc808fe01132",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Own citation and DC DOI identify wjon1438. The v0i0 metadata form is not a reason to change the canonical DOI or publication volume."
+    },
+    {
+      "requested": "10.14740/jocmr2443w",
+      "declared": "10.14740/jocmr.v8i2.2443",
+      "role": "original",
+      "records": [
+        66170
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/9c/9cef20880d25f283413b6f44841b7fe7f512130f.mhtml.gz",
+      "archive_sha256": "c1dd12d87806616239ec467a09e623a64b9f7dd9ed7ed28baad4b640f7194656",
+      "html_sha256": "0d42067ff2a1251fffffaa4295a3590610070253c4fa6f50d6d51d842d45ae73",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Own citation and DC DOI identify jocmr2443w; head volume/issue form belongs to that article."
+    },
+    {
+      "requested": "10.14740/jocmr2541e",
+      "declared": "10.14740/jocmr.v8i6.2599",
+      "role": "original",
+      "records": [
+        66168
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/ce/cea85762f1a1b6b58afc1a3e7b27fc950ddc3215.mhtml.gz",
+      "archive_sha256": "dc599c5ae7f8843f37e4e44dfb1ea341020bb144ac479e60d9df9cb0296f5b59",
+      "html_sha256": "3c12876ea0201fccb8f81d11b3735c145bb0ec4085315e4b4c57c751b524e095",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [
+        "https://www.jocmr.org/index.php/JOCMR/article/view/2599",
+        "https://pubmed.ncbi.nlm.nih.gov/27222673/",
+        "https://pubmed.ncbi.nlm.nih.gov/40641857/"
+      ],
+      "note": "Confirmed beyond title similarity: archived own citation explicitly prints jocmr2541e at 8(6):449-460; PubMed matches all five authors and these pages. 2599 is the journal platform item/metadata identifier, not evidence of a different paper. Retraction DOI jocmr6299 remains separate."
+    },
+    {
+      "requested": "10.14740/jmc2989w",
+      "declared": "10.14740/jmc.v9i1.2989",
+      "role": "original",
+      "records": [
+        43095
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/cb/cbc64715d3e1a58e3434f60d30e0c0cd4f27f72e.mhtml.gz",
+      "archive_sha256": "1ded4a2ddd8a889f0af217824f66f8200142389d1bed457540c8b01594cbbd25",
+      "html_sha256": "168fda5df0678cef7b23be5e1f09fff503c351781403c0a257b09c0d8cc298c1",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Own citation and DC DOI identify jmc2989w, the original article. Its separate notice is not equated with this original."
+    },
+    {
+      "requested": "10.2147/oaju.s16637",
+      "declared": "10.2147/rru.s16637",
+      "role": "original",
+      "records": [
+        23209,
+        24809
+      ],
+      "relation": "publisher_identifier_migration",
+      "archive": "mhtml/10.2147/70/70e3ad67c1375b723436ec878433120e4ebf9ec5.mhtml.gz",
+      "archive_sha256": "ceae99db6abbd112e2b6ad402aefeb5507572a6ce187285abd46526b5107837d",
+      "html_sha256": "b7d1c1185f1f4f4a791e3fb8c67349a08dfaae0dc1b578d6a654aa7650e29312",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3818932/",
+        "https://www.dovepress.com/getfile.php?fileID=64899"
+      ],
+      "note": "Archived RRU publisher page and historical OAJU record agree on authors, 2011 volume 3 pages 19-24 and article identifier S16637. Retraction/expression-of-concern DOIs remain separate."
+    },
+    {
+      "requested": "10.1016/s0140-6736(96)91545-7",
+      "declared": "10.5555/uri:pii:s0140673696915457",
+      "role": "retraction",
+      "records": [
+        2120
+      ],
+      "relation": "same_document_metadata_placeholder",
+      "archive": "mhtml/10.1016/2b/2b6c98bff8dc14ff33d6977f273dfc5ab7c40039.mhtml.gz",
+      "archive_sha256": "1884efd6a5fed0a7cec580d71ebd697094ba41741860c597b8eadb4f0bd4eb23",
+      "html_sha256": "771a38c4573ba416e19267fe8956cb8294a6aa28d0d1ca3ee1ecea0b5abacbd2",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/8643009/",
+        "https://pubmed.ncbi.nlm.nih.gov/7905117/"
+      ],
+      "note": "Declared 10.5555/uri:pii identifier encodes exactly the requested notice PII S0140673696915457. Publisher notice title/date/page/authors match PubMed. Treat it as a capture metadata placeholder, not a canonical/resolvable DOI; the 1994 original remains distinct."
+    },
+    {
+      "requested": "10.2147/oaju.s13370",
+      "declared": "10.2147/rru.s13370",
+      "role": "original",
+      "records": [
+        23203,
+        24806
+      ],
+      "relation": "publisher_identifier_migration",
+      "archive": "mhtml/10.2147/01/013202fbff79551faaf769b61e3feb6a0533c044.mhtml.gz",
+      "archive_sha256": "79bd90170071b7b42ecbfab2afd0053075f05c6d527972a65fbc5b03092f7334",
+      "html_sha256": "475df2021f6e7e4f9a6c73cefc273250e83625a2d175a2f84f63b5f00891b1fc",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3818889/"
+      ],
+      "note": "Archived RRU page and historical OAJU record agree on four authors, 2010 volume 2 pages 177-183 and S13370. Separate concern/retraction notices are not aliases."
+    },
+    {
+      "requested": "10.1002/eqe.2515",
+      "declared": "10.1002/eqe.2514",
+      "role": "original",
+      "records": [
+        8985
+      ],
+      "relation": "publisher_duplicate_article_redirect",
+      "archive": "mhtml/10.1002/c8/c854288a5f4ed75c155c01dc81aaca10f723187c.mhtml.gz",
+      "archive_sha256": "986096f6b0adfaa4e07ed7c8f0664bc18ac9ac9ce3f40e17950145075964ef0f",
+      "html_sha256": "2cbceb0a0375fb42e943c90fe1c45c92e28b29f944e104812688442cdad5ac6b",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [
+        "https://onlinelibrary.wiley.com/doi/10.1002/eqe.2514/full"
+      ],
+      "note": "Publisher explicitly says duplicate eqe.2515 was deleted and its DOI redirected to eqe.2514. This is original-article duplicate resolution, not the separate eqe.2658 retraction notice."
+    },
+    {
+      "requested": "10.1097/00000539-199803000-00010",
+      "declared": "10.1213/00000539-199803000-00010",
+      "role": "original",
+      "records": [
+        24460
+      ],
+      "relation": "same_document_prefix_variant",
+      "archive": "mhtml/10.1097/7c/7ca5893c94d833cac5d2b790dc88842ecfd026e5.mhtml.gz",
+      "archive_sha256": "c0fb226c1998016e31f45fbb7b2a56ab4a873ac0dc12b053e3ffb4bf0d4ce3d4",
+      "html_sha256": "87176274f430f5bd366dcaa97f370395a7e4da671b9acfa83c1b62a0483505bf",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/9495402/",
+        "https://pubmed.ncbi.nlm.nih.gov/33094990/"
+      ],
+      "note": "Archived publisher 10.1213 citation and PubMed 10.1097 citation agree on five authors, 1998 volume 86(3) pages 504-509, title and abstract. The 2020 notice DOI is separate; no prefix-wide rewrite is justified."
+    },
+    {
+      "requested": "10.1111/gcb.12697",
+      "declared": "10.1111/gcb.12840",
+      "role": "retraction",
+      "records": [
+        3346
+      ],
+      "relation": "publisher_duplicate_notice_redirect",
+      "archive": "mhtml/10.1111/a8/a8cb7bf583a0fb94e12ac1c0424b3990c0ee1658.mhtml.gz",
+      "archive_sha256": "f19845b879562e81d71323c1f55950ebf03d79682be474a0f76c6e873a56c06c",
+      "html_sha256": "701b0dfd8faf1eb44d46b76f8b916de578ac7c33edd3c1b6f2e583d66c1015a9",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": "2022-06-24",
+      "evidence_urls": [
+        "https://onlinelibrary.wiley.com/doi/10.1111/gcb.12840"
+      ],
+      "note": "Publisher explicitly describes a duplicate retraction statement under gcb.12697 redirected to gcb.12840. SAME NOTICE ONLY, as observed after that correction. The source also cites the 2014 original under gcb.12697, so an unscoped original-paper alias is forbidden."
+    },
+    {
+      "requested": "10.14740/gr1490",
+      "declared": "10.14740/gr.v15i3.1490",
+      "role": "original",
+      "records": [
+        45765
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/ca/caf10835ee7b1d2cd4578ab5afeada667985fea1.mhtml.gz",
+      "archive_sha256": "7abdec8ac7b4f03ed82ace0b0d235d077d432eb9c644e006091b1aba6b5c1db0",
+      "html_sha256": "80bb9b1f021b92c5d9f5a53c9fb10944b98600d2cec6efcab72735a6a9b8a7e8",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Own citation and DC DOI identify gr1490; volume/issue metadata belongs to the same original article, not gr1490r notice."
+    },
+    {
+      "requested": "10.7475/kjan.2016.28.5.607",
+      "declared": "10.7469/kjan.2016.28.5.607",
+      "role": "retraction",
+      "records": [
+        16005
+      ],
+      "relation": "same_document_prefix_variant",
+      "archive": "mhtml/10.7475/11/11e66fb50d61c83e0d551c0924a05c4b13616efe.mhtml.gz",
+      "archive_sha256": "12b3d85143893e2153d9e765226d3f6085b0151364eb966e0f65fecf5e3da26f",
+      "html_sha256": "f296500747230e4976a8bad7d481776c07d608f63576bfc5a27aaa56892eccdc",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Both prefix forms occur in this same notice's publisher citation panels; the page is explicitly Retraction. This is notice-only, not an original-paper DOI."
+    },
+    {
+      "requested": "10.14740/jocmr3324w",
+      "declared": "10.14740/jocmr.v10i3.3324",
+      "role": "original",
+      "records": [
+        19352
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/c2/c28cfabcd3fab6628c5f57283c62be2fa5b7bf9e.mhtml.gz",
+      "archive_sha256": "072c6925be7cce827638a1acd2b919ff8d38c7654bc0fb1e1ec5c4efebf03aa3",
+      "html_sha256": "1212e2d731c441396d78c36f987db7e5cec240ed6ea7f775cb2415a6aead03f8",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Own citation and DC DOI identify the original jocmr3324w, while the head uses volume/issue metadata. jocmr3324wr stays a separate notice."
+    },
+    {
+      "requested": "10.14740/jmc2989wr",
+      "declared": "10.14740/jmc.v10i1.3256",
+      "role": "retraction",
+      "records": [
+        43095
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/be/bef0486c7fcf0226e0056893c45f37f187275bdc.mhtml.gz",
+      "archive_sha256": "37043243f4494c986877a0dbb7ecde2433ba86bbefbac7b46e2b67cfd2913d31",
+      "html_sha256": "dfc8670ec5592b6e58805eec89bd9adb73af1d29c1636a9259c367b0df4f4d8e",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "This notice's own citation and DC DOI explicitly print jmc2989wr. The platform notice number 3256 differs from original 2989 because it is a separate notice object; equality is only between the two identifiers of that notice."
+    },
+    {
+      "requested": "10.1002/jso.20742",
+      "declared": "10.1002/jso.20908",
+      "role": "retraction",
+      "records": [
+        4379
+      ],
+      "relation": "notice_target_correction",
+      "archive": "mhtml/10.1002/87/872644fcd60dd82db2c287624e367f14c3afed93.mhtml.gz",
+      "archive_sha256": "49d075d2a022f790224e0fa12615fa0835917854f77f5c408aad00f6c16b1861",
+      "html_sha256": "7ec685ac999c206ed63047c6c74e4b72af5c3b0989d87ef12f558b77f3926509",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [
+        "https://doi.org/10.1002/jso.20908",
+        "https://pubmed.ncbi.nlm.nih.gov/17230541/",
+        "https://pubmed.ncbi.nlm.nih.gov/24344435/"
+      ],
+      "note": "jso.20908 is an independent retraction notice which explicitly retracts/references original jso.20742. PubMed supplies separate original and RetractionOf records. Correct only record 4379's notice lookup/target; never alias the original DOI to the notice. Notice publication is 2013 whereas RW retraction_date is 2007: flag chronology for separate review."
+    },
+    {
+      "requested": "10.14740/jocmr3324wr",
+      "declared": "10.14740/jocmr.v10i11.3658",
+      "role": "retraction",
+      "records": [
+        19352
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.14740/f2/f217a7ec4a578074f1c271b2ae4353f16d8678e8.mhtml.gz",
+      "archive_sha256": "e5fffe1c47a28ebaad466d8ce707b6f99d869af721428af08c8a09d55d12eaa1",
+      "html_sha256": "c7ac9c6f72b5e37e2639ff0fc64627613fb0e56d02baea01166d4fec46671ec8",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "This notice's own citation and DC DOI explicitly print jocmr3324wr, while platform number 3658 identifies that notice. Do not merge notice 3658 with original manuscript 3324."
+    },
+    {
+      "requested": "10.4021/wjon677w",
+      "declared": "10.4021/wjon.v4i3.677",
+      "role": "original",
+      "records": [
+        36310
+      ],
+      "relation": "same_document_metadata_alias",
+      "archive": "mhtml/10.4021/11/11bedc7077903cc7343ea066a54f6342b703f867.mhtml.gz",
+      "archive_sha256": "078dad94514de05daff6074f9d224586e2e0f2284258653165962eeb1b080103",
+      "html_sha256": "57f2e0df41aa5699d0cf86d1ce27905f98e2846d0ab9d98150a0c6fc95c2f10f",
+      "evidence_date": "2026-10-15",
+      "publisher_correction_date": null,
+      "evidence_urls": [],
+      "note": "Own citation and DC DOI identify original wjon677w; the volume/issue metadata variant describes this article. The separately linked retraction notice remains distinct."
+    }
+  ]
+}

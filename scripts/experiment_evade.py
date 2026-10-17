@@ -1,6 +1,6 @@
 """Experiment - can any blocked host be reached by behaving less like a bot?
 
-The client's instruction was "find smarter ways to avoid captchas". Avoid, not
+The client asked for smarter ways to avoid captchas. Avoid, not
 bypass: nothing here solves a challenge or forges a fingerprint. It changes how
 we arrive.
 

@@ -1,0 +1,22 @@
+check,subject,value_before,value_now,result,source
+export leaves the database unchanged,pipeline.sqlite size (bytes),15057793024,15057793024,same,scripts/export_notice_news.py rerun 2026-10-13 05:11 and 13:06 (+11:00); stat before/after the 13:06 run
+export leaves the database unchanged,pipeline.sqlite mtime (local),2026-09-27 19:37:31.096433,2026-09-27 19:37:31.096433,same,scripts/export_notice_news.py rerun 2026-10-13 05:11 and 13:06 (+11:00); stat before/after the 13:06 run
+existing export unchanged,altmetric_notice.csv md5,9614351aeedea3bb6f8abf44dbe1a049,9614351aeedea3bb6f8abf44dbe1a049,same bytes,copy of the 2026-09-28 19:21 export taken before the 2026-10-13 reruns -> file after the 13:06 rerun
+existing export unchanged,altmetric_notice_posts.csv.gz md5,79c9aee1596e5089c91c2a1cbd9a711b,58c2af2ae0f17b6530303fde830db0c5,bytes differ,copy of the 2026-09-28 19:21 export taken before the 2026-10-13 reruns -> file after the 13:06 rerun
+existing export unchanged,altmetric_notice_posts.csv.gz decompressed md5,d187af2310a21d487aeeb697434bf9fc,d187af2310a21d487aeeb697434bf9fc,same content (only the gzip header's timestamp differs),copy of the 2026-09-28 19:21 export taken before the 2026-10-13 reruns -> file after the 13:06 rerun
+existing export unchanged,notice_papers.csv md5,07f3a4010f9c0b2aafd67daea287ce33,07f3a4010f9c0b2aafd67daea287ce33,same bytes,copy of the 2026-09-28 19:21 export taken before the 2026-10-13 reruns -> file after the 13:06 rerun
+new export,plumx_notice.csv rows,,47074,new file (2026-10-13),scripts/export_notice_news.py
+new export,plumx_notice.csv md5,bdb5085fa6bd2f9f06289d399be803bc,bdb5085fa6bd2f9f06289d399be803bc,same bytes at 05:11 and 13:06,the 05:11 export -> the 13:06 export
+"hand-count definition vs this script, paper by paper","Altmetric, article DOI",2513,2513,same papers,hand definition: database read-only + data/clean; this script: R/news_union.R's rules on data/clean
+"hand-count definition vs this script, paper by paper","Altmetric, notice DOI",1970,1969,hand only: 10.1093/ecco-jcc/jjab227,hand definition: database read-only + data/clean; this script: R/news_union.R's rules on data/clean
+"hand-count definition vs this script, paper by paper","PlumX, article DOI (count only)",5855,5855,same papers,hand definition: database read-only + data/clean; this script: R/news_union.R's rules on data/clean
+"hand-count definition vs this script, paper by paper","PlumX, notice DOI (count only)",2780,2780,same papers,hand definition: database read-only + data/clean; this script: R/news_union.R's rules on data/clean
+"hand-count definition vs this script, paper by paper","Altmetric notice DOI, via notices retracting <10 papers",1218,1218,same papers,hand definition: database read-only + data/clean; this script: R/news_union.R's rules on data/clean
+"hand-count definition vs this script, paper by paper","PlumX notice DOI, via notices retracting <10 papers",1277,1277,same papers,hand definition: database read-only + data/clean; this script: R/news_union.R's rules on data/clean
+"hand-count definition vs this script, paper by paper",ALL FOUR,9006,9006,same papers,hand definition: database read-only + data/clean; this script: R/news_union.R's rules on data/clean
+"hand-count definition vs this script, paper by paper",papers reached only through mass-retraction notices,1531,1531,same papers,hand definition: database read-only + data/clean; this script: R/news_union.R's rules on data/clean
+inputs fetched after the hand count (UTC),altmetric_notice.csv last fetched_at,2026-09-27 00:17:14,2026-09-26 15:46:24,before the hand count,data/clean/altmetric_notice.csv
+inputs fetched after the hand count (UTC),plumx_notice.csv last fetched_at,2026-09-27 00:17:14,2026-09-27 00:16:25,before the hand count,data/clean/plumx_notice.csv
+inputs fetched after the hand count (UTC),plumx.csv last fetched_at,2026-09-27 00:17:14,2026-09-07 08:53:51,before the hand count,data/clean/plumx.csv
+inputs fetched after the hand count (UTC),altmetric (papers) last fetched_at,2026-09-27 00:17:14,2026-09-03 17:57:43,before the hand count,"database table altmetric, read-only (altmetric.csv has no fetched_at)"
+inputs fetched after the hand count (UTC),altmetric_notice.csv last detail_fetched_at,2026-09-27 00:17:14,2026-09-27 09:37:30,"after, but the detail pass writes only detail_posts and the posts table, not news_count (scripts/collect_altmetric_notice_detail.py mark())",data/clean/altmetric_notice.csv

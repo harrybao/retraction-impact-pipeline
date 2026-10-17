@@ -1,0 +1,18 @@
+"metric","value"
+"A frame: media items (news/blogs, before/after, >= 30 chars)",50202
+"A frame: papers",7344
+"A frame papers: news_before",1743
+"A frame papers: news_after",1248
+"A frame papers: blogs_before",2801
+"A frame papers: blogs_after",4459
+"A pilot items",10
+"A main items",200
+"B frame: papers with an extracted notice",50439
+"B pilot items",10
+"B main items",200
+"labellers",7
+"A supplement frame: social items (text in title or summary)",61145
+"A supplement frame: papers",3549
+"A supplement: items drawn (not sent)",104
+"excluded, no text under the licence: twitter items",1281535
+"excluded, no text under the licence: twitter papers",14028

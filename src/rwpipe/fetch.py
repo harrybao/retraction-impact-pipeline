@@ -11,8 +11,10 @@ Playwright has no first-class MHTML API, and this is Chromium-only.
 """
 from __future__ import annotations
 
+import html
 import re
 from difflib import SequenceMatcher
+from html.parser import HTMLParser
 import time
 from dataclasses import dataclass, asdict
 from urllib.parse import urlparse
@@ -39,6 +41,30 @@ _BLOCK_BODY = re.compile(
     r"enable javascript and cookies to continue|unusual traffic|"
     r"enter the characters seen in the image|download audio captcha|"
     r"your request has been blocked|automated access",
+    re.I,
+)
+
+# The publisher's own server is down and the CDN says so at the article's URL,
+# with HTTP 200. 9 liebertonline.com captures were stored as articles whose
+# whole body was 232 identical bytes of Cloudflare 523. They passed
+# verification because the DOI is in the URL the error page was served at -
+# the same hole that let 10,049 ScienceDirect "problem providing the content"
+# pages through: presence of the DOI proves the request, never the response.
+#
+# **Kept apart from _BLOCK_BODY on purpose.** _BLOCK_BODY is matched against a
+# live fetch's *rendered* text. Reusing it against a stored MHTML file, which
+# carries every embedded script and stylesheet as well, flagged 16,454
+# captures as error pages and cut usable documents from 88,843 to 72,408 -
+# 15,245 of them Wiley articles that are entirely intact and merely embed a
+# reCAPTCHA widget for their login form. The word appears in the archive; the
+# challenge never happened. These markers are phrases a CDN puts in the
+# visible error page and that no publisher's script bundle contains, so they
+# survive being matched against raw MHTML. Verified against the corpus before
+# use: 9 hits, the 9 known error pages, 0 elsewhere.
+ORIGIN_ERROR = re.compile(
+    r"error reference number|origin is unreachable|"
+    r"the site is under maintenance|please return soon|"
+    r"web server is returning an unknown error",
     re.I,
 )
 # Hosts that are never an article: bot-management vendors and SSO shims.
@@ -80,20 +106,327 @@ NOTICE_TITLE = re.compile(
 ARTICLE_FLAG = re.compile(r"^\s*retracted\s+article\b", re.I)
 
 
-def page_title_of(capture: str) -> str:
-    m = re.search(r"<title[^>]*>(.{0,400}?)</title>", capture, re.I | re.S)
+_SVG = re.compile(r"<svg\b.*?</svg>", re.I | re.S)
+_QP_RUN = re.compile(r"(?:=[0-9A-F]{2})+")
+
+
+def _main_document(capture: str) -> str:
+    """The first text/html part of an MHTML archive: the page, not its iframes.
+
+    A consent dialog or feedback widget is captured as a later part with its
+    own <title> ("The Identity Selector: Persistence Service", "Usabilla
+    Feedback Button"); a page whose own title is missing must not borrow one.
+    """
+    m = re.search(r'boundary="([^"]+)"', capture[:3000])
     if not m:
+        return capture                      # plain HTML (a WebKit capture)
+    for part in capture.split("--" + m.group(1)):
+        if re.match(r"\s*Content-Type:\s*text/html", part, re.I):
+            return part
+    return capture
+
+
+def _unqp(s: str) -> str:
+    """Decode quoted-printable escapes: '=E8=84=82' back to the character."""
+    return _QP_RUN.sub(lambda m: bytes.fromhex(m.group(0).replace("=", ""))
+                       .decode("utf-8", "replace"), s)
+
+
+# The page's own statement of which DOI it is: the metadata publishers write for
+# indexers (Highwire `citation_doi`, Dublin Core, PRISM). Unlike a DOI found
+# anywhere in the file, this cannot come from a reference list, a related-
+# articles panel, a notice citing the paper it retracts, or - in an Internet
+# Archive copy - the Archive's toolbar and the MHTML headers, which repeat the
+# requested address 13-14 times whatever the page turned out to be.
+_META = re.compile(r"<meta\b[^>]*>", re.I | re.S)
+# (?<![\w-]): "data-name" must not be read as "name".
+_META_ATTR = re.compile(r'(?<![\w-])(name|property|content|scheme)\s*=\s*'
+                        r'("[^"]*"|\'[^\']*\'|[^\s"\'>]+)', re.I)
+# In order of preference: the first of these a page declares is its DOI.
+_META_DOI_NAMES = ("citation_doi", "dc.identifier.doi", "dc.identifier", "prism.doi",
+                   "doi", "publication_doi", "bepress_citation_doi")
+_DOI_VALUE = re.compile(r"^(?:doi:\s*|https?://(?:dx\.)?doi\.org/)?(10\.\d{4,9}/\S+)$", re.I)
+_DOI_TAIL = re.compile(r"[.,;:\s​﻿]+$")
+
+
+class _HeadFinished(Exception):
+    pass
+
+
+class _HeadMetaParser(HTMLParser):
+    """Read actual head tags and stop before parsing a potentially huge body."""
+
+    def __init__(self, allow_body_prefix=False):
+        super().__init__(convert_charrefs=True)
+        self.meta = []
+        self.started = False
+        self.text_tag = None
+        self.ignored = 0
+        self.title_parts = []
+        self.title_done = False
+        self.allow_body_prefix = allow_body_prefix
+        self.head_seen = False
+        self.body_prefix = False
+        self.widget_tag = None
+        self.widget_depth = 0
+
+    def _hidden_widget(self, tag, attrs):
+        attrs = dict(attrs)
+        style = (attrs.get("style") or "").lower()
+        hidden = ("display:none" in style.replace(" ", "") or
+                  "visibility:hidden" in style.replace(" ", "") or
+                  "hidden" in attrs)
+        before_head_widget = (attrs.get("id") == "yui3-css-stamp" or
+                              (tag == "iframe" and attrs.get("width") == "0" and attrs.get("height") == "0"))
+        return ((self.head_seen or before_head_widget) and
+                ((tag == "div" and (attrs.get("id") == "yui3-css-stamp" or hidden)) or
+                 (tag == "iframe" and (hidden or
+                  (attrs.get("width") == "0" and attrs.get("height") == "0")))))
+
+    def handle_starttag(self, tag, attrs):
+        if self.widget_depth:
+            if tag == self.widget_tag:
+                self.widget_depth += 1
+            return
+        if self.text_tag:
+            return
+        self.started = True
+        if tag in ("template", "noscript"):
+            self.ignored += 1
+            return
+        if self.ignored:
+            return
+        if tag == "body" and self.allow_body_prefix and not self.head_seen:
+            self.body_prefix = True
+            return
+        if tag == "head":
+            self.head_seen = True
+        if self._hidden_widget(tag, attrs):
+            self.widget_tag, self.widget_depth = tag, 1
+            return
+        if tag == "title" and self.body_prefix and not self.head_seen:
+            raise _HeadFinished
+        if tag in ("html", "head", "base", "link", "meta", "title", "style", "script"):
+            if tag == "meta":
+                self.meta.append(attrs)
+            elif tag in ("title", "style", "script"):
+                self.text_tag = tag
+            return
+        raise _HeadFinished
+
+    def handle_endtag(self, tag):
+        if self.widget_depth:
+            if tag == self.widget_tag:
+                self.widget_depth -= 1
+            return
+        if self.text_tag:
+            if tag == self.text_tag:
+                if tag == "title":
+                    self.title_done = True
+                self.text_tag = None
+            return
+        if tag in ("template", "noscript") and self.ignored:
+            self.ignored -= 1
+        elif not self.ignored and tag in ("head", "html", "body"):
+            raise _HeadFinished
+
+    def handle_data(self, data):
+        if self.widget_depth:
+            return
+        if self.text_tag == "title" and not self.ignored and not self.title_done:
+            self.title_parts.append(data)
+        if self.started and not self.ignored and not self.text_tag and data.strip():
+            raise _HeadFinished
+
+
+class _PageTitleParser(HTMLParser):
+    """Read the first active HTML title, including malformed publisher layouts.
+
+    https://html.spec.whatwg.org/multipage/dom.html#document.title
+    """
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.ignored = []
+        self.parts = []
+        self.in_title = False
+        self.done = False
+
+    def handle_starttag(self, tag, attrs):
+        if self.in_title:
+            return
+        if tag in ("script", "style", "template", "noscript", "svg", "math", "iframe", "object"):
+            self.ignored.append(tag)
+            return
+        if not self.ignored and tag == "title":
+            self.in_title = True
+            self.set_cdata_mode("title")
+
+    def handle_endtag(self, tag):
+        if self.in_title and tag == "title":
+            self.done = True
+            raise _HeadFinished
+        if self.ignored and tag == self.ignored[-1]:
+            self.ignored.pop()
+
+    def handle_data(self, data):
+        if self.in_title:
+            self.parts.append(data)
+
+
+def _declared_dois(capture: str) -> list[tuple[int, str]]:
+    """(preference rank, DOI) for each DOI declared in the page's <head>."""
+    doc = _main_document(capture)
+    if "quoted-printable" in capture[:5000].lower():
+        doc = _unqp(doc.replace("=\r\n", "").replace("=\n", ""))
+    # The head only. A body can carry other documents' metadata: AME article
+    # pages put their retraction notice's dc.identifier after </head>, so a
+    # rule reading the whole page accepted the article as the notice (review
+    # of 7 October 2026). Inline <svg> and iframe parts are not the head.
+    parser = _HeadMetaParser()
+    try:
+        parser.feed(doc)
+    except _HeadFinished:
+        pass
+    out = []
+    for tag_attrs in parser.meta:
+        attrs = {}
+        for k, v in tag_attrs:
+            attrs.setdefault(k.lower(), (v or "").strip())
+        name = (attrs.get("name") or attrs.get("property") or "").lower()
+        if name not in _META_DOI_NAMES or attrs.get("scheme", "doi").lower() != "doi":
+            continue
+        m = _DOI_VALUE.match(_DOI_TAIL.sub("", attrs.get("content", "")))
+        if m:
+            out.append((_META_DOI_NAMES.index(name), m.group(1).lower()))
+    return out
+
+
+def page_dois(capture: str) -> set[str]:
+    """Every DOI the page declares in its <head> metadata, lower-cased.
+
+    Empty when it declares none - many pages do not (IEEE's never do), so
+    absence is not evidence either way. `og:url` is not read: the Archive
+    rewrites it to its own address, and elsewhere it is a URL, not an
+    identifier. A Dublin Core identifier with a scheme other than doi (SAGE's
+    "publisher-id") is skipped.
+    """
+    return {d for _, d in _declared_dois(capture)}
+
+
+def page_doi(capture: str) -> str | None:
+    """The DOI the page declares as its own: citation_doi first, then Dublin
+    Core, then PRISM; the first in the head when one kind appears twice.
+    Reumatismo's notice pages declare three other articles' DOIs besides their
+    own, so "the requested DOI is among them" is not enough."""
+    found = _declared_dois(capture)
+    return min(found, key=lambda x: x[0])[1] if found else None
+
+
+def page_title_of(capture: str) -> str:
+    # MHTML is quoted-printable, and a soft line break can fall inside the
+    # title element itself: a PLOS notice fetched on 2026-09-18 read
+    # `</ti=\r\ntle>`. The search then skipped the document's title and took the
+    # next one in the archive, an inline SVG's "CROSSMARK_logo_4", and the
+    # crawler refused the correct page at a similarity of 0.08. The archive
+    # verifier was never affected - its readable() removes the breaks before
+    # calling this - but the crawler passes the raw capture.
+    #
+    # Two more ways of reading the wrong title, found by the handover test on
+    # 2026-09-18. Of the 77,395 crawler-made held pages that carry their DOI,
+    # 15,908 scored under 0.30 against their own record and would have been
+    # refused by a new crawl. With these fixes and informative_title(), 553
+    # would (scripts/ab_title_rule.py):
+    # * an <svg> can carry a <title>, and IEEE's consent banner puts one
+    #   ("Close this consent banner") above the page's own <title>;
+    # * the title itself is quoted-printable, so a Japanese title arrived as
+    #   '=E8=84=82=E8=B3=AA...' and was compared as that.
+    qp = "quoted-printable" in capture[:5000].lower()
+    capture = capture.replace("=\r\n", "").replace("=\n", "")
+    doc = _SVG.sub(" ", _main_document(capture))
+    parser = _PageTitleParser()
+    try:
+        parser.feed(doc)
+    except _HeadFinished:
+        pass
+    t = "".join(parser.parts)
+    if not parser.done:
         return ""
-    t = re.sub(r"<[^>]+>", " ", m.group(1))
-    return re.sub(r"\s+", " ", t).strip()
+    t = re.sub(r"<[^>]+>", " ", t)
+    if qp:
+        t = _unqp(t)
+    return re.sub(r"\s+", " ", html.unescape(t)).strip()
 
 
-def _norm_title(s: str) -> str:
-    s = re.sub(r"^\s*(retracted article|retracted|retraction(?: note| notice)?|"
+_SITE_SUFFIX = re.compile(r"(?:\s*\||\s+[-–—])\s*[^|]{0,80}$")
+_SITE_NAME = re.compile(r"(?:ieee xplore|springer(?: nature)?(?: link)?|wiley online library|"
+                        r"cochrane library|taylor.*francis online|science ?direct|"
+                        r"oxford academic|pubmed|de ?gruyter(?: brill)?|researchgate)", re.I)
+
+
+def _norm_title(s: str, site_suffix: bool = False, journal: str | None = None) -> str:
+    # IEEE prefixes 290 stored page titles with "Notice of Violation of IEEE
+    # Publication Principles:" (identity recheck, 13 October 2026). Left in,
+    # it pulled "PLLs & Oscillators" to 0.28 against its own record.
+    s = re.sub(r"^\s*(notice of violation of ieee publication principles|"
+               r"notice of retraction|retracted article|retracted|"
+               r"retraction(?: note| notice)?|"
                r"withdrawn|expression of concern|correction|corrigendum|erratum)"
                r"\s*[:\-]?\s*", "", s or "", flags=re.I)
-    s = re.sub(r"\s*[|\-–—]\s*[^|]{0,80}$", "", s)   # trailing journal name
+    if site_suffix:
+        # The trailing journal or site name, on the page title only. It was
+        # once cut from both titles at any hyphen with up to 80 characters
+        # after it, which reduced "E-commerce security payment system ..." to
+        # "E" and every "miR-21 ..." to "miR" - a separator has spaces round
+        # it, a hyphen inside a word is part of the title.
+        #
+        # Up to two segments: IEEE writes "X | IEEE Conference Publication |
+        # IEEE Xplore", Wiley "X | Cell Biology Journal | Wiley Online
+        # Library". With one cut, "Laser CAD/CAM" kept "IEEE Conference
+        # Publication" and scored 0.48 against its own record (identity
+        # recheck, 13 October 2026).
+        for _ in range(2):
+            match = _SITE_SUFFIX.search(s)
+            if not match:
+                break
+            suffix = s[match.start():].lstrip(" |-–—").strip()
+            if ("|" in match.group(0) or _SITE_NAME.fullmatch(suffix) or
+                    (journal and _norm_title(suffix) == _norm_title(journal))):
+                s = s[:match.start()]
+            else:
+                break
     return re.sub(r"\s+", " ", re.sub(r"[^\w\s]", " ", s.lower())).strip()
+
+
+# A page title that names a kind of page rather than a paper.
+_NOTICE_LABEL = re.compile(
+    r"^\s*(?:full article:\s*)?(?:statement of |notice of )?"
+    r"(?:retraction|retracted|withdrawal|withdrawn|expression of concern|"
+    r"correction|erratum|corrigendum)\b", re.I)
+
+
+def informative_title(page: str, journal: str | None = None) -> bool:
+    """Is this page title the title of a paper, so that a mismatch means something?
+
+    Many sites put the same label on every page: the journal name ("Molecular
+    Medicine Reports", "Journal of Cellular Biochemistry | Wiley Online
+    Library"), a generic notice label ("Full article: Statement of Retraction"),
+    or a section heading ("Background"). Measured on 2026-09-18, such labels
+    account for most of the correct held pages that still scored under 0.30
+    once the title was read correctly. A mismatch against a label says nothing
+    about which paper this is; the DOI check has to stand alone there, as it
+    does when a page has no title at all.
+    """
+    p = _norm_title(page, site_suffix=True, journal=journal)
+    if len(p.split()) < 4:
+        return False
+    j = _norm_title(journal or "")
+    if j and (p == j or (p.startswith(j) and len(p.split()) - len(j.split()) <= 4)):
+        return False
+    m = _NOTICE_LABEL.match(page or "")
+    if m and len(re.findall(r"\w+", page[m.end():])) <= 6:
+        return False
+    return True
 
 
 def title_matches(capture: str, expected: str, floor: float = 0.55) -> tuple[bool, float]:
@@ -113,7 +446,21 @@ def title_matches(capture: str, expected: str, floor: float = 0.55) -> tuple[boo
     page = page_title_of(capture)
     if not page:
         return True, 1.0                    # no title element; DOI check stands alone
-    r = SequenceMatcher(None, _norm_title(expected)[:300], _norm_title(page)[:300]).ratio()
+    return compare_titles(page, expected, floor)
+
+
+def compare_titles(page: str, expected: str, floor: float = 0.55,
+                   journal: str | None = None) -> tuple[bool, float]:
+    """`title_matches()` on a page title already read, for callers that read
+    it some other way (`identity.page_title()` reads a JATS or Elsevier
+    document's article title, which has no <title> element)."""
+    a, b = _norm_title(expected)[:300], _norm_title(page, site_suffix=True, journal=journal)[:300]
+    r = SequenceMatcher(None, a, b).ratio()
+    # Retraction Watch often holds the English title followed by the original
+    # in brackets ("... Functions [脂質膜から...]"), while the page shows only
+    # one of them. Either title wholly inside the other is the same paper.
+    if r < floor and min(len(a), len(b)) >= 15 and (a in b or b in a):
+        return True, r
     return r >= floor, r
 
 
@@ -273,6 +620,7 @@ async def fetch_page(
     want_mhtml: bool = True,
     capture: str = "mhtml",
     expect_title: str | None = None,
+    expect_journal: str | None = None,
     doc_role: str = "original",
     url: str | None = None,
     min_bytes: int | None = None,
@@ -373,7 +721,8 @@ async def fetch_page(
                     f"identity check failed: capture is "
                     f"{res.mhtml_bytes // 1024} KB but does not contain {doi}")
                 mhtml = None
-            elif expect_title and not title_ok and sim < 0.30:
+            elif (expect_title and not title_ok and sim < 0.30
+                  and informative_title(page_title_of(mhtml), expect_journal)):
                 # DOI present but the page is plainly a different paper. 228
                 # captures were filed under a DOI whose article they did not
                 # contain, several of them the neighbouring article in the same

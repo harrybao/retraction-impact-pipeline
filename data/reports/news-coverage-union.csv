@@ -1,0 +1,15 @@
+"measure","papers","share_pct"
+"Altmetric, article DOI",2513,4
+"Altmetric, notice DOI",1969,3.1
+"PlumX, article DOI (count only)",5855,9.3
+"PlumX, notice DOI (count only)",2780,4.4
+"Altmetric article or notice",3736,5.9
+"PlumX article or notice",7658,12.2
+"Altmetric article or notice, or PlumX article (previous total)",7861,12.5
+"ALL FOUR",9006,14.3
+"  added by PlumX notice DOI alone",1145,1.8
+"    of which via notices retracting <10 papers",235,0.4
+"  papers reached through Altmetric news counts",3736,5.9
+"  PlumX only (counts, no date, no text)",5270,8.4
+"ALL FOUR, mass-retraction-only papers left out",7475,11.9
+"  papers reached only through mass-retraction notices",1531,2.4

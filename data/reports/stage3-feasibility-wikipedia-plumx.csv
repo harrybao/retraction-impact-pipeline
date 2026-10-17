@@ -1,0 +1,409 @@
+section,metric,value,denominator
+0-denominators-and-dates,records [measured],71698,records
+0-denominators-and-dates,records with empty retraction_date [measured],0,records
+0-denominators-and-dates,records with retraction_date that failed rwpipe.clean.parse_date [measured],0,records
+0-denominators-and-dates,records with parsed retraction_date [measured],71698,records
+0-denominators-and-dates,Retraction-nature records with empty or failed retraction_date [measured],0,66445 Retraction-nature records
+0-denominators-and-dates,records with no original_doi [measured],5946,records
+0-denominators-and-dates,papers (engagement rows = distinct original DOIs) [measured],62867,papers
+0-denominators-and-dates,distinct records.original_doi [measured],62867,papers
+0-denominators-and-dates,engagement DOIs with no matching records.original_doi [measured],0,papers
+0-denominators-and-dates,papers by nature category: has a Retraction record [measured],60405,"papers (62,867)"
+0-denominators-and-dates,papers by nature category: no Retraction record: Expression of concern [measured],1587,"papers (62,867)"
+0-denominators-and-dates,papers by nature category: no Retraction record: Correction [measured],648,"papers (62,867)"
+0-denominators-and-dates,papers by nature category: no Retraction record: Reinstatement [measured],144,"papers (62,867)"
+0-denominators-and-dates,papers by nature category: no Retraction record: Correction+Expression of concern [measured],73,"papers (62,867)"
+0-denominators-and-dates,papers by nature category: no Retraction record: Correction+Reinstatement [measured],5,"papers (62,867)"
+0-denominators-and-dates,papers by nature category: no Retraction record: Expression of concern+Reinstatement [measured],5,"papers (62,867)"
+0-denominators-and-dates,papers with a Retraction record but every Retraction date unparsed [measured],0,papers
+0-denominators-and-dates,papers whose earliest any-nature date precedes earliest Retraction date [measured],2169,papers with a parsed Retraction date
+0-denominators-and-dates,papers whose engagement.record_id is not a Retraction-nature record [measured],3585,"papers (62,867)"
+0-denominators-and-dates,papers where engagement.record_id date (export_tables.py) != earliest Retraction date [measured],1126,papers with a parsed Retraction date
+0-denominators-and-dates,swept papers where engagement.record_id date != earliest Retraction date [measured],58,swept papers with a parsed Retraction date
+1a-wikipedia-collected,papers swept (wikipedia_swept rows) [measured],3174,"papers (62,867)"
+1a-wikipedia-collected,swept papers = Altmetric cited_by_wikipedia_count > 0 (set equality) [measured],1,1=yes
+1a-wikipedia-collected,distinct edition lists stored in wikipedia_swept.langs [measured],1,swept papers
+1a-wikipedia-collected,editions searched per paper [measured],11,editions
+1a-wikipedia-collected,search requests implied (swept papers x editions) [inferred],34914,requests
+1a-wikipedia-collected,papers cited in >=1 edition [measured],905,3174 swept papers
+1a-wikipedia-collected,swept papers with 0 hits [measured],2269,3174 swept papers
+1a-wikipedia-collected,"links (paper, edition, article) rows [measured]",2154,wikipedia_cites rows
+1a-wikipedia-collected,wikipedia_swept.total summed [measured],2154,links
+1a-wikipedia-collected,swept papers whose total != count of their wikipedia_cites rows [measured],0,swept papers
+1a-wikipedia-collected,"distinct pages (edition, title) [measured]",1766,pages
+1a-wikipedia-collected,distinct titles ignoring edition [measured],1596,titles
+1a-wikipedia-collected,"max articles returned for one (paper, edition) [measured]",18,search srlimit=20
+1a-wikipedia-collected,"(paper, edition) searches that hit srlimit=20 [measured]",0,"(paper, edition) pairs with hits"
+1a-wikipedia-collected,pages citing >1 retracted paper [measured],204,1766 pages
+1a-wikipedia-collected,max retracted papers cited by one page [measured],27,papers
+1a-wikipedia-collected,median links per cited paper [measured],1,905 cited papers
+1a-wikipedia-collected,max links for one paper [measured],60,links
+1a-wikipedia-collected,cited papers found in >1 edition [measured],326,905 cited papers
+1a-wikipedia-collected,cited papers found only outside English [measured],356,905 cited papers
+1a-wikipedia-collected,wikipedia_cites.fetched_at min [measured],2026-08-30 08:36:00,timestamp
+1a-wikipedia-collected,wikipedia_cites.fetched_at max [measured],2026-08-30 12:39:28,timestamp
+1a-wikipedia-collected,"columns stored with a page id, revision id, edit timestamp or page text [measured]",0,"wikipedia_cites has doi, lang, title, fetched_at only"
+1b-wikipedia-by-edition,en: papers cited [measured],549,3174 swept papers
+1b-wikipedia-by-edition,en: links [measured],780,2154 links
+1b-wikipedia-by-edition,en: distinct pages [measured],584,1766 pages
+1b-wikipedia-by-edition,zh: papers cited [measured],121,3174 swept papers
+1b-wikipedia-by-edition,zh: links [measured],143,2154 links
+1b-wikipedia-by-edition,zh: distinct pages [measured],130,1766 pages
+1b-wikipedia-by-edition,pt: papers cited [measured],86,3174 swept papers
+1b-wikipedia-by-edition,pt: links [measured],110,2154 links
+1b-wikipedia-by-edition,pt: distinct pages [measured],100,1766 pages
+1b-wikipedia-by-edition,ja: papers cited [measured],169,3174 swept papers
+1b-wikipedia-by-edition,ja: links [measured],219,2154 links
+1b-wikipedia-by-edition,ja: distinct pages [measured],166,1766 pages
+1b-wikipedia-by-edition,es: papers cited [measured],129,3174 swept papers
+1b-wikipedia-by-edition,es: links [measured],171,2154 links
+1b-wikipedia-by-edition,es: distinct pages [measured],156,1766 pages
+1b-wikipedia-by-edition,it: papers cited [measured],101,3174 swept papers
+1b-wikipedia-by-edition,it: links [measured],119,2154 links
+1b-wikipedia-by-edition,it: distinct pages [measured],107,1766 pages
+1b-wikipedia-by-edition,ru: papers cited [measured],114,3174 swept papers
+1b-wikipedia-by-edition,ru: links [measured],161,2154 links
+1b-wikipedia-by-edition,ru: distinct pages [measured],139,1766 pages
+1b-wikipedia-by-edition,fr: papers cited [measured],147,3174 swept papers
+1b-wikipedia-by-edition,fr: links [measured],198,2154 links
+1b-wikipedia-by-edition,fr: distinct pages [measured],171,1766 pages
+1b-wikipedia-by-edition,nl: papers cited [measured],22,3174 swept papers
+1b-wikipedia-by-edition,nl: links [measured],24,2154 links
+1b-wikipedia-by-edition,nl: distinct pages [measured],23,1766 pages
+1b-wikipedia-by-edition,de: papers cited [measured],131,3174 swept papers
+1b-wikipedia-by-edition,de: links [measured],163,2154 links
+1b-wikipedia-by-edition,de: distinct pages [measured],129,1766 pages
+1b-wikipedia-by-edition,pl: papers cited [measured],48,3174 swept papers
+1b-wikipedia-by-edition,pl: links [measured],66,2154 links
+1b-wikipedia-by-edition,pl: distinct pages [measured],61,1766 pages
+1c-wikipedia-by-retraction-year,<=1999: papers in corpus [measured],397,"papers (62,867)"
+1c-wikipedia-by-retraction-year,<=1999: swept papers [measured],12,3174 swept papers
+1c-wikipedia-by-retraction-year,<=1999: cited papers [measured],7,905 cited papers
+1c-wikipedia-by-retraction-year,<=1999: cited as share of swept [measured],58.3%,12 swept in band
+1c-wikipedia-by-retraction-year,<=1999: links [measured],18,2154 links
+1c-wikipedia-by-retraction-year,<=1999: distinct pages [measured],18,pages (bands overlap: one page can cite papers in several bands)
+1c-wikipedia-by-retraction-year,2000-2009: papers in corpus [measured],2520,"papers (62,867)"
+1c-wikipedia-by-retraction-year,2000-2009: swept papers [measured],125,3174 swept papers
+1c-wikipedia-by-retraction-year,2000-2009: cited papers [measured],87,905 cited papers
+1c-wikipedia-by-retraction-year,2000-2009: cited as share of swept [measured],69.6%,125 swept in band
+1c-wikipedia-by-retraction-year,2000-2009: links [measured],183,2154 links
+1c-wikipedia-by-retraction-year,2000-2009: distinct pages [measured],116,pages (bands overlap: one page can cite papers in several bands)
+1c-wikipedia-by-retraction-year,2010-2014: papers in corpus [measured],11104,"papers (62,867)"
+1c-wikipedia-by-retraction-year,2010-2014: swept papers [measured],1986,3174 swept papers
+1c-wikipedia-by-retraction-year,2010-2014: cited papers [measured],142,905 cited papers
+1c-wikipedia-by-retraction-year,2010-2014: cited as share of swept [measured],7.2%,1986 swept in band
+1c-wikipedia-by-retraction-year,2010-2014: links [measured],400,2154 links
+1c-wikipedia-by-retraction-year,2010-2014: distinct pages [measured],321,pages (bands overlap: one page can cite papers in several bands)
+1c-wikipedia-by-retraction-year,2015-2019: papers in corpus [measured],8207,"papers (62,867)"
+1c-wikipedia-by-retraction-year,2015-2019: swept papers [measured],422,3174 swept papers
+1c-wikipedia-by-retraction-year,2015-2019: cited papers [measured],198,905 cited papers
+1c-wikipedia-by-retraction-year,2015-2019: cited as share of swept [measured],46.9%,422 swept in band
+1c-wikipedia-by-retraction-year,2015-2019: links [measured],409,2154 links
+1c-wikipedia-by-retraction-year,2015-2019: distinct pages [measured],358,pages (bands overlap: one page can cite papers in several bands)
+1c-wikipedia-by-retraction-year,2020-2022: papers in corpus [measured],11800,"papers (62,867)"
+1c-wikipedia-by-retraction-year,2020-2022: swept papers [measured],187,3174 swept papers
+1c-wikipedia-by-retraction-year,2020-2022: cited papers [measured],129,905 cited papers
+1c-wikipedia-by-retraction-year,2020-2022: cited as share of swept [measured],69.0%,187 swept in band
+1c-wikipedia-by-retraction-year,2020-2022: links [measured],327,2154 links
+1c-wikipedia-by-retraction-year,2020-2022: distinct pages [measured],307,pages (bands overlap: one page can cite papers in several bands)
+1c-wikipedia-by-retraction-year,2023-2024: papers in corpus [measured],19242,"papers (62,867)"
+1c-wikipedia-by-retraction-year,2023-2024: swept papers [measured],147,3174 swept papers
+1c-wikipedia-by-retraction-year,2023-2024: cited papers [measured],108,905 cited papers
+1c-wikipedia-by-retraction-year,2023-2024: cited as share of swept [measured],73.5%,147 swept in band
+1c-wikipedia-by-retraction-year,2023-2024: links [measured],188,2154 links
+1c-wikipedia-by-retraction-year,2023-2024: distinct pages [measured],160,pages (bands overlap: one page can cite papers in several bands)
+1c-wikipedia-by-retraction-year,2025-2026: papers in corpus [measured],7135,"papers (62,867)"
+1c-wikipedia-by-retraction-year,2025-2026: swept papers [measured],71,3174 swept papers
+1c-wikipedia-by-retraction-year,2025-2026: cited papers [measured],50,905 cited papers
+1c-wikipedia-by-retraction-year,2025-2026: cited as share of swept [measured],70.4%,71 swept in band
+1c-wikipedia-by-retraction-year,2025-2026: links [measured],127,2154 links
+1c-wikipedia-by-retraction-year,2025-2026: distinct pages [measured],122,pages (bands overlap: one page can cite papers in several bands)
+1c-wikipedia-by-retraction-year,no Retraction record: papers in corpus [measured],2462,"papers (62,867)"
+1c-wikipedia-by-retraction-year,no Retraction record: swept papers [measured],224,3174 swept papers
+1c-wikipedia-by-retraction-year,no Retraction record: cited papers [measured],184,905 cited papers
+1c-wikipedia-by-retraction-year,no Retraction record: cited as share of swept [measured],82.1%,224 swept in band
+1c-wikipedia-by-retraction-year,no Retraction record: links [measured],502,2154 links
+1c-wikipedia-by-retraction-year,no Retraction record: distinct pages [measured],477,pages (bands overlap: one page can cite papers in several bands)
+1d-wikipedia-by-nature,has a Retraction record: papers in corpus [measured],60405,"papers (62,867)"
+1d-wikipedia-by-nature,has a Retraction record: swept papers [measured],2950,3174 swept papers
+1d-wikipedia-by-nature,has a Retraction record: cited papers [measured],721,905 cited papers
+1d-wikipedia-by-nature,has a Retraction record: links [measured],1652,2154 links
+1d-wikipedia-by-nature,has a Retraction record: distinct pages [measured],1327,pages
+1d-wikipedia-by-nature,no Retraction record: Correction: papers in corpus [measured],648,"papers (62,867)"
+1d-wikipedia-by-nature,no Retraction record: Correction: swept papers [measured],78,3174 swept papers
+1d-wikipedia-by-nature,no Retraction record: Correction: cited papers [measured],64,905 cited papers
+1d-wikipedia-by-nature,no Retraction record: Correction: links [measured],241,2154 links
+1d-wikipedia-by-nature,no Retraction record: Correction: distinct pages [measured],239,pages
+1d-wikipedia-by-nature,no Retraction record: Correction+Expression of concern: papers in corpus [measured],73,"papers (62,867)"
+1d-wikipedia-by-nature,no Retraction record: Correction+Expression of concern: swept papers [measured],6,3174 swept papers
+1d-wikipedia-by-nature,no Retraction record: Correction+Expression of concern: cited papers [measured],6,905 cited papers
+1d-wikipedia-by-nature,no Retraction record: Correction+Expression of concern: links [measured],20,2154 links
+1d-wikipedia-by-nature,no Retraction record: Correction+Expression of concern: distinct pages [measured],20,pages
+1d-wikipedia-by-nature,no Retraction record: Correction+Reinstatement: papers in corpus [measured],5,"papers (62,867)"
+1d-wikipedia-by-nature,no Retraction record: Correction+Reinstatement: swept papers [measured],0,3174 swept papers
+1d-wikipedia-by-nature,no Retraction record: Correction+Reinstatement: cited papers [measured],0,905 cited papers
+1d-wikipedia-by-nature,no Retraction record: Correction+Reinstatement: links [measured],0,2154 links
+1d-wikipedia-by-nature,no Retraction record: Correction+Reinstatement: distinct pages [measured],0,pages
+1d-wikipedia-by-nature,no Retraction record: Expression of concern: papers in corpus [measured],1587,"papers (62,867)"
+1d-wikipedia-by-nature,no Retraction record: Expression of concern: swept papers [measured],123,3174 swept papers
+1d-wikipedia-by-nature,no Retraction record: Expression of concern: cited papers [measured],99,905 cited papers
+1d-wikipedia-by-nature,no Retraction record: Expression of concern: links [measured],214,2154 links
+1d-wikipedia-by-nature,no Retraction record: Expression of concern: distinct pages [measured],200,pages
+1d-wikipedia-by-nature,no Retraction record: Expression of concern+Reinstatement: papers in corpus [measured],5,"papers (62,867)"
+1d-wikipedia-by-nature,no Retraction record: Expression of concern+Reinstatement: swept papers [measured],1,3174 swept papers
+1d-wikipedia-by-nature,no Retraction record: Expression of concern+Reinstatement: cited papers [measured],1,905 cited papers
+1d-wikipedia-by-nature,no Retraction record: Expression of concern+Reinstatement: links [measured],3,2154 links
+1d-wikipedia-by-nature,no Retraction record: Expression of concern+Reinstatement: distinct pages [measured],3,pages
+1d-wikipedia-by-nature,no Retraction record: Reinstatement: papers in corpus [measured],144,"papers (62,867)"
+1d-wikipedia-by-nature,no Retraction record: Reinstatement: swept papers [measured],16,3174 swept papers
+1d-wikipedia-by-nature,no Retraction record: Reinstatement: cited papers [measured],14,905 cited papers
+1d-wikipedia-by-nature,no Retraction record: Reinstatement: links [measured],24,2154 links
+1d-wikipedia-by-nature,no Retraction record: Reinstatement: distinct pages [measured],23,pages
+1e-engagement-vs-wikipedia_cites,engagement.wikipedia_count non-null [measured],3174,"papers (62,867)"
+1e-engagement-vs-wikipedia_cites,non-null wikipedia_count set equals swept set [measured],1,1=yes
+1e-engagement-vs-wikipedia_cites,engagement.wikipedia_count > 0 [measured],549,3174 non-null
+1e-engagement-vs-wikipedia_cites,sum engagement.wikipedia_count [measured],780,links
+1e-engagement-vs-wikipedia_cites,English links in wikipedia_cites [measured],780,2154 links
+1e-engagement-vs-wikipedia_cites,papers with an English link in wikipedia_cites [measured],549,905 cited papers
+1e-engagement-vs-wikipedia_cites,papers where wikipedia_count == English link count [measured],3174,3174 non-null
+1e-engagement-vs-wikipedia_cites,engagement.wikipedia_pages non-null [measured],430,"papers (62,867)"
+1e-engagement-vs-wikipedia_cites,"count=0, pages NULL [measured]",2623,3174 non-null
+1e-engagement-vs-wikipedia_cites,"count>0, pages stored, page set == English titles [measured]",428,3174 non-null
+1e-engagement-vs-wikipedia_cites,"count>0, pages NULL (count backfilled, pages not) [measured]",121,3174 non-null
+1e-engagement-vs-wikipedia_cites,"count=0, pages stored (stale page list; sweep found no English link) [measured]",2,3174 non-null
+1e-engagement-vs-wikipedia_cites,cited papers with no English link (missed by an English-only column) [measured],356,905 cited papers
+3-altmetric-wikipedia-overlap,altmetric_posts rows with kind='wikipedia' [measured],7647,"1,437,967 posts"
+3-altmetric-wikipedia-overlap,papers with >=1 Wikipedia-kind post [measured],3174,"papers (62,867)"
+3-altmetric-wikipedia-overlap,Wikipedia-kind post papers == swept set [measured],1,1=yes
+3-altmetric-wikipedia-overlap,sum of Altmetric cited_by_wikipedia_count [measured],5563,Altmetric summary
+3-altmetric-wikipedia-overlap,papers where post rows != cited_by_wikipedia_count [measured],2056,3174 papers
+3-altmetric-wikipedia-overlap,rows whose wiki_lang differs from URL host edition [measured],0,7647 rows
+3-altmetric-wikipedia-overlap,rows carrying a revision id (oldid in url) [measured],7647,7647 rows
+3-altmetric-wikipedia-overlap,rows carrying posted_on timestamp [measured],7647,7647 rows
+3-altmetric-wikipedia-overlap,distinct revision ids [measured],3334,revisions
+3-altmetric-wikipedia-overlap,distinct editions in Wikipedia-kind posts [measured],36,editions
+3-altmetric-wikipedia-overlap,rows in the 11 swept editions [measured],6446,7647 rows
+3-altmetric-wikipedia-overlap,"distinct pages (edition, page id) in posts [measured]",3045,pages
+3-altmetric-wikipedia-overlap,"distinct pages (edition, title) in posts [measured]",3052,pages
+3-altmetric-wikipedia-overlap,DOI overlap: papers in both posts and wikipedia_cites [measured],905,3174 post papers / 905 cited papers
+3-altmetric-wikipedia-overlap,papers in posts only (not found by DOI search) [measured],2269,3174 post papers
+3-altmetric-wikipedia-overlap,papers in wikipedia_cites only (no Wikipedia-kind post) [measured],0,905 cited papers
+3-altmetric-wikipedia-overlap,posts-only papers whose posts are all outside the 11 swept editions [measured],161,2269 posts-only papers
+3-altmetric-wikipedia-overlap,posts-only papers with >=1 post in a swept edition [measured],2108,2269 posts-only papers
+3-altmetric-wikipedia-overlap,"Altmetric links (paper, edition, title) all editions [measured]",5564,links
+3-altmetric-wikipedia-overlap,Altmetric links in the 11 swept editions [measured],4373,links
+3-altmetric-wikipedia-overlap,"wikipedia_cites links with an Altmetric post on same (paper, edition, exact title) [measured]",1823,2154 links
+3-altmetric-wikipedia-overlap,"wikipedia_cites links matched after title normalisation (underscore, first letter) [measured]",1823,2154 links
+3-altmetric-wikipedia-overlap,wikipedia_cites links with no Altmetric post on that page [measured],331,2154 links
+3-altmetric-wikipedia-overlap,Altmetric links in swept editions not returned by the Aug-30 search [measured],2550,4373 Altmetric links in swept editions
+3b-altmetric-wikipedia-edit-timing,posts dated before paper retraction [measured],1270,7647 Wikipedia-kind posts
+3b-altmetric-wikipedia-edit-timing,posts dated same-day paper retraction [measured],13,7647 Wikipedia-kind posts
+3b-altmetric-wikipedia-edit-timing,posts dated after paper retraction [measured],5559,7647 Wikipedia-kind posts
+3b-altmetric-wikipedia-edit-timing,posts dated no Retraction record paper retraction [measured],805,7647 Wikipedia-kind posts
+3b-altmetric-wikipedia-edit-timing,posts dated Retraction date unparsed paper retraction [measured],0,7647 Wikipedia-kind posts
+3b-altmetric-wikipedia-edit-timing,Altmetric links whose first recorded edit is before retraction [measured],1239,5564 Altmetric links
+3b-altmetric-wikipedia-edit-timing,Altmetric links whose first recorded edit is same-day retraction [measured],12,5564 Altmetric links
+3b-altmetric-wikipedia-edit-timing,Altmetric links whose first recorded edit is after retraction [measured],3527,5564 Altmetric links
+3b-altmetric-wikipedia-edit-timing,Altmetric links whose first recorded edit is no Retraction record retraction [measured],786,5564 Altmetric links
+3b-altmetric-wikipedia-edit-timing,Altmetric links whose first recorded edit is Retraction date unparsed retraction [measured],0,5564 Altmetric links
+3b-altmetric-wikipedia-edit-timing,still-cited links (matched) whose first Altmetric edit is before retraction [measured],621,1823 matched links
+3b-altmetric-wikipedia-edit-timing,still-cited links (matched) whose first Altmetric edit is same-day retraction [measured],8,1823 matched links
+3b-altmetric-wikipedia-edit-timing,still-cited links (matched) whose first Altmetric edit is after retraction [measured],765,1823 matched links
+3b-altmetric-wikipedia-edit-timing,still-cited links (matched) whose first Altmetric edit is no Retraction record retraction [measured],429,1823 matched links
+3b-altmetric-wikipedia-edit-timing,still-cited links (matched) whose first Altmetric edit is Retraction date unparsed retraction [measured],0,1823 matched links
+3b-altmetric-wikipedia-edit-timing,cited papers with >=1 matched link first edited after retraction [measured],457,870 cited papers with a matched link
+3b-altmetric-wikipedia-edit-timing,cited papers whose matched links were all first edited before retraction [measured],232,870 cited papers with a matched link
+3b-altmetric-wikipedia-edit-timing,Altmetric Wikipedia post date min [measured],2006-04-09,date
+3b-altmetric-wikipedia-edit-timing,Altmetric Wikipedia post date max [measured],2026-08-29,date
+3b-altmetric-wikipedia-edit-timing,papers whose Retraction date predates 2012 (before most Altmetric coverage) among swept [measured],1955,3174 swept papers
+2-mediawiki-job-size,en: distinct pages to fetch current wikitext [measured],584,pages
+2-mediawiki-job-size,en: batched content requests at 50 titles/request [inferred],12,requests
+2-mediawiki-job-size,zh: distinct pages to fetch current wikitext [measured],130,pages
+2-mediawiki-job-size,zh: batched content requests at 50 titles/request [inferred],3,requests
+2-mediawiki-job-size,pt: distinct pages to fetch current wikitext [measured],100,pages
+2-mediawiki-job-size,pt: batched content requests at 50 titles/request [inferred],2,requests
+2-mediawiki-job-size,ja: distinct pages to fetch current wikitext [measured],166,pages
+2-mediawiki-job-size,ja: batched content requests at 50 titles/request [inferred],4,requests
+2-mediawiki-job-size,es: distinct pages to fetch current wikitext [measured],156,pages
+2-mediawiki-job-size,es: batched content requests at 50 titles/request [inferred],4,requests
+2-mediawiki-job-size,it: distinct pages to fetch current wikitext [measured],107,pages
+2-mediawiki-job-size,it: batched content requests at 50 titles/request [inferred],3,requests
+2-mediawiki-job-size,ru: distinct pages to fetch current wikitext [measured],139,pages
+2-mediawiki-job-size,ru: batched content requests at 50 titles/request [inferred],3,requests
+2-mediawiki-job-size,fr: distinct pages to fetch current wikitext [measured],171,pages
+2-mediawiki-job-size,fr: batched content requests at 50 titles/request [inferred],4,requests
+2-mediawiki-job-size,nl: distinct pages to fetch current wikitext [measured],23,pages
+2-mediawiki-job-size,nl: batched content requests at 50 titles/request [inferred],1,requests
+2-mediawiki-job-size,de: distinct pages to fetch current wikitext [measured],129,pages
+2-mediawiki-job-size,de: batched content requests at 50 titles/request [inferred],3,requests
+2-mediawiki-job-size,pl: distinct pages to fetch current wikitext [measured],61,pages
+2-mediawiki-job-size,pl: batched content requests at 50 titles/request [inferred],2,requests
+2-mediawiki-job-size,"total distinct pages (edition, title) [measured]",1766,pages
+2-mediawiki-job-size,total batched current-wikitext requests (sum over editions) [inferred],41,requests
+2-mediawiki-job-size,unbatched current-wikitext requests (one per page) [inferred],1766,requests
+2-mediawiki-job-size,links to classify for a retraction flag [measured],2154,links
+2-mediawiki-job-size,links with an Altmetric revision id + timestamp already stored (candidate addition edit) [measured],1823,2154 links
+2-mediawiki-job-size,links needing a revision-history search (no Altmetric post) [measured],331,2154 links
+2-mediawiki-job-size,distinct pages behind links with no Altmetric post [measured],272,pages
+2-mediawiki-job-size,revision-list requests for those pages (>=1 each; 500 revisions per request) [inferred],272,requests (lower bound)
+2-mediawiki-job-size,revision-content requests for binary search if R revisions per page [inferred],links x ceil(log2 R); e.g. R=1000 -> 10 per link,requests
+2-mediawiki-job-size,example: no-post links x 10 content fetches (R~1000 assumed) [inferred],3310,requests
+2-mediawiki-job-size,verification requests for matched links (fetch Altmetric oldid + parent) [inferred],1676,distinct revision ids on matched links
+4-plumx,plumx rows [measured],62867,"papers (62,867)"
+4-plumx,found = 1 (count_categories present) [measured],59172,62867 papers
+4-plumx,found = 0 and no error (PlumX holds no record) [measured],3694,62867 papers
+4-plumx,error non-empty [measured],1,62867 papers
+4-plumx,error marked permanent [measured],1,62867 papers
+4-plumx,found = 1 with error non-empty [measured],0,59172 found
+4-plumx,fetched_at min [measured],2026-09-06 03:51:20,timestamp
+4-plumx,fetched_at max [measured],2026-09-07 08:53:51,timestamp
+4-plumx,usage_count: non-null (all rows) [measured],62867,62867 papers
+4-plumx,usage_count: > 0 (all rows) [measured],451,62867 papers
+4-plumx,usage_count: > 0 among found [measured],451,59172 found
+4-plumx,usage_count: median among > 0 [measured],89,451 papers with > 0
+4-plumx,capture_count: non-null (all rows) [measured],62867,62867 papers
+4-plumx,capture_count: > 0 (all rows) [measured],57576,62867 papers
+4-plumx,capture_count: > 0 among found [measured],57576,59172 found
+4-plumx,capture_count: median among > 0 [measured],12.0,57576 papers with > 0
+4-plumx,mention_count: non-null (all rows) [measured],62867,62867 papers
+4-plumx,mention_count: > 0 (all rows) [measured],10181,62867 papers
+4-plumx,mention_count: > 0 among found [measured],10181,59172 found
+4-plumx,mention_count: median among > 0 [measured],1,10181 papers with > 0
+4-plumx,social_count: non-null (all rows) [measured],62867,62867 papers
+4-plumx,social_count: > 0 (all rows) [measured],3906,62867 papers
+4-plumx,social_count: > 0 among found [measured],3906,59172 found
+4-plumx,social_count: median among > 0 [measured],14.0,3906 papers with > 0
+4-plumx,citation_count: non-null (all rows) [measured],62867,62867 papers
+4-plumx,citation_count: > 0 (all rows) [measured],48969,62867 papers
+4-plumx,citation_count: > 0 among found [measured],48969,59172 found
+4-plumx,citation_count: median among > 0 [measured],7,48969 papers with > 0
+4-plumx,"rows with found=0 carrying a non-null metric (zeros stored, not NULL) [measured]",3695,3695 not-found rows
+4-plumx,totals_json key present: capture [measured],57576,59172 found
+4-plumx,totals_json key present: citation [measured],48969,59172 found
+4-plumx,totals_json key present: mention [measured],10181,59172 found
+4-plumx,totals_json key present: socialMedia [measured],3906,59172 found
+4-plumx,totals_json key present: usage [measured],451,59172 found
+4-plumx,detail_json key present: capture.READER_COUNT [measured],57576,59172 found
+4-plumx,detail_json capture.READER_COUNT > 0 [measured],57576,59172 found
+4-plumx,detail_json key present: citation.CITED_BY_COUNT [measured],48942,59172 found
+4-plumx,detail_json citation.CITED_BY_COUNT > 0 [measured],48910,59172 found
+4-plumx,detail_json key present: mention.NEWS_COUNT [measured],5855,59172 found
+4-plumx,detail_json mention.NEWS_COUNT > 0 [measured],5855,59172 found
+4-plumx,detail_json key present: mention.ALL_BLOG_COUNT [measured],4942,59172 found
+4-plumx,detail_json mention.ALL_BLOG_COUNT > 0 [measured],4942,59172 found
+4-plumx,detail_json key present: socialMedia.FACEBOOK_COUNT [measured],3906,59172 found
+4-plumx,detail_json socialMedia.FACEBOOK_COUNT > 0 [measured],3906,59172 found
+4-plumx,detail_json key present: citation.POLICY_CITED_BY_COUNT [measured],2652,59172 found
+4-plumx,detail_json citation.POLICY_CITED_BY_COUNT > 0 [measured],2652,59172 found
+4-plumx,detail_json key present: mention.REFERENCE_COUNT [measured],1282,59172 found
+4-plumx,detail_json mention.REFERENCE_COUNT > 0 [measured],1282,59172 found
+4-plumx,detail_json key present: citation.PATENT_FAMILY_COUNT [measured],851,59172 found
+4-plumx,detail_json citation.PATENT_FAMILY_COUNT > 0 [measured],851,59172 found
+4-plumx,detail_json key present: citation.CLINICAL_CITED_BY_COUNT [measured],599,59172 found
+4-plumx,detail_json citation.CLINICAL_CITED_BY_COUNT > 0 [measured],599,59172 found
+4-plumx,detail_json key present: usage.ABSTRACT_VIEWS [measured],446,59172 found
+4-plumx,detail_json usage.ABSTRACT_VIEWS > 0 [measured],446,59172 found
+4-plumx,detail_json key present: usage.DOWNLOAD_COUNT [measured],169,59172 found
+4-plumx,detail_json usage.DOWNLOAD_COUNT > 0 [measured],169,59172 found
+4-plumx,detail_json key present: usage.FULL_TEXT_VIEWS [measured],92,59172 found
+4-plumx,detail_json usage.FULL_TEXT_VIEWS > 0 [measured],92,59172 found
+4-plumx,detail_json key present: capture.EXPORTS_SAVES [measured],4,59172 found
+4-plumx,detail_json capture.EXPORTS_SAVES > 0 [measured],4,59172 found
+4-plumx,check: capture_count != READER_COUNT + EXPORTS_SAVES [measured],0,59172 found
+4-plumx,check: mention_count != NEWS + ALL_BLOG + REFERENCE [measured],0,59172 found
+4-plumx,check: social_count != FACEBOOK_COUNT [measured],0,59172 found
+4-plumx,check: usage_count != sum(usage.*) [measured],0,59172 found
+4-plumx,check: citation_count != totals.citation [measured],0,59172 found
+4-plumx,check: citation_count != citation.CITED_BY_COUNT [measured],3532,59172 found
+4-plumx,share of mention total from REFERENCE_COUNT [measured],9.5%,sum of mention_count over found
+4-plumx,share of mention total from NEWS_COUNT [measured],66.2%,sum of mention_count over found
+4-plumx,share of mention total from ALL_BLOG_COUNT [measured],24.3%,sum of mention_count over found
+4-plumx,REFERENCE_COUNT > 0 papers also in Altmetric Wikipedia-kind posts [measured],1003,1282 REFERENCE_COUNT>0 papers
+4-plumx,REFERENCE_COUNT > 0 papers also in wikipedia_cites [measured],885,1282 REFERENCE_COUNT>0 papers
+4-plumx,wikipedia_cites papers with PlumX REFERENCE_COUNT > 0 [measured],885,905 cited papers
+4-plumx,PlumX NEWS_COUNT > 0 papers also with Altmetric news posts [measured],1546,5855 PlumX news papers
+4b-plumx-elapsed-since-retraction,found papers retracted <1 year before PlumX fetch [measured],2741,59172 found
+4b-plumx-elapsed-since-retraction,  of which capture_count > 0 [measured],2644,2741 found in band
+4b-plumx-elapsed-since-retraction,found papers retracted 1-<2 years before PlumX fetch [measured],5644,59172 found
+4b-plumx-elapsed-since-retraction,  of which capture_count > 0 [measured],5390,5644 found in band
+4b-plumx-elapsed-since-retraction,found papers retracted 2-<5 years before PlumX fetch [measured],24188,59172 found
+4b-plumx-elapsed-since-retraction,  of which capture_count > 0 [measured],23778,24188 found in band
+4b-plumx-elapsed-since-retraction,found papers retracted >=5 years before PlumX fetch [measured],24158,59172 found
+4b-plumx-elapsed-since-retraction,  of which capture_count > 0 [measured],23361,24158 found in band
+4b-plumx-elapsed-since-retraction,found papers retracted no Retraction record before PlumX fetch [measured],2441,59172 found
+4b-plumx-elapsed-since-retraction,  of which capture_count > 0 [measured],2403,2441 found in band
+4b-plumx-elapsed-since-retraction,found papers retracted Retraction date unparsed before PlumX fetch [measured],0,59172 found
+4b-plumx-elapsed-since-retraction,  of which capture_count > 0 [measured],0,0 found in band
+5-altmetric-wikipedia-concentration,max papers linked to one Altmetric revision id [measured],1962,papers
+5-altmetric-wikipedia-concentration,Altmetric revision ids linking >=100 papers [measured],2,3334 revisions
+5-altmetric-wikipedia-concentration,rank 1 Altmetric page: papers linked [measured],1962,3174 post papers
+5-altmetric-wikipedia-concentration,rank 2 Altmetric page: papers linked [measured],29,3174 post papers
+5-altmetric-wikipedia-concentration,rank 3 Altmetric page: papers linked [measured],29,3174 post papers
+5-altmetric-wikipedia-concentration,rank 4 Altmetric page: papers linked [measured],27,3174 post papers
+5-altmetric-wikipedia-concentration,rank 5 Altmetric page: papers linked [measured],18,3174 post papers
+5-altmetric-wikipedia-concentration,Altmetric pages linking >=100 papers [measured],1,3045 pages
+5-altmetric-wikipedia-concentration,papers linked from those pages [measured],1962,3174 post papers
+5-altmetric-wikipedia-concentration,  of which found by the Aug-30 DOI search [measured],0,1962 papers
+5-altmetric-wikipedia-concentration,  of which retracted 2010-2014 (earliest Retraction) [measured],1805,1962 papers
+5-altmetric-wikipedia-concentration,papers whose only Altmetric Wikipedia pages are those >=100-paper pages [measured],1962,3174 post papers
+5-altmetric-wikipedia-concentration,  of which in posts-only set (not found by DOI search) [measured],1962,2269 posts-only papers
+5-altmetric-wikipedia-concentration,  DOI prefix 10.1109 [measured],1746,1962 papers on >=100-paper pages only
+5-altmetric-wikipedia-concentration,  DOI prefix 10.1016 [measured],83,1962 papers on >=100-paper pages only
+5-altmetric-wikipedia-concentration,  DOI prefix 10.1007 [measured],19,1962 papers on >=100-paper pages only
+5-altmetric-wikipedia-concentration,posts on >=100-paper pages: first date [measured],2024-06-14,date
+5-altmetric-wikipedia-concentration,posts on >=100-paper pages: last date [measured],2024-06-14,date
+5-altmetric-wikipedia-concentration,2010-2014 swept papers outside the >=100-paper pages [measured],181,1986 swept 2010-2014
+5-altmetric-wikipedia-concentration,  of which cited [measured],142,181 papers
+5-altmetric-wikipedia-concentration,swept papers excluding big-page-only papers [measured],1212,3174 swept papers
+5-altmetric-wikipedia-concentration,  of which cited [measured],905,1212 papers
+5-altmetric-wikipedia-concentration,retraction year 2009: swept papers [measured],25,3174 swept papers
+5-altmetric-wikipedia-concentration,retraction year 2009: cited papers [measured],15,25 swept in year
+5-altmetric-wikipedia-concentration,retraction year 2010: swept papers [measured],1699,3174 swept papers
+5-altmetric-wikipedia-concentration,retraction year 2010: cited papers [measured],18,1699 swept in year
+5-altmetric-wikipedia-concentration,retraction year 2011: swept papers [measured],119,3174 swept papers
+5-altmetric-wikipedia-concentration,retraction year 2011: cited papers [measured],26,119 swept in year
+5-altmetric-wikipedia-concentration,retraction year 2012: swept papers [measured],58,3174 swept papers
+5-altmetric-wikipedia-concentration,retraction year 2012: cited papers [measured],34,58 swept in year
+5-altmetric-wikipedia-concentration,retraction year 2013: swept papers [measured],58,3174 swept papers
+5-altmetric-wikipedia-concentration,retraction year 2013: cited papers [measured],32,58 swept in year
+5-altmetric-wikipedia-concentration,retraction year 2014: swept papers [measured],52,3174 swept papers
+5-altmetric-wikipedia-concentration,retraction year 2014: cited papers [measured],32,52 swept in year
+5-altmetric-wikipedia-concentration,retraction year 2015: swept papers [measured],145,3174 swept papers
+5-altmetric-wikipedia-concentration,retraction year 2015: cited papers [measured],44,145 swept in year
+6-count-definitions,"papers where Altmetric cited_by_wikipedia_count == distinct (edition, title) in posts [measured]",3163,3174 post papers
+6-count-definitions,"papers where Altmetric cited_by_wikipedia_count == distinct (edition, page id) in posts [measured]",3173,3174 post papers
+6-count-definitions,PlumX REFERENCE_COUNT>0 papers where it == wikipedia_cites links (11 editions) [measured],532,1282 REFERENCE_COUNT>0 papers
+6-count-definitions,PlumX REFERENCE_COUNT>0 papers where it == Altmetric distinct pages (all editions) [measured],530,1282 REFERENCE_COUNT>0 papers
+6-count-definitions,PlumX REFERENCE_COUNT>0 papers never swept (no Altmetric Wikipedia count) [measured],279,1282 REFERENCE_COUNT>0 papers
+6-count-definitions,  REFERENCE_COUNT summed over those unswept papers [measured],467,PlumX references
+6-count-definitions,swept papers with PlumX REFERENCE_COUNT>0 [measured],1003,3174 swept papers
+7-matched-link-timing-by-band,<=1999: matched links [measured],17,1823 matched links
+7-matched-link-timing-by-band,<=1999: first Altmetric edit before retraction [measured],0,17 matched links in band
+7-matched-link-timing-by-band,<=1999: first Altmetric edit same-day retraction [measured],0,17 matched links in band
+7-matched-link-timing-by-band,<=1999: first Altmetric edit after retraction [measured],17,17 matched links in band
+7-matched-link-timing-by-band,2000-2009: matched links [measured],144,1823 matched links
+7-matched-link-timing-by-band,2000-2009: first Altmetric edit before retraction [measured],0,144 matched links in band
+7-matched-link-timing-by-band,2000-2009: first Altmetric edit same-day retraction [measured],0,144 matched links in band
+7-matched-link-timing-by-band,2000-2009: first Altmetric edit after retraction [measured],144,144 matched links in band
+7-matched-link-timing-by-band,2010-2014: matched links [measured],328,1823 matched links
+7-matched-link-timing-by-band,2010-2014: first Altmetric edit before retraction [measured],116,328 matched links in band
+7-matched-link-timing-by-band,2010-2014: first Altmetric edit same-day retraction [measured],1,328 matched links in band
+7-matched-link-timing-by-band,2010-2014: first Altmetric edit after retraction [measured],211,328 matched links in band
+7-matched-link-timing-by-band,2015-2019: matched links [measured],337,1823 matched links
+7-matched-link-timing-by-band,2015-2019: first Altmetric edit before retraction [measured],144,337 matched links in band
+7-matched-link-timing-by-band,2015-2019: first Altmetric edit same-day retraction [measured],0,337 matched links in band
+7-matched-link-timing-by-band,2015-2019: first Altmetric edit after retraction [measured],193,337 matched links in band
+7-matched-link-timing-by-band,2020-2022: matched links [measured],291,1823 matched links
+7-matched-link-timing-by-band,2020-2022: first Altmetric edit before retraction [measured],161,291 matched links in band
+7-matched-link-timing-by-band,2020-2022: first Altmetric edit same-day retraction [measured],3,291 matched links in band
+7-matched-link-timing-by-band,2020-2022: first Altmetric edit after retraction [measured],127,291 matched links in band
+7-matched-link-timing-by-band,2023-2024: matched links [measured],166,1823 matched links
+7-matched-link-timing-by-band,2023-2024: first Altmetric edit before retraction [measured],112,166 matched links in band
+7-matched-link-timing-by-band,2023-2024: first Altmetric edit same-day retraction [measured],2,166 matched links in band
+7-matched-link-timing-by-band,2023-2024: first Altmetric edit after retraction [measured],52,166 matched links in band
+7-matched-link-timing-by-band,2025-2026: matched links [measured],111,1823 matched links
+7-matched-link-timing-by-band,2025-2026: first Altmetric edit before retraction [measured],88,111 matched links in band
+7-matched-link-timing-by-band,2025-2026: first Altmetric edit same-day retraction [measured],2,111 matched links in band
+7-matched-link-timing-by-band,2025-2026: first Altmetric edit after retraction [measured],21,111 matched links in band
+7-matched-link-timing-by-band,no Retraction record: matched links [measured],429,1823 matched links
+7-matched-link-timing-by-band,matched links with >1 Altmetric post (several recorded edits) [measured],46,1823 matched links

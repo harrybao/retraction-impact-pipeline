@@ -1,0 +1,99 @@
+metric,value,denominator,note
+API requests made (all samples),411,budget 430,stopped=HTTP 429
+http outcome sample a: status=404 error=None,150,150 calls in sample a,
+http outcome sample b: status=200 error=None,80,80 calls in sample b,
+http outcome sample c: status=429 error=None,1,1 calls in sample c,
+http outcome sample d: status=200 error=None,26,100 calls in sample d,
+http outcome sample d: status=404 error=None,74,100 calls in sample d,
+http outcome sample e: status=200 error=None,2,50 calls in sample e,
+http outcome sample e: status=404 error=None,48,50 calls in sample e,
+http outcome sample f: status=404 error=None,30,30 calls in sample f,
+rate header after run: X-HourlyRateLimit-Remaining,3600,last response that carried the header,quota remaining as reported by Altmetric; unclear whether the 429 response carried it
+rate header after run: X-DailyRateLimit-Remaining,86400,last response that carried the header,quota remaining as reported by Altmetric; unclear whether the 429 response carried it
+a) found=0 original DOIs now returning 200 on v1/doi,0/150 = 0.0% (95% Wilson CI 0.0-2.5%),150 sampled found=0 original DOIs,"stratified by publisher (13 strata, proportional allocation)"
+a) found=0 original DOIs now returning 200 on v1/doi | extrapolated to population,"0 (range 0-1,011)","population N=40,499 found=0 original DOIs","point estimate and Wilson bounds x N; stratified by publisher (13 strata, proportional allocation)"
+a) found=0 original DOIs now with cited_by_msm_count>0,0/150 = 0.0% (95% Wilson CI 0.0-2.5%),150 sampled found=0 original DOIs,
+a) found=0 original DOIs now with cited_by_msm_count>0 | extrapolated to population,"0 (range 0-1,011)","population N=40,499 found=0 original DOIs",point estimate and Wilson bounds x N; 
+a) stratum-weighted found-now rate,0.00%,"150 sampled, weights from 40,499 found=0 DOIs",
+a) now-found records whose Altmetric added_on predates our original fetch,0,0 now-found of 150 sampled,record existed in Altmetric when our call got 404 -> possible miss (H3) or later DOI/identifier linkage
+a) now-found records added to Altmetric after our original fetch,0,0 now-found of 150 sampled,"genuinely new since 2026-08-29/30 (coverage growth, not a collection failure)"
+a) stratum EDP Sciences: found now / msm>0 now,0 / 0,3 sampled of 774,
+a) stratum Elsevier: found now / msm>0 now,0 / 0,"13 sampled of 3,530",
+a) stratum Hindawi: found now / msm>0 now,0 / 0,"33 sampled of 9,003",
+a) stratum IEEE: Institute of Electrical and Electronics Engineers: found now / msm>0 now,0 / 0,"22 sampled of 5,946",
+a) stratum IOP Publishing: found now / msm>0 now,0 / 0,"4 sampled of 1,191",
+a) stratum IOS Press (bought by Sage November 2023): found now / msm>0 now,0 / 0,"6 sampled of 1,708",
+a) stratum Other: found now / msm>0 now,0 / 0,"31 sampled of 8,260",
+a) stratum SAGE Publications: found now / msm>0 now,0 / 0,"4 sampled of 1,004",
+a) stratum Spandidos: found now / msm>0 now,0 / 0,2 sampled of 546,
+a) stratum Springer: found now / msm>0 now,0 / 0,"12 sampled of 3,137",
+a) stratum Springer - Nature Publishing Group: found now / msm>0 now,0 / 0,"8 sampled of 2,190",
+a) stratum Taylor and Francis: found now / msm>0 now,0 / 0,"4 sampled of 1,127",
+a) stratum Wiley: found now / msm>0 now,0 / 0,"8 sampled of 2,083",
+f) found=0 & PlumX NEWS_COUNT>0 DOIs now returning 200,0/30 = 0.0% (95% Wilson CI 0.0-11.4%),30 sampled found=0 DOIs with PlumX news>0,
+f) found=0 & PlumX NEWS_COUNT>0 DOIs now returning 200 | extrapolated to population,0 (range 0-314),"population N=2,764 found=0 DOIs with PlumX news>0",point estimate and Wilson bounds x N; 
+f) found=0 & PlumX NEWS_COUNT>0 DOIs now with msm>0,0/30 = 0.0% (95% Wilson CI 0.0-11.4%),30 sampled found=0 DOIs with PlumX news>0,
+f) found=0 & PlumX NEWS_COUNT>0 DOIs now with msm>0 | extrapolated to population,0 (range 0-314),"population N=2,764 found=0 DOIs with PlumX news>0",point estimate and Wilson bounds x N; 
+f) PlumX NEWS_COUNT in sample: median (min-max),1.0 (1-2),30 sampled,PlumX-side news count for papers Altmetric returned 404 for
+"d) notice DOIs (single-use, paper has no Altmetric news) returning 200",26/100 = 26.0% (95% Wilson CI 18.4-35.4%),100 sampled never-queried notice DOIs of queried papers without news,
+"d) notice DOIs (single-use, paper has no Altmetric news) returning 200 | extrapolated to population","10,757 (range 7,615-14,634)","population N=41,374 never-queried notice DOIs of queried papers without news",point estimate and Wilson bounds x N; 
+d) notice DOIs with cited_by_msm_count>0,1/100 = 1.0% (95% Wilson CI 0.2-5.4%),100 sampled never-queried notice DOIs of queried papers without news,
+d) notice DOIs with cited_by_msm_count>0 | extrapolated to population,"414 (range 73-2,254)","population N=41,374 never-queried notice DOIs of queried papers without news",point estimate and Wilson bounds x N; 
+d) sum of msm on notice DOIs in sample,1,100 sampled,
+d) combined article+notice news rate if notice DOIs were added (Zheng et al. 2025 method),4.66% (range 4.11-7.58%),"62,867 queried article DOIs (2,513 with article-DOI news + extrapolated notice-only news)","upper bound: assumes each notice with news belongs to a distinct paper; notice news is about the retraction, not the paper; Zheng et al. 6.6%"
+d) notice DOI with msm>0 in sample,"10.1172/jci94890 (notice for 10.1172/jci60214): msm=1, added 2017-06-19",1 hit of 100 sampled,
+d) notice DOIs found=200 by whether paper itself was found=1,paper found=1: 13/38; paper found=0: 13/62,100 sampled,
+d) papers excluded from notice population because their article DOI was never queried,2582,"records with a single-use, never-queried notice DOI",outside this sample frame
+e) PMIDs of found=0 papers returning 200 on v1/pmid,2/50 = 4.0% (95% Wilson CI 1.1-13.5%),50 sampled found=0 papers with a CSV PMID,
+e) PMIDs of found=0 papers returning 200 on v1/pmid | extrapolated to population,"578 (range 159-1,945)","population N=14,448 found=0 papers with a CSV PMID",point estimate and Wilson bounds x N; 
+e) PMIDs of found=0 papers with msm>0,1/50 = 2.0% (95% Wilson CI 0.4-10.5%),50 sampled found=0 papers with a CSV PMID,
+e) PMIDs of found=0 papers with msm>0 | extrapolated to population,"289 (range 51-1,516)","population N=14,448 found=0 papers with a CSV PMID",point estimate and Wilson bounds x N; 
+e) PMID hits whose Altmetric record carries the same DOI as our paper,0,2 PMID hits,same DOI but v1/doi said 404 -> DOI lookup miss; different/no DOI -> record keyed on PMID only
+e) PMID hits with no DOI on the Altmetric record,0,2 PMID hits,
+e) PMID hits with added_on before our original DOI fetch,2,2 PMID hits,
+e) PMID hits resolving to a DOI already in our altmetric table,1,2 PMID hits,"PMID 35073579 is the ECCO bulk retraction notice (CSV OriginalPaperPubMedID == RetractionPubMedID), DOI 10.1093/ecco-jcc/jjab227 already stored found=1 msm=1 and shared by 293 records"
+"e) PMIDs adding news for the paper's own record (same DOI, msm>0, not already stored)",0/50 = 0.0% (95% Wilson CI 0.0-7.1%),50 sampled found=0 papers with a CSV PMID,both PMID hits carried a different DOI than the paper
+"e) PMIDs adding news for the paper's own record (same DOI, msm>0, not already stored) | extrapolated to population","0 (range 0-1,031)","population N=14,448 found=0 papers with a CSV PMID",point estimate and Wilson bounds x N; both PMID hits carried a different DOI than the paper
+e) CSV rows whose OriginalPaperPubMedID equals RetractionPubMedID (non-zero),1340,"33,623 CSV rows with a non-zero OriginalPaperPubMedID","PMID column sometimes holds the notice PMID, so a PMID lookup can return the notice, not the paper"
+b) news DOIs still returning 200,80,"80 sampled of 2,513 found=1 msm>0 DOIs",
+b) news DOIs now 404,0,80 sampled,
+b) msm now == stored,80,80 re-fetched,
+b) msm now > stored,0,80 re-fetched,
+b) msm now < stored,0,80 re-fetched,
+b) sum msm stored -> now,750 -> 750,80 re-fetched,
+b) median days since stored fetch,19.0,80 re-fetched,
+b) share with any msm change,0.0% (95% CI 0.0-4.6%),80 re-fetched,
+b) changed items (stored->now),none,80 re-fetched,
+b) posts_count now > stored,7,80 re-fetched,"all-source post count drift, for comparison"
+c) detail calls returning 200,0,1 detail calls attempted of 20 planned,"first v1/fetch/doi call returned HTTP 429 -> run stopped immediately per key-safety rule; no retry; hourly/daily headers still full, cause unclear"
+c-offline) planned 20 detail DOIs: stored posts_total vs stored rows all kinds,2055 vs 2054,20 planned detail DOIs,equal means no post collapsed on insert for these papers
+c-offline) planned 20: stored news rows vs stored msm (outlets),130 vs 124,20 planned detail DOIs,
+c-offline) news DOIs: stored posts_total == stored rows (no collapse),2474,"2,513 found=1 msm>0 DOIs with a detail row",
+"c-offline) news DOIs: stored posts_total > stored rows (some post collapsed, any kind)",39,"2,513 found=1 msm>0 DOIs with a detail row",collapse could be in any kind; H4 owner should split by kind
+c-offline) news DOIs: stored posts_total < stored rows,0,"2,513 found=1 msm>0 DOIs with a detail row",
+c) excluded from detail frame by X-post cap (stored twitter rows > 1000),2,80 sampled news DOIs,protects client's X post-ID balance; 20 drawn 10 upper / 10 lower half of stored news rows
+context: queried article DOIs with Altmetric news (msm>0),2513,"62,867 queried article DOIs","= 4.00%; Fang et al. 2020: 4.01% of 12,271,991 WoS papers 2012-2018; Zheng et al. 2025: 6.6% of 15,461 retracted (article + notice DOI)"
+context: news rate by original publication year <=2011,417/15526 = 2.69%,"15,526 queried article DOIs in bucket","found=1: 6135/15526; Altmetric news tracking began Oct 2011, redeveloped Dec 2015"
+context: news rate by original publication year 2012-2015,491/7201 = 6.82%,"7,201 queried article DOIs in bucket","found=1: 3892/7201; Altmetric news tracking began Oct 2011, redeveloped Dec 2015"
+context: news rate by original publication year 2016-2019,640/10994 = 5.82%,"10,994 queried article DOIs in bucket","found=1: 4991/10994; Altmetric news tracking began Oct 2011, redeveloped Dec 2015"
+context: news rate by original publication year 2020+,965/29146 = 3.31%,"29,146 queried article DOIs in bucket","found=1: 7350/29146; Altmetric news tracking began Oct 2011, redeveloped Dec 2015"
+context: news rate publisher Hindawi,175/11507 = 1.52%,"11,507 queried article DOIs from this publisher",
+context: news rate publisher IEEE: Institute of Electrical and Electronics Engineers,4/7797 = 0.05%,"7,797 queried article DOIs from this publisher",
+context: news rate publisher Elsevier,365/6969 = 5.24%,"6,969 queried article DOIs from this publisher",
+context: news rate publisher Springer,120/4638 = 2.59%,"4,638 queried article DOIs from this publisher",
+context: news rate publisher Wiley,226/4185 = 5.40%,"4,185 queried article DOIs from this publisher",
+context: news rate publisher Springer - Nature Publishing Group,276/3197 = 8.63%,"3,197 queried article DOIs from this publisher",
+context: news rate publisher IOS Press (bought by Sage November 2023),11/1783 = 0.62%,"1,783 queried article DOIs from this publisher",
+context: news rate publisher Taylor and Francis,63/1780 = 3.54%,"1,780 queried article DOIs from this publisher",
+context: news rate publisher PLoS,144/1505 = 9.57%,"1,505 queried article DOIs from this publisher",
+context: news rate publisher SAGE Publications,81/1461 = 5.54%,"1,461 queried article DOIs from this publisher",
+context: news rate article type Conference Abstract/Paper,18/11187 = 0.16%,"11,187 queried article DOIs of this type",type via records.article_type substring
+context: news rate article type Other types,642/7747 = 8.29%,"7,747 queried article DOIs of this type",type via records.article_type substring
+context: news rate article type Research Article,1853/43933 = 4.22%,"43,933 queried article DOIs of this type",type via records.article_type substring
+docs: news coverage start,Oct 2011; stories after Dec 2015 redevelopment more numerous,Altmetric help: Attention Sources coverage dates,https://help.altmetric.com/en/articles/9802497
+docs: news tracking start (news article),tracking began 2011; most news attention starts 2012,Altmetric help: News and Mainstream Media,https://help.altmetric.com/en/articles/9801409
+docs: number of news outlets,"over 14,000 English and non-English outlets, manually curated",Altmetric help: Attention sources tracked,https://help.altmetric.com/en/articles/9802369
+docs: matching method for news,link/identifier matching plus text mining (author name + journal title + date; +/-6 weeks when undated),Altmetric help: Text mining,https://help.altmetric.com/en/articles/9802753
+docs: text-mining limit,only for DOIs registered in Crossref; most effective in English,Altmetric help: Text mining,https://help.altmetric.com/en/articles/9802753
+docs: missed-mention causes,no working link to an identifier page; text mining failed; source not tracked at the time; paywalled/login sources; links to a press release/other story; mention only in comments,Altmetric help: Missed mentions,https://help.altmetric.com/en/articles/9802625
+docs: fetch endpoint,no documented pagination; include_sources/exclude_sources params; 403 invalid key; 404 not tracked; 429 rate limited,Altmetric Details Page API docs,https://docs.altmetric.com/details-page-api/endpoints/fetch/

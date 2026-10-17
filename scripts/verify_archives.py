@@ -1,7 +1,8 @@
-"""Is each archived page actually the paper it claims to be?
+"""Is each stored page actually the document it is filed under?
 
-    python scripts/verify_archives.py --limit 500     # sample
-    python scripts/verify_archives.py                 # all of them
+    python scripts/verify_archives.py --dry-run       # judge every page, change nothing
+    python scripts/verify_archives.py --dry-run --limit 500 # sample
+    python scripts/verify_archives.py --apply              # changes documents.usable
 
 Until now a capture was accepted on **size**: over 50 KB of HTML, over 40 KB of
 MHTML, not a known challenge page. That test cannot tell one article from
@@ -9,47 +10,59 @@ another, and it has already been fooled once - 297 Elsevier waypoint pages
 rendered at almost exactly the 50 KB threshold and were filed as articles while
 the stored archive contained only "Subject: Redirecting".
 
-A teammate's crawler verifies differently: it checks that the DOI actually
-appears in the captured file and that the page title resembles the record
-title. That is a test of *identity* rather than of *bulk*, and it is strictly
-better. This applies the same check to the 79,081 pages already archived.
+A teammate's crawler verified differently: it checked that the DOI appears in
+the captured file and that the page title resembles the record title. That is
+a test of *identity* rather than of *bulk*, and this script applied it to every
+stored page: a page counted when it carried its DOI anywhere **or** its title
+matched.
 
-Two decoding details matter, and getting either wrong invents failures:
+**Since 13 October 2026 the rule is `rwpipe.identity.judge()`**, the one
+`merge_wayback.py` applies to Internet Archive copies, so a page is judged the
+same way whichever route brought it in. "The DOI appears anywhere" proved what
+was *requested*, not what came back: an Archive copy repeats the requested
+address 13-14 times in its toolbar and MHTML headers, and a live capture in its
+own headers, so the old rule accepted SAGE "Error | Sage" pages and notices
+saved in place of their article (review of 7 October: among 10,133 pages
+accepted on the DOI alone with a label-only title, 21 declare another DOI and
+10 are error pages). `identity.py` states the rule and why; `--dry-run`
+measures what it changes before anything is written:
 
-* MHTML stores the document quoted-printable, so a DOI can be split across
-  lines by a soft break (`=\r\n`). Searching the raw bytes for the DOI then
-  misses a DOI that is plainly there. Soft breaks are removed before matching.
-* The same DOI is written `10.1016/J.FOO` and `10.1016/j.foo`, and publishers
-  percent-encode slashes in URLs. Matching is case-insensitive and tries the
-  encoded form too.
+    python scripts/verify_archives.py --dry-run
+        -> runs/checks/identity-recheck-<date>.csv, one row per stored page:
+           old usable flag and verdict, new verdict, the evidence that decided
+           it, and the DOI the document declares.
 
-A page that fails both checks is not automatically wrong - some publishers
-render the DOI as an image, and some titles differ legitimately. The output is
-a ranked list to inspect, not a verdict.
+The dry run opens the database read-only and writes only that file. With
+explicit --apply, `documents.usable` is set from the verdict (`ok` is usable, anything else
+is not) and `archive_checks` records why.
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import gzip
-import re
+import sqlite3
 import sys
-from difflib import SequenceMatcher
+from collections import Counter
+from datetime import date
+from multiprocessing import Pool
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from rich.console import Console
 
-from rwpipe import config, db, fetch
+from rwpipe import config, db, fetch, identity, storage
 
 console = Console()
 
-TAG = re.compile(rb"<[^>]{1,4000}>")
-WS = re.compile(r"\s+")
-
 
 def readable(path: Path) -> str:
-    """Decoded text of a capture, with MHTML soft line breaks removed."""
+    """Decoded text of a capture, with MHTML soft line breaks removed.
+
+    Kept for `ab_title_rule.py` and `recheck_title_rule.py`, which import it.
+    The verifier itself reads with `identity.read_capture()`, as the Archive
+    merge does, and `identity.judge()` removes the soft breaks it needs to."""
     try:
         raw = gzip.open(path, "rb").read()
     except Exception:                                      # noqa: BLE001
@@ -62,165 +75,235 @@ def readable(path: Path) -> str:
         return ""
 
 
-def title_of(text: str) -> str:
-    m = re.search(r"<title[^>]*>(.{0,400}?)</title>", text, re.I | re.S)
-    if not m:
+COLUMNS = ("doi", "source_kind", "capture_format", "host", "doc_role",
+           "old_usable", "old_verdict", "new_verdict", "new_usable", "changed",
+           "reason", "declared_doi", "declared_relation",
+           "old_title_similarity", "title_similarity", "page_title")
+COLUMNS = (*COLUMNS, "matched_role")
+
+
+def relation(declared: str | None, doi: str, pairs: dict, known: set) -> str:
+    """How the DOI a page declares relates to the one it is filed under.
+
+    `record-pair`: the other DOI of a record that holds the requested one - the
+    notice saved in place of its paper, or the paper in place of its notice.
+    `in-dataset`: another DOI Retraction Watch lists (a neighbouring article).
+    `not-in-dataset`: a DOI the dataset does not know. Recorded for review;
+    the verdict does not use it."""
+    if not declared:
         return ""
-    t = TAG.sub(b" ", m.group(1).encode("utf-8", "ignore")).decode("utf-8", "ignore")
-    return WS.sub(" ", t).strip()
+    if " " in declared:
+        return "several"
+    want = identity.norm_doi(doi)
+    if declared == want:
+        return "own"
+    if declared in pairs.get(want, ()):
+        return "record-pair"
+    return "in-dataset" if declared in known else "not-in-dataset"
 
 
-def norm(s: str) -> str:
-    s = re.sub(r"^\s*(retracted article|retracted|retraction(?: note| notice)?|"
-               r"withdrawn|expression of concern|correction|corrigendum)\s*[:\-]?\s*",
-               "", s or "", flags=re.I)
-    s = re.sub(r"\s*[|\-–—]\s*[^|]{0,80}$", "", s)        # trailing journal name
-    return WS.sub(" ", re.sub(r"[^\w\s]", " ", s.lower())).strip()
+def check(task: tuple) -> dict:
+    """Judge one stored page. Runs in a worker process: everything it needs
+    comes in the task, so no worker opens the database."""
+    doi, rel_path, titles, journal, papers, aliases, role = task
+    text = identity.read_capture(storage.resolve(rel_path))
+    v = identity.judge(text, doi, titles, journal, papers, aliases, kind=role)
+    title = identity.page_title(text) if text else ""
+    sim = v.similarity
+    if sim is None and title and titles:
+        sim = max(fetch.compare_titles(title, t)[1] for t in titles)
+    return {"verdict": v.verdict, "reason": v.reason, "declared": v.declared,
+            "similarity": None if sim is None else round(sim, 3),
+            "page_title": title[:200],
+            "matched_role": v.matched_role,
+            "doi_found": int(fetch.contains_doi(text, doi)) if text else 0,
+            "role_ok": int(fetch.role_matches(text, role)) if text else 0}
 
 
-def has_doi(text: str, doi: str) -> bool:
-    low = text.lower()
-    d = doi.lower()
-    return d in low or d.replace("/", "%2f") in low
+def connect_read_only() -> sqlite3.Connection:
+    # Immutable reads cannot update SQLite's WAL shared-memory file. Refuse a
+    # live WAL rather than silently omitting committed rows from the snapshot.
+    wal = Path(str(config.DB_PATH) + "-wal")
+    if wal.exists() and wal.stat().st_size:
+        raise RuntimeError("dry run needs a checkpointed database (non-empty WAL)")
+    conn = sqlite3.connect(config.DB_PATH.resolve().as_uri() + "?mode=ro&immutable=1",
+                           uri=True, timeout=60)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def has_table(conn, name: str) -> bool:
+    return conn.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+                        (name,)).fetchone() is not None
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=None)
-    ap.add_argument("--min-similarity", type=float, default=0.55)
+    # A merged batch is verified on its own. The unfiltered run re-derives
+    # `usable` for every stored archive, and can move documents the batch
+    # never touched.
+    ap.add_argument("--source-kind", default=None,
+                    help="only documents with this source_kind, e.g. teammate-tandf")
+    mode = ap.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--apply", action="store_true", help="explicitly apply identity decisions to the database")
+    mode.add_argument("--dry-run", action="store_true",
+                    help="judge read-only and write the comparison CSV; change nothing")
+    ap.add_argument("--out", type=Path, default=None,
+                    help="where --dry-run writes its CSV "
+                         "(default data/reports/identity-recheck-<today>.csv)")
+    # 96,514 pages, 147 GB uncompressed: about 23 ms each on one core
+    # (sample of 324, 13 October 2026), so 37 minutes serially.
+    ap.add_argument("--workers", type=int, default=1)
     args = ap.parse_args()
 
-    conn = db.connect()
-    # Results go to a table, not just the screen. The first run of this printed
-    # a summary and eight examples and kept nothing, so identifying the 208
-    # failures afterwards meant decompressing all 69,090 archives a second
-    # time. A verification that cannot be queried later is half a verification.
-    conn.execute("""CREATE TABLE IF NOT EXISTS archive_checks (
-        doi TEXT PRIMARY KEY, host TEXT, gz_bytes INTEGER,
-        doi_found INTEGER, title_similarity REAL, page_title TEXT,
-        doc_role TEXT, role_ok INTEGER,
-        verdict TEXT, checked_at TEXT)""")
-    for col, decl in (("doc_role", "TEXT"), ("role_ok", "INTEGER")):
-        try:
-            conn.execute(f"ALTER TABLE archive_checks ADD COLUMN {col} {decl}")
-        except Exception:                                  # noqa: BLE001
-            pass
-    conn.commit()
-    # Two indexed lookups rather than one OR-join. The OR form cannot use an
-    # index on either side, so SQLite scans all 71,698 records for each of the
-    # 79,139 documents - the query never returns.
-    conn.execute("CREATE INDEX IF NOT EXISTS idx_rec_odoi ON records(original_doi)")
-    conn.execute("CREATE INDEX IF NOT EXISTS idx_rec_rdoi ON records(retraction_doi)")
-    sql = """SELECT d.doi, d.mhtml_path, d.capture_format, d.gz_bytes,
-                    d.final_host,
-                    COALESCE(
-                      (SELECT r.title FROM records r WHERE r.original_doi = d.doi),
-                      (SELECT r.title FROM records r WHERE r.retraction_doi = d.doi)
-                    ) AS title
-                    ,CASE WHEN EXISTS(SELECT 1 FROM records r
-                                       WHERE r.retraction_doi = d.doi)
-                          THEN 'retraction' ELSE 'original' END AS doc_role
-             FROM documents d
-             WHERE d.status = 'done' AND d.mhtml_path IS NOT NULL
-             ORDER BY d.shard"""
+    if args.dry_run:
+        conn = connect_read_only()
+    else:
+        conn = db.connect()
+        # Results go to a table, not just the screen. The first run of this
+        # printed a summary and eight examples and kept nothing, so
+        # identifying the 208 failures afterwards meant decompressing all
+        # 69,090 archives a second time.
+        conn.execute("""CREATE TABLE IF NOT EXISTS archive_checks (
+            doi TEXT PRIMARY KEY, host TEXT, gz_bytes INTEGER,
+            doi_found INTEGER, title_similarity REAL, page_title TEXT,
+            doc_role TEXT, role_ok INTEGER,
+            verdict TEXT, checked_at TEXT)""")
+        for col, decl in (("doc_role", "TEXT"), ("role_ok", "INTEGER"),
+                          ("reason", "TEXT"), ("declared_doi", "TEXT")):
+            try:
+                conn.execute(f"ALTER TABLE archive_checks ADD COLUMN {col} {decl}")
+            except Exception:                              # noqa: BLE001
+                pass
+        if "matched_role" not in {r[1] for r in conn.execute("PRAGMA table_info(archive_checks)")}:
+            conn.execute("ALTER TABLE archive_checks ADD COLUMN matched_role TEXT")
+        conn.commit()
+
+    old = ("a.verdict AS old_verdict, a.title_similarity AS old_sim"
+           if has_table(conn, "archive_checks") else "NULL AS old_verdict, NULL AS old_sim")
+    join = "LEFT JOIN archive_checks a ON a.doi = d.doi" if "a.verdict" in old else ""
+    sql = f"""SELECT d.doi, d.mhtml_path, d.capture_format, d.source_kind, d.gz_bytes,
+                     d.final_host, d.usable, {old}
+                FROM documents d {join}
+               WHERE d.status = 'done' AND d.mhtml_path IS NOT NULL
+                 AND (:kind IS NULL OR d.source_kind = :kind)
+               ORDER BY d.shard, d.doi"""
     if args.limit:
         sql += f" LIMIT {int(args.limit)}"
-    rows = conn.execute(sql).fetchall()
+    rows = conn.execute(sql, {"kind": args.source_kind}).fetchall()
 
-    console.print(f"[bold]verifying {len(rows):,} archives[/bold]\n")
+    # Titles, journal and paper count per DOI, read once rather than three
+    # subqueries per page. Requested roles also constrain reviewed aliases;
+    # a notice substitution must not verify an original-paper capture.
+    records, aliases = identity.load_context(conn)
+    notices = {r[0].strip().lower() for r in conn.execute(
+        "SELECT DISTINCT retraction_doi FROM records WHERE retraction_doi IS NOT NULL")
+        if r[0] and r[0].strip()}
+    originals = {r[0].strip().lower() for r in conn.execute(
+        "SELECT DISTINCT original_doi FROM records WHERE original_doi IS NOT NULL") if r[0] and r[0].strip()}
+    pairs: dict[str, set[str]] = {}
+    for o, n in conn.execute("SELECT original_doi, retraction_doi FROM records"):
+        o, n = identity.norm_doi(o), identity.norm_doi(n)
+        if o and n and o != n:
+            pairs.setdefault(o, set()).add(n)
+            pairs.setdefault(n, set()).add(o)
+    known = set(pairs) | {identity.norm_doi(d) for d in records}
 
-    ok = doi_only = title_only = neither = unreadable = 0
-    suspects = []
-    for i, r in enumerate(rows, 1):
-        p = config.DATA / r["mhtml_path"]
-        text = readable(p)
-        if not text:
-            unreadable += 1
-            suspects.append((0.0, "unreadable", r["doi"], r["final_host"], ""))
-            continue
+    def task(r) -> tuple:
+        key = r["doi"].lower()
+        titles, journal, papers = records.get(key, ([], None, 1))
+        role = "both" if key in notices and key in originals else "retraction" if key in notices else "original"
+        return (r["doi"], r["mhtml_path"], titles, journal, papers,
+                tuple(aliases.get(key, ())), role)
 
-        # Same three checks the crawler now applies, so an archive verified
-        # here and a page accepted there mean the same thing.
-        d_ok = fetch.contains_doi(text, r["doi"])
-        page_title = fetch.page_title_of(text)
-        t_ok, sim = fetch.title_matches(text, r["title"] or "",
-                                        floor=args.min_similarity)
-        role = r["doc_role"]
-        r_ok = fetch.role_matches(text, role)
+    verb = "judging (dry run, nothing is written)" if args.dry_run else "verifying"
+    console.print(f"[bold]{verb} {len(rows):,} stored pages[/bold]\n")
 
-        # Role is recorded, not enforced: publishers name notices
-        # inconsistently and DOI + title are the stronger evidence.
-        if d_ok and t_ok:
-            ok += 1; verdict = "ok" if r_ok else "ok-role-differs"
-        elif d_ok:
-            doi_only += 1; verdict = "doi-only"
-        elif t_ok:
-            title_only += 1; verdict = "title-only"
-        else:
-            neither += 1; verdict = "suspect"
-            suspects.append((sim, "no doi, no title match", r["doi"],
-                             r["final_host"], page_title[:70]))
+    out = fh = writer = None
+    if args.dry_run:
+        out = args.out or config.ROOT / "runs/checks" / f"identity-recheck-{date.today():%Y-%m-%d}.csv"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        fh = out.open("w", encoding="utf-8", newline="")
+        writer = csv.writer(fh)
+        writer.writerow(COLUMNS)
 
-        conn.execute(
-            """INSERT OR REPLACE INTO archive_checks
-               (doi, host, gz_bytes, doi_found, title_similarity, page_title,
-                doc_role, role_ok, verdict, checked_at)
-               VALUES (?,?,?,?,?,?,?,?,?, datetime('now'))""",
-            (r["doi"], r["final_host"], r["gz_bytes"], int(d_ok),
-             round(sim, 3), page_title[:200], role, int(r_ok), verdict))
+    tasks = (task(r) for r in rows)
+    pool = Pool(args.workers) if args.workers > 1 else None
+    results = pool.imap(check, tasks, chunksize=16) if pool else map(check, tasks)
 
-        # And act on the verdict. This was the missing link in the pipeline:
-        # the check ran, wrote its findings to `archive_checks`, and stopped -
-        # while `documents.usable`, the flag Stage 2 selects on and every
-        # coverage figure is built from, was set once by a throwaway script
-        # that never entered the repository. A rebuild from an empty database
-        # would therefore have produced 70,000 captures, 0 usable rows, and an
-        # empty Stage 2, with nothing in the code to explain why.
-        #
-        # The rule, recovered from the flags the throwaway script left behind
-        # rather than invented here: a capture counts when it carries its own
-        # DOI **or** its title matches the paper. Either alone is evidence that
-        # this is the right document; requiring both would discard 20,971
-        # captures whose publisher does not print the DOI in the page, and
-        # requiring only the DOI would discard 74 whose title matches while the
-        # DOI appears in an image or a script.
-        #
-        # Reproduced against the existing flags: doi_found alone gives 69,890,
-        # doi_found OR title gives 69,957, and 69,957 is what is in the
-        # database. Role is deliberately not part of it - publishers name
-        # notices inconsistently and 995 captures differ on role while being
-        # unambiguously the right paper.
-        conn.execute("UPDATE documents SET usable = ? WHERE doi = ?",
-                     (1 if (d_ok or t_ok) else 0, r["doi"]))
-        # Commit often and briefly. Holding one transaction across hundreds of
-        # gzip reads locks the database for minutes at a time, and every other
-        # process in the pipeline is a writer too.
-        if i % 25 == 0:
+    verdicts: Counter = Counter()
+    flips: Counter = Counter()
+    usable_after = 0
+    try:
+        for i, (r, res) in enumerate(zip(rows, results), 1):
+            new_usable = int(res["verdict"] == "ok")
+            usable_after += new_usable
+            verdicts[(res["verdict"], res["reason"])] += 1
+            old_usable = int(r["usable"] or 0)
+            if old_usable != new_usable:
+                flips[(old_usable, new_usable, res["verdict"], res["reason"],
+                       r["source_kind"] or "crawler")] += 1
+            key = r["doi"].lower()
+            role = "both" if key in notices and key in originals else "retraction" if key in notices else "original"
+            if writer:
+                rel = relation(res["declared"], r["doi"], pairs, known)
+                writer.writerow((r["doi"], r["source_kind"] or "", r["capture_format"] or "",
+                                 r["final_host"] or "", role, old_usable,
+                                 r["old_verdict"] or "", res["verdict"], new_usable,
+                                 int(old_usable != new_usable), res["reason"],
+                                 res["declared"] or "", rel,
+                                 "" if r["old_sim"] is None else r["old_sim"],
+                                 "" if res["similarity"] is None else res["similarity"],
+                                 res["page_title"], res["matched_role"] or ""))
+            else:
+                conn.execute(
+                    """INSERT OR REPLACE INTO archive_checks
+                       (doi, host, gz_bytes, doi_found, title_similarity, page_title,
+                        doc_role, role_ok, verdict, reason, declared_doi, matched_role, checked_at)
+                       VALUES (?,?,?,?,?,?,?,?,?,?,?,?, datetime('now'))""",
+                    (r["doi"], r["final_host"], r["gz_bytes"], res["doi_found"],
+                     res["similarity"], res["page_title"], role, res["role_ok"],
+                     res["verdict"], res["reason"], res["declared"], res["matched_role"]))
+                # And act on the verdict: `documents.usable` is the flag Stage 2
+                # selects on and every coverage figure is built from.
+                conn.execute("UPDATE documents SET usable = ? WHERE doi = ?",
+                             (new_usable, r["doi"]))
+                # Commit often and briefly. Holding one transaction across
+                # hundreds of gzip reads locks the database for minutes at a
+                # time, and every other process in the pipeline is a writer too.
+                if i % 25 == 0:
+                    conn.commit()
+            if i % 5000 == 0:
+                console.print(f"[dim]  {i:,}/{len(rows):,}  usable {usable_after:,}[/dim]")
+    finally:
+        if pool:
+            pool.close()
+            pool.join()
+        if fh:
+            fh.close()
+        if not args.dry_run:
             conn.commit()
 
-        if i % 2000 == 0:
-            conn.commit()
-            console.print(f"[dim]  {i:,}/{len(rows):,}  ok {ok:,}  "
-                          f"suspect {neither:,}[/dim]")
-
-    conn.commit()
     n = len(rows) or 1
-    console.print(f"\n[bold]{len(rows):,} archives[/bold]")
-    console.print(f"  [green]DOI and title both match : {ok:,} ({ok/n*100:.1f}%)[/green]")
-    console.print(f"  DOI matches only         : {doi_only:,} ({doi_only/n*100:.1f}%)")
-    console.print(f"  title matches only       : {title_only:,} ({title_only/n*100:.1f}%)")
-    console.print(f"  [red]neither matches          : {neither:,} ({neither/n*100:.1f}%)[/red]")
-    console.print(f"  unreadable               : {unreadable:,}")
-
-    if suspects:
-        console.print("\n[bold]worst offenders by host[/bold]")
-        from collections import Counter
-        by_host = Counter(s[3] for s in suspects)
-        for host, c in by_host.most_common(12):
-            console.print(f"  {c:>5}  {host}")
-        console.print("\n[dim]examples:[/dim]")
-        for sim, why, doi, host, t in suspects[:8]:
-            console.print(f"  [dim]{sim:.2f}[/dim] {doi:<34} {host:<26} {t}")
+    console.print(f"\n[bold]{len(rows):,} pages[/bold]")
+    for (v, why), c in sorted(verdicts.items(), key=lambda x: (x[0][0] != "ok", -x[1])):
+        console.print(f"  {v:<14} {why:<24} {c:>7,}  {c / n * 100:5.1f}%")
+    lost = sum(c for (o, nw, *_), c in flips.items() if o > nw)
+    gained = sum(c for (o, nw, *_), c in flips.items() if o < nw)
+    console.print(f"\n  usable -> not usable: {lost:,}    not usable -> usable: {gained:,}")
+    for (o, nw, v, why, kind), c in sorted(flips.items(), key=lambda x: -x[1])[:20]:
+        console.print(f"    {o}->{nw}  {v:<14} {why:<24} {kind:<20} {c:>6,}")
+    total = conn.execute("SELECT COUNT(*) FROM documents").fetchone()[0] or 1
+    usable_now = conn.execute("SELECT COUNT(*) FROM documents WHERE usable = 1").fetchone()[0]
+    if args.dry_run:
+        after = usable_now - sum(int(r["usable"] or 0) for r in rows) + usable_after
+        console.print(f"\n  usable documents: {usable_now:,} ({usable_now / total * 100:.2f}%) now, "
+                      f"{after:,} ({after / total * 100:.2f}%) under this rule, of {total:,}")
+        console.print(f"  written: {out}")
+    else:
+        console.print(f"\n  usable documents: {usable_now:,} of {total:,} "
+                      f"({usable_now / total * 100:.2f}%)")
     return 0
 
 

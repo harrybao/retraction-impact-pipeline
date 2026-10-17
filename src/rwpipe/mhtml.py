@@ -28,6 +28,8 @@ from __future__ import annotations
 import email
 import email.policy
 import gzip
+import html
+import io
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -69,14 +71,83 @@ def _decode(part) -> tuple[str, str | None]:
     return raw.decode("utf-8", "replace"), "utf-8/replace"
 
 
+# The Internet Archive's banner, inserted into every page it replays: its
+# "collected by" text ("Formed in 2009, the Archive Team ...") was extracted as
+# the body of an Archive capture of 10.1177/1367006916648412 and graded "full"
+# (review of 7 October 2026). Only the Archive writes these markers.
+_WAYBACK_TOOLBAR = re.compile(r"<!--\s*BEGIN WAYBACK TOOLBAR INSERT\s*-->.*?"
+                              r"<!--\s*END WAYBACK TOOLBAR INSERT\s*-->", re.S | re.I)
+
+
+def strip_wayback_toolbar(html: str) -> str:
+    return _WAYBACK_TOOLBAR.sub(" ", html) if "WAYBACK TOOLBAR" in html else html
+
+
 def read(path: Path | str) -> Document:
-    """Decode an archive, gzipped or not, MHTML or plain HTML."""
+    """Decode an archive, gzipped or not, MHTML, markup or PDF text."""
     p = Path(path)
     try:
         raw = gzip.open(p, "rb").read() if p.suffix == ".gz" else p.read_bytes()
     except Exception as exc:                               # noqa: BLE001
         return Document(error=f"read: {type(exc).__name__}")
+    return parse(raw)
 
+
+def _pdf_document(raw: bytes) -> Document:
+    """Recover page text without changing or claiming to validate PDF bytes."""
+    integrity = "lossy" if b"\xef\xbf\xbd" in raw else "recovered"
+    doc = Document(parts=1, charset=f"pdf-text/{integrity}")
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(io.BytesIO(raw), strict=False)
+        page_count = len(reader.pages)
+    except Exception as exc:                               # noqa: BLE001
+        doc.error = f"pdf-text: {type(exc).__name__}"
+        return doc
+
+    pages = []
+    states = []
+    has_text = False
+    for number in range(page_count):
+        text, error = "", ""
+        try:
+            text = reader.pages[number].extract_text() or ""
+            text = text.encode("utf-16", "surrogatepass").decode("utf-16", "replace")
+            if "\ufffd" in text:
+                integrity = "lossy"
+        except Exception as exc:                           # noqa: BLE001
+            error = type(exc).__name__
+            integrity = "lossy"
+        status = "error" if error else ("ok" if text.strip() else "empty")
+        has_text = has_text or status == "ok"
+        states.append(f"{number + 1}={status}" + (f"({error})" if error else ""))
+        detail = f' data-error="{html.escape(error, quote=True)}"' if error else ""
+        pages.append(
+            f'<section class="rwpipe-pdf-page" data-page="{number + 1}" '
+            f'data-status="{status}"{detail}><pre>{html.escape(text)}</pre></section>'
+        )
+    doc.charset = f"pdf-text/{integrity}"
+    if not has_text:
+        doc.error = "pdf-text: no extractable text; pages=" + (",".join(states) or "none")
+        return doc
+    doc.html = (
+        f'<html data-rwpipe-format="pdf-text" data-rwpipe-integrity="{integrity}" '
+        f'data-rwpipe-page-count="{page_count}" '
+        'data-rwpipe-graphics="unverified"><body>' + "\n".join(pages) + "</body></html>"
+    )
+    return doc
+
+
+def parse(raw: bytes) -> Document:
+    """Decode archive bytes already in memory, MHTML or plain markup.
+
+    Split out of `read` so that a caller which must repair the bytes first - the
+    Taylor & Francis hand-off, written through Windows text mode - decodes them
+    by exactly the same rules as every stored archive.
+    """
+    if raw[:200].lstrip().startswith(b"%PDF"):
+        return _pdf_document(raw)
     head = raw[:200].lstrip().lower()
     # Markup, in whatever dialect. This check has now been too narrow three
     # times: it knew MHTML, then HTML was added, then JATS XML from PubMed
@@ -94,10 +165,11 @@ def read(path: Path | str) -> Document:
     if head.startswith(b"<"):
         for enc in ("utf-8", "cp1252", "latin-1"):
             try:
-                return Document(html=raw.decode(enc), parts=1, charset=enc)
+                return Document(html=strip_wayback_toolbar(raw.decode(enc)), parts=1,
+                                charset=enc)
             except UnicodeDecodeError:
                 continue
-        return Document(html=raw.decode("utf-8", "replace"), parts=1)
+        return Document(html=strip_wayback_toolbar(raw.decode("utf-8", "replace")), parts=1)
 
     try:
         msg = email.message_from_bytes(raw, policy=email.policy.default)
@@ -113,7 +185,7 @@ def read(path: Path | str) -> Document:
     html_parts: list[tuple[str, str | None, str | None]] = []
     for part in msg.walk():
         doc.parts += 1
-        if part.get_content_type() != "text/html":
+        if part.get_content_type() not in ("text/html", "application/xhtml+xml"):
             continue
         text, charset = _decode(part)
         if text:
@@ -133,5 +205,5 @@ def read(path: Path | str) -> Document:
     else:
         chosen = max(html_parts, key=lambda t: len(t[0]))
 
-    doc.html, doc.charset = chosen[0], chosen[1]
+    doc.html, doc.charset = strip_wayback_toolbar(chosen[0]), chosen[1]
     return doc

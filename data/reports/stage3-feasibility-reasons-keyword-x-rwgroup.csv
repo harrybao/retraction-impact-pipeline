@@ -1,0 +1,378 @@
+variant,keyword_group,rw_group,paired,records_in_rw_group_with_text,in_group_with_keyword,in_group_share,records_not_in_rw_group_with_text,not_in_group_with_keyword,not_in_group_share,keyword_records,keyword_records_in_rw_group,share_of_keyword_records_in_rw_group
+"all notices >=100 chars, raw text",duplicat,duplication,True,8075,3025,0.3746,45289,590,0.013,3615,3025,0.8368
+"all notices >=100 chars, raw text",duplicat,plagiarism,False,3853,479,0.1243,49511,3136,0.0633,3615,479,0.1325
+"all notices >=100 chars, raw text",duplicat,image,False,8536,2212,0.2591,44828,1403,0.0313,3615,2212,0.6119
+"all notices >=100 chars, raw text",duplicat,data,False,18980,1345,0.0709,34384,2270,0.066,3615,1345,0.3721
+"all notices >=100 chars, raw text",duplicat,peer review,False,19461,69,0.0035,33903,3546,0.1046,3615,69,0.0191
+"all notices >=100 chars, raw text",duplicat,authorship,False,3148,126,0.04,50216,3489,0.0695,3615,126,0.0349
+"all notices >=100 chars, raw text",duplicat,consent,False,1521,2,0.0013,51843,3613,0.0697,3615,2,0.0006
+"all notices >=100 chars, raw text",duplicat,ethics,False,3100,43,0.0139,50264,3572,0.0711,3615,43,0.0119
+"all notices >=100 chars, raw text",duplicat,paper mill,False,10202,280,0.0274,43162,3335,0.0773,3615,280,0.0775
+"all notices >=100 chars, raw text",duplicat,misconduct,False,1376,98,0.0712,51988,3517,0.0677,3615,98,0.0271
+"all notices >=100 chars, raw text",duplicat,error,False,5383,674,0.1252,47981,2941,0.0613,3615,674,0.1864
+"all notices >=100 chars, raw text",duplicat,falsification/fabrication,False,2308,433,0.1876,51056,3182,0.0623,3615,433,0.1198
+"all notices >=100 chars, raw text",duplicat,referencing/attributions,False,12846,122,0.0095,40518,3493,0.0862,3615,122,0.0337
+"all notices >=100 chars, raw text",plagiar,duplication,False,8075,154,0.0191,45289,965,0.0213,1119,154,0.1376
+"all notices >=100 chars, raw text",plagiar,plagiarism,True,3853,937,0.2432,49511,182,0.0037,1119,937,0.8374
+"all notices >=100 chars, raw text",plagiar,image,False,8536,66,0.0077,44828,1053,0.0235,1119,66,0.059
+"all notices >=100 chars, raw text",plagiar,data,False,18980,145,0.0076,34384,974,0.0283,1119,145,0.1296
+"all notices >=100 chars, raw text",plagiar,peer review,False,19461,58,0.003,33903,1061,0.0313,1119,58,0.0518
+"all notices >=100 chars, raw text",plagiar,authorship,False,3148,100,0.0318,50216,1019,0.0203,1119,100,0.0894
+"all notices >=100 chars, raw text",plagiar,consent,False,1521,1,0.0007,51843,1118,0.0216,1119,1,0.0009
+"all notices >=100 chars, raw text",plagiar,ethics,False,3100,42,0.0135,50264,1077,0.0214,1119,42,0.0375
+"all notices >=100 chars, raw text",plagiar,paper mill,False,10202,0,0.0,43162,1119,0.0259,1119,0,0.0
+"all notices >=100 chars, raw text",plagiar,misconduct,False,1376,67,0.0487,51988,1052,0.0202,1119,67,0.0599
+"all notices >=100 chars, raw text",plagiar,error,False,5383,25,0.0046,47981,1094,0.0228,1119,25,0.0223
+"all notices >=100 chars, raw text",plagiar,falsification/fabrication,False,2308,46,0.0199,51056,1073,0.021,1119,46,0.0411
+"all notices >=100 chars, raw text",plagiar,referencing/attributions,False,12846,60,0.0047,40518,1059,0.0261,1119,60,0.0536
+"all notices >=100 chars, raw text",image,duplication,False,8075,2899,0.359,45289,2302,0.0508,5201,2899,0.5574
+"all notices >=100 chars, raw text",image,plagiarism,False,3853,540,0.1402,49511,4661,0.0941,5201,540,0.1038
+"all notices >=100 chars, raw text",image,image,True,8536,4054,0.4749,44828,1147,0.0256,5201,4054,0.7795
+"all notices >=100 chars, raw text",image,data,False,18980,2474,0.1303,34384,2727,0.0793,5201,2474,0.4757
+"all notices >=100 chars, raw text",image,peer review,False,19461,716,0.0368,33903,4485,0.1323,5201,716,0.1377
+"all notices >=100 chars, raw text",image,authorship,False,3148,148,0.047,50216,5053,0.1006,5201,148,0.0285
+"all notices >=100 chars, raw text",image,consent,False,1521,21,0.0138,51843,5180,0.0999,5201,21,0.004
+"all notices >=100 chars, raw text",image,ethics,False,3100,103,0.0332,50264,5098,0.1014,5201,103,0.0198
+"all notices >=100 chars, raw text",image,paper mill,False,10202,612,0.06,43162,4589,0.1063,5201,612,0.1177
+"all notices >=100 chars, raw text",image,misconduct,False,1376,174,0.1265,51988,5027,0.0967,5201,174,0.0335
+"all notices >=100 chars, raw text",image,error,False,5383,673,0.125,47981,4528,0.0944,5201,673,0.1294
+"all notices >=100 chars, raw text",image,falsification/fabrication,False,2308,820,0.3553,51056,4381,0.0858,5201,820,0.1577
+"all notices >=100 chars, raw text",image,referencing/attributions,False,12846,259,0.0202,40518,4942,0.122,5201,259,0.0498
+"all notices >=100 chars, raw text",data,duplication,False,8075,4302,0.5328,45289,17675,0.3903,21977,4302,0.1958
+"all notices >=100 chars, raw text",data,plagiarism,False,3853,1620,0.4205,49511,20357,0.4112,21977,1620,0.0737
+"all notices >=100 chars, raw text",data,image,False,8536,5688,0.6664,44828,16289,0.3634,21977,5688,0.2588
+"all notices >=100 chars, raw text",data,data,True,18980,16322,0.86,34384,5655,0.1645,21977,16322,0.7427
+"all notices >=100 chars, raw text",data,peer review,False,19461,10086,0.5183,33903,11891,0.3507,21977,10086,0.4589
+"all notices >=100 chars, raw text",data,authorship,False,3148,891,0.283,50216,21086,0.4199,21977,891,0.0405
+"all notices >=100 chars, raw text",data,consent,False,1521,1401,0.9211,51843,20576,0.3969,21977,1401,0.0637
+"all notices >=100 chars, raw text",data,ethics,False,3100,2240,0.7226,50264,19737,0.3927,21977,2240,0.1019
+"all notices >=100 chars, raw text",data,paper mill,False,10202,6963,0.6825,43162,15014,0.3479,21977,6963,0.3168
+"all notices >=100 chars, raw text",data,misconduct,False,1376,857,0.6228,51988,21120,0.4062,21977,857,0.039
+"all notices >=100 chars, raw text",data,error,False,5383,2297,0.4267,47981,19680,0.4102,21977,2297,0.1045
+"all notices >=100 chars, raw text",data,falsification/fabrication,False,2308,1641,0.711,51056,20336,0.3983,21977,1641,0.0747
+"all notices >=100 chars, raw text",data,referencing/attributions,False,12846,9313,0.725,40518,12664,0.3126,21977,9313,0.4238
+"all notices >=100 chars, raw text",peer review,duplication,False,8075,276,0.0342,45289,11109,0.2453,11385,276,0.0242
+"all notices >=100 chars, raw text",peer review,plagiarism,False,3853,199,0.0516,49511,11186,0.2259,11385,199,0.0175
+"all notices >=100 chars, raw text",peer review,image,False,8536,215,0.0252,44828,11170,0.2492,11385,215,0.0189
+"all notices >=100 chars, raw text",peer review,data,False,18980,2113,0.1113,34384,9272,0.2697,11385,2113,0.1856
+"all notices >=100 chars, raw text",peer review,peer review,True,19461,10634,0.5464,33903,751,0.0222,11385,10634,0.934
+"all notices >=100 chars, raw text",peer review,authorship,False,3148,644,0.2046,50216,10741,0.2139,11385,644,0.0566
+"all notices >=100 chars, raw text",peer review,consent,False,1521,272,0.1788,51843,11113,0.2144,11385,272,0.0239
+"all notices >=100 chars, raw text",peer review,ethics,False,3100,406,0.131,50264,10979,0.2184,11385,406,0.0357
+"all notices >=100 chars, raw text",peer review,paper mill,False,10202,4339,0.4253,43162,7046,0.1632,11385,4339,0.3811
+"all notices >=100 chars, raw text",peer review,misconduct,False,1376,145,0.1054,51988,11240,0.2162,11385,145,0.0127
+"all notices >=100 chars, raw text",peer review,error,False,5383,402,0.0747,47981,10983,0.2289,11385,402,0.0353
+"all notices >=100 chars, raw text",peer review,falsification/fabrication,False,2308,79,0.0342,51056,11306,0.2214,11385,79,0.0069
+"all notices >=100 chars, raw text",peer review,referencing/attributions,False,12846,4199,0.3269,40518,7186,0.1774,11385,4199,0.3688
+"all notices >=100 chars, raw text",authorship,duplication,False,8075,237,0.0293,45289,2020,0.0446,2257,237,0.105
+"all notices >=100 chars, raw text",authorship,plagiarism,False,3853,439,0.1139,49511,1818,0.0367,2257,439,0.1945
+"all notices >=100 chars, raw text",authorship,image,False,8536,260,0.0305,44828,1997,0.0445,2257,260,0.1152
+"all notices >=100 chars, raw text",authorship,data,False,18980,308,0.0162,34384,1949,0.0567,2257,308,0.1365
+"all notices >=100 chars, raw text",authorship,peer review,False,19461,624,0.0321,33903,1633,0.0482,2257,624,0.2765
+"all notices >=100 chars, raw text",authorship,authorship,True,3148,1754,0.5572,50216,503,0.01,2257,1754,0.7771
+"all notices >=100 chars, raw text",authorship,consent,False,1521,4,0.0026,51843,2253,0.0435,2257,4,0.0018
+"all notices >=100 chars, raw text",authorship,ethics,False,3100,96,0.031,50264,2161,0.043,2257,96,0.0425
+"all notices >=100 chars, raw text",authorship,paper mill,False,10202,142,0.0139,43162,2115,0.049,2257,142,0.0629
+"all notices >=100 chars, raw text",authorship,misconduct,False,1376,82,0.0596,51988,2175,0.0418,2257,82,0.0363
+"all notices >=100 chars, raw text",authorship,error,False,5383,44,0.0082,47981,2213,0.0461,2257,44,0.0195
+"all notices >=100 chars, raw text",authorship,falsification/fabrication,False,2308,34,0.0147,51056,2223,0.0435,2257,34,0.0151
+"all notices >=100 chars, raw text",authorship,referencing/attributions,False,12846,368,0.0286,40518,1889,0.0466,2257,368,0.163
+"all notices >=100 chars, raw text",consent,duplication,False,8075,48,0.0059,45289,2228,0.0492,2276,48,0.0211
+"all notices >=100 chars, raw text",consent,plagiarism,False,3853,57,0.0148,49511,2219,0.0448,2276,57,0.025
+"all notices >=100 chars, raw text",consent,image,False,8536,55,0.0064,44828,2221,0.0495,2276,55,0.0242
+"all notices >=100 chars, raw text",consent,data,False,18980,1877,0.0989,34384,399,0.0116,2276,1877,0.8247
+"all notices >=100 chars, raw text",consent,peer review,False,19461,1719,0.0883,33903,557,0.0164,2276,1719,0.7553
+"all notices >=100 chars, raw text",consent,authorship,False,3148,204,0.0648,50216,2072,0.0413,2276,204,0.0896
+"all notices >=100 chars, raw text",consent,consent,True,1521,1459,0.9592,51843,817,0.0158,2276,1459,0.641
+"all notices >=100 chars, raw text",consent,ethics,False,3100,1832,0.591,50264,444,0.0088,2276,1832,0.8049
+"all notices >=100 chars, raw text",consent,paper mill,False,10202,1115,0.1093,43162,1161,0.0269,2276,1115,0.4899
+"all notices >=100 chars, raw text",consent,misconduct,False,1376,26,0.0189,51988,2250,0.0433,2276,26,0.0114
+"all notices >=100 chars, raw text",consent,error,False,5383,53,0.0098,47981,2223,0.0463,2276,53,0.0233
+"all notices >=100 chars, raw text",consent,falsification/fabrication,False,2308,30,0.013,51056,2246,0.044,2276,30,0.0132
+"all notices >=100 chars, raw text",consent,referencing/attributions,False,12846,1721,0.134,40518,555,0.0137,2276,1721,0.7562
+"all notices >=100 chars, raw text",ethic,duplication,False,8075,783,0.097,45289,6552,0.1447,7335,783,0.1067
+"all notices >=100 chars, raw text",ethic,plagiarism,False,3853,441,0.1145,49511,6894,0.1392,7335,441,0.0601
+"all notices >=100 chars, raw text",ethic,image,False,8536,917,0.1074,44828,6418,0.1432,7335,917,0.125
+"all notices >=100 chars, raw text",ethic,data,False,18980,2839,0.1496,34384,4496,0.1308,7335,2839,0.387
+"all notices >=100 chars, raw text",ethic,peer review,False,19461,2741,0.1408,33903,4594,0.1355,7335,2741,0.3737
+"all notices >=100 chars, raw text",ethic,authorship,False,3148,707,0.2246,50216,6628,0.132,7335,707,0.0964
+"all notices >=100 chars, raw text",ethic,consent,False,1521,1412,0.9283,51843,5923,0.1142,7335,1412,0.1925
+"all notices >=100 chars, raw text",ethic,ethics,True,3100,2704,0.8723,50264,4631,0.0921,7335,2704,0.3686
+"all notices >=100 chars, raw text",ethic,paper mill,False,10202,1377,0.135,43162,5958,0.138,7335,1377,0.1877
+"all notices >=100 chars, raw text",ethic,misconduct,False,1376,162,0.1177,51988,7173,0.138,7335,162,0.0221
+"all notices >=100 chars, raw text",ethic,error,False,5383,223,0.0414,47981,7112,0.1482,7335,223,0.0304
+"all notices >=100 chars, raw text",ethic,falsification/fabrication,False,2308,255,0.1105,51056,7080,0.1387,7335,255,0.0348
+"all notices >=100 chars, raw text",ethic,referencing/attributions,False,12846,2504,0.1949,40518,4831,0.1192,7335,2504,0.3414
+"all notices >=100 chars, raw text",paper mill,duplication,False,8075,28,0.0035,45289,69,0.0015,97,28,0.2887
+"all notices >=100 chars, raw text",paper mill,plagiarism,False,3853,1,0.0003,49511,96,0.0019,97,1,0.0103
+"all notices >=100 chars, raw text",paper mill,image,False,8536,42,0.0049,44828,55,0.0012,97,42,0.433
+"all notices >=100 chars, raw text",paper mill,data,False,18980,40,0.0021,34384,57,0.0017,97,40,0.4124
+"all notices >=100 chars, raw text",paper mill,peer review,False,19461,12,0.0006,33903,85,0.0025,97,12,0.1237
+"all notices >=100 chars, raw text",paper mill,authorship,False,3148,8,0.0025,50216,89,0.0018,97,8,0.0825
+"all notices >=100 chars, raw text",paper mill,consent,False,1521,0,0.0,51843,97,0.0019,97,0,0.0
+"all notices >=100 chars, raw text",paper mill,ethics,False,3100,0,0.0,50264,97,0.0019,97,0,0.0
+"all notices >=100 chars, raw text",paper mill,paper mill,True,10202,83,0.0081,43162,14,0.0003,97,83,0.8557
+"all notices >=100 chars, raw text",paper mill,misconduct,False,1376,3,0.0022,51988,94,0.0018,97,3,0.0309
+"all notices >=100 chars, raw text",paper mill,error,False,5383,0,0.0,47981,97,0.002,97,0,0.0
+"all notices >=100 chars, raw text",paper mill,falsification/fabrication,False,2308,18,0.0078,51056,79,0.0015,97,18,0.1856
+"all notices >=100 chars, raw text",paper mill,referencing/attributions,False,12846,1,0.0001,40518,96,0.0024,97,1,0.0103
+"all notices >=100 chars, raw text",misconduct,duplication,False,8075,129,0.016,45289,796,0.0176,925,129,0.1395
+"all notices >=100 chars, raw text",misconduct,plagiarism,False,3853,77,0.02,49511,848,0.0171,925,77,0.0832
+"all notices >=100 chars, raw text",misconduct,image,False,8536,302,0.0354,44828,623,0.0139,925,302,0.3265
+"all notices >=100 chars, raw text",misconduct,data,False,18980,458,0.0241,34384,467,0.0136,925,458,0.4951
+"all notices >=100 chars, raw text",misconduct,peer review,False,19461,263,0.0135,33903,662,0.0195,925,263,0.2843
+"all notices >=100 chars, raw text",misconduct,authorship,False,3148,130,0.0413,50216,795,0.0158,925,130,0.1405
+"all notices >=100 chars, raw text",misconduct,consent,False,1521,13,0.0085,51843,912,0.0176,925,13,0.0141
+"all notices >=100 chars, raw text",misconduct,ethics,False,3100,73,0.0235,50264,852,0.017,925,73,0.0789
+"all notices >=100 chars, raw text",misconduct,paper mill,False,10202,167,0.0164,43162,758,0.0176,925,167,0.1805
+"all notices >=100 chars, raw text",misconduct,misconduct,True,1376,361,0.2624,51988,564,0.0108,925,361,0.3903
+"all notices >=100 chars, raw text",misconduct,error,False,5383,60,0.0111,47981,865,0.018,925,60,0.0649
+"all notices >=100 chars, raw text",misconduct,falsification/fabrication,False,2308,278,0.1205,51056,647,0.0127,925,278,0.3005
+"all notices >=100 chars, raw text",misconduct,referencing/attributions,False,12846,193,0.015,40518,732,0.0181,925,193,0.2086
+"all notices >=100 chars, raw text",error,duplication,False,8075,804,0.0996,45289,2463,0.0544,3267,804,0.2461
+"all notices >=100 chars, raw text",error,plagiarism,False,3853,176,0.0457,49511,3091,0.0624,3267,176,0.0539
+"all notices >=100 chars, raw text",error,image,False,8536,1025,0.1201,44828,2242,0.05,3267,1025,0.3137
+"all notices >=100 chars, raw text",error,data,False,18980,1331,0.0701,34384,1936,0.0563,3267,1331,0.4074
+"all notices >=100 chars, raw text",error,peer review,False,19461,107,0.0055,33903,3160,0.0932,3267,107,0.0328
+"all notices >=100 chars, raw text",error,authorship,False,3148,102,0.0324,50216,3165,0.063,3267,102,0.0312
+"all notices >=100 chars, raw text",error,consent,False,1521,7,0.0046,51843,3260,0.0629,3267,7,0.0021
+"all notices >=100 chars, raw text",error,ethics,False,3100,60,0.0194,50264,3207,0.0638,3267,60,0.0184
+"all notices >=100 chars, raw text",error,paper mill,False,10202,42,0.0041,43162,3225,0.0747,3267,42,0.0129
+"all notices >=100 chars, raw text",error,misconduct,False,1376,52,0.0378,51988,3215,0.0618,3267,52,0.0159
+"all notices >=100 chars, raw text",error,error,True,5383,2444,0.454,47981,823,0.0172,3267,2444,0.7481
+"all notices >=100 chars, raw text",error,falsification/fabrication,False,2308,166,0.0719,51056,3101,0.0607,3267,166,0.0508
+"all notices >=100 chars, raw text",error,referencing/attributions,False,12846,119,0.0093,40518,3148,0.0777,3267,119,0.0364
+"all notices >=100 chars, raw text",fake,duplication,False,8075,7,0.0009,45289,158,0.0035,165,7,0.0424
+"all notices >=100 chars, raw text",fake,plagiarism,False,3853,4,0.001,49511,161,0.0033,165,4,0.0242
+"all notices >=100 chars, raw text",fake,image,False,8536,9,0.0011,44828,156,0.0035,165,9,0.0545
+"all notices >=100 chars, raw text",fake,data,False,18980,15,0.0008,34384,150,0.0044,165,15,0.0909
+"all notices >=100 chars, raw text",fake,peer review,False,19461,92,0.0047,33903,73,0.0022,165,92,0.5576
+"all notices >=100 chars, raw text",fake,authorship,False,3148,8,0.0025,50216,157,0.0031,165,8,0.0485
+"all notices >=100 chars, raw text",fake,consent,False,1521,0,0.0,51843,165,0.0032,165,0,0.0
+"all notices >=100 chars, raw text",fake,ethics,False,3100,21,0.0068,50264,144,0.0029,165,21,0.1273
+"all notices >=100 chars, raw text",fake,paper mill,False,10202,2,0.0002,43162,163,0.0038,165,2,0.0121
+"all notices >=100 chars, raw text",fake,misconduct,False,1376,9,0.0065,51988,156,0.003,165,9,0.0545
+"all notices >=100 chars, raw text",fake,error,False,5383,5,0.0009,47981,160,0.0033,165,5,0.0303
+"all notices >=100 chars, raw text",fake,falsification/fabrication,True,2308,1,0.0004,51056,164,0.0032,165,1,0.0061
+"all notices >=100 chars, raw text",fake,referencing/attributions,False,12846,7,0.0005,40518,158,0.0039,165,7,0.0424
+"all notices >=100 chars, raw text",citation manipulation,duplication,False,8075,0,0.0,45289,627,0.0138,627,0,0.0
+"all notices >=100 chars, raw text",citation manipulation,plagiarism,False,3853,20,0.0052,49511,607,0.0123,627,20,0.0319
+"all notices >=100 chars, raw text",citation manipulation,image,False,8536,1,0.0001,44828,626,0.014,627,1,0.0016
+"all notices >=100 chars, raw text",citation manipulation,data,False,18980,1,0.0001,34384,626,0.0182,627,1,0.0016
+"all notices >=100 chars, raw text",citation manipulation,peer review,False,19461,557,0.0286,33903,70,0.0021,627,557,0.8884
+"all notices >=100 chars, raw text",citation manipulation,authorship,False,3148,9,0.0029,50216,618,0.0123,627,9,0.0144
+"all notices >=100 chars, raw text",citation manipulation,consent,False,1521,0,0.0,51843,627,0.0121,627,0,0.0
+"all notices >=100 chars, raw text",citation manipulation,ethics,False,3100,3,0.001,50264,624,0.0124,627,3,0.0048
+"all notices >=100 chars, raw text",citation manipulation,paper mill,False,10202,1,0.0001,43162,626,0.0145,627,1,0.0016
+"all notices >=100 chars, raw text",citation manipulation,misconduct,False,1376,12,0.0087,51988,615,0.0118,627,12,0.0191
+"all notices >=100 chars, raw text",citation manipulation,error,False,5383,1,0.0002,47981,626,0.013,627,1,0.0016
+"all notices >=100 chars, raw text",citation manipulation,falsification/fabrication,False,2308,0,0.0,51056,627,0.0123,627,0,0.0
+"all notices >=100 chars, raw text",citation manipulation,referencing/attributions,True,12846,617,0.048,40518,10,0.0002,627,617,0.9841
+"all notices >=100 chars, raw text",x:fabricat|falsif,duplication,False,8075,134,0.0166,45289,990,0.0219,1124,134,0.1192
+"all notices >=100 chars, raw text",x:fabricat|falsif,plagiarism,False,3853,66,0.0171,49511,1058,0.0214,1124,66,0.0587
+"all notices >=100 chars, raw text",x:fabricat|falsif,image,False,8536,251,0.0294,44828,873,0.0195,1124,251,0.2233
+"all notices >=100 chars, raw text",x:fabricat|falsif,data,False,18980,714,0.0376,34384,410,0.0119,1124,714,0.6352
+"all notices >=100 chars, raw text",x:fabricat|falsif,peer review,False,19461,210,0.0108,33903,914,0.027,1124,210,0.1868
+"all notices >=100 chars, raw text",x:fabricat|falsif,authorship,False,3148,167,0.053,50216,957,0.0191,1124,167,0.1486
+"all notices >=100 chars, raw text",x:fabricat|falsif,consent,False,1521,4,0.0026,51843,1120,0.0216,1124,4,0.0036
+"all notices >=100 chars, raw text",x:fabricat|falsif,ethics,False,3100,64,0.0206,50264,1060,0.0211,1124,64,0.0569
+"all notices >=100 chars, raw text",x:fabricat|falsif,paper mill,False,10202,162,0.0159,43162,962,0.0223,1124,162,0.1441
+"all notices >=100 chars, raw text",x:fabricat|falsif,misconduct,False,1376,465,0.3379,51988,659,0.0127,1124,465,0.4137
+"all notices >=100 chars, raw text",x:fabricat|falsif,error,False,5383,44,0.0082,47981,1080,0.0225,1124,44,0.0391
+"all notices >=100 chars, raw text",x:fabricat|falsif,falsification/fabrication,True,2308,636,0.2756,51056,488,0.0096,1124,636,0.5658
+"all notices >=100 chars, raw text",x:fabricat|falsif,referencing/attributions,False,12846,145,0.0113,40518,979,0.0242,1124,145,0.129
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',duplication,False,8075,674,0.0835,45289,5812,0.1283,6486,674,0.1039
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',plagiarism,False,3853,347,0.0901,49511,6139,0.124,6486,347,0.0535
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',image,False,8536,821,0.0962,44828,5665,0.1264,6486,821,0.1266
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',data,False,18980,2714,0.143,34384,3772,0.1097,6486,2714,0.4184
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',peer review,False,19461,2322,0.1193,33903,4164,0.1228,6486,2322,0.358
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',authorship,False,3148,561,0.1782,50216,5925,0.118,6486,561,0.0865
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',consent,False,1521,1410,0.927,51843,5076,0.0979,6486,1410,0.2174
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',ethics,True,3100,2683,0.8655,50264,3803,0.0757,6486,2683,0.4137
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',paper mill,False,10202,1307,0.1281,43162,5179,0.12,6486,1307,0.2015
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',misconduct,False,1376,130,0.0945,51988,6356,0.1223,6486,130,0.02
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',error,False,5383,178,0.0331,47981,6308,0.1315,6486,178,0.0274
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',falsification/fabrication,False,2308,216,0.0936,51056,6270,0.1228,6486,216,0.0333
+"all notices >=100 chars, raw text",x:ethic excl. 'publication ethics',referencing/attributions,False,12846,2296,0.1787,40518,4190,0.1034,6486,2296,0.354
+"trimmed, title-only excluded",duplicat,duplication,True,8016,3024,0.3772,38350,590,0.0154,3614,3024,0.8367
+"trimmed, title-only excluded",duplicat,plagiarism,False,3804,479,0.1259,42562,3135,0.0737,3614,479,0.1325
+"trimmed, title-only excluded",duplicat,image,False,8485,2212,0.2607,37881,1402,0.037,3614,2212,0.6121
+"trimmed, title-only excluded",duplicat,data,False,18578,1345,0.0724,27788,2269,0.0817,3614,1345,0.3722
+"trimmed, title-only excluded",duplicat,peer review,False,19376,69,0.0036,26990,3545,0.1313,3614,69,0.0191
+"trimmed, title-only excluded",duplicat,authorship,False,3130,126,0.0403,43236,3488,0.0807,3614,126,0.0349
+"trimmed, title-only excluded",duplicat,consent,False,1520,2,0.0013,44846,3612,0.0805,3614,2,0.0006
+"trimmed, title-only excluded",duplicat,ethics,False,3085,43,0.0139,43281,3571,0.0825,3614,43,0.0119
+"trimmed, title-only excluded",duplicat,paper mill,False,10185,280,0.0275,36181,3334,0.0921,3614,280,0.0775
+"trimmed, title-only excluded",duplicat,misconduct,False,1347,98,0.0728,45019,3516,0.0781,3614,98,0.0271
+"trimmed, title-only excluded",duplicat,error,False,5330,674,0.1265,41036,2940,0.0716,3614,674,0.1865
+"trimmed, title-only excluded",duplicat,falsification/fabrication,False,2278,433,0.1901,44088,3181,0.0722,3614,433,0.1198
+"trimmed, title-only excluded",duplicat,referencing/attributions,False,12841,122,0.0095,33525,3492,0.1042,3614,122,0.0338
+"trimmed, title-only excluded",plagiar,duplication,False,8016,154,0.0192,38350,963,0.0251,1117,154,0.1379
+"trimmed, title-only excluded",plagiar,plagiarism,True,3804,935,0.2458,42562,182,0.0043,1117,935,0.8371
+"trimmed, title-only excluded",plagiar,image,False,8485,66,0.0078,37881,1051,0.0277,1117,66,0.0591
+"trimmed, title-only excluded",plagiar,data,False,18578,144,0.0078,27788,973,0.035,1117,144,0.1289
+"trimmed, title-only excluded",plagiar,peer review,False,19376,58,0.003,26990,1059,0.0392,1117,58,0.0519
+"trimmed, title-only excluded",plagiar,authorship,False,3130,100,0.0319,43236,1017,0.0235,1117,100,0.0895
+"trimmed, title-only excluded",plagiar,consent,False,1520,1,0.0007,44846,1116,0.0249,1117,1,0.0009
+"trimmed, title-only excluded",plagiar,ethics,False,3085,42,0.0136,43281,1075,0.0248,1117,42,0.0376
+"trimmed, title-only excluded",plagiar,paper mill,False,10185,0,0.0,36181,1117,0.0309,1117,0,0.0
+"trimmed, title-only excluded",plagiar,misconduct,False,1347,67,0.0497,45019,1050,0.0233,1117,67,0.06
+"trimmed, title-only excluded",plagiar,error,False,5330,25,0.0047,41036,1092,0.0266,1117,25,0.0224
+"trimmed, title-only excluded",plagiar,falsification/fabrication,False,2278,46,0.0202,44088,1071,0.0243,1117,46,0.0412
+"trimmed, title-only excluded",plagiar,referencing/attributions,False,12841,60,0.0047,33525,1057,0.0315,1117,60,0.0537
+"trimmed, title-only excluded",image,duplication,False,8016,2896,0.3613,38350,2234,0.0583,5130,2896,0.5645
+"trimmed, title-only excluded",image,plagiarism,False,3804,536,0.1409,42562,4594,0.1079,5130,536,0.1045
+"trimmed, title-only excluded",image,image,True,8485,4049,0.4772,37881,1081,0.0285,5130,4049,0.7893
+"trimmed, title-only excluded",image,data,False,18578,2472,0.1331,27788,2658,0.0957,5130,2472,0.4819
+"trimmed, title-only excluded",image,peer review,False,19376,715,0.0369,26990,4415,0.1636,5130,715,0.1394
+"trimmed, title-only excluded",image,authorship,False,3130,144,0.046,43236,4986,0.1153,5130,144,0.0281
+"trimmed, title-only excluded",image,consent,False,1520,21,0.0138,44846,5109,0.1139,5130,21,0.0041
+"trimmed, title-only excluded",image,ethics,False,3085,103,0.0334,43281,5027,0.1161,5130,103,0.0201
+"trimmed, title-only excluded",image,paper mill,False,10185,610,0.0599,36181,4520,0.1249,5130,610,0.1189
+"trimmed, title-only excluded",image,misconduct,False,1347,169,0.1255,45019,4961,0.1102,5130,169,0.0329
+"trimmed, title-only excluded",image,error,False,5330,669,0.1255,41036,4461,0.1087,5130,669,0.1304
+"trimmed, title-only excluded",image,falsification/fabrication,False,2278,817,0.3586,44088,4313,0.0978,5130,817,0.1593
+"trimmed, title-only excluded",image,referencing/attributions,False,12841,256,0.0199,33525,4874,0.1454,5130,256,0.0499
+"trimmed, title-only excluded",data,duplication,False,8016,4297,0.5361,38350,17384,0.4533,21681,4297,0.1982
+"trimmed, title-only excluded",data,plagiarism,False,3804,1603,0.4214,42562,20078,0.4717,21681,1603,0.0739
+"trimmed, title-only excluded",data,image,False,8485,5683,0.6698,37881,15998,0.4223,21681,5683,0.2621
+"trimmed, title-only excluded",data,data,True,18578,16291,0.8769,27788,5390,0.194,21681,16291,0.7514
+"trimmed, title-only excluded",data,peer review,False,19376,10086,0.5205,26990,11595,0.4296,21681,10086,0.4652
+"trimmed, title-only excluded",data,authorship,False,3130,888,0.2837,43236,20793,0.4809,21681,888,0.041
+"trimmed, title-only excluded",data,consent,False,1520,1401,0.9217,44846,20280,0.4522,21681,1401,0.0646
+"trimmed, title-only excluded",data,ethics,False,3085,2233,0.7238,43281,19448,0.4493,21681,2233,0.103
+"trimmed, title-only excluded",data,paper mill,False,10185,6957,0.6831,36181,14724,0.407,21681,6957,0.3209
+"trimmed, title-only excluded",data,misconduct,False,1347,843,0.6258,45019,20838,0.4629,21681,843,0.0389
+"trimmed, title-only excluded",data,error,False,5330,2287,0.4291,41036,19394,0.4726,21681,2287,0.1055
+"trimmed, title-only excluded",data,falsification/fabrication,False,2278,1625,0.7133,44088,20056,0.4549,21681,1625,0.075
+"trimmed, title-only excluded",data,referencing/attributions,False,12841,9302,0.7244,33525,12379,0.3692,21681,9302,0.429
+"trimmed, title-only excluded",peer review,duplication,False,8016,275,0.0343,38350,11102,0.2895,11377,275,0.0242
+"trimmed, title-only excluded",peer review,plagiarism,False,3804,198,0.0521,42562,11179,0.2627,11377,198,0.0174
+"trimmed, title-only excluded",peer review,image,False,8485,215,0.0253,37881,11162,0.2947,11377,215,0.0189
+"trimmed, title-only excluded",peer review,data,False,18578,2113,0.1137,27788,9264,0.3334,11377,2113,0.1857
+"trimmed, title-only excluded",peer review,peer review,True,19376,10630,0.5486,26990,747,0.0277,11377,10630,0.9343
+"trimmed, title-only excluded",peer review,authorship,False,3130,644,0.2058,43236,10733,0.2482,11377,644,0.0566
+"trimmed, title-only excluded",peer review,consent,False,1520,272,0.1789,44846,11105,0.2476,11377,272,0.0239
+"trimmed, title-only excluded",peer review,ethics,False,3085,406,0.1316,43281,10971,0.2535,11377,406,0.0357
+"trimmed, title-only excluded",peer review,paper mill,False,10185,4339,0.426,36181,7038,0.1945,11377,4339,0.3814
+"trimmed, title-only excluded",peer review,misconduct,False,1347,145,0.1076,45019,11232,0.2495,11377,145,0.0127
+"trimmed, title-only excluded",peer review,error,False,5330,401,0.0752,41036,10976,0.2675,11377,401,0.0352
+"trimmed, title-only excluded",peer review,falsification/fabrication,False,2278,79,0.0347,44088,11298,0.2563,11377,79,0.0069
+"trimmed, title-only excluded",peer review,referencing/attributions,False,12841,4199,0.327,33525,7178,0.2141,11377,4199,0.3691
+"trimmed, title-only excluded",authorship,duplication,False,8016,237,0.0296,38350,2019,0.0526,2256,237,0.1051
+"trimmed, title-only excluded",authorship,plagiarism,False,3804,438,0.1151,42562,1818,0.0427,2256,438,0.1941
+"trimmed, title-only excluded",authorship,image,False,8485,260,0.0306,37881,1996,0.0527,2256,260,0.1152
+"trimmed, title-only excluded",authorship,data,False,18578,308,0.0166,27788,1948,0.0701,2256,308,0.1365
+"trimmed, title-only excluded",authorship,peer review,False,19376,624,0.0322,26990,1632,0.0605,2256,624,0.2766
+"trimmed, title-only excluded",authorship,authorship,True,3130,1754,0.5604,43236,502,0.0116,2256,1754,0.7775
+"trimmed, title-only excluded",authorship,consent,False,1520,4,0.0026,44846,2252,0.0502,2256,4,0.0018
+"trimmed, title-only excluded",authorship,ethics,False,3085,96,0.0311,43281,2160,0.0499,2256,96,0.0426
+"trimmed, title-only excluded",authorship,paper mill,False,10185,142,0.0139,36181,2114,0.0584,2256,142,0.0629
+"trimmed, title-only excluded",authorship,misconduct,False,1347,82,0.0609,45019,2174,0.0483,2256,82,0.0363
+"trimmed, title-only excluded",authorship,error,False,5330,44,0.0083,41036,2212,0.0539,2256,44,0.0195
+"trimmed, title-only excluded",authorship,falsification/fabrication,False,2278,34,0.0149,44088,2222,0.0504,2256,34,0.0151
+"trimmed, title-only excluded",authorship,referencing/attributions,False,12841,368,0.0287,33525,1888,0.0563,2256,368,0.1631
+"trimmed, title-only excluded",consent,duplication,False,8016,48,0.006,38350,2228,0.0581,2276,48,0.0211
+"trimmed, title-only excluded",consent,plagiarism,False,3804,57,0.015,42562,2219,0.0521,2276,57,0.025
+"trimmed, title-only excluded",consent,image,False,8485,55,0.0065,37881,2221,0.0586,2276,55,0.0242
+"trimmed, title-only excluded",consent,data,False,18578,1877,0.101,27788,399,0.0144,2276,1877,0.8247
+"trimmed, title-only excluded",consent,peer review,False,19376,1719,0.0887,26990,557,0.0206,2276,1719,0.7553
+"trimmed, title-only excluded",consent,authorship,False,3130,204,0.0652,43236,2072,0.0479,2276,204,0.0896
+"trimmed, title-only excluded",consent,consent,True,1520,1459,0.9599,44846,817,0.0182,2276,1459,0.641
+"trimmed, title-only excluded",consent,ethics,False,3085,1832,0.5938,43281,444,0.0103,2276,1832,0.8049
+"trimmed, title-only excluded",consent,paper mill,False,10185,1115,0.1095,36181,1161,0.0321,2276,1115,0.4899
+"trimmed, title-only excluded",consent,misconduct,False,1347,26,0.0193,45019,2250,0.05,2276,26,0.0114
+"trimmed, title-only excluded",consent,error,False,5330,53,0.0099,41036,2223,0.0542,2276,53,0.0233
+"trimmed, title-only excluded",consent,falsification/fabrication,False,2278,30,0.0132,44088,2246,0.0509,2276,30,0.0132
+"trimmed, title-only excluded",consent,referencing/attributions,False,12841,1721,0.134,33525,555,0.0166,2276,1721,0.7562
+"trimmed, title-only excluded",ethic,duplication,False,8016,673,0.084,38350,4592,0.1197,5265,673,0.1278
+"trimmed, title-only excluded",ethic,plagiarism,False,3804,278,0.0731,42562,4987,0.1172,5265,278,0.0528
+"trimmed, title-only excluded",ethic,image,False,8485,818,0.0964,37881,4447,0.1174,5265,818,0.1554
+"trimmed, title-only excluded",ethic,data,False,18578,2709,0.1458,27788,2556,0.092,5265,2709,0.5145
+"trimmed, title-only excluded",ethic,peer review,False,19376,2320,0.1197,26990,2945,0.1091,5265,2320,0.4406
+"trimmed, title-only excluded",ethic,authorship,False,3130,554,0.177,43236,4711,0.109,5265,554,0.1052
+"trimmed, title-only excluded",ethic,consent,False,1520,1410,0.9276,44846,3855,0.086,5265,1410,0.2678
+"trimmed, title-only excluded",ethic,ethics,True,3085,2683,0.8697,43281,2582,0.0597,5265,2683,0.5096
+"trimmed, title-only excluded",ethic,paper mill,False,10185,1308,0.1284,36181,3957,0.1094,5265,1308,0.2484
+"trimmed, title-only excluded",ethic,misconduct,False,1347,126,0.0935,45019,5139,0.1142,5265,126,0.0239
+"trimmed, title-only excluded",ethic,error,False,5330,177,0.0332,41036,5088,0.124,5265,177,0.0336
+"trimmed, title-only excluded",ethic,falsification/fabrication,False,2278,214,0.0939,44088,5051,0.1146,5265,214,0.0406
+"trimmed, title-only excluded",ethic,referencing/attributions,False,12841,2235,0.1741,33525,3030,0.0904,5265,2235,0.4245
+"trimmed, title-only excluded",paper mill,duplication,False,8016,28,0.0035,38350,65,0.0017,93,28,0.3011
+"trimmed, title-only excluded",paper mill,plagiarism,False,3804,1,0.0003,42562,92,0.0022,93,1,0.0108
+"trimmed, title-only excluded",paper mill,image,False,8485,42,0.0049,37881,51,0.0013,93,42,0.4516
+"trimmed, title-only excluded",paper mill,data,False,18578,40,0.0022,27788,53,0.0019,93,40,0.4301
+"trimmed, title-only excluded",paper mill,peer review,False,19376,12,0.0006,26990,81,0.003,93,12,0.129
+"trimmed, title-only excluded",paper mill,authorship,False,3130,8,0.0026,43236,85,0.002,93,8,0.086
+"trimmed, title-only excluded",paper mill,consent,False,1520,0,0.0,44846,93,0.0021,93,0,0.0
+"trimmed, title-only excluded",paper mill,ethics,False,3085,0,0.0,43281,93,0.0021,93,0,0.0
+"trimmed, title-only excluded",paper mill,paper mill,True,10185,83,0.0081,36181,10,0.0003,93,83,0.8925
+"trimmed, title-only excluded",paper mill,misconduct,False,1347,3,0.0022,45019,90,0.002,93,3,0.0323
+"trimmed, title-only excluded",paper mill,error,False,5330,0,0.0,41036,93,0.0023,93,0,0.0
+"trimmed, title-only excluded",paper mill,falsification/fabrication,False,2278,18,0.0079,44088,75,0.0017,93,18,0.1935
+"trimmed, title-only excluded",paper mill,referencing/attributions,False,12841,1,0.0001,33525,92,0.0027,93,1,0.0108
+"trimmed, title-only excluded",misconduct,duplication,False,8016,129,0.0161,38350,792,0.0207,921,129,0.1401
+"trimmed, title-only excluded",misconduct,plagiarism,False,3804,77,0.0202,42562,844,0.0198,921,77,0.0836
+"trimmed, title-only excluded",misconduct,image,False,8485,302,0.0356,37881,619,0.0163,921,302,0.3279
+"trimmed, title-only excluded",misconduct,data,False,18578,458,0.0247,27788,463,0.0167,921,458,0.4973
+"trimmed, title-only excluded",misconduct,peer review,False,19376,259,0.0134,26990,662,0.0245,921,259,0.2812
+"trimmed, title-only excluded",misconduct,authorship,False,3130,130,0.0415,43236,791,0.0183,921,130,0.1412
+"trimmed, title-only excluded",misconduct,consent,False,1520,13,0.0086,44846,908,0.0202,921,13,0.0141
+"trimmed, title-only excluded",misconduct,ethics,False,3085,73,0.0237,43281,848,0.0196,921,73,0.0793
+"trimmed, title-only excluded",misconduct,paper mill,False,10185,167,0.0164,36181,754,0.0208,921,167,0.1813
+"trimmed, title-only excluded",misconduct,misconduct,True,1347,361,0.268,45019,560,0.0124,921,361,0.392
+"trimmed, title-only excluded",misconduct,error,False,5330,60,0.0113,41036,861,0.021,921,60,0.0651
+"trimmed, title-only excluded",misconduct,falsification/fabrication,False,2278,278,0.122,44088,643,0.0146,921,278,0.3018
+"trimmed, title-only excluded",misconduct,referencing/attributions,False,12841,193,0.015,33525,728,0.0217,921,193,0.2096
+"trimmed, title-only excluded",error,duplication,False,8016,801,0.0999,38350,2433,0.0634,3234,801,0.2477
+"trimmed, title-only excluded",error,plagiarism,False,3804,175,0.046,42562,3059,0.0719,3234,175,0.0541
+"trimmed, title-only excluded",error,image,False,8485,1023,0.1206,37881,2211,0.0584,3234,1023,0.3163
+"trimmed, title-only excluded",error,data,False,18578,1331,0.0716,27788,1903,0.0685,3234,1331,0.4116
+"trimmed, title-only excluded",error,peer review,False,19376,106,0.0055,26990,3128,0.1159,3234,106,0.0328
+"trimmed, title-only excluded",error,authorship,False,3130,102,0.0326,43236,3132,0.0724,3234,102,0.0315
+"trimmed, title-only excluded",error,consent,False,1520,7,0.0046,44846,3227,0.072,3234,7,0.0022
+"trimmed, title-only excluded",error,ethics,False,3085,60,0.0194,43281,3174,0.0733,3234,60,0.0186
+"trimmed, title-only excluded",error,paper mill,False,10185,42,0.0041,36181,3192,0.0882,3234,42,0.013
+"trimmed, title-only excluded",error,misconduct,False,1347,52,0.0386,45019,3182,0.0707,3234,52,0.0161
+"trimmed, title-only excluded",error,error,True,5330,2442,0.4582,41036,792,0.0193,3234,2442,0.7551
+"trimmed, title-only excluded",error,falsification/fabrication,False,2278,166,0.0729,44088,3068,0.0696,3234,166,0.0513
+"trimmed, title-only excluded",error,referencing/attributions,False,12841,119,0.0093,33525,3115,0.0929,3234,119,0.0368
+"trimmed, title-only excluded",fake,duplication,False,8016,7,0.0009,38350,158,0.0041,165,7,0.0424
+"trimmed, title-only excluded",fake,plagiarism,False,3804,4,0.0011,42562,161,0.0038,165,4,0.0242
+"trimmed, title-only excluded",fake,image,False,8485,9,0.0011,37881,156,0.0041,165,9,0.0545
+"trimmed, title-only excluded",fake,data,False,18578,15,0.0008,27788,150,0.0054,165,15,0.0909
+"trimmed, title-only excluded",fake,peer review,False,19376,92,0.0047,26990,73,0.0027,165,92,0.5576
+"trimmed, title-only excluded",fake,authorship,False,3130,8,0.0026,43236,157,0.0036,165,8,0.0485
+"trimmed, title-only excluded",fake,consent,False,1520,0,0.0,44846,165,0.0037,165,0,0.0
+"trimmed, title-only excluded",fake,ethics,False,3085,21,0.0068,43281,144,0.0033,165,21,0.1273
+"trimmed, title-only excluded",fake,paper mill,False,10185,2,0.0002,36181,163,0.0045,165,2,0.0121
+"trimmed, title-only excluded",fake,misconduct,False,1347,9,0.0067,45019,156,0.0035,165,9,0.0545
+"trimmed, title-only excluded",fake,error,False,5330,5,0.0009,41036,160,0.0039,165,5,0.0303
+"trimmed, title-only excluded",fake,falsification/fabrication,True,2278,1,0.0004,44088,164,0.0037,165,1,0.0061
+"trimmed, title-only excluded",fake,referencing/attributions,False,12841,7,0.0005,33525,158,0.0047,165,7,0.0424
+"trimmed, title-only excluded",citation manipulation,duplication,False,8016,0,0.0,38350,627,0.0163,627,0,0.0
+"trimmed, title-only excluded",citation manipulation,plagiarism,False,3804,20,0.0053,42562,607,0.0143,627,20,0.0319
+"trimmed, title-only excluded",citation manipulation,image,False,8485,1,0.0001,37881,626,0.0165,627,1,0.0016
+"trimmed, title-only excluded",citation manipulation,data,False,18578,1,0.0001,27788,626,0.0225,627,1,0.0016
+"trimmed, title-only excluded",citation manipulation,peer review,False,19376,557,0.0287,26990,70,0.0026,627,557,0.8884
+"trimmed, title-only excluded",citation manipulation,authorship,False,3130,9,0.0029,43236,618,0.0143,627,9,0.0144
+"trimmed, title-only excluded",citation manipulation,consent,False,1520,0,0.0,44846,627,0.014,627,0,0.0
+"trimmed, title-only excluded",citation manipulation,ethics,False,3085,3,0.001,43281,624,0.0144,627,3,0.0048
+"trimmed, title-only excluded",citation manipulation,paper mill,False,10185,1,0.0001,36181,626,0.0173,627,1,0.0016
+"trimmed, title-only excluded",citation manipulation,misconduct,False,1347,12,0.0089,45019,615,0.0137,627,12,0.0191
+"trimmed, title-only excluded",citation manipulation,error,False,5330,1,0.0002,41036,626,0.0153,627,1,0.0016
+"trimmed, title-only excluded",citation manipulation,falsification/fabrication,False,2278,0,0.0,44088,627,0.0142,627,0,0.0
+"trimmed, title-only excluded",citation manipulation,referencing/attributions,True,12841,617,0.048,33525,10,0.0003,627,617,0.9841
+"trimmed, title-only excluded",x:fabricat|falsif,duplication,False,8016,134,0.0167,38350,978,0.0255,1112,134,0.1205
+"trimmed, title-only excluded",x:fabricat|falsif,plagiarism,False,3804,66,0.0174,42562,1046,0.0246,1112,66,0.0594
+"trimmed, title-only excluded",x:fabricat|falsif,image,False,8485,250,0.0295,37881,862,0.0228,1112,250,0.2248
+"trimmed, title-only excluded",x:fabricat|falsif,data,False,18578,712,0.0383,27788,400,0.0144,1112,712,0.6403
+"trimmed, title-only excluded",x:fabricat|falsif,peer review,False,19376,210,0.0108,26990,902,0.0334,1112,210,0.1888
+"trimmed, title-only excluded",x:fabricat|falsif,authorship,False,3130,167,0.0534,43236,945,0.0219,1112,167,0.1502
+"trimmed, title-only excluded",x:fabricat|falsif,consent,False,1520,4,0.0026,44846,1108,0.0247,1112,4,0.0036
+"trimmed, title-only excluded",x:fabricat|falsif,ethics,False,3085,64,0.0207,43281,1048,0.0242,1112,64,0.0576
+"trimmed, title-only excluded",x:fabricat|falsif,paper mill,False,10185,162,0.0159,36181,950,0.0263,1112,162,0.1457
+"trimmed, title-only excluded",x:fabricat|falsif,misconduct,False,1347,464,0.3445,45019,648,0.0144,1112,464,0.4173
+"trimmed, title-only excluded",x:fabricat|falsif,error,False,5330,44,0.0083,41036,1068,0.026,1112,44,0.0396
+"trimmed, title-only excluded",x:fabricat|falsif,falsification/fabrication,True,2278,634,0.2783,44088,478,0.0108,1112,634,0.5701
+"trimmed, title-only excluded",x:fabricat|falsif,referencing/attributions,False,12841,145,0.0113,33525,967,0.0288,1112,145,0.1304

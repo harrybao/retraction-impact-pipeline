@@ -1,0 +1,13 @@
+crawling workers=6 start-delay=5.0s floor=2.0s limit=all prefixes=['10.1016']
+
+learned prefix->host routes: 887; scheduling by success rate over 210 prefixes
+circuit breaker open on 42 hosts (15,062 failed attempts already spent):
+    validate.perfdrive.com                      2,458 tries, 0 ok
+    academic.oup.com                            1,622 tries, 0 ok
+    cell.com                                    1,198 tries, 0 ok
+    pubs.rsc.org                                1,001 tries, 0 ok
+    jbc.org                                       826 tries, 0 ok
+    pubs.acs.org                                  776 tries, 0 ok
+    www.e3s-conferences.org                       623 tries, 0 ok
+    portlandpress.com                             588 tries, 0 ok
+webkit fallback armed for chromium-blocked hosts

@@ -1,0 +1,15 @@
+"section","measure","articles","say_retracted","share_pct"
+"articles after retraction","paper DOIs only / all sources",37211,5895,15.8
+"articles after retraction","paper DOIs only / news",10894,1367,12.5
+"articles after retraction","notice DOIs only / all sources",12859,6022,46.8
+"articles after retraction","notice DOIs only / news",5013,1622,32.4
+"articles after retraction","paper and notice DOIs, each article once / all sources",45738,9662,21.1
+"articles after retraction","paper and notice DOIs, each article once / news",14343,2324,16.2
+"articles after retraction","paper and notice DOIs, each article once / news and blogs",20710,5396,26.1
+"papers","papers mentioned after retraction, paper DOIs",5752,NA,NA
+"papers","  added through notices retracting fewer than 10 papers",2176,NA,NA
+"papers","  added only through mass-retraction notices (reported apart)",3589,NA,NA
+"papers","papers mentioned after retraction, without mass-only",7928,NA,NA
+"papers","  ever described as retracted",4775,NA,NA
+"papers","  never described as retracted",3153,NA,NA
+"papers","mass-only papers described as retracted",2072,NA,NA

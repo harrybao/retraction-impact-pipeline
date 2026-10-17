@@ -1,0 +1,962 @@
+section,metric,value,denominator
+1_posted_on,altmetric_posts rows [measured],1437967,altmetric_posts table
+1_posted_on,distinct DOIs (papers) with >=1 post [measured],22368,"62,867 papers"
+1_posted_on,posts joined to a records.original_doi [measured],1437967,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posted_on NULL [measured],1,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posted_on empty string [measured],0,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posted_on NULL: kind=peer_reviews [measured],1,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posted_on matches YYYY-MM-DDTHH:MM:SS+00:00 and parses [measured],1437966,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posted_on non-NULL but unparseable [measured],0,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posted_on timezone suffix +00:00 [measured],1437966,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,earliest posted_on date [measured],1985-05-07,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,latest posted_on date [measured],2026-12-06,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts dated after their DOI's altmetric_detail.fetched_at date [measured],10,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts dated after fetch date: kind=guideline [measured],7,"guideline posts (n=1,771)"
+1_posted_on,posts dated after fetch date: kind=policy [measured],3,"policy posts (n=2,123)"
+1_posted_on,posts dated before the paper's original publication date [measured],25151,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,distinct kinds [measured],20,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=twitter [measured],1281535,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=reddit [measured],43238,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=news [measured],36888,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=patent [measured],20155,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=blogs [measured],14250,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=facebook [measured],10867,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=peer_reviews [measured],8085,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=wikipedia [measured],7647,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=bluesky [measured],6286,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=policy [measured],2123,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=googleplus [measured],1800,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=guideline [measured],1771,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=video [measured],1445,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=podcasts [measured],858,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=f1000 [measured],618,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=q&a [measured],203,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=weibo [measured],135,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=misc [measured],58,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=pinterest [measured],3,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts: kind=linkedin [measured],2,"all altmetric_posts rows (n=1,437,967)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=twitter [measured],17,"twitter posts (n=1,281,535)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=reddit [measured],1,"reddit posts (n=43,238)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=news [measured],1084,"news posts (n=36,888)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=patent [measured],20155,"patent posts (n=20,155)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=blogs [measured],98,"blogs posts (n=14,250)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=facebook [measured],2,"facebook posts (n=10,867)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=peer_reviews [measured],244,"peer_reviews posts (n=8,085)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=wikipedia [measured],0,"wikipedia posts (n=7,647)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=bluesky [measured],0,"bluesky posts (n=6,286)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=policy [measured],1370,"policy posts (n=2,123)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=googleplus [measured],0,"googleplus posts (n=1,800)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=guideline [measured],1685,"guideline posts (n=1,771)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=video [measured],2,"video posts (n=1,445)"
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=podcasts [measured],17,podcasts posts (n=858)
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=f1000 [measured],610,f1000 posts (n=618)
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=q&a [measured],0,q&a posts (n=203)
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=weibo [measured],0,weibo posts (n=135)
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=misc [measured],19,misc posts (n=58)
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=pinterest [measured],0,pinterest posts (n=3)
+1_posted_on,posts with time-of-day 00:00:00 (date-only precision likely): kind=linkedin [measured],0,linkedin posts (n=2)
+1_posted_on,posts dated before original publication date: kind=twitter [measured],22205,"twitter posts (n=1,281,535)"
+1_posted_on,posts dated before original publication date: kind=reddit [measured],212,"reddit posts (n=43,238)"
+1_posted_on,posts dated before original publication date: kind=news [measured],1180,"news posts (n=36,888)"
+1_posted_on,posts dated before original publication date: kind=patent [measured],91,"patent posts (n=20,155)"
+1_posted_on,posts dated before original publication date: kind=blogs [measured],218,"blogs posts (n=14,250)"
+1_posted_on,posts dated before original publication date: kind=facebook [measured],752,"facebook posts (n=10,867)"
+1_posted_on,posts dated before original publication date: kind=peer_reviews [measured],212,"peer_reviews posts (n=8,085)"
+1_posted_on,posts dated before original publication date: kind=wikipedia [measured],45,"wikipedia posts (n=7,647)"
+1_posted_on,posts dated before original publication date: kind=bluesky [measured],17,"bluesky posts (n=6,286)"
+1_posted_on,posts dated before original publication date: kind=policy [measured],26,"policy posts (n=2,123)"
+1_posted_on,posts dated before original publication date: kind=googleplus [measured],64,"googleplus posts (n=1,800)"
+1_posted_on,posts dated before original publication date: kind=guideline [measured],30,"guideline posts (n=1,771)"
+1_posted_on,posts dated before original publication date: kind=video [measured],16,"video posts (n=1,445)"
+1_posted_on,posts dated before original publication date: kind=podcasts [measured],3,podcasts posts (n=858)
+1_posted_on,posts dated before original publication date: kind=f1000 [measured],49,f1000 posts (n=618)
+1_posted_on,posts dated before original publication date: kind=q&a [measured],26,q&a posts (n=203)
+1_posted_on,posts dated before original publication date: kind=weibo [measured],1,weibo posts (n=135)
+1_posted_on,posts dated before original publication date: kind=misc [measured],4,misc posts (n=58)
+1_posted_on,kind=twitter: first post date [measured],2011-06-10,"twitter posts (n=1,281,535)"
+1_posted_on,kind=twitter: last post date [measured],2026-09-01,"twitter posts (n=1,281,535)"
+1_posted_on,kind=twitter: peak year (posts) [measured],"2021 (474,968)","twitter posts (n=1,281,535)"
+1_posted_on,kind=twitter: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,twitter; months from last post to fetch = 0
+1_posted_on,"kind=twitter: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,twitter posts by year
+1_posted_on,kind=twitter: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],"39,694 vs 76,539 (51.9%)",twitter posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=reddit: first post date [measured],2008-11-19,"reddit posts (n=43,238)"
+1_posted_on,kind=reddit: last post date [measured],2026-07-31,"reddit posts (n=43,238)"
+1_posted_on,kind=reddit: peak year (posts) [measured],"2021 (12,994)","reddit posts (n=43,238)"
+1_posted_on,kind=reddit: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,reddit; months from last post to fetch = 2
+1_posted_on,"kind=reddit: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,reddit posts by year
+1_posted_on,kind=reddit: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],"846 vs 1,570 (53.9%)",reddit posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=news: first post date [measured],2001-01-01,"news posts (n=36,888)"
+1_posted_on,kind=news: last post date [measured],2026-08-30,"news posts (n=36,888)"
+1_posted_on,kind=news: peak year (posts) [measured],"2020 (6,863)","news posts (n=36,888)"
+1_posted_on,kind=news: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,news; months from last post to fetch = 1
+1_posted_on,"kind=news: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,news posts by year
+1_posted_on,kind=news: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],"747 vs 1,376 (54.3%)",news posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=patent: first post date [measured],1985-05-07,"patent posts (n=20,155)"
+1_posted_on,kind=patent: last post date [measured],2026-08-18,"patent posts (n=20,155)"
+1_posted_on,kind=patent: peak year (posts) [measured],"2020 (1,417)","patent posts (n=20,155)"
+1_posted_on,kind=patent: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,patent; months from last post to fetch = 1
+1_posted_on,"kind=patent: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,patent posts by year
+1_posted_on,kind=patent: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],602 vs 711 (84.7%),patent posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=blogs: first post date [measured],2005-10-02,"blogs posts (n=14,250)"
+1_posted_on,kind=blogs: last post date [measured],2026-09-01,"blogs posts (n=14,250)"
+1_posted_on,kind=blogs: peak year (posts) [measured],"2020 (1,512)","blogs posts (n=14,250)"
+1_posted_on,kind=blogs: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,blogs; months from last post to fetch = 0
+1_posted_on,"kind=blogs: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,blogs posts by year
+1_posted_on,kind=blogs: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],362 vs 649 (55.8%),blogs posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=facebook: first post date [measured],2009-10-09,"facebook posts (n=10,867)"
+1_posted_on,kind=facebook: last post date [measured],2026-08-17,"facebook posts (n=10,867)"
+1_posted_on,kind=facebook: peak year (posts) [measured],"2013 (1,752)","facebook posts (n=10,867)"
+1_posted_on,kind=facebook: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,facebook; months from last post to fetch = 1
+1_posted_on,"kind=facebook: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,facebook posts by year
+1_posted_on,kind=facebook: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],24 vs 52 (46.2%),facebook posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=peer_reviews: first post date [measured],2013-06-05,"peer_reviews posts (n=8,085)"
+1_posted_on,kind=peer_reviews: last post date [measured],2025-08-23,"peer_reviews posts (n=8,085)"
+1_posted_on,kind=peer_reviews: peak year (posts) [measured],"2015 (2,773)","peer_reviews posts (n=8,085)"
+1_posted_on,kind=peer_reviews: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],1,peer_reviews; months from last post to fetch = 13
+1_posted_on,"kind=peer_reviews: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",2018,peer_reviews posts by year
+1_posted_on,kind=peer_reviews: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],0 vs 5 (0.0%),peer_reviews posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=wikipedia: first post date [measured],2006-04-09,"wikipedia posts (n=7,647)"
+1_posted_on,kind=wikipedia: last post date [measured],2026-08-29,"wikipedia posts (n=7,647)"
+1_posted_on,kind=wikipedia: peak year (posts) [measured],"2024 (4,201)","wikipedia posts (n=7,647)"
+1_posted_on,kind=wikipedia: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,wikipedia; months from last post to fetch = 1
+1_posted_on,"kind=wikipedia: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",2025,wikipedia posts by year
+1_posted_on,kind=wikipedia: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],130 vs 155 (83.9%),wikipedia posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=wikipedia: FLAG single month holds >=50% of a year's posts (year >=100 posts) [measured],"2024-06=3,948/4,201",wikipedia posts by month
+1_posted_on,kind=bluesky: first post date [measured],2012-01-13,"bluesky posts (n=6,286)"
+1_posted_on,kind=bluesky: last post date [measured],2026-08-30,"bluesky posts (n=6,286)"
+1_posted_on,kind=bluesky: peak year (posts) [measured],"2025 (2,357)","bluesky posts (n=6,286)"
+1_posted_on,kind=bluesky: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,bluesky; months from last post to fetch = 1
+1_posted_on,"kind=bluesky: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,bluesky posts by year
+1_posted_on,kind=bluesky: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],"2,246 vs 1,307 (171.8%)",bluesky posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=bluesky: FLAG single month holds >=50% of a year's posts (year >=100 posts) [measured],"2024-12=951/1,558;2026-05=1,209/2,246",bluesky posts by month
+1_posted_on,kind=policy: first post date [measured],1992-01-01,"policy posts (n=2,123)"
+1_posted_on,kind=policy: last post date [measured],2026-10-07,"policy posts (n=2,123)"
+1_posted_on,kind=policy: peak year (posts) [measured],2020 (211),"policy posts (n=2,123)"
+1_posted_on,kind=policy: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,policy; months from last post to fetch = -1
+1_posted_on,"kind=policy: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,policy posts by year
+1_posted_on,kind=policy: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],18 vs 46 (39.1%),policy posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=googleplus: first post date [measured],2011-07-15,"googleplus posts (n=1,800)"
+1_posted_on,kind=googleplus: last post date [measured],2019-01-28,"googleplus posts (n=1,800)"
+1_posted_on,kind=googleplus: peak year (posts) [measured],2015 (376),"googleplus posts (n=1,800)"
+1_posted_on,kind=googleplus: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],1,googleplus; months from last post to fetch = 92
+1_posted_on,"kind=googleplus: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",2019,googleplus posts by year
+1_posted_on,kind=googleplus: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],0 vs 0,googleplus posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=googleplus: FLAG single month holds >=50% of a year's posts (year >=100 posts) [measured],2012-09=258/302,googleplus posts by month
+1_posted_on,kind=guideline: first post date [measured],1991-03-01,"guideline posts (n=1,771)"
+1_posted_on,kind=guideline: last post date [measured],2026-12-06,"guideline posts (n=1,771)"
+1_posted_on,kind=guideline: peak year (posts) [measured],2018 (148),"guideline posts (n=1,771)"
+1_posted_on,kind=guideline: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,guideline; months from last post to fetch = -3
+1_posted_on,"kind=guideline: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,guideline posts by year
+1_posted_on,kind=guideline: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],20 vs 67 (29.9%),guideline posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=video: first post date [measured],2007-06-02,"video posts (n=1,445)"
+1_posted_on,kind=video: last post date [measured],2026-08-31,"video posts (n=1,445)"
+1_posted_on,kind=video: peak year (posts) [measured],2021 (188),"video posts (n=1,445)"
+1_posted_on,kind=video: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,video; months from last post to fetch = 1
+1_posted_on,"kind=video: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,video posts by year
+1_posted_on,kind=video: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],149 vs 98 (152.0%),video posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=podcasts: first post date [measured],2009-09-20,podcasts posts (n=858)
+1_posted_on,kind=podcasts: last post date [measured],2026-08-13,podcasts posts (n=858)
+1_posted_on,kind=podcasts: peak year (posts) [measured],2020 (168),podcasts posts (n=858)
+1_posted_on,kind=podcasts: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],0,podcasts; months from last post to fetch = 1
+1_posted_on,"kind=podcasts: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,podcasts posts by year
+1_posted_on,kind=podcasts: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],25 vs 85 (29.4%),podcasts posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=f1000: first post date [measured],2001-11-22,f1000 posts (n=618)
+1_posted_on,kind=f1000: last post date [measured],2023-07-26,f1000 posts (n=618)
+1_posted_on,kind=f1000: peak year (posts) [measured],2009 (59),f1000 posts (n=618)
+1_posted_on,kind=f1000: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],1,f1000; months from last post to fetch = 38
+1_posted_on,"kind=f1000: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,f1000 posts by year
+1_posted_on,kind=f1000: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],0 vs 0,f1000 posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=q&a: first post date [measured],2010-06-01,q&a posts (n=203)
+1_posted_on,kind=q&a: last post date [measured],2024-12-23,q&a posts (n=203)
+1_posted_on,kind=q&a: peak year (posts) [measured],2020 (35),q&a posts (n=203)
+1_posted_on,kind=q&a: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],1,q&a; months from last post to fetch = 21
+1_posted_on,"kind=q&a: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,q&a posts by year
+1_posted_on,kind=q&a: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],0 vs 0,q&a posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=weibo: first post date [measured],2014-04-23,weibo posts (n=135)
+1_posted_on,kind=weibo: last post date [measured],2015-04-10,weibo posts (n=135)
+1_posted_on,kind=weibo: peak year (posts) [measured],2014 (79),weibo posts (n=135)
+1_posted_on,kind=weibo: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],1,weibo; months from last post to fetch = 137
+1_posted_on,"kind=weibo: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,weibo posts by year
+1_posted_on,kind=weibo: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],0 vs 0,weibo posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=misc: first post date [measured],2011-09-15,misc posts (n=58)
+1_posted_on,kind=misc: last post date [measured],2020-12-16,misc posts (n=58)
+1_posted_on,kind=misc: peak year (posts) [measured],2018 (24),misc posts (n=58)
+1_posted_on,kind=misc: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],1,misc; months from last post to fetch = 69
+1_posted_on,"kind=misc: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,misc posts by year
+1_posted_on,kind=misc: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],0 vs 0,misc posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=pinterest: first post date [measured],2012-03-01,pinterest posts (n=3)
+1_posted_on,kind=pinterest: last post date [measured],2012-11-21,pinterest posts (n=3)
+1_posted_on,kind=pinterest: peak year (posts) [measured],2012 (3),pinterest posts (n=3)
+1_posted_on,kind=pinterest: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],1,pinterest; months from last post to fetch = 166
+1_posted_on,"kind=pinterest: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,pinterest posts by year
+1_posted_on,kind=pinterest: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],0 vs 0,pinterest posts dated 2025-01..2025-08 and 2026-01..2026-08
+1_posted_on,kind=linkedin: first post date [measured],2012-03-09,linkedin posts (n=2)
+1_posted_on,kind=linkedin: last post date [measured],2012-08-09,linkedin posts (n=2)
+1_posted_on,kind=linkedin: peak year (posts) [measured],2012 (2),linkedin posts (n=2)
+1_posted_on,kind=linkedin: FLAG stopped (last post >12 months before 2026-09-01 fetch) [measured],1,linkedin; months from last post to fetch = 169
+1_posted_on,"kind=linkedin: FLAG collapse years (full year <10% of previous year, previous >=100) [measured]",none,linkedin posts by year
+1_posted_on,kind=linkedin: posts Jan-Aug 2026 vs Jan-Aug 2025 [measured],0 vs 0,linkedin posts dated 2025-01..2025-08 and 2026-01..2026-08
+2_before_after,records with unparseable retraction_date [measured],0,"71,698 records (rwpipe.clean.parse_date)"
+2_before_after,records with empty retraction_date [measured],0,"71,698 records"
+2_before_after,group=retraction: papers [measured],60405,"62,867 papers; papers with >=1 record of nature 'Retraction' (date = earliest such record)"
+2_before_after,group=retraction: papers with >=1 post [measured],20748,"60,405 papers in group"
+2_before_after,group=retraction: posts [measured],1120680,"all altmetric_posts rows (n=1,437,967)"
+2_before_after,group=retraction_date_unparsed: papers [measured],0,"62,867 papers; papers with a Retraction record but no parseable date"
+2_before_after,group=retraction_date_unparsed: papers with >=1 post [measured],0,0 papers in group
+2_before_after,group=retraction_date_unparsed: posts [measured],0,"all altmetric_posts rows (n=1,437,967)"
+2_before_after,group=eoc_no_retraction: papers [measured],1665,"62,867 papers; papers with an Expression of concern and no Retraction record"
+2_before_after,group=eoc_no_retraction: papers with >=1 post [measured],1009,"1,665 papers in group"
+2_before_after,group=eoc_no_retraction: posts [measured],272942,"all altmetric_posts rows (n=1,437,967)"
+2_before_after,group=correction_no_retraction_no_eoc: papers [measured],653,"62,867 papers; papers with a Correction and no Retraction or EoC record"
+2_before_after,group=correction_no_retraction_no_eoc: papers with >=1 post [measured],501,653 papers in group
+2_before_after,group=correction_no_retraction_no_eoc: posts [measured],35822,"all altmetric_posts rows (n=1,437,967)"
+2_before_after,group=other_no_retraction: papers [measured],144,"62,867 papers; papers with only Reinstatement records"
+2_before_after,group=other_no_retraction: papers with >=1 post [measured],110,144 papers in group
+2_before_after,group=other_no_retraction: posts [measured],8523,"all altmetric_posts rows (n=1,437,967)"
+2_before_after,retraction all kinds: posts before [measured],850702,"posts on retraction papers (n=1,120,680); split on earliest Retraction-nature record date"
+2_before_after,retraction all kinds: posts same day [measured],17378,"posts on retraction papers (n=1,120,680); split on earliest Retraction-nature record date"
+2_before_after,retraction all kinds: posts after [measured],252599,"posts on retraction papers (n=1,120,680); split on earliest Retraction-nature record date"
+2_before_after,retraction all kinds: posts with no date [measured],1,"posts on retraction papers (n=1,120,680); split on earliest Retraction-nature record date"
+2_before_after,retraction all kinds: % posts after [measured],22.5,"posts on retraction papers (n=1,120,680); split on earliest Retraction-nature record date"
+2_before_after,retraction all kinds: papers with >=1 post after [measured],10843,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction all kinds: papers with >=1 post before [measured],14302,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=twitter: posts before [measured],781533,"twitter posts on retraction papers (n=1,000,833); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=twitter: posts same day [measured],15896,"twitter posts on retraction papers (n=1,000,833); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=twitter: posts after [measured],203404,"twitter posts on retraction papers (n=1,000,833); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=twitter: papers with >=1 post of this kind [measured],13002,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=twitter: papers with >=1 post after [measured],3644,"retraction papers with >=1 twitter post (n=13,002)"
+2_before_after,retraction kind=twitter: papers with >=1 post before [measured],10758,"retraction papers with >=1 twitter post (n=13,002)"
+2_before_after,retraction kind=reddit: posts before [measured],17270,"reddit posts on retraction papers (n=28,874); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=reddit: posts same day [measured],173,"reddit posts on retraction papers (n=28,874); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=reddit: posts after [measured],11431,"reddit posts on retraction papers (n=28,874); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=reddit: papers with >=1 post of this kind [measured],1600,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=reddit: papers with >=1 post after [measured],849,"retraction papers with >=1 reddit post (n=1,600)"
+2_before_after,retraction kind=reddit: papers with >=1 post before [measured],1126,"retraction papers with >=1 reddit post (n=1,600)"
+2_before_after,retraction kind=news: posts before [measured],20238,"news posts on retraction papers (n=28,851); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=news: posts same day [measured],516,"news posts on retraction papers (n=28,851); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=news: posts after [measured],8097,"news posts on retraction papers (n=28,851); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=news: papers with >=1 post of this kind [measured],2178,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=news: papers with >=1 post after [measured],1046,"retraction papers with >=1 news post (n=2,178)"
+2_before_after,retraction kind=news: papers with >=1 post before [measured],1514,"retraction papers with >=1 news post (n=2,178)"
+2_before_after,retraction kind=patent: posts before [measured],5505,"patent posts on retraction papers (n=14,901); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=patent: posts same day [measured],6,"patent posts on retraction papers (n=14,901); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=patent: posts after [measured],9390,"patent posts on retraction papers (n=14,901); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=patent: papers with >=1 post of this kind [measured],2598,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=patent: papers with >=1 post after [measured],1660,"retraction papers with >=1 patent post (n=2,598)"
+2_before_after,retraction kind=patent: papers with >=1 post before [measured],1471,"retraction papers with >=1 patent post (n=2,598)"
+2_before_after,retraction kind=blogs: posts before [measured],5994,"blogs posts on retraction papers (n=12,237); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=blogs: posts same day [measured],262,"blogs posts on retraction papers (n=12,237); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=blogs: posts after [measured],5981,"blogs posts on retraction papers (n=12,237); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=blogs: papers with >=1 post of this kind [measured],5738,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=blogs: papers with >=1 post after [measured],3953,"retraction papers with >=1 blogs post (n=5,738)"
+2_before_after,retraction kind=blogs: papers with >=1 post before [measured],2505,"retraction papers with >=1 blogs post (n=5,738)"
+2_before_after,retraction kind=facebook: posts before [measured],7506,"facebook posts on retraction papers (n=8,867); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=facebook: posts same day [measured],97,"facebook posts on retraction papers (n=8,867); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=facebook: posts after [measured],1264,"facebook posts on retraction papers (n=8,867); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=facebook: papers with >=1 post of this kind [measured],1722,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=facebook: papers with >=1 post after [measured],381,"retraction papers with >=1 facebook post (n=1,722)"
+2_before_after,retraction kind=facebook: papers with >=1 post before [measured],1473,"retraction papers with >=1 facebook post (n=1,722)"
+2_before_after,retraction kind=wikipedia: posts before [measured],1270,"wikipedia posts on retraction papers (n=6,842); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=wikipedia: posts same day [measured],13,"wikipedia posts on retraction papers (n=6,842); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=wikipedia: posts after [measured],5559,"wikipedia posts on retraction papers (n=6,842); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=wikipedia: papers with >=1 post of this kind [measured],2950,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=wikipedia: papers with >=1 post after [measured],2645,"retraction papers with >=1 wikipedia post (n=2,950)"
+2_before_after,retraction kind=wikipedia: papers with >=1 post before [measured],516,"retraction papers with >=1 wikipedia post (n=2,950)"
+2_before_after,retraction kind=bluesky: posts before [measured],2475,"bluesky posts on retraction papers (n=6,085); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=bluesky: posts same day [measured],202,"bluesky posts on retraction papers (n=6,085); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=bluesky: posts after [measured],3408,"bluesky posts on retraction papers (n=6,085); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=bluesky: papers with >=1 post of this kind [measured],433,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=bluesky: papers with >=1 post after [measured],270,retraction papers with >=1 bluesky post (n=433)
+2_before_after,retraction kind=bluesky: papers with >=1 post before [measured],224,retraction papers with >=1 bluesky post (n=433)
+2_before_after,retraction kind=peer_reviews: posts before [measured],4501,"peer_reviews posts on retraction papers (n=6,040); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=peer_reviews: posts same day [measured],194,"peer_reviews posts on retraction papers (n=6,040); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=peer_reviews: posts after [measured],1344,"peer_reviews posts on retraction papers (n=6,040); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=peer_reviews: posts with no date [measured],1,"peer_reviews posts on retraction papers (n=6,040); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=peer_reviews: papers with >=1 post of this kind [measured],1364,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=peer_reviews: papers with >=1 post after [measured],645,"retraction papers with >=1 peer_reviews post (n=1,364)"
+2_before_after,retraction kind=peer_reviews: papers with >=1 post before [measured],881,"retraction papers with >=1 peer_reviews post (n=1,364)"
+2_before_after,retraction kind=policy: posts before [measured],825,"policy posts on retraction papers (n=1,626); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=policy: posts same day [measured],10,"policy posts on retraction papers (n=1,626); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=policy: posts after [measured],791,"policy posts on retraction papers (n=1,626); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=policy: papers with >=1 post of this kind [measured],756,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=policy: papers with >=1 post after [measured],400,retraction papers with >=1 policy post (n=756)
+2_before_after,retraction kind=policy: papers with >=1 post before [measured],416,retraction papers with >=1 policy post (n=756)
+2_before_after,retraction kind=googleplus: posts before [measured],1186,"googleplus posts on retraction papers (n=1,580); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=googleplus: posts same day [measured],3,"googleplus posts on retraction papers (n=1,580); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=googleplus: posts after [measured],391,"googleplus posts on retraction papers (n=1,580); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=googleplus: papers with >=1 post of this kind [measured],276,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=googleplus: papers with >=1 post after [measured],43,retraction papers with >=1 googleplus post (n=276)
+2_before_after,retraction kind=googleplus: papers with >=1 post before [measured],240,retraction papers with >=1 googleplus post (n=276)
+2_before_after,retraction kind=guideline: posts before [measured],767,"guideline posts on retraction papers (n=1,395); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=guideline: posts same day [measured],0,"guideline posts on retraction papers (n=1,395); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=guideline: posts after [measured],628,"guideline posts on retraction papers (n=1,395); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=guideline: papers with >=1 post of this kind [measured],595,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=guideline: papers with >=1 post after [measured],318,retraction papers with >=1 guideline post (n=595)
+2_before_after,retraction kind=guideline: papers with >=1 post before [measured],373,retraction papers with >=1 guideline post (n=595)
+2_before_after,retraction kind=video: posts before [measured],545,"video posts on retraction papers (n=1,122); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=video: posts same day [measured],3,"video posts on retraction papers (n=1,122); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=video: posts after [measured],574,"video posts on retraction papers (n=1,122); split on earliest Retraction-nature record date"
+2_before_after,retraction kind=video: papers with >=1 post of this kind [measured],429,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=video: papers with >=1 post after [measured],242,retraction papers with >=1 video post (n=429)
+2_before_after,retraction kind=video: papers with >=1 post before [measured],251,retraction papers with >=1 video post (n=429)
+2_before_after,retraction kind=podcasts: posts before [measured],371,podcasts posts on retraction papers (n=634); split on earliest Retraction-nature record date
+2_before_after,retraction kind=podcasts: posts same day [measured],2,podcasts posts on retraction papers (n=634); split on earliest Retraction-nature record date
+2_before_after,retraction kind=podcasts: posts after [measured],261,podcasts posts on retraction papers (n=634); split on earliest Retraction-nature record date
+2_before_after,retraction kind=podcasts: papers with >=1 post of this kind [measured],250,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=podcasts: papers with >=1 post after [measured],133,retraction papers with >=1 podcasts post (n=250)
+2_before_after,retraction kind=podcasts: papers with >=1 post before [measured],157,retraction papers with >=1 podcasts post (n=250)
+2_before_after,retraction kind=f1000: posts before [measured],504,f1000 posts on retraction papers (n=511); split on earliest Retraction-nature record date
+2_before_after,retraction kind=f1000: posts same day [measured],0,f1000 posts on retraction papers (n=511); split on earliest Retraction-nature record date
+2_before_after,retraction kind=f1000: posts after [measured],7,f1000 posts on retraction papers (n=511); split on earliest Retraction-nature record date
+2_before_after,retraction kind=f1000: papers with >=1 post of this kind [measured],320,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=f1000: papers with >=1 post after [measured],7,retraction papers with >=1 f1000 post (n=320)
+2_before_after,retraction kind=f1000: papers with >=1 post before [measured],313,retraction papers with >=1 f1000 post (n=320)
+2_before_after,retraction kind=q&a: posts before [measured],102,q&a posts on retraction papers (n=154); split on earliest Retraction-nature record date
+2_before_after,retraction kind=q&a: posts same day [measured],0,q&a posts on retraction papers (n=154); split on earliest Retraction-nature record date
+2_before_after,retraction kind=q&a: posts after [measured],52,q&a posts on retraction papers (n=154); split on earliest Retraction-nature record date
+2_before_after,retraction kind=q&a: papers with >=1 post of this kind [measured],104,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=q&a: papers with >=1 post after [measured],42,retraction papers with >=1 q&a post (n=104)
+2_before_after,retraction kind=q&a: papers with >=1 post before [measured],71,retraction papers with >=1 q&a post (n=104)
+2_before_after,retraction kind=weibo: posts before [measured],64,weibo posts on retraction papers (n=70); split on earliest Retraction-nature record date
+2_before_after,retraction kind=weibo: posts same day [measured],0,weibo posts on retraction papers (n=70); split on earliest Retraction-nature record date
+2_before_after,retraction kind=weibo: posts after [measured],6,weibo posts on retraction papers (n=70); split on earliest Retraction-nature record date
+2_before_after,retraction kind=weibo: papers with >=1 post of this kind [measured],18,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=weibo: papers with >=1 post after [measured],4,retraction papers with >=1 weibo post (n=18)
+2_before_after,retraction kind=weibo: papers with >=1 post before [measured],15,retraction papers with >=1 weibo post (n=18)
+2_before_after,retraction kind=misc: posts before [measured],41,misc posts on retraction papers (n=53); split on earliest Retraction-nature record date
+2_before_after,retraction kind=misc: posts same day [measured],1,misc posts on retraction papers (n=53); split on earliest Retraction-nature record date
+2_before_after,retraction kind=misc: posts after [measured],11,misc posts on retraction papers (n=53); split on earliest Retraction-nature record date
+2_before_after,retraction kind=misc: papers with >=1 post of this kind [measured],28,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=misc: papers with >=1 post after [measured],11,retraction papers with >=1 misc post (n=28)
+2_before_after,retraction kind=misc: papers with >=1 post before [measured],16,retraction papers with >=1 misc post (n=28)
+2_before_after,retraction kind=pinterest: posts before [measured],3,pinterest posts on retraction papers (n=3); split on earliest Retraction-nature record date
+2_before_after,retraction kind=pinterest: posts same day [measured],0,pinterest posts on retraction papers (n=3); split on earliest Retraction-nature record date
+2_before_after,retraction kind=pinterest: posts after [measured],0,pinterest posts on retraction papers (n=3); split on earliest Retraction-nature record date
+2_before_after,retraction kind=pinterest: papers with >=1 post of this kind [measured],3,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=pinterest: papers with >=1 post after [measured],0,retraction papers with >=1 pinterest post (n=3)
+2_before_after,retraction kind=pinterest: papers with >=1 post before [measured],3,retraction papers with >=1 pinterest post (n=3)
+2_before_after,retraction kind=linkedin: posts before [measured],2,linkedin posts on retraction papers (n=2); split on earliest Retraction-nature record date
+2_before_after,retraction kind=linkedin: posts same day [measured],0,linkedin posts on retraction papers (n=2); split on earliest Retraction-nature record date
+2_before_after,retraction kind=linkedin: posts after [measured],0,linkedin posts on retraction papers (n=2); split on earliest Retraction-nature record date
+2_before_after,retraction kind=linkedin: papers with >=1 post of this kind [measured],2,"retraction papers with >=1 post (n=20,748)"
+2_before_after,retraction kind=linkedin: papers with >=1 post after [measured],0,retraction papers with >=1 linkedin post (n=2)
+2_before_after,retraction kind=linkedin: papers with >=1 post before [measured],2,retraction papers with >=1 linkedin post (n=2)
+2b_eoc_only,eoc_no_retraction all kinds: posts before [measured],182759,"posts on eoc_no_retraction papers (n=272,942); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction all kinds: posts same day [measured],6180,"posts on eoc_no_retraction papers (n=272,942); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction all kinds: posts after [measured],84003,"posts on eoc_no_retraction papers (n=272,942); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction all kinds: posts with no date [measured],0,"posts on eoc_no_retraction papers (n=272,942); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction all kinds: % posts after [measured],30.8,"posts on eoc_no_retraction papers (n=272,942); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction all kinds: papers with >=1 post after [measured],567,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction all kinds: papers with >=1 post before [measured],876,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=twitter: posts before [measured],169233,"twitter posts on eoc_no_retraction papers (n=253,378); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=twitter: posts same day [measured],6073,"twitter posts on eoc_no_retraction papers (n=253,378); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=twitter: posts after [measured],78072,"twitter posts on eoc_no_retraction papers (n=253,378); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=twitter: papers with >=1 post of this kind [measured],673,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=twitter: papers with >=1 post after [measured],229,eoc_no_retraction papers with >=1 twitter post (n=673)
+2b_eoc_only,eoc_no_retraction kind=twitter: papers with >=1 post before [measured],603,eoc_no_retraction papers with >=1 twitter post (n=673)
+2b_eoc_only,eoc_no_retraction kind=reddit: posts before [measured],7184,"reddit posts on eoc_no_retraction papers (n=10,261); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=reddit: posts same day [measured],75,"reddit posts on eoc_no_retraction papers (n=10,261); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=reddit: posts after [measured],3002,"reddit posts on eoc_no_retraction papers (n=10,261); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=reddit: papers with >=1 post of this kind [measured],166,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=reddit: papers with >=1 post after [measured],101,eoc_no_retraction papers with >=1 reddit post (n=166)
+2b_eoc_only,eoc_no_retraction kind=reddit: papers with >=1 post before [measured],120,eoc_no_retraction papers with >=1 reddit post (n=166)
+2b_eoc_only,eoc_no_retraction kind=news: posts before [measured],2917,"news posts on eoc_no_retraction papers (n=3,939); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=news: posts same day [measured],11,"news posts on eoc_no_retraction papers (n=3,939); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=news: posts after [measured],1011,"news posts on eoc_no_retraction papers (n=3,939); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=news: papers with >=1 post of this kind [measured],201,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=news: papers with >=1 post after [measured],105,eoc_no_retraction papers with >=1 news post (n=201)
+2b_eoc_only,eoc_no_retraction kind=news: papers with >=1 post before [measured],145,eoc_no_retraction papers with >=1 news post (n=201)
+2b_eoc_only,eoc_no_retraction kind=patent: posts before [measured],921,"patent posts on eoc_no_retraction papers (n=1,590); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=patent: posts same day [measured],0,"patent posts on eoc_no_retraction papers (n=1,590); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=patent: posts after [measured],669,"patent posts on eoc_no_retraction papers (n=1,590); split on earliest Expression-of-concern record date"
+2b_eoc_only,eoc_no_retraction kind=patent: papers with >=1 post of this kind [measured],243,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=patent: papers with >=1 post after [measured],152,eoc_no_retraction papers with >=1 patent post (n=243)
+2b_eoc_only,eoc_no_retraction kind=patent: papers with >=1 post before [measured],171,eoc_no_retraction papers with >=1 patent post (n=243)
+2b_eoc_only,eoc_no_retraction kind=blogs: posts before [measured],510,blogs posts on eoc_no_retraction papers (n=961); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=blogs: posts same day [measured],12,blogs posts on eoc_no_retraction papers (n=961); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=blogs: posts after [measured],439,blogs posts on eoc_no_retraction papers (n=961); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=blogs: papers with >=1 post of this kind [measured],341,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=blogs: papers with >=1 post after [measured],234,eoc_no_retraction papers with >=1 blogs post (n=341)
+2b_eoc_only,eoc_no_retraction kind=blogs: papers with >=1 post before [measured],175,eoc_no_retraction papers with >=1 blogs post (n=341)
+2b_eoc_only,eoc_no_retraction kind=facebook: posts before [measured],657,facebook posts on eoc_no_retraction papers (n=751); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=facebook: posts same day [measured],0,facebook posts on eoc_no_retraction papers (n=751); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=facebook: posts after [measured],94,facebook posts on eoc_no_retraction papers (n=751); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=facebook: papers with >=1 post of this kind [measured],177,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=facebook: papers with >=1 post after [measured],37,eoc_no_retraction papers with >=1 facebook post (n=177)
+2b_eoc_only,eoc_no_retraction kind=facebook: papers with >=1 post before [measured],159,eoc_no_retraction papers with >=1 facebook post (n=177)
+2b_eoc_only,eoc_no_retraction kind=peer_reviews: posts before [measured],517,peer_reviews posts on eoc_no_retraction papers (n=598); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=peer_reviews: posts same day [measured],7,peer_reviews posts on eoc_no_retraction papers (n=598); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=peer_reviews: posts after [measured],74,peer_reviews posts on eoc_no_retraction papers (n=598); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=peer_reviews: papers with >=1 post of this kind [measured],100,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=peer_reviews: papers with >=1 post after [measured],27,eoc_no_retraction papers with >=1 peer_reviews post (n=100)
+2b_eoc_only,eoc_no_retraction kind=peer_reviews: papers with >=1 post before [measured],89,eoc_no_retraction papers with >=1 peer_reviews post (n=100)
+2b_eoc_only,eoc_no_retraction kind=wikipedia: posts before [measured],188,wikipedia posts on eoc_no_retraction papers (n=347); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=wikipedia: posts same day [measured],0,wikipedia posts on eoc_no_retraction papers (n=347); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=wikipedia: posts after [measured],159,wikipedia posts on eoc_no_retraction papers (n=347); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=wikipedia: papers with >=1 post of this kind [measured],130,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=wikipedia: papers with >=1 post after [measured],67,eoc_no_retraction papers with >=1 wikipedia post (n=130)
+2b_eoc_only,eoc_no_retraction kind=wikipedia: papers with >=1 post before [measured],91,eoc_no_retraction papers with >=1 wikipedia post (n=130)
+2b_eoc_only,eoc_no_retraction kind=policy: posts before [measured],188,policy posts on eoc_no_retraction papers (n=302); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=policy: posts same day [measured],0,policy posts on eoc_no_retraction papers (n=302); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=policy: posts after [measured],114,policy posts on eoc_no_retraction papers (n=302); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=policy: papers with >=1 post of this kind [measured],81,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=policy: papers with >=1 post after [measured],35,eoc_no_retraction papers with >=1 policy post (n=81)
+2b_eoc_only,eoc_no_retraction kind=policy: papers with >=1 post before [measured],61,eoc_no_retraction papers with >=1 policy post (n=81)
+2b_eoc_only,eoc_no_retraction kind=guideline: posts before [measured],181,guideline posts on eoc_no_retraction papers (n=269); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=guideline: posts same day [measured],0,guideline posts on eoc_no_retraction papers (n=269); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=guideline: posts after [measured],88,guideline posts on eoc_no_retraction papers (n=269); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=guideline: papers with >=1 post of this kind [measured],69,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=guideline: papers with >=1 post after [measured],39,eoc_no_retraction papers with >=1 guideline post (n=69)
+2b_eoc_only,eoc_no_retraction kind=guideline: papers with >=1 post before [measured],50,eoc_no_retraction papers with >=1 guideline post (n=69)
+2b_eoc_only,eoc_no_retraction kind=bluesky: posts before [measured],11,bluesky posts on eoc_no_retraction papers (n=146); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=bluesky: posts same day [measured],1,bluesky posts on eoc_no_retraction papers (n=146); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=bluesky: posts after [measured],134,bluesky posts on eoc_no_retraction papers (n=146); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=bluesky: papers with >=1 post of this kind [measured],53,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=bluesky: papers with >=1 post after [measured],47,eoc_no_retraction papers with >=1 bluesky post (n=53)
+2b_eoc_only,eoc_no_retraction kind=bluesky: papers with >=1 post before [measured],10,eoc_no_retraction papers with >=1 bluesky post (n=53)
+2b_eoc_only,eoc_no_retraction kind=video: posts before [measured],46,video posts on eoc_no_retraction papers (n=128); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=video: posts same day [measured],0,video posts on eoc_no_retraction papers (n=128); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=video: posts after [measured],82,video posts on eoc_no_retraction papers (n=128); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=video: papers with >=1 post of this kind [measured],41,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=video: papers with >=1 post after [measured],31,eoc_no_retraction papers with >=1 video post (n=41)
+2b_eoc_only,eoc_no_retraction kind=video: papers with >=1 post before [measured],21,eoc_no_retraction papers with >=1 video post (n=41)
+2b_eoc_only,eoc_no_retraction kind=googleplus: posts before [measured],90,googleplus posts on eoc_no_retraction papers (n=102); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=googleplus: posts same day [measured],0,googleplus posts on eoc_no_retraction papers (n=102); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=googleplus: posts after [measured],12,googleplus posts on eoc_no_retraction papers (n=102); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=googleplus: papers with >=1 post of this kind [measured],24,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=googleplus: papers with >=1 post after [measured],6,eoc_no_retraction papers with >=1 googleplus post (n=24)
+2b_eoc_only,eoc_no_retraction kind=googleplus: papers with >=1 post before [measured],21,eoc_no_retraction papers with >=1 googleplus post (n=24)
+2b_eoc_only,eoc_no_retraction kind=podcasts: posts before [measured],50,podcasts posts on eoc_no_retraction papers (n=94); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=podcasts: posts same day [measured],0,podcasts posts on eoc_no_retraction papers (n=94); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=podcasts: posts after [measured],44,podcasts posts on eoc_no_retraction papers (n=94); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=podcasts: papers with >=1 post of this kind [measured],30,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=podcasts: papers with >=1 post after [measured],24,eoc_no_retraction papers with >=1 podcasts post (n=30)
+2b_eoc_only,eoc_no_retraction kind=podcasts: papers with >=1 post before [measured],13,eoc_no_retraction papers with >=1 podcasts post (n=30)
+2b_eoc_only,eoc_no_retraction kind=f1000: posts before [measured],29,f1000 posts on eoc_no_retraction papers (n=29); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=f1000: posts same day [measured],0,f1000 posts on eoc_no_retraction papers (n=29); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=f1000: posts after [measured],0,f1000 posts on eoc_no_retraction papers (n=29); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=f1000: papers with >=1 post of this kind [measured],21,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=f1000: papers with >=1 post after [measured],0,eoc_no_retraction papers with >=1 f1000 post (n=21)
+2b_eoc_only,eoc_no_retraction kind=f1000: papers with >=1 post before [measured],21,eoc_no_retraction papers with >=1 f1000 post (n=21)
+2b_eoc_only,eoc_no_retraction kind=q&a: posts before [measured],18,q&a posts on eoc_no_retraction papers (n=28); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=q&a: posts same day [measured],1,q&a posts on eoc_no_retraction papers (n=28); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=q&a: posts after [measured],9,q&a posts on eoc_no_retraction papers (n=28); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=q&a: papers with >=1 post of this kind [measured],16,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=q&a: papers with >=1 post after [measured],4,eoc_no_retraction papers with >=1 q&a post (n=16)
+2b_eoc_only,eoc_no_retraction kind=q&a: papers with >=1 post before [measured],14,eoc_no_retraction papers with >=1 q&a post (n=16)
+2b_eoc_only,eoc_no_retraction kind=weibo: posts before [measured],18,weibo posts on eoc_no_retraction papers (n=18); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=weibo: posts same day [measured],0,weibo posts on eoc_no_retraction papers (n=18); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=weibo: posts after [measured],0,weibo posts on eoc_no_retraction papers (n=18); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=weibo: papers with >=1 post of this kind [measured],3,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=weibo: papers with >=1 post after [measured],0,eoc_no_retraction papers with >=1 weibo post (n=3)
+2b_eoc_only,eoc_no_retraction kind=weibo: papers with >=1 post before [measured],3,eoc_no_retraction papers with >=1 weibo post (n=3)
+2b_eoc_only,eoc_no_retraction kind=misc: posts before [measured],1,misc posts on eoc_no_retraction papers (n=1); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=misc: posts same day [measured],0,misc posts on eoc_no_retraction papers (n=1); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=misc: posts after [measured],0,misc posts on eoc_no_retraction papers (n=1); split on earliest Expression-of-concern record date
+2b_eoc_only,eoc_no_retraction kind=misc: papers with >=1 post of this kind [measured],1,"eoc_no_retraction papers with >=1 post (n=1,009)"
+2b_eoc_only,eoc_no_retraction kind=misc: papers with >=1 post after [measured],0,eoc_no_retraction papers with >=1 misc post (n=1)
+2b_eoc_only,eoc_no_retraction kind=misc: papers with >=1 post before [measured],1,eoc_no_retraction papers with >=1 misc post (n=1)
+2c_correction_only,correction_no_retraction_no_eoc all kinds: posts before [measured],13453,"posts on correction_no_retraction_no_eoc papers (n=35,822); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc all kinds: posts same day [measured],1733,"posts on correction_no_retraction_no_eoc papers (n=35,822); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc all kinds: posts after [measured],20636,"posts on correction_no_retraction_no_eoc papers (n=35,822); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc all kinds: posts with no date [measured],0,"posts on correction_no_retraction_no_eoc papers (n=35,822); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc all kinds: % posts after [measured],57.6,"posts on correction_no_retraction_no_eoc papers (n=35,822); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc all kinds: papers with >=1 post after [measured],391,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc all kinds: papers with >=1 post before [measured],385,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=twitter: posts before [measured],8681,"twitter posts on correction_no_retraction_no_eoc papers (n=20,819); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=twitter: posts same day [measured],1600,"twitter posts on correction_no_retraction_no_eoc papers (n=20,819); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=twitter: posts after [measured],10538,"twitter posts on correction_no_retraction_no_eoc papers (n=20,819); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=twitter: papers with >=1 post of this kind [measured],257,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=twitter: papers with >=1 post after [measured],123,correction_no_retraction_no_eoc papers with >=1 twitter post (n=257)
+2c_correction_only,correction_no_retraction_no_eoc kind=twitter: papers with >=1 post before [measured],215,correction_no_retraction_no_eoc papers with >=1 twitter post (n=257)
+2c_correction_only,correction_no_retraction_no_eoc kind=reddit: posts before [measured],888,"reddit posts on correction_no_retraction_no_eoc papers (n=3,727); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=reddit: posts same day [measured],47,"reddit posts on correction_no_retraction_no_eoc papers (n=3,727); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=reddit: posts after [measured],2792,"reddit posts on correction_no_retraction_no_eoc papers (n=3,727); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=reddit: papers with >=1 post of this kind [measured],64,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=reddit: papers with >=1 post after [measured],50,correction_no_retraction_no_eoc papers with >=1 reddit post (n=64)
+2c_correction_only,correction_no_retraction_no_eoc kind=reddit: papers with >=1 post before [measured],40,correction_no_retraction_no_eoc papers with >=1 reddit post (n=64)
+2c_correction_only,correction_no_retraction_no_eoc kind=patent: posts before [measured],594,"patent posts on correction_no_retraction_no_eoc papers (n=3,660); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=patent: posts same day [measured],1,"patent posts on correction_no_retraction_no_eoc papers (n=3,660); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=patent: posts after [measured],3065,"patent posts on correction_no_retraction_no_eoc papers (n=3,660); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=patent: papers with >=1 post of this kind [measured],183,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=patent: papers with >=1 post after [measured],158,correction_no_retraction_no_eoc papers with >=1 patent post (n=183)
+2c_correction_only,correction_no_retraction_no_eoc kind=patent: papers with >=1 post before [measured],83,correction_no_retraction_no_eoc papers with >=1 patent post (n=183)
+2c_correction_only,correction_no_retraction_no_eoc kind=news: posts before [measured],1047,"news posts on correction_no_retraction_no_eoc papers (n=2,916); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=news: posts same day [measured],48,"news posts on correction_no_retraction_no_eoc papers (n=2,916); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=news: posts after [measured],1821,"news posts on correction_no_retraction_no_eoc papers (n=2,916); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=news: papers with >=1 post of this kind [measured],94,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=news: papers with >=1 post after [measured],63,correction_no_retraction_no_eoc papers with >=1 news post (n=94)
+2c_correction_only,correction_no_retraction_no_eoc kind=news: papers with >=1 post before [measured],72,correction_no_retraction_no_eoc papers with >=1 news post (n=94)
+2c_correction_only,correction_no_retraction_no_eoc kind=peer_reviews: posts before [measured],1039,"peer_reviews posts on correction_no_retraction_no_eoc papers (n=1,445); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=peer_reviews: posts same day [measured],17,"peer_reviews posts on correction_no_retraction_no_eoc papers (n=1,445); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=peer_reviews: posts after [measured],389,"peer_reviews posts on correction_no_retraction_no_eoc papers (n=1,445); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=peer_reviews: papers with >=1 post of this kind [measured],162,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=peer_reviews: papers with >=1 post after [measured],102,correction_no_retraction_no_eoc papers with >=1 peer_reviews post (n=162)
+2c_correction_only,correction_no_retraction_no_eoc kind=peer_reviews: papers with >=1 post before [measured],117,correction_no_retraction_no_eoc papers with >=1 peer_reviews post (n=162)
+2c_correction_only,correction_no_retraction_no_eoc kind=facebook: posts before [measured],436,"facebook posts on correction_no_retraction_no_eoc papers (n=1,092); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=facebook: posts same day [measured],5,"facebook posts on correction_no_retraction_no_eoc papers (n=1,092); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=facebook: posts after [measured],651,"facebook posts on correction_no_retraction_no_eoc papers (n=1,092); split on earliest Correction record date"
+2c_correction_only,correction_no_retraction_no_eoc kind=facebook: papers with >=1 post of this kind [measured],96,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=facebook: papers with >=1 post after [measured],31,correction_no_retraction_no_eoc papers with >=1 facebook post (n=96)
+2c_correction_only,correction_no_retraction_no_eoc kind=facebook: papers with >=1 post before [measured],86,correction_no_retraction_no_eoc papers with >=1 facebook post (n=96)
+2c_correction_only,correction_no_retraction_no_eoc kind=blogs: posts before [measured],350,blogs posts on correction_no_retraction_no_eoc papers (n=918); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=blogs: posts same day [measured],12,blogs posts on correction_no_retraction_no_eoc papers (n=918); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=blogs: posts after [measured],556,blogs posts on correction_no_retraction_no_eoc papers (n=918); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=blogs: papers with >=1 post of this kind [measured],276,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=blogs: papers with >=1 post after [measured],227,correction_no_retraction_no_eoc papers with >=1 blogs post (n=276)
+2c_correction_only,correction_no_retraction_no_eoc kind=blogs: papers with >=1 post before [measured],121,correction_no_retraction_no_eoc papers with >=1 blogs post (n=276)
+2c_correction_only,correction_no_retraction_no_eoc kind=wikipedia: posts before [measured],124,wikipedia posts on correction_no_retraction_no_eoc papers (n=421); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=wikipedia: posts same day [measured],0,wikipedia posts on correction_no_retraction_no_eoc papers (n=421); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=wikipedia: posts after [measured],297,wikipedia posts on correction_no_retraction_no_eoc papers (n=421); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=wikipedia: papers with >=1 post of this kind [measured],78,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=wikipedia: papers with >=1 post after [measured],66,correction_no_retraction_no_eoc papers with >=1 wikipedia post (n=78)
+2c_correction_only,correction_no_retraction_no_eoc kind=wikipedia: papers with >=1 post before [measured],37,correction_no_retraction_no_eoc papers with >=1 wikipedia post (n=78)
+2c_correction_only,correction_no_retraction_no_eoc kind=video: posts before [measured],23,video posts on correction_no_retraction_no_eoc papers (n=182); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=video: posts same day [measured],1,video posts on correction_no_retraction_no_eoc papers (n=182); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=video: posts after [measured],158,video posts on correction_no_retraction_no_eoc papers (n=182); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=video: papers with >=1 post of this kind [measured],24,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=video: papers with >=1 post after [measured],22,correction_no_retraction_no_eoc papers with >=1 video post (n=24)
+2c_correction_only,correction_no_retraction_no_eoc kind=video: papers with >=1 post before [measured],7,correction_no_retraction_no_eoc papers with >=1 video post (n=24)
+2c_correction_only,correction_no_retraction_no_eoc kind=policy: posts before [measured],30,policy posts on correction_no_retraction_no_eoc papers (n=168); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=policy: posts same day [measured],0,policy posts on correction_no_retraction_no_eoc papers (n=168); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=policy: posts after [measured],138,policy posts on correction_no_retraction_no_eoc papers (n=168); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=policy: papers with >=1 post of this kind [measured],53,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=policy: papers with >=1 post after [measured],44,correction_no_retraction_no_eoc papers with >=1 policy post (n=53)
+2c_correction_only,correction_no_retraction_no_eoc kind=policy: papers with >=1 post before [measured],18,correction_no_retraction_no_eoc papers with >=1 policy post (n=53)
+2c_correction_only,correction_no_retraction_no_eoc kind=googleplus: posts before [measured],94,googleplus posts on correction_no_retraction_no_eoc papers (n=117); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=googleplus: posts same day [measured],2,googleplus posts on correction_no_retraction_no_eoc papers (n=117); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=googleplus: posts after [measured],21,googleplus posts on correction_no_retraction_no_eoc papers (n=117); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=googleplus: papers with >=1 post of this kind [measured],28,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=googleplus: papers with >=1 post after [measured],11,correction_no_retraction_no_eoc papers with >=1 googleplus post (n=28)
+2c_correction_only,correction_no_retraction_no_eoc kind=googleplus: papers with >=1 post before [measured],21,correction_no_retraction_no_eoc papers with >=1 googleplus post (n=28)
+2c_correction_only,correction_no_retraction_no_eoc kind=podcasts: posts before [measured],10,podcasts posts on correction_no_retraction_no_eoc papers (n=102); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=podcasts: posts same day [measured],0,podcasts posts on correction_no_retraction_no_eoc papers (n=102); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=podcasts: posts after [measured],92,podcasts posts on correction_no_retraction_no_eoc papers (n=102); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=podcasts: papers with >=1 post of this kind [measured],22,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=podcasts: papers with >=1 post after [measured],18,correction_no_retraction_no_eoc papers with >=1 podcasts post (n=22)
+2c_correction_only,correction_no_retraction_no_eoc kind=podcasts: papers with >=1 post before [measured],6,correction_no_retraction_no_eoc papers with >=1 podcasts post (n=22)
+2c_correction_only,correction_no_retraction_no_eoc kind=guideline: posts before [measured],10,guideline posts on correction_no_retraction_no_eoc papers (n=76); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=guideline: posts same day [measured],0,guideline posts on correction_no_retraction_no_eoc papers (n=76); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=guideline: posts after [measured],66,guideline posts on correction_no_retraction_no_eoc papers (n=76); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=guideline: papers with >=1 post of this kind [measured],23,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=guideline: papers with >=1 post after [measured],20,correction_no_retraction_no_eoc papers with >=1 guideline post (n=23)
+2c_correction_only,correction_no_retraction_no_eoc kind=guideline: papers with >=1 post before [measured],8,correction_no_retraction_no_eoc papers with >=1 guideline post (n=23)
+2c_correction_only,correction_no_retraction_no_eoc kind=f1000: posts before [measured],67,f1000 posts on correction_no_retraction_no_eoc papers (n=76); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=f1000: posts same day [measured],0,f1000 posts on correction_no_retraction_no_eoc papers (n=76); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=f1000: posts after [measured],9,f1000 posts on correction_no_retraction_no_eoc papers (n=76); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=f1000: papers with >=1 post of this kind [measured],45,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=f1000: papers with >=1 post after [measured],9,correction_no_retraction_no_eoc papers with >=1 f1000 post (n=45)
+2c_correction_only,correction_no_retraction_no_eoc kind=f1000: papers with >=1 post before [measured],40,correction_no_retraction_no_eoc papers with >=1 f1000 post (n=45)
+2c_correction_only,correction_no_retraction_no_eoc kind=weibo: posts before [measured],46,weibo posts on correction_no_retraction_no_eoc papers (n=47); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=weibo: posts same day [measured],0,weibo posts on correction_no_retraction_no_eoc papers (n=47); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=weibo: posts after [measured],1,weibo posts on correction_no_retraction_no_eoc papers (n=47); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=weibo: papers with >=1 post of this kind [measured],9,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=weibo: papers with >=1 post after [measured],1,correction_no_retraction_no_eoc papers with >=1 weibo post (n=9)
+2c_correction_only,correction_no_retraction_no_eoc kind=weibo: papers with >=1 post before [measured],8,correction_no_retraction_no_eoc papers with >=1 weibo post (n=9)
+2c_correction_only,correction_no_retraction_no_eoc kind=bluesky: posts before [measured],7,bluesky posts on correction_no_retraction_no_eoc papers (n=32); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=bluesky: posts same day [measured],0,bluesky posts on correction_no_retraction_no_eoc papers (n=32); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=bluesky: posts after [measured],25,bluesky posts on correction_no_retraction_no_eoc papers (n=32); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=bluesky: papers with >=1 post of this kind [measured],17,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=bluesky: papers with >=1 post after [measured],12,correction_no_retraction_no_eoc papers with >=1 bluesky post (n=17)
+2c_correction_only,correction_no_retraction_no_eoc kind=bluesky: papers with >=1 post before [measured],6,correction_no_retraction_no_eoc papers with >=1 bluesky post (n=17)
+2c_correction_only,correction_no_retraction_no_eoc kind=q&a: posts before [measured],4,q&a posts on correction_no_retraction_no_eoc papers (n=20); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=q&a: posts same day [measured],0,q&a posts on correction_no_retraction_no_eoc papers (n=20); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=q&a: posts after [measured],16,q&a posts on correction_no_retraction_no_eoc papers (n=20); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=q&a: papers with >=1 post of this kind [measured],12,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=q&a: papers with >=1 post after [measured],10,correction_no_retraction_no_eoc papers with >=1 q&a post (n=12)
+2c_correction_only,correction_no_retraction_no_eoc kind=q&a: papers with >=1 post before [measured],4,correction_no_retraction_no_eoc papers with >=1 q&a post (n=12)
+2c_correction_only,correction_no_retraction_no_eoc kind=misc: posts before [measured],3,misc posts on correction_no_retraction_no_eoc papers (n=4); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=misc: posts same day [measured],0,misc posts on correction_no_retraction_no_eoc papers (n=4); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=misc: posts after [measured],1,misc posts on correction_no_retraction_no_eoc papers (n=4); split on earliest Correction record date
+2c_correction_only,correction_no_retraction_no_eoc kind=misc: papers with >=1 post of this kind [measured],3,correction_no_retraction_no_eoc papers with >=1 post (n=501)
+2c_correction_only,correction_no_retraction_no_eoc kind=misc: papers with >=1 post after [measured],1,correction_no_retraction_no_eoc papers with >=1 misc post (n=3)
+2c_correction_only,correction_no_retraction_no_eoc kind=misc: papers with >=1 post before [measured],2,correction_no_retraction_no_eoc papers with >=1 misc post (n=3)
+2d_other,other_no_retraction: posts (no split; Reinstatement-only papers) [measured],8523,"all altmetric_posts rows (n=1,437,967)"
+2e_window,median days of post-retraction observation window [measured],2001.0,"retraction papers with >=1 post (n=20,748); days from retraction date to 2026-09-01 fetch"
+2e_window,papers retracted <365 days before fetch [measured],954,"retraction papers with >=1 post (n=20,748); days from retraction date to 2026-09-01 fetch"
+2e_window,papers retracted <730 days before fetch [measured],2695,"retraction papers with >=1 post (n=20,748); days from retraction date to 2026-09-01 fetch"
+2e_window,papers with retraction date after fetch [measured],0,"retraction papers with >=1 post (n=20,748); days from retraction date to 2026-09-01 fetch"
+2e_window,kind=peer_reviews (feed ended 2025-08-23): papers retracted on/after its last post date [measured],976,"retraction papers with >=1 post (n=20,748)"
+2e_window,kind=googleplus (feed ended 2019-01-28): papers retracted on/after its last post date [measured],12610,"retraction papers with >=1 post (n=20,748)"
+2e_window,kind=f1000 (feed ended 2023-07-26): papers retracted on/after its last post date [measured],6155,"retraction papers with >=1 post (n=20,748)"
+2e_window,kind=q&a (feed ended 2024-12-23): papers retracted on/after its last post date [measured],2121,"retraction papers with >=1 post (n=20,748)"
+2e_window,kind=weibo (feed ended 2015-04-10): papers retracted on/after its last post date [measured],15876,"retraction papers with >=1 post (n=20,748)"
+2e_window,kind=misc (feed ended 2020-12-16): papers retracted on/after its last post date [measured],10689,"retraction papers with >=1 post (n=20,748)"
+2e_window,kind=pinterest (feed ended 2012-11-21): papers retracted on/after its last post date [measured],17196,"retraction papers with >=1 post (n=20,748)"
+2e_window,kind=linkedin (feed ended 2012-08-09): papers retracted on/after its last post date [measured],17336,"retraction papers with >=1 post (n=20,748)"
+2f_definition_sensitivity,def A earliest Retraction record: before / same day / after [measured],"850,702 / 17,378 / 252,599","posts on retraction papers (n=1,120,680)"
+2f_definition_sensitivity,"def A earliest Retraction record, all groups: before / same day / after / no date [measured]","850,702 / 17,378 / 252,599 / 317,288","all altmetric_posts rows (n=1,437,967)"
+2f_definition_sensitivity,def B earliest notice of any nature: before / same day / after [measured],"672,312 / 22,682 / 425,685","posts on retraction papers (n=1,120,680)"
+2f_definition_sensitivity,"def B earliest notice of any nature, all groups: before / same day / after / no date [measured]","867,974 / 30,625 / 539,367 / 1","all altmetric_posts rows (n=1,437,967)"
+2f_definition_sensitivity,def C date of engagement.record_id record (share bundle export): before / same day / after [measured],"813,830 / 20,112 / 286,737","posts on retraction papers (n=1,120,680)"
+2f_definition_sensitivity,"def C date of engagement.record_id record (share bundle export), all groups: before / same day / after / no date [measured]","1,014,769 / 27,076 / 396,121 / 1","all altmetric_posts rows (n=1,437,967)"
+2f_definition_sensitivity,retraction papers whose earliest notice (any nature) predates earliest Retraction [measured],2169,"retraction papers (n=60,405)"
+2f_definition_sensitivity,retraction papers with >=1 post whose earliest notice predates earliest Retraction [measured],1167,"retraction papers with >=1 post (n=20,748)"
+2f_definition_sensitivity,retraction papers where def C date differs from def A date [measured],1126,"retraction papers (n=60,405)"
+2f_definition_sensitivity,retraction papers with >=1 post where def C date differs from def A [measured],479,"retraction papers with >=1 post (n=20,748)"
+2f_definition_sensitivity,posts exactly 1 day before / 1 day after (UTC vs undated notice slop) [measured],"18,043 / 16,997","posts on retraction papers (n=1,120,680)"
+3_after_text,kind=twitter: posts with non-empty title [measured],0,"twitter posts after retraction on retraction papers (n=203,404)"
+3_after_text,kind=twitter: posts with non-empty summary [measured],0,"twitter posts after retraction on retraction papers (n=203,404)"
+3_after_text,kind=twitter: posts with non-empty title or summary [measured],0,"twitter posts after retraction on retraction papers (n=203,404)"
+3_after_text,"kind=twitter: median chars title+summary (all posts, empty=0) [measured]",0.0,"twitter posts after retraction on retraction papers (n=203,404)"
+3_after_text,"kind=twitter: p90 chars title+summary (all posts, empty=0) [measured]",0.0,"twitter posts after retraction on retraction papers (n=203,404)"
+3_after_text,kind=reddit: posts with non-empty title [measured],11431,"reddit posts after retraction on retraction papers (n=11,431)"
+3_after_text,kind=reddit: posts with non-empty summary [measured],10431,"reddit posts after retraction on retraction papers (n=11,431)"
+3_after_text,kind=reddit: posts with non-empty title or summary [measured],11431,"reddit posts after retraction on retraction papers (n=11,431)"
+3_after_text,"kind=reddit: median chars title+summary (all posts, empty=0) [measured]",309.0,"reddit posts after retraction on retraction papers (n=11,431)"
+3_after_text,"kind=reddit: p90 chars title+summary (all posts, empty=0) [measured]",316.0,"reddit posts after retraction on retraction papers (n=11,431)"
+3_after_text,kind=reddit: median chars title+summary (non-empty only) [measured],309.0,"reddit post-retraction posts with non-empty title or summary (n=11,431)"
+3_after_text,kind=reddit: p90 chars title+summary (non-empty only) [measured],316.0,"reddit post-retraction posts with non-empty title or summary (n=11,431)"
+3_after_text,kind=patent: posts with non-empty title [measured],9386,"patent posts after retraction on retraction papers (n=9,390)"
+3_after_text,kind=patent: posts with non-empty summary [measured],9206,"patent posts after retraction on retraction papers (n=9,390)"
+3_after_text,kind=patent: posts with non-empty title or summary [measured],9386,"patent posts after retraction on retraction papers (n=9,390)"
+3_after_text,"kind=patent: median chars title+summary (all posts, empty=0) [measured]",309.0,"patent posts after retraction on retraction papers (n=9,390)"
+3_after_text,"kind=patent: p90 chars title+summary (all posts, empty=0) [measured]",358.0,"patent posts after retraction on retraction papers (n=9,390)"
+3_after_text,kind=patent: median chars title+summary (non-empty only) [measured],309.0,"patent post-retraction posts with non-empty title or summary (n=9,386)"
+3_after_text,kind=patent: p90 chars title+summary (non-empty only) [measured],358.0,"patent post-retraction posts with non-empty title or summary (n=9,386)"
+3_after_text,kind=news: posts with non-empty title [measured],8097,"news posts after retraction on retraction papers (n=8,097)"
+3_after_text,kind=news: posts with non-empty summary [measured],7365,"news posts after retraction on retraction papers (n=8,097)"
+3_after_text,kind=news: posts with non-empty title or summary [measured],8097,"news posts after retraction on retraction papers (n=8,097)"
+3_after_text,"kind=news: median chars title+summary (all posts, empty=0) [measured]",233.0,"news posts after retraction on retraction papers (n=8,097)"
+3_after_text,"kind=news: p90 chars title+summary (all posts, empty=0) [measured]",329.0,"news posts after retraction on retraction papers (n=8,097)"
+3_after_text,kind=news: median chars title+summary (non-empty only) [measured],233.0,"news post-retraction posts with non-empty title or summary (n=8,097)"
+3_after_text,kind=news: p90 chars title+summary (non-empty only) [measured],329.0,"news post-retraction posts with non-empty title or summary (n=8,097)"
+3_after_text,kind=blogs: posts with non-empty title [measured],5981,"blogs posts after retraction on retraction papers (n=5,981)"
+3_after_text,kind=blogs: posts with non-empty summary [measured],5908,"blogs posts after retraction on retraction papers (n=5,981)"
+3_after_text,kind=blogs: posts with non-empty title or summary [measured],5981,"blogs posts after retraction on retraction papers (n=5,981)"
+3_after_text,"kind=blogs: median chars title+summary (all posts, empty=0) [measured]",320.0,"blogs posts after retraction on retraction papers (n=5,981)"
+3_after_text,"kind=blogs: p90 chars title+summary (all posts, empty=0) [measured]",349.0,"blogs posts after retraction on retraction papers (n=5,981)"
+3_after_text,kind=blogs: median chars title+summary (non-empty only) [measured],320.0,"blogs post-retraction posts with non-empty title or summary (n=5,981)"
+3_after_text,kind=blogs: p90 chars title+summary (non-empty only) [measured],349.0,"blogs post-retraction posts with non-empty title or summary (n=5,981)"
+3_after_text,kind=wikipedia: posts with non-empty title [measured],5559,"wikipedia posts after retraction on retraction papers (n=5,559)"
+3_after_text,kind=wikipedia: posts with non-empty summary [measured],5002,"wikipedia posts after retraction on retraction papers (n=5,559)"
+3_after_text,kind=wikipedia: posts with non-empty title or summary [measured],5559,"wikipedia posts after retraction on retraction papers (n=5,559)"
+3_after_text,"kind=wikipedia: median chars title+summary (all posts, empty=0) [measured]",113.0,"wikipedia posts after retraction on retraction papers (n=5,559)"
+3_after_text,"kind=wikipedia: p90 chars title+summary (all posts, empty=0) [measured]",164.0,"wikipedia posts after retraction on retraction papers (n=5,559)"
+3_after_text,kind=wikipedia: median chars title+summary (non-empty only) [measured],113.0,"wikipedia post-retraction posts with non-empty title or summary (n=5,559)"
+3_after_text,kind=wikipedia: p90 chars title+summary (non-empty only) [measured],164.0,"wikipedia post-retraction posts with non-empty title or summary (n=5,559)"
+3_after_text,kind=bluesky: posts with non-empty title [measured],0,"bluesky posts after retraction on retraction papers (n=3,408)"
+3_after_text,kind=bluesky: posts with non-empty summary [measured],3407,"bluesky posts after retraction on retraction papers (n=3,408)"
+3_after_text,kind=bluesky: posts with non-empty title or summary [measured],3407,"bluesky posts after retraction on retraction papers (n=3,408)"
+3_after_text,"kind=bluesky: median chars title+summary (all posts, empty=0) [measured]",202.0,"bluesky posts after retraction on retraction papers (n=3,408)"
+3_after_text,"kind=bluesky: p90 chars title+summary (all posts, empty=0) [measured]",256.0,"bluesky posts after retraction on retraction papers (n=3,408)"
+3_after_text,kind=bluesky: median chars title+summary (non-empty only) [measured],203.0,"bluesky post-retraction posts with non-empty title or summary (n=3,407)"
+3_after_text,kind=bluesky: p90 chars title+summary (non-empty only) [measured],256.0,"bluesky post-retraction posts with non-empty title or summary (n=3,407)"
+3_after_text,kind=peer_reviews: posts with non-empty title [measured],3,"peer_reviews posts after retraction on retraction papers (n=1,344)"
+3_after_text,kind=peer_reviews: posts with non-empty summary [measured],1341,"peer_reviews posts after retraction on retraction papers (n=1,344)"
+3_after_text,kind=peer_reviews: posts with non-empty title or summary [measured],1344,"peer_reviews posts after retraction on retraction papers (n=1,344)"
+3_after_text,"kind=peer_reviews: median chars title+summary (all posts, empty=0) [measured]",144.0,"peer_reviews posts after retraction on retraction papers (n=1,344)"
+3_after_text,"kind=peer_reviews: p90 chars title+summary (all posts, empty=0) [measured]",246.0,"peer_reviews posts after retraction on retraction papers (n=1,344)"
+3_after_text,kind=peer_reviews: median chars title+summary (non-empty only) [measured],144.0,"peer_reviews post-retraction posts with non-empty title or summary (n=1,344)"
+3_after_text,kind=peer_reviews: p90 chars title+summary (non-empty only) [measured],246.0,"peer_reviews post-retraction posts with non-empty title or summary (n=1,344)"
+3_after_text,kind=facebook: posts with non-empty title [measured],1069,"facebook posts after retraction on retraction papers (n=1,264)"
+3_after_text,kind=facebook: posts with non-empty summary [measured],1239,"facebook posts after retraction on retraction papers (n=1,264)"
+3_after_text,kind=facebook: posts with non-empty title or summary [measured],1264,"facebook posts after retraction on retraction papers (n=1,264)"
+3_after_text,"kind=facebook: median chars title+summary (all posts, empty=0) [measured]",269.0,"facebook posts after retraction on retraction papers (n=1,264)"
+3_after_text,"kind=facebook: p90 chars title+summary (all posts, empty=0) [measured]",354.0,"facebook posts after retraction on retraction papers (n=1,264)"
+3_after_text,kind=facebook: median chars title+summary (non-empty only) [measured],269.0,"facebook post-retraction posts with non-empty title or summary (n=1,264)"
+3_after_text,kind=facebook: p90 chars title+summary (non-empty only) [measured],354.0,"facebook post-retraction posts with non-empty title or summary (n=1,264)"
+3_after_text,kind=policy: posts with non-empty title [measured],791,policy posts after retraction on retraction papers (n=791)
+3_after_text,kind=policy: posts with non-empty summary [measured],0,policy posts after retraction on retraction papers (n=791)
+3_after_text,kind=policy: posts with non-empty title or summary [measured],791,policy posts after retraction on retraction papers (n=791)
+3_after_text,"kind=policy: median chars title+summary (all posts, empty=0) [measured]",70.0,policy posts after retraction on retraction papers (n=791)
+3_after_text,"kind=policy: p90 chars title+summary (all posts, empty=0) [measured]",137.0,policy posts after retraction on retraction papers (n=791)
+3_after_text,kind=policy: median chars title+summary (non-empty only) [measured],70.0,policy post-retraction posts with non-empty title or summary (n=791)
+3_after_text,kind=policy: p90 chars title+summary (non-empty only) [measured],137.0,policy post-retraction posts with non-empty title or summary (n=791)
+3_after_text,kind=guideline: posts with non-empty title [measured],628,guideline posts after retraction on retraction papers (n=628)
+3_after_text,kind=guideline: posts with non-empty summary [measured],0,guideline posts after retraction on retraction papers (n=628)
+3_after_text,kind=guideline: posts with non-empty title or summary [measured],628,guideline posts after retraction on retraction papers (n=628)
+3_after_text,"kind=guideline: median chars title+summary (all posts, empty=0) [measured]",96.0,guideline posts after retraction on retraction papers (n=628)
+3_after_text,"kind=guideline: p90 chars title+summary (all posts, empty=0) [measured]",191.3,guideline posts after retraction on retraction papers (n=628)
+3_after_text,kind=guideline: median chars title+summary (non-empty only) [measured],96.0,guideline post-retraction posts with non-empty title or summary (n=628)
+3_after_text,kind=guideline: p90 chars title+summary (non-empty only) [measured],191.3,guideline post-retraction posts with non-empty title or summary (n=628)
+3_after_text,kind=video: posts with non-empty title [measured],574,video posts after retraction on retraction papers (n=574)
+3_after_text,kind=video: posts with non-empty summary [measured],574,video posts after retraction on retraction papers (n=574)
+3_after_text,kind=video: posts with non-empty title or summary [measured],574,video posts after retraction on retraction papers (n=574)
+3_after_text,"kind=video: median chars title+summary (all posts, empty=0) [measured]",307.0,video posts after retraction on retraction papers (n=574)
+3_after_text,"kind=video: p90 chars title+summary (all posts, empty=0) [measured]",341.7,video posts after retraction on retraction papers (n=574)
+3_after_text,kind=video: median chars title+summary (non-empty only) [measured],307.0,video post-retraction posts with non-empty title or summary (n=574)
+3_after_text,kind=video: p90 chars title+summary (non-empty only) [measured],341.7,video post-retraction posts with non-empty title or summary (n=574)
+3_after_text,kind=googleplus: posts with non-empty title [measured],365,googleplus posts after retraction on retraction papers (n=391)
+3_after_text,kind=googleplus: posts with non-empty summary [measured],391,googleplus posts after retraction on retraction papers (n=391)
+3_after_text,kind=googleplus: posts with non-empty title or summary [measured],391,googleplus posts after retraction on retraction papers (n=391)
+3_after_text,"kind=googleplus: median chars title+summary (all posts, empty=0) [measured]",362.0,googleplus posts after retraction on retraction papers (n=391)
+3_after_text,"kind=googleplus: p90 chars title+summary (all posts, empty=0) [measured]",364.0,googleplus posts after retraction on retraction papers (n=391)
+3_after_text,kind=googleplus: median chars title+summary (non-empty only) [measured],362.0,googleplus post-retraction posts with non-empty title or summary (n=391)
+3_after_text,kind=googleplus: p90 chars title+summary (non-empty only) [measured],364.0,googleplus post-retraction posts with non-empty title or summary (n=391)
+3_after_text,kind=podcasts: posts with non-empty title [measured],261,podcasts posts after retraction on retraction papers (n=261)
+3_after_text,kind=podcasts: posts with non-empty summary [measured],261,podcasts posts after retraction on retraction papers (n=261)
+3_after_text,kind=podcasts: posts with non-empty title or summary [measured],261,podcasts posts after retraction on retraction papers (n=261)
+3_after_text,"kind=podcasts: median chars title+summary (all posts, empty=0) [measured]",305.0,podcasts posts after retraction on retraction papers (n=261)
+3_after_text,"kind=podcasts: p90 chars title+summary (all posts, empty=0) [measured]",353.0,podcasts posts after retraction on retraction papers (n=261)
+3_after_text,kind=podcasts: median chars title+summary (non-empty only) [measured],305.0,podcasts post-retraction posts with non-empty title or summary (n=261)
+3_after_text,kind=podcasts: p90 chars title+summary (non-empty only) [measured],353.0,podcasts post-retraction posts with non-empty title or summary (n=261)
+3_after_text,kind=q&a: posts with non-empty title [measured],52,q&a posts after retraction on retraction papers (n=52)
+3_after_text,kind=q&a: posts with non-empty summary [measured],52,q&a posts after retraction on retraction papers (n=52)
+3_after_text,kind=q&a: posts with non-empty title or summary [measured],52,q&a posts after retraction on retraction papers (n=52)
+3_after_text,"kind=q&a: median chars title+summary (all posts, empty=0) [measured]",316.0,q&a posts after retraction on retraction papers (n=52)
+3_after_text,"kind=q&a: p90 chars title+summary (all posts, empty=0) [measured]",354.4,q&a posts after retraction on retraction papers (n=52)
+3_after_text,kind=q&a: median chars title+summary (non-empty only) [measured],316.0,q&a post-retraction posts with non-empty title or summary (n=52)
+3_after_text,kind=q&a: p90 chars title+summary (non-empty only) [measured],354.4,q&a post-retraction posts with non-empty title or summary (n=52)
+3_after_text,kind=misc: posts with non-empty title [measured],11,misc posts after retraction on retraction papers (n=11)
+3_after_text,kind=misc: posts with non-empty summary [measured],10,misc posts after retraction on retraction papers (n=11)
+3_after_text,kind=misc: posts with non-empty title or summary [measured],11,misc posts after retraction on retraction papers (n=11)
+3_after_text,"kind=misc: median chars title+summary (all posts, empty=0) [measured]",301.0,misc posts after retraction on retraction papers (n=11)
+3_after_text,"kind=misc: p90 chars title+summary (all posts, empty=0) [measured]",335.0,misc posts after retraction on retraction papers (n=11)
+3_after_text,kind=misc: median chars title+summary (non-empty only) [measured],301.0,misc post-retraction posts with non-empty title or summary (n=11)
+3_after_text,kind=misc: p90 chars title+summary (non-empty only) [measured],335.0,misc post-retraction posts with non-empty title or summary (n=11)
+3_after_text,kind=f1000: posts with non-empty title [measured],7,f1000 posts after retraction on retraction papers (n=7)
+3_after_text,kind=f1000: posts with non-empty summary [measured],0,f1000 posts after retraction on retraction papers (n=7)
+3_after_text,kind=f1000: posts with non-empty title or summary [measured],7,f1000 posts after retraction on retraction papers (n=7)
+3_after_text,"kind=f1000: median chars title+summary (all posts, empty=0) [measured]",31.0,f1000 posts after retraction on retraction papers (n=7)
+3_after_text,"kind=f1000: p90 chars title+summary (all posts, empty=0) [measured]",31.0,f1000 posts after retraction on retraction papers (n=7)
+3_after_text,kind=f1000: median chars title+summary (non-empty only) [measured],31.0,f1000 post-retraction posts with non-empty title or summary (n=7)
+3_after_text,kind=f1000: p90 chars title+summary (non-empty only) [measured],31.0,f1000 post-retraction posts with non-empty title or summary (n=7)
+3_after_text,kind=weibo: posts with non-empty title [measured],0,weibo posts after retraction on retraction papers (n=6)
+3_after_text,kind=weibo: posts with non-empty summary [measured],0,weibo posts after retraction on retraction papers (n=6)
+3_after_text,kind=weibo: posts with non-empty title or summary [measured],0,weibo posts after retraction on retraction papers (n=6)
+3_after_text,"kind=weibo: median chars title+summary (all posts, empty=0) [measured]",0.0,weibo posts after retraction on retraction papers (n=6)
+3_after_text,"kind=weibo: p90 chars title+summary (all posts, empty=0) [measured]",0.0,weibo posts after retraction on retraction papers (n=6)
+3_after_text,all kinds: posts with non-empty title or summary [measured],49184,"all post-retraction posts on retraction papers (n=252,599)"
+3_after_text,all kinds: median chars title+summary (non-empty only) [measured],281.0,"post-retraction posts with text (n=49,184)"
+3_after_text,all kinds: p90 chars title+summary (non-empty only) [measured],336.0,"post-retraction posts with text (n=49,184)"
+4_after_30d,all kinds: posts 1-30 days after [measured],88539,"all kinds posts after retraction on retraction papers (n=252,599)"
+4_after_30d,all kinds: posts >30 days after [measured],164060,"all kinds posts after retraction on retraction papers (n=252,599)"
+4_after_30d,all kinds: posts 31-365 days after [measured],72036,"all kinds posts after retraction on retraction papers (n=252,599)"
+4_after_30d,all kinds: posts >365 days after [measured],92024,"all kinds posts after retraction on retraction papers (n=252,599)"
+4_after_30d,all kinds: % posts >30 days after [measured],64.9,"all kinds posts after retraction on retraction papers (n=252,599)"
+4_after_30d,all kinds: papers with >=1 post 1-30 days after [measured],3330,"retraction papers with >=1 all kinds post after retraction (n=10,843)"
+4_after_30d,all kinds: papers with >=1 post >30 days after [measured],9025,"retraction papers with >=1 all kinds post after retraction (n=10,843)"
+4_after_30d,all kinds: text-bearing posts (title or summary) 1-30 days after [measured],9456,"all kinds posts after retraction on retraction papers (n=252,599)"
+4_after_30d,all kinds: text-bearing posts (title or summary) >30 days after [measured],39728,"all kinds posts after retraction on retraction papers (n=252,599)"
+4_after_30d,kind=twitter: posts 1-30 days after [measured],79079,"kind=twitter posts after retraction on retraction papers (n=203,404)"
+4_after_30d,kind=twitter: posts >30 days after [measured],124325,"kind=twitter posts after retraction on retraction papers (n=203,404)"
+4_after_30d,kind=twitter: posts 31-365 days after [measured],61036,"kind=twitter posts after retraction on retraction papers (n=203,404)"
+4_after_30d,kind=twitter: posts >365 days after [measured],63289,"kind=twitter posts after retraction on retraction papers (n=203,404)"
+4_after_30d,kind=twitter: % posts >30 days after [measured],61.1,"kind=twitter posts after retraction on retraction papers (n=203,404)"
+4_after_30d,kind=twitter: papers with >=1 post 1-30 days after [measured],1316,"retraction papers with >=1 kind=twitter post after retraction (n=3,644)"
+4_after_30d,kind=twitter: papers with >=1 post >30 days after [measured],2836,"retraction papers with >=1 kind=twitter post after retraction (n=3,644)"
+4_after_30d,kind=twitter: text-bearing posts (title or summary) 1-30 days after [measured],0,"kind=twitter posts after retraction on retraction papers (n=203,404)"
+4_after_30d,kind=twitter: text-bearing posts (title or summary) >30 days after [measured],0,"kind=twitter posts after retraction on retraction papers (n=203,404)"
+4_after_30d,kind=reddit: posts 1-30 days after [measured],1610,"kind=reddit posts after retraction on retraction papers (n=11,431)"
+4_after_30d,kind=reddit: posts >30 days after [measured],9821,"kind=reddit posts after retraction on retraction papers (n=11,431)"
+4_after_30d,kind=reddit: posts 31-365 days after [measured],3281,"kind=reddit posts after retraction on retraction papers (n=11,431)"
+4_after_30d,kind=reddit: posts >365 days after [measured],6540,"kind=reddit posts after retraction on retraction papers (n=11,431)"
+4_after_30d,kind=reddit: % posts >30 days after [measured],85.9,"kind=reddit posts after retraction on retraction papers (n=11,431)"
+4_after_30d,kind=reddit: papers with >=1 post 1-30 days after [measured],223,retraction papers with >=1 kind=reddit post after retraction (n=849)
+4_after_30d,kind=reddit: papers with >=1 post >30 days after [measured],774,retraction papers with >=1 kind=reddit post after retraction (n=849)
+4_after_30d,kind=reddit: text-bearing posts (title or summary) 1-30 days after [measured],1610,"kind=reddit posts after retraction on retraction papers (n=11,431)"
+4_after_30d,kind=reddit: text-bearing posts (title or summary) >30 days after [measured],9821,"kind=reddit posts after retraction on retraction papers (n=11,431)"
+4_after_30d,kind=news: posts 1-30 days after [measured],1996,"kind=news posts after retraction on retraction papers (n=8,097)"
+4_after_30d,kind=news: posts >30 days after [measured],6101,"kind=news posts after retraction on retraction papers (n=8,097)"
+4_after_30d,kind=news: posts 31-365 days after [measured],2440,"kind=news posts after retraction on retraction papers (n=8,097)"
+4_after_30d,kind=news: posts >365 days after [measured],3661,"kind=news posts after retraction on retraction papers (n=8,097)"
+4_after_30d,kind=news: % posts >30 days after [measured],75.3,"kind=news posts after retraction on retraction papers (n=8,097)"
+4_after_30d,kind=news: papers with >=1 post 1-30 days after [measured],431,"retraction papers with >=1 kind=news post after retraction (n=1,046)"
+4_after_30d,kind=news: papers with >=1 post >30 days after [measured],797,"retraction papers with >=1 kind=news post after retraction (n=1,046)"
+4_after_30d,kind=news: text-bearing posts (title or summary) 1-30 days after [measured],1996,"kind=news posts after retraction on retraction papers (n=8,097)"
+4_after_30d,kind=news: text-bearing posts (title or summary) >30 days after [measured],6101,"kind=news posts after retraction on retraction papers (n=8,097)"
+4_after_30d,kind=patent: posts 1-30 days after [measured],71,"kind=patent posts after retraction on retraction papers (n=9,390)"
+4_after_30d,kind=patent: posts >30 days after [measured],9319,"kind=patent posts after retraction on retraction papers (n=9,390)"
+4_after_30d,kind=patent: posts 31-365 days after [measured],922,"kind=patent posts after retraction on retraction papers (n=9,390)"
+4_after_30d,kind=patent: posts >365 days after [measured],8397,"kind=patent posts after retraction on retraction papers (n=9,390)"
+4_after_30d,kind=patent: % posts >30 days after [measured],99.2,"kind=patent posts after retraction on retraction papers (n=9,390)"
+4_after_30d,kind=patent: papers with >=1 post 1-30 days after [measured],62,"retraction papers with >=1 kind=patent post after retraction (n=1,660)"
+4_after_30d,kind=patent: papers with >=1 post >30 days after [measured],1642,"retraction papers with >=1 kind=patent post after retraction (n=1,660)"
+4_after_30d,kind=patent: text-bearing posts (title or summary) 1-30 days after [measured],70,"kind=patent posts after retraction on retraction papers (n=9,390)"
+4_after_30d,kind=patent: text-bearing posts (title or summary) >30 days after [measured],9316,"kind=patent posts after retraction on retraction papers (n=9,390)"
+4_after_30d,kind=blogs: posts 1-30 days after [measured],2414,"kind=blogs posts after retraction on retraction papers (n=5,981)"
+4_after_30d,kind=blogs: posts >30 days after [measured],3567,"kind=blogs posts after retraction on retraction papers (n=5,981)"
+4_after_30d,kind=blogs: posts 31-365 days after [measured],1954,"kind=blogs posts after retraction on retraction papers (n=5,981)"
+4_after_30d,kind=blogs: posts >365 days after [measured],1613,"kind=blogs posts after retraction on retraction papers (n=5,981)"
+4_after_30d,kind=blogs: % posts >30 days after [measured],59.6,"kind=blogs posts after retraction on retraction papers (n=5,981)"
+4_after_30d,kind=blogs: papers with >=1 post 1-30 days after [measured],1911,"retraction papers with >=1 kind=blogs post after retraction (n=3,953)"
+4_after_30d,kind=blogs: papers with >=1 post >30 days after [measured],2351,"retraction papers with >=1 kind=blogs post after retraction (n=3,953)"
+4_after_30d,kind=blogs: text-bearing posts (title or summary) 1-30 days after [measured],2414,"kind=blogs posts after retraction on retraction papers (n=5,981)"
+4_after_30d,kind=blogs: text-bearing posts (title or summary) >30 days after [measured],3567,"kind=blogs posts after retraction on retraction papers (n=5,981)"
+4_after_30d,kind=facebook: posts 1-30 days after [measured],314,"kind=facebook posts after retraction on retraction papers (n=1,264)"
+4_after_30d,kind=facebook: posts >30 days after [measured],950,"kind=facebook posts after retraction on retraction papers (n=1,264)"
+4_after_30d,kind=facebook: posts 31-365 days after [measured],395,"kind=facebook posts after retraction on retraction papers (n=1,264)"
+4_after_30d,kind=facebook: posts >365 days after [measured],555,"kind=facebook posts after retraction on retraction papers (n=1,264)"
+4_after_30d,kind=facebook: % posts >30 days after [measured],75.2,"kind=facebook posts after retraction on retraction papers (n=1,264)"
+4_after_30d,kind=facebook: papers with >=1 post 1-30 days after [measured],132,retraction papers with >=1 kind=facebook post after retraction (n=381)
+4_after_30d,kind=facebook: papers with >=1 post >30 days after [measured],286,retraction papers with >=1 kind=facebook post after retraction (n=381)
+4_after_30d,kind=facebook: text-bearing posts (title or summary) 1-30 days after [measured],314,"kind=facebook posts after retraction on retraction papers (n=1,264)"
+4_after_30d,kind=facebook: text-bearing posts (title or summary) >30 days after [measured],950,"kind=facebook posts after retraction on retraction papers (n=1,264)"
+4_after_30d,kind=peer_reviews: posts 1-30 days after [measured],639,"kind=peer_reviews posts after retraction on retraction papers (n=1,344)"
+4_after_30d,kind=peer_reviews: posts >30 days after [measured],705,"kind=peer_reviews posts after retraction on retraction papers (n=1,344)"
+4_after_30d,kind=peer_reviews: posts 31-365 days after [measured],359,"kind=peer_reviews posts after retraction on retraction papers (n=1,344)"
+4_after_30d,kind=peer_reviews: posts >365 days after [measured],346,"kind=peer_reviews posts after retraction on retraction papers (n=1,344)"
+4_after_30d,kind=peer_reviews: % posts >30 days after [measured],52.5,"kind=peer_reviews posts after retraction on retraction papers (n=1,344)"
+4_after_30d,kind=peer_reviews: papers with >=1 post 1-30 days after [measured],307,retraction papers with >=1 kind=peer_reviews post after retraction (n=645)
+4_after_30d,kind=peer_reviews: papers with >=1 post >30 days after [measured],385,retraction papers with >=1 kind=peer_reviews post after retraction (n=645)
+4_after_30d,kind=peer_reviews: text-bearing posts (title or summary) 1-30 days after [measured],639,"kind=peer_reviews posts after retraction on retraction papers (n=1,344)"
+4_after_30d,kind=peer_reviews: text-bearing posts (title or summary) >30 days after [measured],705,"kind=peer_reviews posts after retraction on retraction papers (n=1,344)"
+4_after_30d,kind=wikipedia: posts 1-30 days after [measured],84,"kind=wikipedia posts after retraction on retraction papers (n=5,559)"
+4_after_30d,kind=wikipedia: posts >30 days after [measured],5475,"kind=wikipedia posts after retraction on retraction papers (n=5,559)"
+4_after_30d,kind=wikipedia: posts 31-365 days after [measured],255,"kind=wikipedia posts after retraction on retraction papers (n=5,559)"
+4_after_30d,kind=wikipedia: posts >365 days after [measured],5220,"kind=wikipedia posts after retraction on retraction papers (n=5,559)"
+4_after_30d,kind=wikipedia: % posts >30 days after [measured],98.5,"kind=wikipedia posts after retraction on retraction papers (n=5,559)"
+4_after_30d,kind=wikipedia: papers with >=1 post 1-30 days after [measured],53,"retraction papers with >=1 kind=wikipedia post after retraction (n=2,645)"
+4_after_30d,kind=wikipedia: papers with >=1 post >30 days after [measured],2624,"retraction papers with >=1 kind=wikipedia post after retraction (n=2,645)"
+4_after_30d,kind=wikipedia: text-bearing posts (title or summary) 1-30 days after [measured],84,"kind=wikipedia posts after retraction on retraction papers (n=5,559)"
+4_after_30d,kind=wikipedia: text-bearing posts (title or summary) >30 days after [measured],5475,"kind=wikipedia posts after retraction on retraction papers (n=5,559)"
+4_after_30d,kind=bluesky: posts 1-30 days after [measured],2197,"kind=bluesky posts after retraction on retraction papers (n=3,408)"
+4_after_30d,kind=bluesky: posts >30 days after [measured],1211,"kind=bluesky posts after retraction on retraction papers (n=3,408)"
+4_after_30d,kind=bluesky: posts 31-365 days after [measured],637,"kind=bluesky posts after retraction on retraction papers (n=3,408)"
+4_after_30d,kind=bluesky: posts >365 days after [measured],574,"kind=bluesky posts after retraction on retraction papers (n=3,408)"
+4_after_30d,kind=bluesky: % posts >30 days after [measured],35.5,"kind=bluesky posts after retraction on retraction papers (n=3,408)"
+4_after_30d,kind=bluesky: papers with >=1 post 1-30 days after [measured],107,retraction papers with >=1 kind=bluesky post after retraction (n=270)
+4_after_30d,kind=bluesky: papers with >=1 post >30 days after [measured],185,retraction papers with >=1 kind=bluesky post after retraction (n=270)
+4_after_30d,kind=bluesky: text-bearing posts (title or summary) 1-30 days after [measured],2196,"kind=bluesky posts after retraction on retraction papers (n=3,408)"
+4_after_30d,kind=bluesky: text-bearing posts (title or summary) >30 days after [measured],1211,"kind=bluesky posts after retraction on retraction papers (n=3,408)"
+4_after_30d,kind=policy: posts 1-30 days after [measured],21,kind=policy posts after retraction on retraction papers (n=791)
+4_after_30d,kind=policy: posts >30 days after [measured],770,kind=policy posts after retraction on retraction papers (n=791)
+4_after_30d,kind=policy: posts 31-365 days after [measured],214,kind=policy posts after retraction on retraction papers (n=791)
+4_after_30d,kind=policy: posts >365 days after [measured],556,kind=policy posts after retraction on retraction papers (n=791)
+4_after_30d,kind=policy: % posts >30 days after [measured],97.3,kind=policy posts after retraction on retraction papers (n=791)
+4_after_30d,kind=policy: papers with >=1 post 1-30 days after [measured],18,retraction papers with >=1 kind=policy post after retraction (n=400)
+4_after_30d,kind=policy: papers with >=1 post >30 days after [measured],388,retraction papers with >=1 kind=policy post after retraction (n=400)
+4_after_30d,kind=policy: text-bearing posts (title or summary) 1-30 days after [measured],21,kind=policy posts after retraction on retraction papers (n=791)
+4_after_30d,kind=policy: text-bearing posts (title or summary) >30 days after [measured],770,kind=policy posts after retraction on retraction papers (n=791)
+4_after_30d,kind=googleplus: posts 1-30 days after [measured],12,kind=googleplus posts after retraction on retraction papers (n=391)
+4_after_30d,kind=googleplus: posts >30 days after [measured],379,kind=googleplus posts after retraction on retraction papers (n=391)
+4_after_30d,kind=googleplus: posts 31-365 days after [measured],202,kind=googleplus posts after retraction on retraction papers (n=391)
+4_after_30d,kind=googleplus: posts >365 days after [measured],177,kind=googleplus posts after retraction on retraction papers (n=391)
+4_after_30d,kind=googleplus: % posts >30 days after [measured],96.9,kind=googleplus posts after retraction on retraction papers (n=391)
+4_after_30d,kind=googleplus: papers with >=1 post 1-30 days after [measured],8,retraction papers with >=1 kind=googleplus post after retraction (n=43)
+4_after_30d,kind=googleplus: papers with >=1 post >30 days after [measured],37,retraction papers with >=1 kind=googleplus post after retraction (n=43)
+4_after_30d,kind=googleplus: text-bearing posts (title or summary) 1-30 days after [measured],12,kind=googleplus posts after retraction on retraction papers (n=391)
+4_after_30d,kind=googleplus: text-bearing posts (title or summary) >30 days after [measured],379,kind=googleplus posts after retraction on retraction papers (n=391)
+4_after_30d,kind=guideline: posts 1-30 days after [measured],11,kind=guideline posts after retraction on retraction papers (n=628)
+4_after_30d,kind=guideline: posts >30 days after [measured],617,kind=guideline posts after retraction on retraction papers (n=628)
+4_after_30d,kind=guideline: posts 31-365 days after [measured],114,kind=guideline posts after retraction on retraction papers (n=628)
+4_after_30d,kind=guideline: posts >365 days after [measured],503,kind=guideline posts after retraction on retraction papers (n=628)
+4_after_30d,kind=guideline: % posts >30 days after [measured],98.2,kind=guideline posts after retraction on retraction papers (n=628)
+4_after_30d,kind=guideline: papers with >=1 post 1-30 days after [measured],11,retraction papers with >=1 kind=guideline post after retraction (n=318)
+4_after_30d,kind=guideline: papers with >=1 post >30 days after [measured],310,retraction papers with >=1 kind=guideline post after retraction (n=318)
+4_after_30d,kind=guideline: text-bearing posts (title or summary) 1-30 days after [measured],11,kind=guideline posts after retraction on retraction papers (n=628)
+4_after_30d,kind=guideline: text-bearing posts (title or summary) >30 days after [measured],617,kind=guideline posts after retraction on retraction papers (n=628)
+4_after_30d,kind=video: posts 1-30 days after [measured],37,kind=video posts after retraction on retraction papers (n=574)
+4_after_30d,kind=video: posts >30 days after [measured],537,kind=video posts after retraction on retraction papers (n=574)
+4_after_30d,kind=video: posts 31-365 days after [measured],139,kind=video posts after retraction on retraction papers (n=574)
+4_after_30d,kind=video: posts >365 days after [measured],398,kind=video posts after retraction on retraction papers (n=574)
+4_after_30d,kind=video: % posts >30 days after [measured],93.6,kind=video posts after retraction on retraction papers (n=574)
+4_after_30d,kind=video: papers with >=1 post 1-30 days after [measured],21,retraction papers with >=1 kind=video post after retraction (n=242)
+4_after_30d,kind=video: papers with >=1 post >30 days after [measured],234,retraction papers with >=1 kind=video post after retraction (n=242)
+4_after_30d,kind=video: text-bearing posts (title or summary) 1-30 days after [measured],37,kind=video posts after retraction on retraction papers (n=574)
+4_after_30d,kind=video: text-bearing posts (title or summary) >30 days after [measured],537,kind=video posts after retraction on retraction papers (n=574)
+4_after_30d,kind=podcasts: posts 1-30 days after [measured],38,kind=podcasts posts after retraction on retraction papers (n=261)
+4_after_30d,kind=podcasts: posts >30 days after [measured],223,kind=podcasts posts after retraction on retraction papers (n=261)
+4_after_30d,kind=podcasts: posts 31-365 days after [measured],68,kind=podcasts posts after retraction on retraction papers (n=261)
+4_after_30d,kind=podcasts: posts >365 days after [measured],155,kind=podcasts posts after retraction on retraction papers (n=261)
+4_after_30d,kind=podcasts: % posts >30 days after [measured],85.4,kind=podcasts posts after retraction on retraction papers (n=261)
+4_after_30d,kind=podcasts: papers with >=1 post 1-30 days after [measured],26,retraction papers with >=1 kind=podcasts post after retraction (n=133)
+4_after_30d,kind=podcasts: papers with >=1 post >30 days after [measured],116,retraction papers with >=1 kind=podcasts post after retraction (n=133)
+4_after_30d,kind=podcasts: text-bearing posts (title or summary) 1-30 days after [measured],38,kind=podcasts posts after retraction on retraction papers (n=261)
+4_after_30d,kind=podcasts: text-bearing posts (title or summary) >30 days after [measured],223,kind=podcasts posts after retraction on retraction papers (n=261)
+4_after_30d,kind=f1000: posts 1-30 days after [measured],2,kind=f1000 posts after retraction on retraction papers (n=7)
+4_after_30d,kind=f1000: posts >30 days after [measured],5,kind=f1000 posts after retraction on retraction papers (n=7)
+4_after_30d,kind=f1000: posts 31-365 days after [measured],4,kind=f1000 posts after retraction on retraction papers (n=7)
+4_after_30d,kind=f1000: posts >365 days after [measured],1,kind=f1000 posts after retraction on retraction papers (n=7)
+4_after_30d,kind=f1000: % posts >30 days after [measured],71.4,kind=f1000 posts after retraction on retraction papers (n=7)
+4_after_30d,kind=f1000: papers with >=1 post 1-30 days after [measured],2,retraction papers with >=1 kind=f1000 post after retraction (n=7)
+4_after_30d,kind=f1000: papers with >=1 post >30 days after [measured],5,retraction papers with >=1 kind=f1000 post after retraction (n=7)
+4_after_30d,kind=f1000: text-bearing posts (title or summary) 1-30 days after [measured],2,kind=f1000 posts after retraction on retraction papers (n=7)
+4_after_30d,kind=f1000: text-bearing posts (title or summary) >30 days after [measured],5,kind=f1000 posts after retraction on retraction papers (n=7)
+4_after_30d,kind=q&a: posts 1-30 days after [measured],9,kind=q&a posts after retraction on retraction papers (n=52)
+4_after_30d,kind=q&a: posts >30 days after [measured],43,kind=q&a posts after retraction on retraction papers (n=52)
+4_after_30d,kind=q&a: posts 31-365 days after [measured],9,kind=q&a posts after retraction on retraction papers (n=52)
+4_after_30d,kind=q&a: posts >365 days after [measured],34,kind=q&a posts after retraction on retraction papers (n=52)
+4_after_30d,kind=q&a: % posts >30 days after [measured],82.7,kind=q&a posts after retraction on retraction papers (n=52)
+4_after_30d,kind=q&a: papers with >=1 post 1-30 days after [measured],8,retraction papers with >=1 kind=q&a post after retraction (n=42)
+4_after_30d,kind=q&a: papers with >=1 post >30 days after [measured],35,retraction papers with >=1 kind=q&a post after retraction (n=42)
+4_after_30d,kind=q&a: text-bearing posts (title or summary) 1-30 days after [measured],9,kind=q&a posts after retraction on retraction papers (n=52)
+4_after_30d,kind=q&a: text-bearing posts (title or summary) >30 days after [measured],43,kind=q&a posts after retraction on retraction papers (n=52)
+4_after_30d,kind=weibo: posts 1-30 days after [measured],2,kind=weibo posts after retraction on retraction papers (n=6)
+4_after_30d,kind=weibo: posts >30 days after [measured],4,kind=weibo posts after retraction on retraction papers (n=6)
+4_after_30d,kind=weibo: posts 31-365 days after [measured],2,kind=weibo posts after retraction on retraction papers (n=6)
+4_after_30d,kind=weibo: posts >365 days after [measured],2,kind=weibo posts after retraction on retraction papers (n=6)
+4_after_30d,kind=weibo: % posts >30 days after [measured],66.7,kind=weibo posts after retraction on retraction papers (n=6)
+4_after_30d,kind=weibo: papers with >=1 post 1-30 days after [measured],1,retraction papers with >=1 kind=weibo post after retraction (n=4)
+4_after_30d,kind=weibo: papers with >=1 post >30 days after [measured],3,retraction papers with >=1 kind=weibo post after retraction (n=4)
+4_after_30d,kind=weibo: text-bearing posts (title or summary) 1-30 days after [measured],0,kind=weibo posts after retraction on retraction papers (n=6)
+4_after_30d,kind=weibo: text-bearing posts (title or summary) >30 days after [measured],0,kind=weibo posts after retraction on retraction papers (n=6)
+4_after_30d,kind=misc: posts 1-30 days after [measured],3,kind=misc posts after retraction on retraction papers (n=11)
+4_after_30d,kind=misc: posts >30 days after [measured],8,kind=misc posts after retraction on retraction papers (n=11)
+4_after_30d,kind=misc: posts 31-365 days after [measured],5,kind=misc posts after retraction on retraction papers (n=11)
+4_after_30d,kind=misc: posts >365 days after [measured],3,kind=misc posts after retraction on retraction papers (n=11)
+4_after_30d,kind=misc: % posts >30 days after [measured],72.7,kind=misc posts after retraction on retraction papers (n=11)
+4_after_30d,kind=misc: papers with >=1 post 1-30 days after [measured],3,retraction papers with >=1 kind=misc post after retraction (n=11)
+4_after_30d,kind=misc: papers with >=1 post >30 days after [measured],8,retraction papers with >=1 kind=misc post after retraction (n=11)
+4_after_30d,kind=misc: text-bearing posts (title or summary) 1-30 days after [measured],3,kind=misc posts after retraction on retraction papers (n=11)
+4_after_30d,kind=misc: text-bearing posts (title or summary) >30 days after [measured],8,kind=misc posts after retraction on retraction papers (n=11)
+4b_concentration,kind=twitter: share of post-retraction posts on the top 10 papers (%) [measured],42.6,"twitter posts after retraction (n=203,404) on 3,644 papers"
+4b_concentration,kind=reddit: share of post-retraction posts on the top 10 papers (%) [measured],48.6,"reddit posts after retraction (n=11,431) on 849 papers"
+4b_concentration,kind=news: share of post-retraction posts on the top 10 papers (%) [measured],27.3,"news posts after retraction (n=8,097) on 1,046 papers"
+4b_concentration,kind=patent: share of post-retraction posts on the top 10 papers (%) [measured],17.9,"patent posts after retraction (n=9,390) on 1,660 papers"
+4b_concentration,kind=blogs: share of post-retraction posts on the top 10 papers (%) [measured],8.8,"blogs posts after retraction (n=5,981) on 3,953 papers"
+4b_concentration,kind=facebook: share of post-retraction posts on the top 10 papers (%) [measured],44.7,"facebook posts after retraction (n=1,264) on 381 papers"
+4b_concentration,kind=peer_reviews: share of post-retraction posts on the top 10 papers (%) [measured],15.6,"peer_reviews posts after retraction (n=1,344) on 645 papers"
+4b_concentration,kind=wikipedia: share of post-retraction posts on the top 10 papers (%) [measured],4.5,"wikipedia posts after retraction (n=5,559) on 2,645 papers"
+4b_concentration,kind=bluesky: share of post-retraction posts on the top 10 papers (%) [measured],66.5,"bluesky posts after retraction (n=3,408) on 270 papers"
+4b_concentration,kind=policy: share of post-retraction posts on the top 10 papers (%) [measured],17.8,policy posts after retraction (n=791) on 400 papers
+4b_concentration,kind=googleplus: share of post-retraction posts on the top 10 papers (%) [measured],91.6,googleplus posts after retraction (n=391) on 43 papers
+4b_concentration,kind=guideline: share of post-retraction posts on the top 10 papers (%) [measured],18.6,guideline posts after retraction (n=628) on 318 papers
+4b_concentration,kind=video: share of post-retraction posts on the top 10 papers (%) [measured],36.2,video posts after retraction (n=574) on 242 papers
+4b_concentration,kind=podcasts: share of post-retraction posts on the top 10 papers (%) [measured],31.8,podcasts posts after retraction (n=261) on 133 papers
+4b_concentration,kind=q&a: share of post-retraction posts on the top 10 papers (%) [measured],38.5,q&a posts after retraction (n=52) on 42 papers
+4b_concentration,kind=misc: share of post-retraction posts on the top 10 papers (%) [measured],90.9,misc posts after retraction (n=11) on 11 papers
+5_consistency,detail.posts_total equals altmetric_posts rows for DOI [measured],22330,"altmetric_detail rows (n=22,369)"
+5_consistency,detail.posts_total greater than rows [measured],39,"altmetric_detail rows (n=22,369)"
+5_consistency,detail.posts_total less than rows [measured],0,"altmetric_detail rows (n=22,369)"
+5_consistency,sum detail.posts_total [measured],1438013,"altmetric_detail rows (n=22,369)"
+5_consistency,sum altmetric_posts rows over detail DOIs [measured],1437967,"altmetric_detail rows (n=22,369)"
+5_consistency,"sum posts_total minus rows (collapsed on PRIMARY KEY doi,kind,post_id) [inferred]",46,"altmetric_detail rows (n=22,369)"
+5_consistency,max per-DOI excess posts_total - rows [measured],3,"altmetric_detail rows (n=22,369)"
+5_consistency,detail rows with posts_total NULL [measured],0,"altmetric_detail rows (n=22,369)"
+5_consistency,detail rows with posts_total 0 [measured],1,"altmetric_detail rows (n=22,369)"
+5_consistency,detail rows with error [measured],0,"altmetric_detail rows (n=22,369)"
+5_consistency,altmetric_posts DOIs absent from altmetric_detail [measured],0,"DOIs in altmetric_posts (n=22,368)"
+5_consistency,detail.kinds list differs from distinct kinds in altmetric_posts [measured],0,"altmetric_detail rows (n=22,369)"
+5_consistency,news: news_count=0 and 0 news posts [measured],19855,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: news_count equals news posts (>0) [measured],1821,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: news_count greater than news posts [measured],0,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: news_count less than news posts [measured],692,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: |news_count - news posts| <= 1 [measured],21927,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: sum news_count [measured],27690,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: sum news-kind posts [measured],36888,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: sum of positive gaps (news_count above posts) [measured],0,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: sum of negative gaps (posts above news_count) [measured],9198,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: papers with news_count>0 [measured],2513,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: papers with >=1 news post [measured],2513,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: news_count>0 but 0 news posts [measured],0,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: news_count=0 but >=1 news post [measured],0,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: news_count NULL [measured],0,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news: news_count differs from counts_json cited_by_msm_count [measured],0,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,news posts on papers with altmetric.found=0 or no altmetric row [measured],0,"news posts (n=36,888)"
+5_consistency,"duplicate (doi, kind, post_id) rows [measured]",0,"all altmetric_posts rows (n=1,437,967)"
+5_consistency,post_id values appearing under >1 DOI [measured],13758,"distinct post_id values (n=1,418,313)"
+5_consistency,rows carrying a post_id shared by >1 DOI [measured],33412,"all altmetric_posts rows (n=1,437,967)"
+5_consistency,max DOIs sharing one post_id [measured],56,post_id values under >1 DOI
+5_consistency,kind=twitter: post_id shared by >1 DOI: distinct ids / rows [measured],"6,610 / 14,262","twitter posts (n=1,281,535)"
+5_consistency,kind=blogs: post_id shared by >1 DOI: distinct ids / rows [measured],"1,631 / 5,819","blogs posts (n=14,250)"
+5_consistency,kind=patent: post_id shared by >1 DOI: distinct ids / rows [measured],"1,990 / 4,947","patent posts (n=20,155)"
+5_consistency,kind=news: post_id shared by >1 DOI: distinct ids / rows [measured],"1,566 / 3,628","news posts (n=36,888)"
+5_consistency,kind=reddit: post_id shared by >1 DOI: distinct ids / rows [measured],"1,054 / 2,576","reddit posts (n=43,238)"
+5_consistency,kind=guideline: post_id shared by >1 DOI: distinct ids / rows [measured],267 / 686,"guideline posts (n=1,771)"
+5_consistency,kind=policy: post_id shared by >1 DOI: distinct ids / rows [measured],219 / 548,"policy posts (n=2,123)"
+5_consistency,kind=googleplus: post_id shared by >1 DOI: distinct ids / rows [measured],191 / 383,"googleplus posts (n=1,800)"
+5_consistency,kind=facebook: post_id shared by >1 DOI: distinct ids / rows [measured],81 / 184,"facebook posts (n=10,867)"
+5_consistency,kind=bluesky: post_id shared by >1 DOI: distinct ids / rows [measured],56 / 166,"bluesky posts (n=6,286)"
+5_consistency,kind=video: post_id shared by >1 DOI: distinct ids / rows [measured],58 / 131,"video posts (n=1,445)"
+5_consistency,kind=podcasts: post_id shared by >1 DOI: distinct ids / rows [measured],23 / 55,podcasts posts (n=858)
+5_consistency,kind=q&a: post_id shared by >1 DOI: distinct ids / rows [measured],8 / 18,q&a posts (n=203)
+5_consistency,kind=misc: post_id shared by >1 DOI: distinct ids / rows [measured],3 / 7,misc posts (n=58)
+5_consistency,kind=wikipedia: post_id shared by >1 DOI: distinct ids / rows [measured],1 / 2,"wikipedia posts (n=7,647)"
+5_consistency,post_id appearing under >1 kind for the same DOI [measured],0,"all altmetric_posts rows (n=1,437,967)"
+5_consistency,kind=news: post_id is a content hash (no url/external_id/id) [measured],3604,"news posts (n=36,888)"
+5_consistency,counts_json cited_by_posts_count equals altmetric_posts rows [measured],22062,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,cited_by_posts_count greater than rows [measured],229,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,cited_by_posts_count less than rows [measured],77,"papers with altmetric.found=1 (n=22,368)"
+5_consistency,sum cited_by_posts_count [measured],1439790,"papers with altmetric.found=1 (n=22,368)"

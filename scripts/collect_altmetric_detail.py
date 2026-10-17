@@ -16,14 +16,14 @@ Two things follow from per-post timestamps that the summary could not support:
 * A mention can be traced to its source and read, which is what turns "719
   outlets covered it" into an answer about whether they got it right.
 
-The client said so when he supplied the key - "for accessing detailPage" - and
+The key was supplied for the detail endpoint, and
 we used the summary endpoint for all 62,867 papers regardless.
 
-Scope: the 22,362 papers whose `cited_by_posts_count` is above zero - that is
+Scope: the 22,368 papers whose `cited_by_posts_count` is above zero - that is
 Altmetric's own count of online documents linking to the work, and it covers
 sources beyond any channel list we would think to write.
 
-The remaining 40,498 have **no record within the sources Altmetric tracks and
+The remaining 40,499 have **no record within the sources Altmetric tracks and
 successfully matched to an identifier**. That is not the same as "never
 noticed": Altmetric observes the outlets it monitors, not the internet, and a
 mention it cannot match to a DOI does not exist as far as this API is
@@ -93,23 +93,11 @@ WHERE found = 0 AND error IS NOT NULL AND error <> ''
 """
 
 
-def post_id(p):
-    """Stable identity for a post. Most carry a URL; a few carry nothing."""
-    for k in ("url", "external_id", "id", "tweet_id"):
-        v = p.get(k)
-        if v:
-            return str(v)[:400]
-    blob = json.dumps(p, sort_keys=True, ensure_ascii=False)
-    return "h:" + hashlib.sha1(blob.encode("utf-8")).hexdigest()
-
-
-def author_of(p):
-    a = p.get("author")
-    if isinstance(a, dict):
-        return (a.get("name") or a.get("id_on_source"), a.get("url"))
-    if isinstance(a, str):
-        return a, None
-    return None, None
+# post_id() and author_of() live in rwpipe.altmetric so this collector and
+# the notice collector cannot drift into disagreeing about what identifies
+# a post - two answers to that means the same mention stored twice.
+post_id = altmetric.post_id
+author_of = altmetric.author_of
 
 
 def store(conn, doi, data, nbytes):
@@ -139,13 +127,16 @@ def store(conn, doi, data, nbytes):
     return seen
 
 
-async def run(conn, dois, key, rate):
+async def run(conn, dois, key, rate, exclude=()):
     stats = Counter()
     started = time.time()
     async with httpx.AsyncClient() as client:
         for i, doi in enumerate(dois, 1):
             try:
-                r = await client.get(ENDPOINT + doi, params={"key": key},
+                params = {"key": key}
+                if exclude:
+                    params["exclude_sources"] = ",".join(exclude)
+                r = await client.get(ENDPOINT + doi, params=params,
                                      headers=HEADERS, timeout=120)
             except Exception as exc:                       # noqa: BLE001
                 stats["error"] += 1
@@ -224,6 +215,12 @@ def main():
     ap.add_argument("--rate", type=float, default=1.0,
                     help="seconds between requests; this is the client's key")
     ap.add_argument("--probe", action="store_true")
+    # The key's separate allowance of X post ids (1,500,000) was spent by the
+    # first pass; with it at 0, any DOI with tweets is refused with 429 while
+    # the hourly and daily quotas are untouched. Leaving X out returns every
+    # other source and spends none of it (see collect_altmetric_notice_detail.py).
+    ap.add_argument("--exclude-sources", default="",
+                    help="comma-separated Altmetric sources to leave out, e.g. twitter")
     args = ap.parse_args()
 
     conn = db.connect()
@@ -248,7 +245,8 @@ def main():
 
     console.print(f"[bold]Altmetric detail: {len(dois):,} papers[/bold] at "
                   f"{args.rate}s apart - about {len(dois) * args.rate / 3600:.1f} h")
-    stats = asyncio.run(run(conn, dois, altmetric.load_key(), args.rate))
+    exclude = tuple(x for x in args.exclude_sources.split(",") if x)
+    stats = asyncio.run(run(conn, dois, altmetric.load_key(), args.rate, exclude))
     console.print(f"\n[bold]{stats['ok']:,} papers, {stats['posts']:,} posts[/bold]")
     for k, v in stats.most_common():
         if k not in ("ok", "posts"):

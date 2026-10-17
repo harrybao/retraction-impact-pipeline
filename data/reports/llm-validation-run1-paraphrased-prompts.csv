@@ -1,0 +1,255 @@
+"model","task","measure","value"
+"qwen3:14b","A media, 5 categories","items",200
+"qwen3:14b","A media, 5 categories","model answered",200
+"qwen3:14b","A media, 5 categories","items with a majority",193
+"qwen3:14b","A media, 5 categories","model = majority of all labellers",0.6218
+"qwen3:14b","A media, 5 categories","Cohen kappa, model vs majority",0.494
+"qwen3:14b","A media, 5 categories","one labeller = majority of the other six (mean)",0.7708
+"qwen3:14b","A media, 5 categories","model = majority of the same six (mean)",0.6301
+"qwen3:14b","A media, 5 categories","Krippendorff alpha, labellers",0.5938
+"qwen3:14b","A media, 5 categories","Krippendorff alpha, labellers + model",0.5504
+"qwen3:14b","A media, is the reader told it was retracted?","items",200
+"qwen3:14b","A media, is the reader told it was retracted?","model answered",200
+"qwen3:14b","A media, is the reader told it was retracted?","items with a majority",200
+"qwen3:14b","A media, is the reader told it was retracted?","model = majority of all labellers",0.85
+"qwen3:14b","A media, is the reader told it was retracted?","Cohen kappa, model vs majority",0.66
+"qwen3:14b","A media, is the reader told it was retracted?","one labeller = majority of the other six (mean)",0.9423
+"qwen3:14b","A media, is the reader told it was retracted?","model = majority of the same six (mean)",0.8549
+"qwen3:14b","A media, is the reader told it was retracted?","Krippendorff alpha, labellers",0.7758
+"qwen3:14b","A media, is the reader told it was retracted?","Krippendorff alpha, labellers + model",0.7373
+"qwen3:14b","B reason R1_fabrication","items",200
+"qwen3:14b","B reason R1_fabrication","model answered",200
+"qwen3:14b","B reason R1_fabrication","items with a majority",200
+"qwen3:14b","B reason R1_fabrication","model = majority of all labellers",0.98
+"qwen3:14b","B reason R1_fabrication","Cohen kappa, model vs majority",0.5902
+"qwen3:14b","B reason R1_fabrication","one labeller = majority of the other six (mean)",0.9864
+"qwen3:14b","B reason R1_fabrication","model = majority of the same six (mean)",0.9828
+"qwen3:14b","B reason R1_fabrication","Krippendorff alpha, labellers",0.5141
+"qwen3:14b","B reason R1_fabrication","Krippendorff alpha, labellers + model",0.5235
+"qwen3:14b","B reason R2_image","items",200
+"qwen3:14b","B reason R2_image","model answered",200
+"qwen3:14b","B reason R2_image","items with a majority",200
+"qwen3:14b","B reason R2_image","model = majority of all labellers",0.98
+"qwen3:14b","B reason R2_image","Cohen kappa, model vs majority",0.8979
+"qwen3:14b","B reason R2_image","one labeller = majority of the other six (mean)",0.9834
+"qwen3:14b","B reason R2_image","model = majority of the same six (mean)",0.9828
+"qwen3:14b","B reason R2_image","Krippendorff alpha, labellers",0.8483
+"qwen3:14b","B reason R2_image","Krippendorff alpha, labellers + model",0.8514
+"qwen3:14b","B reason R3_plagiarism","items",200
+"qwen3:14b","B reason R3_plagiarism","model answered",200
+"qwen3:14b","B reason R3_plagiarism","items with a majority",200
+"qwen3:14b","B reason R3_plagiarism","model = majority of all labellers",0.97
+"qwen3:14b","B reason R3_plagiarism","Cohen kappa, model vs majority",0.7342
+"qwen3:14b","B reason R3_plagiarism","one labeller = majority of the other six (mean)",0.9754
+"qwen3:14b","B reason R3_plagiarism","model = majority of the same six (mean)",0.9754
+"qwen3:14b","B reason R3_plagiarism","Krippendorff alpha, labellers",0.6552
+"qwen3:14b","B reason R3_plagiarism","Krippendorff alpha, labellers + model",0.6542
+"qwen3:14b","B reason R4_duplicate","items",200
+"qwen3:14b","B reason R4_duplicate","model answered",200
+"qwen3:14b","B reason R4_duplicate","items with a majority",200
+"qwen3:14b","B reason R4_duplicate","model = majority of all labellers",0.95
+"qwen3:14b","B reason R4_duplicate","Cohen kappa, model vs majority",0.4805
+"qwen3:14b","B reason R4_duplicate","one labeller = majority of the other six (mean)",0.9879
+"qwen3:14b","B reason R4_duplicate","model = majority of the same six (mean)",0.95
+"qwen3:14b","B reason R4_duplicate","Krippendorff alpha, labellers",0.5885
+"qwen3:14b","B reason R4_duplicate","Krippendorff alpha, labellers + model",0.5349
+"qwen3:14b","B reason R5_peer_review","items",200
+"qwen3:14b","B reason R5_peer_review","model answered",200
+"qwen3:14b","B reason R5_peer_review","items with a majority",200
+"qwen3:14b","B reason R5_peer_review","model = majority of all labellers",0.995
+"qwen3:14b","B reason R5_peer_review","Cohen kappa, model vs majority",0.9864
+"qwen3:14b","B reason R5_peer_review","one labeller = majority of the other six (mean)",0.9793
+"qwen3:14b","B reason R5_peer_review","model = majority of the same six (mean)",0.995
+"qwen3:14b","B reason R5_peer_review","Krippendorff alpha, labellers",0.8921
+"qwen3:14b","B reason R5_peer_review","Krippendorff alpha, labellers + model",0.9024
+"qwen3:14b","B reason R6_paper_mill","items",200
+"qwen3:14b","B reason R6_paper_mill","model answered",200
+"qwen3:14b","B reason R6_paper_mill","items with a majority",200
+"qwen3:14b","B reason R6_paper_mill","model = majority of all labellers",0.725
+"qwen3:14b","B reason R6_paper_mill","Cohen kappa, model vs majority",0.1494
+"qwen3:14b","B reason R6_paper_mill","one labeller = majority of the other six (mean)",0.9226
+"qwen3:14b","B reason R6_paper_mill","model = majority of the same six (mean)",0.7319
+"qwen3:14b","B reason R6_paper_mill","Krippendorff alpha, labellers",0.6481
+"qwen3:14b","B reason R6_paper_mill","Krippendorff alpha, labellers + model",0.5478
+"qwen3:14b","B reason R7_honest_error","items",200
+"qwen3:14b","B reason R7_honest_error","model answered",200
+"qwen3:14b","B reason R7_honest_error","items with a majority",200
+"qwen3:14b","B reason R7_honest_error","model = majority of all labellers",0.97
+"qwen3:14b","B reason R7_honest_error","Cohen kappa, model vs majority",0.7351
+"qwen3:14b","B reason R7_honest_error","one labeller = majority of the other six (mean)",0.9393
+"qwen3:14b","B reason R7_honest_error","model = majority of the same six (mean)",0.9697
+"qwen3:14b","B reason R7_honest_error","Krippendorff alpha, labellers",0.4246
+"qwen3:14b","B reason R7_honest_error","Krippendorff alpha, labellers + model",0.4325
+"qwen3:14b","B reason R8_authorship_ethics","items",200
+"qwen3:14b","B reason R8_authorship_ethics","model answered",200
+"qwen3:14b","B reason R8_authorship_ethics","items with a majority",200
+"qwen3:14b","B reason R8_authorship_ethics","model = majority of all labellers",0.98
+"qwen3:14b","B reason R8_authorship_ethics","Cohen kappa, model vs majority",0.917
+"qwen3:14b","B reason R8_authorship_ethics","one labeller = majority of the other six (mean)",0.9561
+"qwen3:14b","B reason R8_authorship_ethics","model = majority of the same six (mean)",0.9796
+"qwen3:14b","B reason R8_authorship_ethics","Krippendorff alpha, labellers",0.6631
+"qwen3:14b","B reason R8_authorship_ethics","Krippendorff alpha, labellers + model",0.6862
+"qwen3:14b","B reason R9_other","items",200
+"qwen3:14b","B reason R9_other","model answered",200
+"qwen3:14b","B reason R9_other","items with a majority",200
+"qwen3:14b","B reason R9_other","model = majority of all labellers",0.565
+"qwen3:14b","B reason R9_other","Cohen kappa, model vs majority",-0.1885
+"qwen3:14b","B reason R9_other","one labeller = majority of the other six (mean)",0.8565
+"qwen3:14b","B reason R9_other","model = majority of the same six (mean)",0.5874
+"qwen3:14b","B reason R9_other","Krippendorff alpha, labellers",0.404
+"qwen3:14b","B reason R9_other","Krippendorff alpha, labellers + model",0.3155
+"qwen3:14b","B reason R0_no_reason","items",200
+"qwen3:14b","B reason R0_no_reason","model answered",200
+"qwen3:14b","B reason R0_no_reason","items with a majority",200
+"qwen3:14b","B reason R0_no_reason","model = majority of all labellers",0.805
+"qwen3:14b","B reason R0_no_reason","Cohen kappa, model vs majority",0.4055
+"qwen3:14b","B reason R0_no_reason","one labeller = majority of the other six (mean)",0.9693
+"qwen3:14b","B reason R0_no_reason","model = majority of the same six (mean)",0.8044
+"qwen3:14b","B reason R0_no_reason","Krippendorff alpha, labellers",0.7214
+"qwen3:14b","B reason R0_no_reason","Krippendorff alpha, labellers + model",0.5968
+"qwen3:14b","B clarity","items",200
+"qwen3:14b","B clarity","model answered",200
+"qwen3:14b","B clarity","items with a majority",195
+"qwen3:14b","B clarity","model = majority of all labellers",0.5641
+"qwen3:14b","B clarity","Cohen kappa, model vs majority",0.3502
+"qwen3:14b","B clarity","one labeller = majority of the other six (mean)",0.7102
+"qwen3:14b","B clarity","model = majority of the same six (mean)",0.4671
+"qwen3:14b","B clarity","Krippendorff alpha, labellers",0.5451
+"qwen3:14b","B clarity","Krippendorff alpha, labellers + model",0.529
+"qwen3:14b","B clarity","model within one step of majority",0.9128
+"qwen3:14b","B clarity","one labeller within one step of the other six (mean)",0.9659
+"qwen3:14b","B clarity","model within one step of the same six (mean)",0.8957
+"qwen3:14b","running","answers",400
+"qwen3:14b","running","failed",0
+"qwen3:14b","running","cut off at the answer limit",0
+"qwen3:14b","running","prompt within 300 tokens of the context limit",0
+"qwen3:14b","running","largest prompt (tokens)",1091
+"qwen3:14b","running","seconds per item, A",0.3847
+"qwen3:14b","running","seconds per item, B",1.6212
+"qwen3:8b","A media, 5 categories","items",200
+"qwen3:8b","A media, 5 categories","model answered",200
+"qwen3:8b","A media, 5 categories","items with a majority",193
+"qwen3:8b","A media, 5 categories","model = majority of all labellers",0.5233
+"qwen3:8b","A media, 5 categories","Cohen kappa, model vs majority",0.3464
+"qwen3:8b","A media, 5 categories","one labeller = majority of the other six (mean)",0.7708
+"qwen3:8b","A media, 5 categories","model = majority of the same six (mean)",0.5273
+"qwen3:8b","A media, 5 categories","Krippendorff alpha, labellers",0.5938
+"qwen3:8b","A media, 5 categories","Krippendorff alpha, labellers + model",0.5225
+"qwen3:8b","A media, is the reader told it was retracted?","items",200
+"qwen3:8b","A media, is the reader told it was retracted?","model answered",200
+"qwen3:8b","A media, is the reader told it was retracted?","items with a majority",200
+"qwen3:8b","A media, is the reader told it was retracted?","model = majority of all labellers",0.72
+"qwen3:8b","A media, is the reader told it was retracted?","Cohen kappa, model vs majority",0.4493
+"qwen3:8b","A media, is the reader told it was retracted?","one labeller = majority of the other six (mean)",0.9423
+"qwen3:8b","A media, is the reader told it was retracted?","model = majority of the same six (mean)",0.7214
+"qwen3:8b","A media, is the reader told it was retracted?","Krippendorff alpha, labellers",0.7758
+"qwen3:8b","A media, is the reader told it was retracted?","Krippendorff alpha, labellers + model",0.6771
+"qwen3:8b","B reason R1_fabrication","items",200
+"qwen3:8b","B reason R1_fabrication","model answered",200
+"qwen3:8b","B reason R1_fabrication","items with a majority",200
+"qwen3:8b","B reason R1_fabrication","model = majority of all labellers",0.96
+"qwen3:8b","B reason R1_fabrication","Cohen kappa, model vs majority",0.4118
+"qwen3:8b","B reason R1_fabrication","one labeller = majority of the other six (mean)",0.9864
+"qwen3:8b","B reason R1_fabrication","model = majority of the same six (mean)",0.9655
+"qwen3:8b","B reason R1_fabrication","Krippendorff alpha, labellers",0.5141
+"qwen3:8b","B reason R1_fabrication","Krippendorff alpha, labellers + model",0.4916
+"qwen3:8b","B reason R2_image","items",200
+"qwen3:8b","B reason R2_image","model answered",200
+"qwen3:8b","B reason R2_image","items with a majority",200
+"qwen3:8b","B reason R2_image","model = majority of all labellers",0.975
+"qwen3:8b","B reason R2_image","Cohen kappa, model vs majority",0.8878
+"qwen3:8b","B reason R2_image","one labeller = majority of the other six (mean)",0.9834
+"qwen3:8b","B reason R2_image","model = majority of the same six (mean)",0.9806
+"qwen3:8b","B reason R2_image","Krippendorff alpha, labellers",0.8483
+"qwen3:8b","B reason R2_image","Krippendorff alpha, labellers + model",0.8484
+"qwen3:8b","B reason R3_plagiarism","items",200
+"qwen3:8b","B reason R3_plagiarism","model answered",200
+"qwen3:8b","B reason R3_plagiarism","items with a majority",200
+"qwen3:8b","B reason R3_plagiarism","model = majority of all labellers",0.97
+"qwen3:8b","B reason R3_plagiarism","Cohen kappa, model vs majority",0.7697
+"qwen3:8b","B reason R3_plagiarism","one labeller = majority of the other six (mean)",0.9754
+"qwen3:8b","B reason R3_plagiarism","model = majority of the same six (mean)",0.9725
+"qwen3:8b","B reason R3_plagiarism","Krippendorff alpha, labellers",0.6552
+"qwen3:8b","B reason R3_plagiarism","Krippendorff alpha, labellers + model",0.6646
+"qwen3:8b","B reason R4_duplicate","items",200
+"qwen3:8b","B reason R4_duplicate","model answered",200
+"qwen3:8b","B reason R4_duplicate","items with a majority",200
+"qwen3:8b","B reason R4_duplicate","model = majority of all labellers",0.93
+"qwen3:8b","B reason R4_duplicate","Cohen kappa, model vs majority",0.3926
+"qwen3:8b","B reason R4_duplicate","one labeller = majority of the other six (mean)",0.9879
+"qwen3:8b","B reason R4_duplicate","model = majority of the same six (mean)",0.93
+"qwen3:8b","B reason R4_duplicate","Krippendorff alpha, labellers",0.5885
+"qwen3:8b","B reason R4_duplicate","Krippendorff alpha, labellers + model",0.505
+"qwen3:8b","B reason R5_peer_review","items",200
+"qwen3:8b","B reason R5_peer_review","model answered",200
+"qwen3:8b","B reason R5_peer_review","items with a majority",200
+"qwen3:8b","B reason R5_peer_review","model = majority of all labellers",1
+"qwen3:8b","B reason R5_peer_review","Cohen kappa, model vs majority",1
+"qwen3:8b","B reason R5_peer_review","one labeller = majority of the other six (mean)",0.9793
+"qwen3:8b","B reason R5_peer_review","model = majority of the same six (mean)",1
+"qwen3:8b","B reason R5_peer_review","Krippendorff alpha, labellers",0.8921
+"qwen3:8b","B reason R5_peer_review","Krippendorff alpha, labellers + model",0.905
+"qwen3:8b","B reason R6_paper_mill","items",200
+"qwen3:8b","B reason R6_paper_mill","model answered",200
+"qwen3:8b","B reason R6_paper_mill","items with a majority",200
+"qwen3:8b","B reason R6_paper_mill","model = majority of all labellers",0.725
+"qwen3:8b","B reason R6_paper_mill","Cohen kappa, model vs majority",0.1494
+"qwen3:8b","B reason R6_paper_mill","one labeller = majority of the other six (mean)",0.9226
+"qwen3:8b","B reason R6_paper_mill","model = majority of the same six (mean)",0.7319
+"qwen3:8b","B reason R6_paper_mill","Krippendorff alpha, labellers",0.6481
+"qwen3:8b","B reason R6_paper_mill","Krippendorff alpha, labellers + model",0.5478
+"qwen3:8b","B reason R7_honest_error","items",200
+"qwen3:8b","B reason R7_honest_error","model answered",200
+"qwen3:8b","B reason R7_honest_error","items with a majority",200
+"qwen3:8b","B reason R7_honest_error","model = majority of all labellers",0.95
+"qwen3:8b","B reason R7_honest_error","Cohen kappa, model vs majority",0.4805
+"qwen3:8b","B reason R7_honest_error","one labeller = majority of the other six (mean)",0.9393
+"qwen3:8b","B reason R7_honest_error","model = majority of the same six (mean)",0.9494
+"qwen3:8b","B reason R7_honest_error","Krippendorff alpha, labellers",0.4246
+"qwen3:8b","B reason R7_honest_error","Krippendorff alpha, labellers + model",0.403
+"qwen3:8b","B reason R8_authorship_ethics","items",200
+"qwen3:8b","B reason R8_authorship_ethics","model answered",200
+"qwen3:8b","B reason R8_authorship_ethics","items with a majority",200
+"qwen3:8b","B reason R8_authorship_ethics","model = majority of all labellers",0.99
+"qwen3:8b","B reason R8_authorship_ethics","Cohen kappa, model vs majority",0.9597
+"qwen3:8b","B reason R8_authorship_ethics","one labeller = majority of the other six (mean)",0.9561
+"qwen3:8b","B reason R8_authorship_ethics","model = majority of the same six (mean)",0.9898
+"qwen3:8b","B reason R8_authorship_ethics","Krippendorff alpha, labellers",0.6631
+"qwen3:8b","B reason R8_authorship_ethics","Krippendorff alpha, labellers + model",0.694
+"qwen3:8b","B reason R9_other","items",200
+"qwen3:8b","B reason R9_other","model answered",200
+"qwen3:8b","B reason R9_other","items with a majority",200
+"qwen3:8b","B reason R9_other","model = majority of all labellers",0.675
+"qwen3:8b","B reason R9_other","Cohen kappa, model vs majority",0.0419
+"qwen3:8b","B reason R9_other","one labeller = majority of the other six (mean)",0.8565
+"qwen3:8b","B reason R9_other","model = majority of the same six (mean)",0.6919
+"qwen3:8b","B reason R9_other","Krippendorff alpha, labellers",0.404
+"qwen3:8b","B reason R9_other","Krippendorff alpha, labellers + model",0.3455
+"qwen3:8b","B reason R0_no_reason","items",200
+"qwen3:8b","B reason R0_no_reason","model answered",200
+"qwen3:8b","B reason R0_no_reason","items with a majority",200
+"qwen3:8b","B reason R0_no_reason","model = majority of all labellers",0.895
+"qwen3:8b","B reason R0_no_reason","Cohen kappa, model vs majority",0.5766
+"qwen3:8b","B reason R0_no_reason","one labeller = majority of the other six (mean)",0.9693
+"qwen3:8b","B reason R0_no_reason","model = majority of the same six (mean)",0.8947
+"qwen3:8b","B reason R0_no_reason","Krippendorff alpha, labellers",0.7214
+"qwen3:8b","B reason R0_no_reason","Krippendorff alpha, labellers + model",0.6599
+"qwen3:8b","B clarity","items",200
+"qwen3:8b","B clarity","model answered",200
+"qwen3:8b","B clarity","items with a majority",195
+"qwen3:8b","B clarity","model = majority of all labellers",0.6308
+"qwen3:8b","B clarity","Cohen kappa, model vs majority",0.4149
+"qwen3:8b","B clarity","one labeller = majority of the other six (mean)",0.7102
+"qwen3:8b","B clarity","model = majority of the same six (mean)",0.5435
+"qwen3:8b","B clarity","Krippendorff alpha, labellers",0.5451
+"qwen3:8b","B clarity","Krippendorff alpha, labellers + model",0.5347
+"qwen3:8b","B clarity","model within one step of majority",0.9795
+"qwen3:8b","B clarity","one labeller within one step of the other six (mean)",0.9659
+"qwen3:8b","B clarity","model within one step of the same six (mean)",0.9718
+"qwen3:8b","running","answers",400
+"qwen3:8b","running","failed",0
+"qwen3:8b","running","cut off at the answer limit",0
+"qwen3:8b","running","prompt within 300 tokens of the context limit",0
+"qwen3:8b","running","largest prompt (tokens)",1091
+"qwen3:8b","running","seconds per item, A",0.2491
+"qwen3:8b","running","seconds per item, B",1.0771

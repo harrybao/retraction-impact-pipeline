@@ -1,0 +1,22 @@
+section,metric,v10,v11
+table,rows,93771,93771
+table,usable documents,,93771
+table,orphan rows,,0
+table,usable documents with no text row,,0
+table,rows at extractor_version 11,,93771
+body,byte-identical,93771,93771
+grade,full,49382,49386
+grade,notice-only,43974,43970
+grade,thin,257,257
+grade,failed,158,158
+grade move,both: notice-only -> full,,4
+european review,notices carrying the topic menu,216,0
+european review,notices carrying 'has been withdrawn',226,423
+notice,any notice,83762,83744
+notice,"notice at the 3,000-character cap",4618,4184
+notice change,European Review: notices changed,,535
+notice change,European Review: changed and lost a cue,,215
+notice change,other hosts: notices changed,,1746
+notice change,other hosts: changed and lost a cue,,1
+integrity,rows containing exit address 103.x.x.x,0,0
+integrity,rows containing exit address 129.x.x.x,0,0

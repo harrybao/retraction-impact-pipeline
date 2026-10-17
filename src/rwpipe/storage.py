@@ -14,14 +14,22 @@ from pathlib import Path
 from . import config
 
 
-def page_path(doi: str, prefix: str, fmt: str = "mhtml") -> Path:
+def page_path(doi: str, prefix: str, fmt: str = "mhtml", tag: str | None = None) -> Path:
+    """`tag` names a copy that must not share the document's own path: an
+    Internet Archive capture is written as `<sha1>.wayback.mhtml.gz` beside the
+    crawler's `<sha1>.mhtml.gz`. Without it the two overwrote each other: the
+    Archive capture replaced the crawler's refusal page kept as evidence, and a
+    teammate's import later replaced 10 Archive captures (found 7 October 2026).
+    """
     h = hashlib.sha1(doi.encode("utf-8")).hexdigest()
     ext = "mhtml.gz" if fmt == "mhtml" else "html.gz"
+    if tag:
+        ext = f"{tag}.{ext}"
     return config.MHTML_DIR / prefix.replace("/", "_") / h[:2] / f"{h}.{ext}"
 
 
 def write_capture(doi: str, prefix: str, text: str,
-                  fmt: str = "mhtml") -> tuple[Path, int, int]:
+                  fmt: str = "mhtml", tag: str | None = None) -> tuple[Path, int, int]:
     """Write a capture in whichever format we managed to obtain.
 
     MHTML is the format the client asked for, and it is what Chromium
@@ -32,7 +40,7 @@ def write_capture(doi: str, prefix: str, text: str,
     inlined images. The format is recorded per document so no downstream stage
     can mistake one for the other.
     """
-    path = page_path(doi, prefix, fmt)
+    path = page_path(doi, prefix, fmt, tag)
     path.parent.mkdir(parents=True, exist_ok=True)
     raw = text.encode("utf-8", "ignore")
     tmp = path.with_suffix(".part")

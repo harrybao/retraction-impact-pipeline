@@ -1,0 +1,25 @@
+"group","metric","value"
+"papers","in openalex",62489
+"papers","retraction year and publication year known",62489
+"papers","retracted 2013-2024 (some window exists)",43705
+"papers","usable at +/-1 years",36388
+"papers","usable at +/-2 years",16045
+"papers","usable at +/-3 years",8019
+"controls","rows",184890
+"controls","distinct controls",174782
+"controls","retracted papers covered",62455
+"pairs","usable control rows at +/-1 years",107346
+"pairs","papers with >=1 usable control at +/-1 years",36118
+"pairs","papers with 3 usable controls at +/-1 years",35179
+"pairs","usable control rows at +/-2 years",46202
+"pairs","papers with >=1 usable control at +/-2 years",15736
+"pairs","papers with 3 usable controls at +/-2 years",14880
+"pairs","at +/-2 years: match level 1",44411
+"pairs","at +/-2 years: match level 2",684
+"pairs","at +/-2 years: match level 3",1107
+"pairs","at +/-2 years: distinct controls",45882
+"pairs","at +/-2 years: controls used more than once",315
+"pairs","at +/-2 years: retraction years spanned",10
+"pairs","usable control rows at +/-3 years",23210
+"pairs","papers with >=1 usable control at +/-3 years",7764
+"pairs","papers with 3 usable controls at +/-3 years",7695

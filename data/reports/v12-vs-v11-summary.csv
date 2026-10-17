@@ -1,0 +1,38 @@
+section,metric,v11,v12
+table,rows,96329,96329
+table,usable documents,,96329
+table,usable documents with no text row,,0
+table,rows at extractor_version 12,,96329
+body,byte-identical,96329,96007
+grade,full,50607,44346
+grade,notice-only,45307,51567
+grade,thin,257,257
+grade,failed,158,159
+grade move,both: full -> notice-only,,6264
+grade move,both: notice-only -> full,,3
+grade move,retraction: notice-only -> failed,,1
+notice,any notice,86205,86209
+notice,"notice at or over the 3,000-character cap",5156,4751
+method v12,cue,74341,65114
+method v12,none,10124,10120
+method v12,body-decision,0,9220
+method v12,els-description,3653,3653
+method v12,body-is-notice,2968,3001
+method v12,pdf-cue,2261,2261
+method v12,selector:div[class*='retract'],1672,1671
+method v12,jats-body,581,580
+junk,Wiley figure rail,1484,0
+junk,T&F article rail,782,0
+junk,chat widget,37,0
+junk,literal escape,230,0
+change,notices changed,,12036
+change,gained a decision,,9385
+change,LOST a decision,,0
+change,emptied,,4
+change,new notice where there was none,,8
+change,mid-sentence start fixed,,732
+change,mid-sentence start introduced,,0
+decision,notices asserting a withdrawal (v11),,67938
+decision,notices asserting a withdrawal (v12),,77323
+integrity,rows containing exit address 103.x.x.x,0,0
+integrity,rows containing exit address 129.x.x.x,0,0

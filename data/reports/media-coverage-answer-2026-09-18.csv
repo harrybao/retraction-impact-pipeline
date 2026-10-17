@@ -1,0 +1,14 @@
+source,metric,value,denominator,note
+ours,papers with Altmetric news,2513 (4.00%),"62,867 papers",baseline 2026-09-17
+literature,WoS papers 2012-2018 with >=1 Altmetric news mention,4.01%,"12,271,991 WoS papers","Fang, Costas, Tian, Wang & Wouters (2020) Scientometrics 124:2519-2549, Table 3; checked in the arXiv PDF 2006.12630 on 2026-09-18"
+literature,individually retracted RW articles published 2012-2021 with >=1 news mention (before or after retraction),"1,013 (6.6%)","15,461 articles, bulk retractions excluded","Zheng, Fu, Jiang, Fang & Thelwall (2025) arXiv:2503.18215, Table 3; searched article DOI AND notice DOI, Altmetric to Nov 2022; checked in the PDF"
+literature,share of post-retraction news mentions of highly mentioned articles that were mentions of the retraction notice,114/144 (79.2%),post-retraction news mentions,"Zheng et al. 2025 Table 11 - notice DOIs carry most post-retraction news"
+ours,news rate in mass retractions vs the rest,0.91% (227/24,945) vs 6.03% (2,286/37,922),62867 papers,"mass = notice DOI shared by >=10 records OR publisher+retraction day >=50 records (our definition; shared-notice rule alone: 1.03% of 4,760)"
+ours,news rate IEEE / Hindawi / conference papers,0.05% (4/7,797) / 1.52% (175/11,507) / 0.16% (18/11,188),papers in each group,verified independently
+ours,news rate papers flagged paper mill / fake peer review / computer-generated,1.65% (403/24,489),papers with any of the flags,media-coverage-by-group-2026-09-18.csv
+ours,Altmetric detail completeness,0 papers with fewer news rows than news count,"2,513 papers with news","36,888 rows vs 27,690 counted outlets; no collection loss"
+ours,retraction notice DOIs never sent to Altmetric,47021,"47,074 distinct notice DOIs differing from the original",Zheng et al. queried these
+ours,found=0 papers with a CSV PubMed ID never queried,14448,"40,499 papers with no Altmetric record",Altmetric merges PMID and DOI when linked; expected yield low
+ours,papers with a paper-specific dated Retraction Watch post in CSV URLS,4385,"62,867 papers","post cited for <=5 papers; 3,579 have no Altmetric news; recomputed independently"
+ours,papers with news in either tracker OR a paper-specific RW post,10160,"62,867 papers","recomputed independently; PlumX part is counts only"
+ours,papers with Altmetric news OR a paper-specific RW post (dated with a link),6092,"62,867 papers",the set usable for pre/post and text analysis today

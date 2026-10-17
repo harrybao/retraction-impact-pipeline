@@ -69,6 +69,8 @@ class Frontier:
             sql = ("SELECT doi, doi_prefix, attempts, final_host, "
                    " COALESCE((SELECT r.title FROM records r WHERE r.original_doi = documents.doi),"
                    "          (SELECT r.title FROM records r WHERE r.retraction_doi = documents.doi)) AS rec_title, "
+                   " COALESCE((SELECT r.journal FROM records r WHERE r.original_doi = documents.doi),"
+                   "          (SELECT r.journal FROM records r WHERE r.retraction_doi = documents.doi)) AS rec_journal, "
                    " CASE WHEN EXISTS(SELECT 1 FROM records r WHERE r.retraction_doi = documents.doi) "
                    "      THEN 'retraction' ELSE 'original' END AS doc_role "
                    "FROM documents "
@@ -295,6 +297,7 @@ async def worker(browser, frontier: Frontier, lim: Limiter, hosts: HostMap,
                     res, mhtml = await fetch_page(
                         ctx, doi,
                         expect_title=task.get("rec_title"),
+                        expect_journal=task.get("rec_journal"),
                         doc_role=task.get("doc_role", "original"))
 
                     # Chromium was refused. Try the other engine on the same
@@ -308,13 +311,19 @@ async def worker(browser, frontier: Frontier, lim: Limiter, hosts: HostMap,
                     # verdict is cleared whenever pages are requeued, so keying
                     # the fallback on it meant a host released for retesting
                     # went straight back to the engine that could not reach it.
+                    # Judged on the host the request landed on as well as the
+                    # routing key: on a fresh database no prefix->host route is
+                    # learned yet, the key is the bare prefix ("10.3390"), and
+                    # the first MDPI page never reached WebKit (the handover
+                    # test, 2026-09-18).
                     if (not res.ok and wk_ctx is not None
-                            and key in WEBKIT_HOSTS
+                            and (key in WEBKIT_HOSTS or (res.final_host or "") in WEBKIT_HOSTS)
                             and not (wk_brk and wk_brk.is_dead(key))):
                         await lim.wait_turn(key)
                         wk_res, wk_mhtml = await fetch_page(
                             wk_ctx, doi, capture="html",
                             expect_title=task.get("rec_title"),
+                            expect_journal=task.get("rec_journal"),
                             doc_role=task.get("doc_role", "original"))
                         stats["webkit_try"] += 1
                         if wk_res.ok:

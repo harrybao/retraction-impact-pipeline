@@ -32,11 +32,11 @@ import re
 import httpx
 from rich.console import Console
 
-from rwpipe import db, plumx
+from rwpipe import config, db, plumx
 
 console = Console()
 
-UA = {"User-Agent": "COMP5703-CS43 student project (mailto:herrybaozi1650@gmail.com)",
+UA = {"User-Agent": f"COMP5703-CS43 student project (mailto:{config.POLITE_CONTACT})",
       "Accept": "application/json"}
 
 # Hosts whose TDM links are worth testing, and how many pages sit behind each.

@@ -1,0 +1,46 @@
+sweeping 18 chromium-blocked hosts x 8 DOIs with WebKit
+
+  validate.perfdrive.com           0/8
+  www.tandfonline.com              1/8   median 320 KB
+  journals.sagepub.com             1/8   median 478 KB
+  academic.oup.com                 1/8   median 377 KB
+  doi.org                          6/8   median 122 KB
+  cell.com                         4/8   median 51 KB
+  www.mdpi.com                     8/8   median 534 KB
+  pubs.rsc.org                     1/8   median 267 KB
+  jbc.org                          1/8   median 339 KB
+  pubs.acs.org                     1/8   median 1013 KB
+  www.e3s-conferences.org          0/8
+  portlandpress.com                1/8   median 882 KB
+  journals.lww.com                 1/8   median 502 KB
+  pubs.aip.org                     1/8   median 1074 KB
+  www.cureus.com                   0/8
+  dl.acm.org                       1/8   median 905 KB
+  aacrjournals.org                 1/8   median 881 KB
+  www.aging-us.com                 0/8
+                WebKit against chromium-blocked hosts                
++-------------------------------------------------------------------+
+| host                    | pages | chromium | webkit | median size |
+|-------------------------+-------+----------+--------+-------------|
+| validate.perfdrive.com  | 2,458 | 0/2,458  | 0/8    | -           |
+| www.tandfonline.com     | 2,178 | 30/2,178 | 1/8    | 320 KB      |
+| journals.sagepub.com    | 1,805 | 58/1,805 | 1/8    | 478 KB      |
+| academic.oup.com        | 1,618 | 0/1,618  | 1/8    | 377 KB      |
+| doi.org                 | 1,278 | 0/1,278  | 6/8    | 122 KB      |
+| cell.com                | 1,206 | 0/1,206  | 4/8    | 51 KB       |
+| www.mdpi.com            | 1,036 | 0/1,036  | 8/8    | 534 KB      |
+| pubs.rsc.org            | 1,001 | 0/1,001  | 1/8    | 267 KB      |
+| jbc.org                 | 830   | 0/830    | 1/8    | 339 KB      |
+| pubs.acs.org            | 776   | 0/776    | 1/8    | 1013 KB     |
+| www.e3s-conferences.org | 623   | 0/623    | 0/8    | -           |
+| portlandpress.com       | 588   | 0/588    | 1/8    | 882 KB      |
+| journals.lww.com        | 575   | 3/575    | 1/8    | 502 KB      |
+| pubs.aip.org            | 547   | 0/547    | 1/8    | 1074 KB     |
+| www.cureus.com          | 519   | 0/519    | 0/8    | -           |
+| dl.acm.org              | 439   | 2/439    | 1/8    | 905 KB      |
+| aacrjournals.org        | 431   | 0/431    | 1/8    | 881 KB      |
+| www.aging-us.com        | 393   | 0/393    | 0/8    | -           |
++-------------------------------------------------------------------+
+
+hosts where WebKit looks clearly better cover 3,520 pages
+promising hosts still need a larger sample before anything is requeued

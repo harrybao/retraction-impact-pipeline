@@ -1,0 +1,35 @@
+"part","scope","measure","value"
+"media, round 1 (same items, same people)","contested in round 1","items",87
+"media, round 1 (same items, same people)","contested in round 1","labellers",7
+"media, round 1 (same items, same people)","contested in round 1","alpha, five categories",0.2023
+"media, round 1 (same items, same people)","contested in round 1","pairwise agreement, five categories",0.4157
+"media, round 1 (same items, same people)","contested in round 1","alpha, says retracted or not",0.3084
+"media, round 1 (same items, same people)","contested in round 1","pairwise agreement, says retracted or not",0.8507
+"media, round 2 (protocol v2)","contested in round 1","items",87
+"media, round 2 (protocol v2)","contested in round 1","labellers",7
+"media, round 2 (protocol v2)","contested in round 1","alpha, five categories",0.3322
+"media, round 2 (protocol v2)","contested in round 1","pairwise agreement, five categories",0.6163
+"media, round 2 (protocol v2)","contested in round 1","alpha, says retracted or not",0.4085
+"media, round 2 (protocol v2)","contested in round 1","pairwise agreement, says retracted or not",0.9059
+"media, round 1 (same items, same people)","all 127","items",127
+"media, round 1 (same items, same people)","all 127","labellers",7
+"media, round 1 (same items, same people)","all 127","alpha, five categories",0.428
+"media, round 1 (same items, same people)","all 127","pairwise agreement, five categories",0.5557
+"media, round 1 (same items, same people)","all 127","alpha, says retracted or not",0.6095
+"media, round 1 (same items, same people)","all 127","pairwise agreement, says retracted or not",0.8709
+"media, round 2 (protocol v2)","all 127","items",127
+"media, round 2 (protocol v2)","all 127","labellers",7
+"media, round 2 (protocol v2)","all 127","alpha, five categories",0.4571
+"media, round 2 (protocol v2)","all 127","pairwise agreement, five categories",0.634
+"media, round 2 (protocol v2)","all 127","alpha, says retracted or not",0.648
+"media, round 2 (protocol v2)","all 127","pairwise agreement, says retracted or not",0.9033
+"media, the 40 check items","round 2 majority = round 1 majority","items",37
+"media, the 40 check items","round 2 majority = round 1 majority","share",0.925
+"media, the 40 check items","unanimous in round 1 (blind check)","share held",1
+"media, the 40 check items","one dissenter in round 1 (blind check)","share held",0.85
+"social media (new)","all 100","items",100
+"social media (new)","all 100","labellers",7
+"social media (new)","all 100","alpha, five categories",0.4901
+"social media (new)","all 100","pairwise agreement, five categories",0.6386
+"social media (new)","all 100","alpha, says retracted or not",0.8604
+"social media (new)","all 100","pairwise agreement, says retracted or not",0.9781

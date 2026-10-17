@@ -1,0 +1,7 @@
+level,metric,before_merge,after_merge,denominator
+documents,usable page captured,93771,96329,109888
+records,original page (of records with one),54938,56411,65752
+records,notice page (of records with one),56593,58276,67029
+records,both pages,53436,54915,71698
+records,at least one page,58095,59772,71698
+papers,article page captured,52637,53897,62867

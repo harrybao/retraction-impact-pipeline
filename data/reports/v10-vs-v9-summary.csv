@@ -1,0 +1,51 @@
+section,metric,v9,v10
+table,rows,93771,93771
+table,usable documents,,93771
+table,rows whose document is not usable (orphans),,0
+table,usable documents with no text row,,0
+table,rows at extractor_version 10,,93771
+body,rows in both versions,93771,93771
+body,body byte-identical,93771,93759
+body,changed: only consent-dialog lines removed,,12
+body,changed: anything else (must be explained),,0
+body,"empty in v9, non-empty in v10",,0
+body,"non-empty in v9, empty in v10",,0
+grade,full,53156,49382
+grade,notice-only,40178,43974
+grade,thin,275,257
+grade,failed,162,158
+grade move,retraction: full -> notice-only,,5160
+grade move,both: notice-only -> full,,1408
+grade move,retraction: thin -> notice-only,,71
+grade move,both: notice-only -> thin,,33
+grade move,both: full -> notice-only,,22
+grade move,retraction: notice-only -> thin,,21
+grade move,original: failed -> notice-only,,2
+grade move,both: failed -> notice-only,,1
+grade move,original: thin -> notice-only,,1
+grade move,retraction: failed -> notice-only,,1
+notice,any notice,82109,83762
+notice,notice of 200+ characters,75543,69615
+notice,"notice at the 3,000-character cap",5272,4618
+notice,page-text notice starting mid-paragraph of the body,14649,12023
+notice method,cue,67193,72161
+notice method,none,11662,10009
+notice method,els-description,3649,3653
+notice method,body-is-notice,7181,2705
+notice method,pdf-cue,2223,2261
+notice method,selector:div[class*='retract'],459,1672
+notice method,jats-body,973,581
+notice method,selector:div.retraction,306,314
+notice method,body-cue,0,307
+notice method,jats-abstract,98,99
+notice method,pdf-body-is-notice,27,9
+notice change,identical,,27567
+notice change,gained,,2298
+notice change,emptied,,645
+notice change,shorter,,22923
+notice change,longer,,40338
+notice change,changed notices that lost a cue or reason phrase,,1365
+integrity,notices carrying an IPv4-shaped string,10,8
+integrity,notices carrying cookie-banner wording,4,3
+integrity,rows containing 103.12... (exit address),0,0
+integrity,rows containing 129.78... (exit address),0,0

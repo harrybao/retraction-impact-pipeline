@@ -1,0 +1,13 @@
+"cut","value","strata","papers","control_growth","ratio_mh"
+"retracted papers in the group","1",6330,6330,1.37761414961855,0.496335237736646
+"retracted papers in the group","2",1900,2393,1.27943180410455,0.505688546483654
+"retracted papers in the group","3-5",1780,2961,1.18519499632082,0.496084401977191
+"retracted papers in the group","6-10",721,1925,1.18903857124051,0.487801019451839
+"retracted papers in the group","11-20",492,2010,1.31165441568126,0.492567340822313
+"retracted papers in the group","21-50",529,3465,1.22050263830713,0.470134720218725
+"retracted papers in the group","50+",335,15185,1.68885099755646,0.610198363381298
+"within the 61 strata holding both","level 1 (same journal)",61,4264,2.51034958601656,0.621941442651951
+"within the 61 strata holding both","level 3 (same field, other journal)",61,4264,3.00564573041637,0.579299759403734
+"all strata, by control match level","1",11874,33656,1.34950901055122,0.525599682868389
+"all strata, by control match level","2",170,9211,1.33234042553191,1.1270505657545
+"all strata, by control match level","3",274,4877,2.90472618154539,0.586022305307916

@@ -1,0 +1,3 @@
+"doi","status","http_status","final_host","gz_bytes","usable","quality","notice_method","body_chars","notice_chars","usable_prod","quality_prod","body_chars_prod","same_quality","same_title","same_notice"
+"10.1371/journal.pone.0066275","done",200,"journals.plos.org",910368,1,"full","selector:div[class*='retract']",41526,1968,1,"full",41526,TRUE,TRUE,TRUE
+"10.1371/journal.pone.0240575","done",200,"journals.plos.org",534496,1,"notice-only","cue",2736,1367,1,"notice-only",2736,TRUE,TRUE,TRUE

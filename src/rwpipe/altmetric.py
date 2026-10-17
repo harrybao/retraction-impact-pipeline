@@ -61,7 +61,7 @@ def load_key() -> str:
     """Read the key from the environment, falling back to .env.
 
     Never logged and never written into any output - it is the client's
-    credential, and he asked that it not be shared.
+    credential, and the client asked that it not be shared.
     """
     key = os.environ.get("ALTMETRIC_API_KEY")
     if key:
@@ -143,3 +143,32 @@ async def fetch(client: httpx.AsyncClient, doi: str, key: str,
         a.error = f"http {r.status_code}"
         return a
     return a
+
+
+# --- the fetch (detail) endpoint's posts ------------------------------------
+#
+# Shared by the paper collector and the notice collector, so the two cannot
+# drift into disagreeing about what a post's identity is. A post that changed
+# identity between passes would be stored twice and counted twice.
+
+def post_id(p: dict) -> str:
+    """Stable identity for a post. Most carry a URL; a few carry nothing."""
+    import hashlib
+    import json as _json
+
+    for k in ("url", "external_id", "id", "tweet_id"):
+        v = p.get(k)
+        if v:
+            return str(v)[:400]
+    blob = _json.dumps(p, sort_keys=True, ensure_ascii=False)
+    return "h:" + hashlib.sha1(blob.encode("utf-8")).hexdigest()
+
+
+def author_of(p: dict) -> tuple[str | None, str | None]:
+    """Author name and profile URL, whichever shape the source used."""
+    a = p.get("author")
+    if isinstance(a, dict):
+        return (a.get("name") or a.get("id_on_source"), a.get("url"))
+    if isinstance(a, str):
+        return a, None
+    return None, None

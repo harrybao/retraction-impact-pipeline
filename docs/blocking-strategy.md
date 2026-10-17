@@ -1,7 +1,6 @@
 # Smarter ways around publisher blocking
 
-Client feedback on Status Check 1: *"come up with smarter ways to avoid
-publisher blocking."*
+The client asked for smarter ways to avoid publisher blocking.
 
 Measured 2026-09-04 against the live database. Every number below is a query,
 not an estimate.
@@ -142,7 +141,7 @@ it, not this project. This position was taken in Week 4 and has not changed.
 ## The format question this forces
 
 Routes 1 and 5 — the two largest — deliver **JATS XML**, not MHTML. The client's
-written feedback is *"you need to get the exact mhtmls from publisher's page."*
+requirement is the exact MHTML of the publisher's page.
 
 Today that requirement is met: 68,923 of 70,216 verified captures are MHTML,
 and 70,180 come from the publisher's own page. But for the pages that are
@@ -259,7 +258,9 @@ about those publishers worth recording rather than re-discovering.
 
 `collect_wayback.py` asks `archive.org/wayback/available` for the closest
 snapshot of one URL string. 4,772 documents asked, 4,727 came back
-`no-snapshot`, 35 were kept, 10 were the wrong article: 0.73%. The obvious
+`no-snapshot`, 35 were kept, 10 were the wrong article: 0.73%. (The check
+and the merge into `documents` are `merge_wayback.py`, which
+`recover_wayback()` runs after the collector.) The obvious
 diagnosis is the single query - CDX would allow http/https and www/non-www
 variants, `statuscode:200`, `mimetype:text/html` and `collapse=digest`.
 

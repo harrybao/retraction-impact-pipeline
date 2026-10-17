@@ -1,0 +1,9 @@
+"group","strata","papers","controls","ratio_mh","ratio_pooled","ci_lower","ci_upper"
+"primary (k=1, exact publication year)",12087,34269,98015,0.526473895279039,0.507009150278491,0.508371358582909,0.546352466709177
+"same-journal controls only (level 1)",11874,33656,89893,0.525599682868389,0.521374884184057,NA,NA
+"same field, other journal only (level 3)",274,4877,8122,0.586022305307916,0.547843939223468,NA,NA
+"with year +/-1 controls added back (levels 1-3)",12094,34277,103433,0.541711325855594,0.508057802464044,NA,NA
+"year +/-1 controls only (level 2)",170,9211,5418,1.1270505657545,1.12613365344047,NA,NA
+"controls used by one paper only",12013,33021,88494,0.522688857411994,0.513249660826334,NA,NA
+"every retraction nature",13041,36150,101887,0.554714449721349,0.540708177153437,NA,NA
+"notice-typed OpenAlex records kept",12568,34944,99916,0.525142162699355,0.503639918140281,NA,NA

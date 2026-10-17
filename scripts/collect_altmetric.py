@@ -90,10 +90,10 @@ async def run(conn, dois: list[str], key: str, rate: float) -> Counter:
                 el = max(time.time() - started, 1)
                 console.print(
                     f"[dim]{n:>7,}/{len(dois):,}[/dim] "
-                    f"有关注 {stats['with_attention']:,}  "
-                    f"新闻 {stats['with_news']:,}  "
-                    f"社媒 {stats['with_social']:,}  "
-                    f"无记录 {stats['no_attention']:,}  "
+                    f"with attention {stats['with_attention']:,}  "
+                    f"news {stats['with_news']:,}  "
+                    f"social {stats['with_social']:,}  "
+                    f"no record {stats['no_attention']:,}  "
                     f"| {n/el*3600:,.0f}/h")
             await asyncio.sleep(rate)
     return stats

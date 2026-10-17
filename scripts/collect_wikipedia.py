@@ -162,8 +162,8 @@ async def sweep(conn, dois: list[str], rate: float) -> dict:
                 el = max(time.time() - started, 1)
                 console.print(
                     f"[dim]{n:>6,}/{len(dois):,}[/dim] "
-                    f"有引用 {stats['with_cites']:,}  "
-                    f"词条 {stats['articles']:,}  "
+                    f"cited {stats['with_cites']:,}  "
+                    f"articles {stats['articles']:,}  "
                     f"| {n/el*3600:,.0f}/h")
             await asyncio.sleep(rate)
     stats["per_lang"] = per_lang

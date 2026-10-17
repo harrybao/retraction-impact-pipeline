@@ -1,0 +1,17 @@
+"case","doi","role","openalex_citations","altmetric_record","altmetric_posts","altmetric_news_posts","plumx_record","plumx_news"
+"normal PLOS article","10.1371/journal.pone.0066275","paper",48,TRUE,2,0,TRUE,0
+"same DOI in both columns (Springer)","10.1007/s10772-021-09882-4","paper",4,FALSE,0,0,TRUE,0
+"Elsevier, famous case with heavy news","10.1016/s0140-6736(20)31180-6","paper",1256,TRUE,2177,1723,TRUE,933
+"Taylor & Francis","10.1080/21691401.2019.1699825","paper",32,FALSE,0,0,TRUE,0
+"SAGE","10.1177/2058739219837050","paper",3,FALSE,0,0,TRUE,0
+"IOP","10.1088/1757-899x/1145/1/012038","paper",3,FALSE,0,0,TRUE,0
+"RSC, never obtained (HTTP 403)","10.1039/c7ra02830j","paper",14,FALSE,0,0,TRUE,0
+"MDPI (WebKit fallback)","10.3390/jof6020045","paper",13,TRUE,0,0,TRUE,0
+"IEEE conference paper","10.1109/iccsit.2010.5564527","paper",4,TRUE,2,0,TRUE,0
+"pre-1985 book chapter (De Gruyter)","10.1515/9783486820225-015","paper",0,FALSE,0,0,FALSE,NA
+"Japanese-language article","10.5360/membrane.35.160","paper",0,FALSE,0,0,TRUE,0
+"notice: one notice for 659 records (SAGE)","10.1177/10641246251331509","notice",NA,TRUE,3,0,FALSE,NA
+"notice: mass retraction with news (Springer)","10.1007/s13277-017-5487-6","notice",NA,TRUE,82,41,TRUE,82
+"notice: single paper with news (Hindawi)","10.1155/2016/4835617","notice",NA,TRUE,3,2,TRUE,0
+"notice: OUP","10.1093/alcalc/agu071","notice",NA,TRUE,1,0,TRUE,0
+"DOI not in the CSV","10.9999/not-in-retraction-watch","paper",NA,NA,0,0,NA,NA

@@ -50,11 +50,11 @@ from playwright.async_api import async_playwright
 from rich.console import Console
 
 from crawl import new_context
-from rwpipe import db, fetch, storage
+from rwpipe import config, db, fetch, storage
 
 console = Console()
 
-UA = "COMP5703-CS43 student project (mailto:xbao0816@uni.sydney.edu.au)"
+UA = f"COMP5703-CS43 student project (mailto:{config.POLITE_CONTACT})"
 CROSSREF = "https://api.crossref.org/works/"
 RUN = "alt-paths"
 

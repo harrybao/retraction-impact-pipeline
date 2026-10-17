@@ -159,23 +159,180 @@ CREATE TABLE IF NOT EXISTS altmetric (
     fetched_at   TEXT
 );
 
+-- The same Altmetric summary, asked of the RETRACTION NOTICE rather than the
+-- paper. A separate table on purpose: `altmetric` is keyed on original DOIs and
+-- every count taken from it - including the 4.00% news figure reported to the
+-- client - is a per-paper figure. Merging notices into it would silently change
+-- what that denominator means.
+--
+-- This is where post-retraction news actually lives. A newsroom covering a
+-- retraction links the notice, not the paper, and Zheng et al. 2025 found 79%
+-- of post-retraction news mentions of highly-mentioned articles were mentions
+-- of the notice. The production collector only ever asked about original DOIs,
+-- so 47,021 of 47,074 distinct notice DOIs had never been queried at all.
+--
+-- `n_papers` is how many original papers this one notice retracts, and it is
+-- the reason the merge back to paper level cannot be a plain join: ten notices
+-- cover more than a hundred papers each, the largest 659. One article about a
+-- mass retraction is one article. Copying it onto 659 papers would manufacture
+-- 659 pieces of news coverage that do not exist.
+CREATE TABLE IF NOT EXISTS altmetric_notice (
+    retraction_doi TEXT PRIMARY KEY,
+    n_papers       INTEGER,   -- original papers this notice retracts
+    found          INTEGER,   -- 0 = Altmetric has no record: a result, not an error
+    altmetric_id   TEXT,
+    score          REAL,
+    news_count     INTEGER,
+    social_count   INTEGER,
+    counts_json    TEXT,
+    details_url    TEXT,
+    added_on       INTEGER,
+    error          TEXT,
+    fetched_at     TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_an_news ON altmetric_notice(news_count);
+
+-- The dated mentions of a retraction notice. Same shape as altmetric_posts and
+-- deliberately not the same table: that one is keyed on original DOIs, and a
+-- notice DOI written into it would be counted by every query that asks how
+-- many PAPERS were mentioned. Keeping them apart is what lets the merge decide
+-- how a notice's coverage attaches to the papers it retracts, instead of
+-- having that decided silently by a join.
+CREATE TABLE IF NOT EXISTS altmetric_notice_posts (
+    retraction_doi TEXT NOT NULL,
+    kind           TEXT NOT NULL,
+    post_id        TEXT NOT NULL,
+    title          TEXT,
+    summary        TEXT,
+    url            TEXT,
+    author         TEXT,
+    author_url     TEXT,
+    posted_on      TEXT,
+    country        TEXT,
+    license        TEXT,
+    raw            TEXT,
+    PRIMARY KEY (retraction_doi, kind, post_id)
+);
+CREATE INDEX IF NOT EXISTS idx_anp_doi  ON altmetric_notice_posts(retraction_doi);
+CREATE INDEX IF NOT EXISTS idx_anp_kind ON altmetric_notice_posts(kind);
+CREATE INDEX IF NOT EXISTS idx_anp_when ON altmetric_notice_posts(posted_on);
+
+-- The Altmetric detail endpoint, and the individual dated mentions behind it.
+-- These carry the time axis that `altmetric` above does not: every row in
+-- altmetric_posts has a `posted_on`, so mentions can be split at the
+-- retraction date, which is what the media half of Stage 3 is built on.
+--
+-- Both tables were created by hand on the working database while the
+-- collector was being written, and were never added here - so a fresh
+-- database had neither, and collect_altmetric_detail.py failed on any clean
+-- rebuild with no obvious cause. They are part of the schema now.
+CREATE TABLE IF NOT EXISTS altmetric_detail (
+    doi         TEXT PRIMARY KEY,
+    posts_total INTEGER,
+    kinds       TEXT,      -- JSON {kind: count} as returned
+    bytes       INTEGER,   -- size of the response, for the licence audit
+    error       TEXT,
+    fetched_at  TEXT
+);
+
+CREATE TABLE IF NOT EXISTS altmetric_posts (
+    doi         TEXT NOT NULL,
+    kind        TEXT NOT NULL,     -- news | blogs | twitter | policy | ...
+    post_id     TEXT NOT NULL,     -- url, or a hash when the source has none
+    title       TEXT,
+    summary     TEXT,
+    url         TEXT,
+    author      TEXT,
+    author_url  TEXT,
+    posted_on   TEXT,              -- ISO timestamp of the mention itself
+    country     TEXT,
+    license     TEXT,
+    raw         TEXT,
+    PRIMARY KEY (doi, kind, post_id)
+);
+CREATE INDEX IF NOT EXISTS idx_ap_doi  ON altmetric_posts(doi);
+CREATE INDEX IF NOT EXISTS idx_ap_kind ON altmetric_posts(kind);
+CREATE INDEX IF NOT EXISTS idx_ap_when ON altmetric_posts(posted_on);
+
+-- Everything here is a LIFETIME total with no time axis at all - a stronger
+-- version of the caveat on `altmetric` above. The response was walked
+-- exhaustively on 2026-09-07 and contains exactly 11 distinct paths; none of
+-- them is a date, year, period or series. So no column below can be split at
+-- the retraction date, and none of them may be reported as post-retraction
+-- attention. Measured against OpenAlex, which *can* be split: for papers
+-- retracted less than two years before we asked, the median share of a
+-- paper's attention falling after retraction is 0.0% (n=6,919). A lifetime
+-- total for those papers is a pre-retraction number wearing a later date.
 CREATE TABLE IF NOT EXISTS plumx (
     doi          TEXT PRIMARY KEY,
-    found        INTEGER,   -- 0 = PlumX has no record: real result, not an error
-    plumx_id     TEXT,
-    usage_count  INTEGER,   -- views, downloads, holdings: NOT available from Altmetric
-    capture_count INTEGER,  -- saves into reference managers
-    mention_count INTEGER,  -- news, blogs, comments, reviews
-    social_count INTEGER,
-    citation_count INTEGER,
+    found        INTEGER,   -- 0 = PlumX has no record. Set from the presence of
+                            -- count_categories, NOT from the status code: this
+                            -- endpoint answers 200 with an empty envelope for a
+                            -- DOI it has never seen, so 404 never fires.
+    plumx_id     TEXT,      -- the id_value PlumX echoed back, kept as an identity
+                            -- check: if it is not this DOI, the row is refused
+    usage_count  INTEGER,   -- views, downloads, holdings. Present on 0.7% of rows;
+                            -- 94.7% of the total belongs to 53 SciELO records whose
+                            -- payload is not per-article. Zero here means "the
+                            -- publisher reports no usage to PlumX", NOT "nobody read
+                            -- it" - six registrants with n>=200 are uniformly zero.
+                            -- Do not sum this column.
+    capture_count INTEGER,  -- saves into reference managers. Non-zero on 95.9%,
+                            -- median 13, top-10 hold 5% - the one sound column here
+    mention_count INTEGER,  -- news + blogs + WIKIPEDIA REFERENCES. The only count
+                            -- types that ever occur are NEWS_COUNT, ALL_BLOG_COUNT
+                            -- and REFERENCE_COUNT (9.6% of the total); COMMENT and
+                            -- REVIEW never occur. Quoting this as "news" overstates
+                            -- the affected papers by 1.74x.
+    social_count INTEGER,   -- Facebook only - the sole social count type PlumX ever
+                            -- returns. NOT comparable to altmetric.social_count above
+                            -- despite the identical name. Worse, it is not per-article:
+                            -- five Elsevier papers share ~185,8xx within 0.28%, two
+                            -- NEJM papers are byte-identical, and four T&F papers read
+                            -- 72,793 / 72,788 / 72,787 / 72,776 in fetch-time order -
+                            -- one domain-level counter drifting between reads.
+                            -- Unusable as paper-level attention.
+    citation_count INTEGER, -- the PlumX *category* total: scholarly + policy + patent
+                            -- + clinical-trial citations, not scholarly alone. Differs
+                            -- from citation.CITED_BY_COUNT on 7.3% of rows. And it is
+                            -- not a second source - r=0.985 against
+                            -- engagement.cited_by_count, which is the same literature.
     totals_json  TEXT,      -- the five category totals, verbatim
-    detail_json  TEXT,      -- every count_type inside them, verbatim
+    detail_json  TEXT,      -- each count_type's name and total. NOT verbatim: the
+                            -- per-provider `sources` array inside each count_type is
+                            -- dropped by _parse, so provenance (Scopus vs CrossRef vs
+                            -- PubMed) is not recoverable without re-fetching.
     error        TEXT,
-    fetched_at   TEXT
+    fetched_at   TEXT       -- when we asked. NOT when anything was measured.
 );
 
 CREATE INDEX IF NOT EXISTS idx_plumx_found ON plumx(found);
 CREATE INDEX IF NOT EXISTS idx_plumx_usage ON plumx(usage_count);
+
+-- PlumX, asked about the RETRACTION NOTICE's DOI rather than the paper's.
+-- The same gap as altmetric_notice closes on the Altmetric side: both sources
+-- the client named were only ever queried on the article DOI, and 44,477
+-- distinct notice DOIs were never put to PlumX. Kept in its own table, not in
+-- `plumx`, because every reader of `plumx` assumes one row per PAPER - a notice
+-- row there would be counted as a paper with no retraction attached. Columns
+-- and caveats are those of `plumx` above; `n_papers` is how many original
+-- papers the notice retracts, so a mass-retraction notice can be counted once.
+CREATE TABLE IF NOT EXISTS plumx_notice (
+    retraction_doi TEXT PRIMARY KEY,
+    n_papers       INTEGER,
+    found          INTEGER,
+    plumx_id       TEXT,
+    usage_count    INTEGER,
+    capture_count  INTEGER,
+    mention_count  INTEGER,
+    social_count   INTEGER,
+    citation_count INTEGER,
+    totals_json    TEXT,
+    detail_json    TEXT,
+    error          TEXT,
+    fetched_at     TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_plumx_notice_found ON plumx_notice(found);
 
 -- One row per (paper, language edition, article). Kept separate from
 -- engagement.wikipedia_count, which is English-only and stays as it is: a
@@ -341,6 +498,76 @@ CREATE TABLE IF NOT EXISTS pmc_ids (
     checked_at  TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_pmc_pmcid ON pmc_ids(pmcid);
+
+-- Tables below were created directly on the working database by the scripts
+-- that fill them, while those scripts were being written, and never made it
+-- back into this schema. On this machine everything worked; a fresh database
+-- had none of them, so a clean rebuild failed at whichever collector ran
+-- first, with an error naming a table nobody had heard of. tests/test_schema.py
+-- now reads every INSERT and UPDATE in scripts/ and src/ and checks a freshly
+-- initialised database has somewhere to put each one, so a new collector that
+-- invents a table is caught the first time the suite runs.
+
+-- Did the archived page turn out to be the paper it is filed under? Written by
+-- verify_archives.py, which sets documents.usable from the verdict.
+CREATE TABLE IF NOT EXISTS archive_checks (
+    doi              TEXT PRIMARY KEY,
+    host             TEXT,
+    gz_bytes         INTEGER,
+    doi_found        INTEGER,
+    title_similarity REAL,
+    page_title       TEXT,
+    doc_role         TEXT,       -- article | notice
+    role_ok          INTEGER,
+    matched_role     TEXT,       -- reviewed role, when only one requested role is supported
+    reason           TEXT,
+    declared_doi     TEXT,
+    verdict          TEXT,
+    checked_at       TEXT
+);
+
+-- DOIs a publisher says Retraction Watch has wrong. Recorded here rather than
+-- corrected in the source CSV, which is never edited.
+CREATE TABLE IF NOT EXISTS doi_corrections (
+    doi           TEXT PRIMARY KEY,
+    corrected_doi TEXT NOT NULL,
+    source        TEXT NOT NULL,   -- who told us
+    reason        TEXT,
+    recorded_at   TEXT
+);
+
+-- PDFs supplied under a text-and-data-mining licence. The files themselves are
+-- never committed (see .gitignore); this is the index to them.
+CREATE TABLE IF NOT EXISTS pdf_files (
+    doi       TEXT PRIMARY KEY,
+    path      TEXT,
+    bytes     INTEGER,
+    source    TEXT,
+    stored_at TEXT
+);
+
+-- Notice text that is identical across many papers - publisher boilerplate,
+-- most of it Hindawi's. Stage 3 must count distinct notices, not rows, or a
+-- template repeated a thousand times reads as a thousand independent findings.
+CREATE TABLE IF NOT EXISTS shared_bodies (
+    doi        TEXT PRIMARY KEY,
+    body_sha1  TEXT,
+    group_size INTEGER,
+    kind       TEXT,
+    flagged_at TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_shared_kind ON shared_bodies(kind);
+
+-- Pages recovered from the Internet Archive when no live route reached them.
+CREATE TABLE IF NOT EXISTS wayback_captures (
+    doi           TEXT PRIMARY KEY,
+    snapshot_url  TEXT,
+    snapshot_date TEXT,
+    status        TEXT,
+    path          TEXT,
+    bytes         INTEGER,
+    fetched_at    TEXT
+);
 """
 
 
@@ -383,7 +610,7 @@ def migrate(conn: sqlite3.Connection) -> None:
     """
     wanted = {
         # Where a capture came from, recorded per document rather than assumed.
-        # The client asked for "publisher pages from the CSV"; an open-access
+        # The client asked for the publisher pages of the CSV's DOIs; an open-access
         # copy in PubMed Central is the same paper from a different host, and
         # some of those are the author's accepted manuscript rather than the
         # published version of record. Both differences are real, neither is
@@ -396,7 +623,14 @@ def migrate(conn: sqlite3.Connection) -> None:
                        ("oa_version", "TEXT")],    # read from the page itself
         "document_text": [("notice_method", "TEXT"),
                           ("extractor_version", "INTEGER")],
+        "archive_checks": [("matched_role", "TEXT"), ("reason", "TEXT"),
+                           ("declared_doi", "TEXT")],
         "engagement": [("window_covers_retraction", "INTEGER")],
+        # Whether the dated mentions behind a notice have been fetched. Kept on
+        # the notice row rather than in a second table: there is one fact to
+        # record and it is what makes the detail pass resumable.
+        "altmetric_notice": [("detail_posts", "INTEGER"),
+                             ("detail_fetched_at", "TEXT")],
     }
     for table, cols in wanted.items():
         try:
