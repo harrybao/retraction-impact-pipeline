@@ -23,7 +23,7 @@ for (f in c("python.R", "stages.R", "handover.R", "analysis_data.R",
             "citations.R", "citation_panel.R", "publisher_families.R",
             "control_group.R", "did.R", "labelling.R",
             "llm.R", "llm_text.R", "llm_eval.R", "llm_evidence.R",
-            "notice_news.R", "notice_rules.R", "reproduce.R")) {
+            "notice_news.R", "notice_rules.R", "reproduce.R", "app.R")) {
   source(file.path("R", f))
 }
 
@@ -32,6 +32,8 @@ cs43_help <- function() {
 CS-43 - retracted literature: collection, cleaning and impact analysis
 
 FIRST RUN
+  cs43_app()                local Shiny dashboard: overview, pipeline runs,
+                            saved analyses and isolated 14-step reproduction
   use_pipeline_python()     build or find the Python interpreter stages 1-2 need
   install_browser()         the browser the crawler drives
   set_api_keys(...)         Altmetric / Elsevier keys, if you have them

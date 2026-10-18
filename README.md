@@ -46,10 +46,14 @@ unless marked *dataset*: a file in the non-public dataset (see
   citation comparison with placebo and robustness checks, media and notice
   classification with a local open-weight model (Qwen3 14B), validated against
   human labels with a written protocol (`R/`, `analysis/`).
+- **An interface** (`cs43_app()`, Shiny): run the pipeline on chosen DOIs
+  with a live log and inspect every document and its saved page, browse the
+  results by reason, country, publisher and discipline, and re-run all 14
+  analyses with one button (`R/app.R`).
 - **Reproducibility:** one R entry point (`run.R`), pinned R packages (renv)
   and Python requirements, `reproduce_results()` that re-runs all 14 analyses
   and compares every output with recorded checksums, and 701 Python tests and
-  17 R test suites (`tests/`).
+  18 R test suites (`tests/`).
 
 ```mermaid
 flowchart LR
@@ -60,6 +64,23 @@ flowchart LR
   E --> F["Citations, Altmetric, PlumX"]
   F --> G["Analysis in R<br/>14 reproducible scripts"]
 ```
+
+## Interface
+
+`cs43_app()` opens a local dashboard in the browser.
+
+![Overview: the collection and media attention in numbers](docs/images/interface-overview.png)
+
+Running the pipeline on chosen entries: an invalid entry is reported as not
+run with the reason, and each document's details and saved page are one
+click away.
+
+![Run pipeline: result table and document details](docs/images/interface-run-pipeline.png)
+
+Reproducing every analysis in a separate copy, checked against the recorded
+results, then the key findings:
+
+![Reproduce: 14 of 14 steps, 65 identical results, key findings](docs/images/interface-reproduce.png)
 
 ## Scale
 
@@ -125,7 +146,9 @@ by route (*dataset* `stage2_index.csv`, columns `source_kind` and
 ## Architecture
 
 - **R is the entry point.** `source("run.R")` loads everything; `cs43_help()`
-  lists what can be run. R 4.6.1, packages pinned in `renv.lock`.
+  lists what can be run. R 4.6.1, packages pinned in `renv.lock` to a dated
+  Posit Package Manager snapshot, so a restore installs the same binaries
+  later without a compiler.
 - **Stages 1-2 (collection, extraction) are Python, called from R.** The code
   is in `src/rwpipe/` and `scripts/`. `R/python.R` builds the environment from
   the pinned `requirements.txt` through reticulate and uv; `R/stages.R` runs
@@ -142,7 +165,7 @@ by route (*dataset* `stage2_index.csv`, columns `source_kind` and
   runs the 14 scripts in `analysis/` that write `data/reports/`, each in its
   own R process, and compares every output with the reference checksums in
   `data/reports_reference.csv`. Methods notes are in `docs/`.
-- **Tests:** 701 Python tests (`tests/`, pytest) and 17 R suites
+- **Tests:** 701 Python tests (`tests/`, pytest) and 18 R suites
   (`tests/r/test_*.R`).
 
 ## Results
@@ -261,6 +284,7 @@ renv::restore()
 source("run.R")
 cs43_help()
 reproduce_results()          # needs the dataset; no API keys, no model server
+cs43_app()                   # the interface in the browser
 
 use_pipeline_python()        # collection: first-time setup, needs internet
 install_browser()
@@ -270,7 +294,7 @@ res <- run_pipeline(c("10.1371/journal.pone.0066275", "record:70871"))
 
 Tests: `python -m pytest -q`, and `Rscript --vanilla tests/r/test_<name>.R`
 for each R suite. In this public copy 697 Python tests pass and 4 skip (a
-local audit capture is not distributed); 16 of the 17 R suites pass, and
+local audit capture is not distributed); 17 of the 18 R suites pass, and
 `test_analysis_data.R` reports its four dataset archives missing because the
 dataset is not included. [HANDOVER.md](HANDOVER.md) is the full user guide:
 installing the dataset, API keys, collecting selected DOIs, Windows and macOS.

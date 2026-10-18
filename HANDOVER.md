@@ -26,6 +26,25 @@ source("run.R")
 cs43_help()
 ```
 
+**The quickest way in is the interface.** After `source("run.R")`, type
+`cs43_app()`. It opens in your web browser and runs only on this computer.
+It has five pages:
+
+- **Overview** - the collection and media attention in numbers and charts.
+- **Run pipeline** - paste paper DOIs, notice DOIs or `record:<id>` entries,
+  one per line, and press Run pipeline. A live log shows progress; the result
+  table, each document's details and its saved page follow. Entries that are
+  not DOIs, or not in the Retraction Watch CSV, are listed as not run, with
+  the reason. To collect citations and media data, set your API keys first
+  in the same R session with `set_api_keys()` (section 4).
+- **Analysis results** - the citation, media and notice results, broken down
+  by reason, country, publisher and discipline, each with its source file.
+- **Reproduce** - re-runs all 14 analyses in a separate working copy, checks
+  every output against our results, and shows the key findings.
+- **About** - what the pages mean and where files go.
+
+The sections below give the same steps as R commands.
+
 Without RStudio, set R's working directory to the project folder and
 activate its package environment with `source("renv/activate.R")` before
 restoring packages. Package restoration is described in the
