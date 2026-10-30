@@ -1,6 +1,6 @@
-"""Run the whole pipeline on a handful of DOIs from the Retraction Watch CSV.
+"""Run the whole pipeline on a handful of DOIs, from the Retraction Watch CSV or not.
 
-    python scripts/run_dois.py prepare [--csv PATH] ITEM [ITEM ...]
+    python scripts/run_dois.py prepare [--csv PATH] [--csv-only] ITEM [ITEM ...]
     python scripts/crawl.py --workers 1 --max-attempts 1
     python scripts/run_dois.py requeue        # then, after a pause:
     python scripts/crawl.py --workers 1 --max-attempts 2
@@ -18,10 +18,17 @@ ITEM is a DOI, in any form `clean_doi` accepts, or a Record ID written as
 record's pages, and it is the only way to name a record that has no usable
 DOI.
 
+A DOI the CSV does not hold is run all the same - a pipeline should take any
+DOI. It gets a record of its own in this run's database only, filled from
+Crossref's public metadata: its title, journal and publisher, and whether
+Crossref lists a retraction of it, or lists it as a retraction notice. A DOI
+Crossref does not know is run by its DOI alone. `--csv-only` turns this off
+(no Crossref requests; such DOIs are reported as not run).
+
 Every item ends as one or more rows of `run_report.csv`, each with a
 plain-language reason. A test that fails is still a result: the publisher
-refused, the record has no DOI, the DOI is not in the CSV. Nothing is silently
-dropped. Where our collected dataset holds the page anyway, `our_dataset` says
+refused, the record has no DOI, doi.org does not know the DOI. Nothing is
+silently dropped. Where our collected dataset holds the page anyway, `our_dataset` says
 by which route (for example a teammate's library-access batch, or the Elsevier
 API). The page then exists, but it cannot be re-fetched from an arbitrary
 machine.
@@ -30,11 +37,20 @@ from __future__ import annotations
 
 import argparse
 import csv
+import html
+import http.client
 import json
 import os
 import re
 import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+import zlib
 from pathlib import Path
+
+import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
@@ -126,6 +142,229 @@ def resolve(df, items: list[str]) -> list[dict]:
     return out
 
 
+# --- DOIs the CSV does not hold ---------------------------------------------
+CROSSREF = "https://api.crossref.org/works/"
+# Crossref's update types that withdraw a paper from the record, in the order a
+# record is filed under when a paper has several (a retraction outranks an
+# expression of concern). Corrections do not count.
+NOTICE_TYPES = ("retraction", "withdrawal", "removal", "expression_of_concern")
+# Publishers' title prefixes ("RETRACTED ARTICLE: ...", "Retraction Note: ...").
+# The CSV's titles carry none, and identity checks compare a page with the
+# record's title, so they are taken off.
+NOTICE_PREFIX = re.compile(r"^\s*(retracted(\s+article)?|retraction(\s+note)?(\s+to)?|"
+                           r"notice\s+of\s+retraction|withdrawn(\s+article)?|"
+                           r"expression\s+of\s+concern)\s*[:.-]\s*", re.I)
+TAG = re.compile(r"<[^>]+>")
+# A notice that retracts many papers gets one record per paper, as in the CSV;
+# the titles of the first few are asked for, the rest stay blank (identity
+# checks skip a blank title rather than match against a wrong one).
+TITLE_LOOKUPS = 20
+# The CSV's columns that queue() writes into the records table.
+RECORD_COLUMNS = ["Record ID", "Title", "Subject", "Journal", "Publisher", "Country",
+                  "ArticleType", "RetractionNature", "Reason", "Paywalled", "RetractionDate",
+                  "OriginalPaperDate", "original_doi", "retraction_doi"]
+
+
+class CrossrefUnavailable(Exception):
+    """Crossref did not answer - unlike a 404, which says it does not know a DOI."""
+
+
+def crossref_work(doi: str, tries: int = 3) -> dict | None:
+    """Crossref's metadata for one DOI; None when Crossref does not know it
+    (HTTP 404). Raises CrossrefUnavailable when it does not answer."""
+    # A DOI pasted from a doi.org address arrives percent-encoded (%3C for <);
+    # quote() would encode the % again and Crossref would not find it.
+    url = (CROSSREF + urllib.parse.quote(urllib.parse.unquote(doi), safe="/") + "?"
+           + urllib.parse.urlencode({"mailto": config.POLITE_CONTACT}))
+    req = urllib.request.Request(url, headers={
+        "User-Agent": f"cs43-retraction-pipeline (mailto:{config.POLITE_CONTACT})"})
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return json.load(r).get("message")
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return None
+        except (urllib.error.URLError, http.client.HTTPException, TimeoutError, OSError,
+                ValueError):
+            pass
+        if i < tries - 1:
+            time.sleep(2 * (i + 1))
+    raise CrossrefUnavailable(doi)
+
+
+def ask_once_down(fetch=crossref_work):
+    """`fetch`, except that once Crossref has failed to answer, the rest of the
+    run does not ask it again (a thousand DOIs would otherwise wait out a
+    thousand timeouts)."""
+    down = []
+
+    def f(doi):
+        if down:
+            raise CrossrefUnavailable(doi)
+        try:
+            return fetch(doi)
+        except CrossrefUnavailable:
+            down.append(doi)
+            raise
+    return f
+
+
+def _safe(fetch, doi):
+    try:
+        return fetch(doi)
+    except CrossrefUnavailable:
+        return None
+
+
+def _csv_date(d: dict | None) -> str:
+    """A Crossref date as the CSV writes its dates ("5/3/2012 0:00")."""
+    try:
+        parts = (list(d["date-parts"][0]) + [1, 1])[:3]
+        y, m, day = (int(x) for x in parts)
+        return f"{m}/{day}/{y} 0:00"
+    except (KeyError, IndexError, TypeError, ValueError):
+        return ""
+
+
+def _iso_date(d: dict | None) -> str:
+    """A Crossref date for a reader: 2026-10-10."""
+    try:
+        return "-".join(f"{int(x):02d}" for x in d["date-parts"][0][:3])
+    except (KeyError, IndexError, TypeError, ValueError):
+        return ""
+
+
+def _first(m: dict | None, key: str) -> str:
+    v = (m or {}).get(key) or [""]
+    return (v[0] if isinstance(v, list) and v else v) or ""
+
+
+def _title(m: dict | None) -> str:
+    """Crossref's title as plain text: JATS/MathML tags and entities out, the
+    publisher's "RETRACTED ARTICLE:" prefix off."""
+    t = re.sub(r"\s+", " ", html.unescape(TAG.sub(" ", _first(m, "title")))).strip()
+    return NOTICE_PREFIX.sub("", t)
+
+
+def _notices(updates) -> list[dict]:
+    """The updates that withdraw a paper, best first (a retraction before an
+    expression of concern), one per DOI."""
+    ups = sorted((u for u in (updates or []) if isinstance(u, dict)
+                  and u.get("type") in NOTICE_TYPES and clean_doi(u.get("DOI") or "")),
+                 key=lambda u: NOTICE_TYPES.index(u["type"]))
+    out, seen = [], set()
+    for u in ups:
+        d = clean_doi(u["DOI"])
+        if d not in seen:
+            seen.add(d)
+            out.append(u)
+    return out
+
+
+def _what(u: dict) -> str:
+    return (u.get("label") or u["type"].replace("_", " ")).lower()
+
+
+def _record_id(original: str, retraction: str | None) -> int:
+    """Negative, so it cannot meet a Retraction Watch Record ID; derived from
+    the pair, so a paper and its notice requested together share one record,
+    and a resumed run gives a DOI the same record again."""
+    return -(zlib.crc32(f"{original}|{retraction or ''}".encode("utf-8")) + 1)
+
+
+def _record(original, retraction=None, **fields) -> dict:
+    rec = {c: "" for c in RECORD_COLUMNS}
+    rec.update(fields)
+    rec.update({"Record ID": _record_id(original, retraction), "original_doi": original,
+                "retraction_doi": retraction or None})
+    return rec
+
+
+def unlisted_record(doi: str, fetch=crossref_work) -> tuple[list[dict], str]:
+    """Records in the CSV's columns for a DOI the CSV does not hold, and a note
+    saying what Crossref knows of it.
+
+    A notice is filed as the CSV files one: its own DOI in the retraction
+    column, each retracted paper's in the original column (one record per
+    paper), the paper's title as the record's title (identity checks compare
+    a notice page with it).
+    """
+    try:
+        m = fetch(doi)
+    except CrossrefUnavailable:
+        return [_record(doi)], ("not in the Retraction Watch CSV, and Crossref did not answer, "
+                                "so its title and retraction status are unknown: run by its DOI alone")
+    if m is None:
+        return [_record(doi)], ("not in the Retraction Watch CSV, and Crossref has no record of it: "
+                                "run by its DOI alone")
+    own = dict(Title=_title(m), Journal=_first(m, "container-title"),
+               Publisher=m.get("publisher") or "", ArticleType=m.get("type") or "",
+               OriginalPaperDate=_csv_date(m.get("issued")))
+    ups = _notices(m.get("update-to"))
+    if ups:
+        best = ups[0]
+        dated = dict(RetractionDate=_csv_date(best.get("updated")),
+                     RetractionNature=best.get("label") or "")
+        papers = [clean_doi(u["DOI"]) for u in ups]
+        if papers == [doi]:
+            # A Springer "RETRACTED ARTICLE": the article's own page carries
+            # the notice, so the CSV holds it in both columns.
+            return [_record(doi, doi, **own, **dated)], (
+                f"not in the Retraction Watch CSV; Crossref marks the article itself as "
+                f"withdrawn by a {_what(best)} on its own page")
+        recs = []
+        for i, paper in enumerate(papers):
+            pm = _safe(fetch, paper) if i < TITLE_LOOKUPS and paper != doi else None
+            fields = {**own, **dated, "OriginalPaperDate": _csv_date((pm or {}).get("issued"))}
+            fields["Title"] = _title(pm) if pm else (own["Title"] if len(papers) == 1 else "")
+            recs.append(_record(paper, doi, **fields))
+        what = (f"the {_what(best)} notice for {papers[0]}" if len(papers) == 1 else
+                f"a {_what(best)} notice for {len(papers)} papers ({papers[0]} and others)")
+        return recs, f"not in the Retraction Watch CSV; Crossref lists it as {what}"
+    by = _notices(m.get("updated-by"))
+    if by:
+        best = by[0]
+        notice = clean_doi(best["DOI"])
+        when = _iso_date(best.get("updated"))
+        rec = _record(doi, notice, **own, RetractionDate=_csv_date(best.get("updated")),
+                      RetractionNature=best.get("label") or "")
+        return [rec], (f"not in the Retraction Watch CSV; Crossref lists a {_what(best)} of it "
+                       f"(notice {notice}{', ' + when if when else ''})")
+    return [_record(doi, **own)], ("not in the Retraction Watch CSV, and Crossref lists no "
+                                   "retraction of it: run as an ordinary paper, without a "
+                                   "retraction date")
+
+
+def add_unlisted(df, resolved: list[dict], lookup=None):
+    """Give each requested DOI the CSV does not hold records of its own, so the
+    rest of the pipeline runs on it as on any other. The records go into this
+    run's database only; the CSV and the collected dataset are not changed."""
+    if lookup is None:
+        fetch = ask_once_down()
+
+        def lookup(d):
+            return unlisted_record(d, fetch=fetch)
+    rows, seen = {}, {}
+    for r in resolved:
+        doi = clean_doi(r["item"]) if r["kind"] == "doi" and not r["pages"] else ""
+        if not doi:
+            continue
+        if doi not in seen:
+            recs, note = lookup(doi)
+            for rec in recs:
+                rows.setdefault(rec["Record ID"], rec)
+            seen[doi] = ([rec["Record ID"] for rec in recs], note)
+        rids, note = seen[doi]
+        r.update(kind="unlisted", record_ids=rids, pages=[doi], note=note)
+    if rows:
+        # Only the new rows are given values; the CSV's own rows keep None for
+        # a missing DOI, which the database stores as NULL.
+        df = pd.concat([df, pd.DataFrame(list(rows.values()), columns=RECORD_COLUMNS)],
+                       ignore_index=True)
+    return df
+
+
 def queue(conn, df, resolved: list[dict]) -> int:
     """Insert the records involved and a pending page for each requested DOI.
 
@@ -164,10 +403,13 @@ def prepare(args) -> int:
     conn = db.connect()
     db.init(conn)
     check_scratch(conn, config.DATA)
+    csv_records = len(df)
     resolved = resolve(df, args.items)
+    if not args.csv_only:
+        df = add_unlisted(df, resolved)
     n = queue(conn, df, resolved)
     (config.DATA / REQUEST).write_text(json.dumps(
-        {"csv": str(csv_path), "csv_records": len(df), "items": resolved},
+        {"csv": str(csv_path), "csv_records": csv_records, "items": resolved},
         indent=1, ensure_ascii=False), encoding="utf-8")
     for r in resolved:
         what = ", ".join(r["pages"]) or "-"
@@ -182,12 +424,22 @@ def prepare(args) -> int:
 # held 1,357 pages our crawler had been refused. An HTTP 403 or a missing
 # DOI is structural and is not retried.
 TRANSIENT = ("challenge title:%", "challenge markup:%", "body too small%")
+# doi.org's own "DOI not found" page is small, and so reads as an interstitial;
+# it will not change in a minute, so it is not retried.
+DOI_HOSTS = ("doi.org", "dx.doi.org")
+
+
+def unregistered(http_status, final_host) -> bool:
+    return http_status == 404 and (final_host or "").lower() in DOI_HOSTS
 
 
 def requeue_transient(conn) -> int:
     where = " OR ".join("error LIKE ?" for _ in TRANSIENT)
+    hosts = ",".join("?" for _ in DOI_HOSTS)
     n = conn.execute(f"UPDATE documents SET status = 'pending' "
-                     f"WHERE status = 'blocked' AND ({where})", TRANSIENT).rowcount
+                     f"WHERE status = 'blocked' AND ({where}) AND NOT ("
+                     f"COALESCE(http_status, 0) = 404 AND LOWER(COALESCE(final_host, '')) IN ({hosts}))",
+                     TRANSIENT + DOI_HOSTS).rowcount
     conn.commit()
     return n
 
@@ -233,9 +485,11 @@ def routes_tried(conn, doi) -> list[str]:
     return out
 
 
-def explain(status, error, usable, quality) -> str:
+def explain(status, error, usable, quality, http_status=None, final_host=None) -> str:
     """A crawler status and error, in words."""
     e = error or ""
+    if usable != 1 and unregistered(http_status, final_host):
+        return "doi.org does not know this DOI: it is not registered, or it is mistyped"
     if status == "done":
         if usable == 1 and quality in ("full", "notice-only"):
             return "ok"
@@ -264,9 +518,12 @@ def explain(status, error, usable, quality) -> str:
     return "not attempted"
 
 
-def load_reference(ref: Path | None, dois: set[str]) -> dict[str, str]:
+def load_reference(ref: Path | None, dois: set[str],
+                   unlisted: frozenset[str] = frozenset()) -> dict[str, str]:
     """How our collected dataset holds each DOI, read from its exports."""
-    out: dict[str, str] = {}
+    out: dict[str, str] = {d: "not in our dataset (not in the Retraction Watch CSV)"
+                           for d in dois & unlisted}
+    dois = dois - unlisted
     if not ref or not dois:
         return out
     idx = ref / "stage2_index.csv"
@@ -342,7 +599,8 @@ def report(args) -> int:
     conn = db.connect()
     ref = Path(args.reference) if args.reference else None
     dois = {d for r in req["items"] for d in r["pages"]}
-    held = load_reference(ref, dois)
+    unlisted = frozenset(d for r in req["items"] if r.get("kind") == "unlisted" for d in r["pages"])
+    held = load_reference(ref, dois, unlisted)
 
     rows = []
     for r in req["items"]:
@@ -363,11 +621,12 @@ def report(args) -> int:
                                WHEN retraction_doi = ? THEN 'retraction'
                                ELSE 'original' END AS page
                    FROM records WHERE original_doi = ? OR retraction_doi = ?
-                   ORDER BY record_id""", (d, d, d, d, d)).fetchall()
+                   ORDER BY record_id < 0, record_id""", (d, d, d, d, d)).fetchall()
             pages = {x["page"] for x in recs}
             page = "both" if "both" in pages or len(pages) > 1 else (pages.pop() if pages else "")
             first = recs[0] if recs else None
-            reason = explain(doc["status"], doc["error"], doc["usable"], doc["quality"])
+            reason = explain(doc["status"], doc["error"], doc["usable"], doc["quality"],
+                             doc["http_status"], doc["final_host"])
             if doc["usable"] != 1:
                 reason = "; ".join([reason] + routes_tried(conn, d))
             if r["note"]:
@@ -406,6 +665,8 @@ def main() -> int:
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("prepare")
     p.add_argument("--csv", default=None, help="Retraction Watch CSV (default: config.RAW_CSV)")
+    p.add_argument("--csv-only", action="store_true",
+                   help="report DOIs the CSV does not hold as not run, without asking Crossref")
     p.add_argument("items", nargs="+")
     sub.add_parser("requeue", help="put pages refused by a bot check back in the queue")
     r = sub.add_parser("report")

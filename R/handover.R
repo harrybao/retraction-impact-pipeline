@@ -1,11 +1,13 @@
-# The handover test: the whole pipeline on a few items from the Retraction
-# Watch CSV, in a separate directory, with one row per page and a
-# plain-language reason for every outcome.
+# The handover test: the whole pipeline on a few items, in a separate
+# directory, with one row per page and a plain-language reason for every
+# outcome.
 #
 #   res <- run_pipeline(c("10.1371/journal.pone.0066275", "10.1155/2016/4835617"))
 #
-#   items      paper or retraction-notice DOIs from the CSV, or Record IDs
-#              written "record:241"
+#   items      paper or retraction-notice DOIs, or Record IDs written
+#              "record:241". A DOI the CSV does not hold is run all the same,
+#              with its details from Crossref for this run only
+#              (scripts/run_dois.py)
 #   csv        the Retraction Watch CSV (default: data/raw/retraction_watch.csv,
 #              or RWPIPE_CSV)
 #   data_dir   where the run's pages, database and report go: by default a new

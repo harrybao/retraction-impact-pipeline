@@ -110,15 +110,15 @@ ok("pipeline code is isolated without copying other root files",
 ok("split log secrets are redacted", !any(grepl(fake_key, j$log, fixed = TRUE)) && any(grepl("[REDACTED]", j$log, fixed = TRUE)))
 job_files <- list.files(j$dir, full.names = TRUE, recursive = TRUE)
 ok("request, log and result files contain no key", !any(vapply(job_files, function(f) any(grepl(fake_key, readLines(f, warn = FALSE), fixed = TRUE)), logical(1))))
-mixed_items <- c("10.1234/example", "hello", "10.9999/not-in-csv")
+mixed_items <- c("10.1234/example", "hello", "record:999999")
 mixed_job <- wait_job(cs43_app_start_job(root, runs, "pipeline", mixed_items, FALSE, FALSE))
 mixed <- cs43_app_result(mixed_job$dir)
 ok("one bad entry does not prevent valid entries from being collected",
    mixed_job$status == "completed" && identical(mixed$item, mixed_items) &&
      identical(mixed$status, c("done", "not run", "not run")))
-ok("invalid and unlisted DOI entries have distinct reasons",
+ok("invalid entries and unknown record IDs have distinct reasons",
    mixed$reason[mixed$item == "hello"] == "not a DOI" &&
-     mixed$reason[mixed$item == "10.9999/not-in-csv"] == "DOI not in the Retraction Watch CSV")
+     mixed$reason[mixed$item == "record:999999"] == "Record ID not in the Retraction Watch CSV")
 invalid_job <- wait_job(cs43_app_start_job(root, runs, "pipeline", c("hello", "--help"), FALSE, FALSE))
 ok("an entirely invalid batch produces not-run rows without invoking a collector",
    invalid_job$status == "completed" && all(cs43_app_result(invalid_job$dir)$status == "not run") &&
@@ -129,7 +129,7 @@ ok("run table contains only the ten requested summary fields",
      !any(c("csv_title", "extracted_title", "notice_start", "body_chars") %in% names(compact)))
 detail <- cs43_app_detail_fields(mixed, 1L)
 ok("row details retain titles, notice excerpt and other full-result fields",
-   detail[["Retraction Watch title"]] == "Fixture paper title" &&
+   detail[["Title on record (Retraction Watch or Crossref)"]] == "Fixture paper title" &&
      grepl("has been retracted", detail[["Retraction notice excerpt"]], fixed = TRUE) &&
      detail[["Body length (characters)"]] == "6000")
 ok("invalid row selections do not leak another document's details",

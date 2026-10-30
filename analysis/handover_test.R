@@ -37,10 +37,13 @@ cases <- c(
   "notice: mass retraction with news (Springer)" = "10.1007/s13277-017-5487-6",
   "notice: single paper with news (Hindawi)"     = "10.1155/2016/4835617",
   "notice: OUP"                                  = "10.1093/alcalc/agu071",
+  # DOIs the CSV does not hold: run all the same, with Crossref's details
+  "not in the CSV: retracted after our snapshot (BMC, Oct 2026)" = "10.1186/s41065-025-00496-3",
+  "not in the CSV: never retracted (PLOS Medicine)"              = "10.1371/journal.pmed.0020124",
   # items that must fail cleanly
   "record with no original DOI"             = "record:241",
   "record with no DOI at all"               = "record:17",
-  "DOI not in the CSV"                      = "10.9999/not-in-retraction-watch",
+  "DOI that does not exist"                 = "10.9999/not-in-retraction-watch",
   "not a DOI"                               = "unavailable")
 
 # Inside the project, beside the client's own runs (runs/ is gitignored), so

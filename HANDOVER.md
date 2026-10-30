@@ -34,9 +34,9 @@ It has five pages:
 - **Overview** - the collection and media attention in numbers and charts.
 - **Run pipeline** - paste paper DOIs, notice DOIs or `record:<id>` entries,
   one per line, and press Run pipeline. A live log shows progress; the result
-  table, each document's details and its saved page follow. Entries that are
-  not DOIs, or not in the Retraction Watch CSV, are listed as not run, with
-  the reason. The project's API keys come with the package (section 4), so
+  table, each document's details and its saved page follow. Any DOI can be
+  run, including one that is not in the Retraction Watch CSV (section 3);
+  entries that are not DOIs are listed as not run, with the reason. The project's API keys come with the package (section 4), so
   citations and media data are collected as well.
 - **Analysis results** - the citation, media and notice results, broken down
   by reason, country, publisher and discipline, each with its source file.
@@ -158,10 +158,16 @@ View(attr(res, "steps"))
 attr(res, "data_dir")             # path to this run's output
 ```
 
-Inputs must appear in the supplied Retraction Watch CSV. An unknown DOI,
-invalid identifier or record with no DOI receives an explanatory result.
-Each run accepts at most 1,000 entries, fewer if their combined length is
-too large. Split larger lists into smaller batches.
+Any DOI can be run. A DOI that is not in the supplied Retraction Watch CSV
+(for example a paper retracted after it was compiled, or one never
+retracted) goes through every step all the same: for that run only, its
+title, journal and publisher are taken from Crossref, together with any
+retraction Crossref lists for it, or the paper it retracts if it is itself
+a notice. The report says so in its reason column. The CSV and the
+supplied dataset are not changed. A DOI that doesn't exist, an invalid
+identifier or a record with no DOI receives an explanatory result. Each
+run accepts at most 1,000 entries, fewer if their combined length is too
+large. Split larger lists into smaller batches.
 
 Outputs go to a separate `runs/<date_time>` folder by default. Give a new
 `data_dir` to choose another location; do not point sample runs at the

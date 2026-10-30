@@ -15,9 +15,9 @@ run_pipeline <- function(items, data_dir, ...) {
                    csv_title = "Fixture paper title", extracted_title = "Extracted fixture title",
                    notice_start = "This article has been retracted because of a fixture reason.",
                    error = if (nzchar(key)) paste0("https://fixture.invalid?api_key=", key) else "")
-  unknown <- items == "10.9999/not-in-csv"
+  unknown <- items == "record:999999"
   x$status[unknown] <- "not run"; x$verified[unknown] <- NA_integer_; x$quality[unknown] <- NA_character_
-  x$reason <- ifelse(unknown, "DOI not in the Retraction Watch CSV", "ok")
+  x$reason <- ifelse(unknown, "Record ID not in the Retraction Watch CSV", "ok")
   attr(x, "steps") <- data.frame(step = "fixture", outcome = "ok", seconds = 0)
   x
 }
